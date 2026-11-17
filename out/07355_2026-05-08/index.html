@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>保衛國家安全及強化不對稱戰力計畫採購特別條例制定歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"保衛國家安全及強化不對稱戰力計畫採購特別條例","version":"07355:2026-05-08-制定","date":"2026-05-08","action":"制定","title":"保衛國家安全及強化不對稱戰力計畫採購特別條例　2026 年制定","lede":"","summary":"","key":"07355_2026-05-08","props":[{"id":"202110189640000","who":"台灣民眾黨黨團","date":"2026-01-30","name":"「保衛國家安全及強化不對稱戰力計畫採購特別條例草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110189640000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/20/LCEWA01_110420_00212.pdf","proposers":["黃國昌"],"ncosign":0,"people":[["黃國昌","民眾黨","提案"]],"party":[["民眾黨",1]],"reason":"本院台灣民眾黨黨團，有鑑於近年臺海安全情勢日益緊張，中共持續以聯合演訓、飛彈實彈射擊及灰色地帶行動，對我國形成制度化、常態化之軍事壓迫。面對複合式威脅，建構具備有效嚇阻、分散存活與可持續作戰能力之防衛體系已成為我國國防政策的迫切課題。惟行政院於114年11月提出規模逾新臺幣1.25兆元之國防特別預算，其內容規劃與形成過程未向立法院完整說明，重大軍事採購反須仰賴外國公布資訊拼湊得知，已嚴重損及民主監督與程序正義。國家重大軍事投資理應依循嚴謹的戰略規劃與制度程序，並經國防專業體系完整評估，與既有建軍與兵力整建計畫銜接，不可以政治宣示取代專業審查。台灣民眾黨一向支持合理提升國防預算與強化戰力，惟堅決反對缺乏戰略邏輯、違背財政紀律、規避國會監督之鉅額特別預算。爰此，本黨團提出《保衛國家安全及強化不對稱戰力計畫採購特別條例草案》，在強化國防安全並維護制度穩定之前提下，建立預算明確投資範圍、財政上限與分階段監督機制，確保每一分國防支出皆符合戰略目標、效益評估與民主審議，如此，方可在防衛急迫性與民主監督性之間，建立制度化且可長可久的衡平機制，爰擬具「保衛國家安全及強化不對稱戰力計畫採購特別條例草案」。是否有當？敬請公決。","arts":["第一條","第二條","第三條","第四條","第五條","第六條","第七條","第八條"]},{"id":"201110176920000","who":"行政院","date":"2026-03-06","name":"「強化防衛韌性及不對稱戰力計畫採購特別條例草案」案。","url":"https://ppg.ly.gov.tw/ppg/bills/201110176920000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/02/LCEWA01_110502_00029.pdf","proposers":[],"ncosign":0,"people":[],"party":[],"reason":"行政院函請審議「強化防衛韌性及不對稱戰力計畫採購特別條例草案」案。","arts":["第一條","第二條","第三條","第四條","第五條","第六條","第七條"]},{"id":"202110196180000","who":"國民黨黨團","date":"2026-03-06","name":"「強化國防及對美軍事採購特別條例草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110196180000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/02/LCEWA01_110502_00137.pdf","proposers":[],"ncosign":0,"people":[],"party":[],"reason":"本院國民黨黨團，為臺灣國防戰略需求、維持臺美關係及穩定臺海和平為基礎，建置可強化國軍防衛韌性及不對稱戰力之武器，且考量政府財政、國防安全及配合國家整體經濟發展，依預算法第八十三條第一項第一款之規定，編列總預算上限為新臺幣三千八百億元，逐年籌獲各類裝備，以達到提升國軍整體戰力，確保國家安全之目的，爰擬具「強化國防及對美軍事採購特別條例草案」。是否有當？敬請公決。","arts":["第一條","第二條","第三條","第四條","第五條","第六條","第七條","第八條","第九條"]},{"id":"202110206570000","who":"委員劉建國等16人","date":"2026-04-24","name":"「強化防衛韌性及不對稱戰力計畫採購特別條例草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110206570000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/09/LCEWA01_110509_00256.pdf","proposers":["劉建國","蔡易餘"],"ncosign":7,"people":[["劉建國","民進黨","提案"],["蔡易餘","民進黨","提案"],["邱議瑩","民進黨","連署"],["王正旭","民進黨","連署"],["黃秀芳","民進黨","連署"],["張雅琳","民進黨","連署"],["王義川","民進黨","連署"],["陳俊宇","民進黨","連署"],["郭昱晴","民進黨","連署"]],"party":[["民進黨",9]],"reason":"本院委員劉建國、蔡易餘等16人，鑒於境外敵對勢力近年加速軍事現代化，多有威脅與軍事挑釁破壞我國和平之行為，並具備聯合火力打擊與封鎖能力，嚴重挑戰我國防衛空間；為因應此迫切威脅，我國亟需在既有海空戰力基礎上，進一步建構重層防衛體系，爰擬具「強化防衛韌性及不對稱戰力計畫採購特別條例草案」。是否有當？敬請公決。","arts":["第一條","第二條","第三條","第四條","第五條","第六條","第七條"]}],"arts":[{"no":"第一條","current":null,"versions":[{"bill":"202110189640000","text":"因應中共軍事威脅持續擴張，為建置可保衛國家安全及強化不對稱戰力之武器及裝備，運用重層嚇阻，發揮聯合戰力，以提升聯合作戰效能，確保國家安全，特制定本條例。","note":"一、本條例之立法目的。\n二、中華民國憲法第一百三十七條明定「中華民國之國防，以保衛國家安全，維護世界和平為目的」鑑於中共近來頻繁以灰色侵擾併軍事行動威懾，意圖擾亂區域安全與我國民生經濟發展，臺灣不能將自己的命運寄託在他人的善意之上，必須加大投資國軍作戰能力急速提升，建立強大不對稱作戰嚇阻能力。\n三、當前美中延續競爭態勢，中共持續加速軍事現代化，推動新式裝備研製與部署。自2022年8月後，解放軍更屢次對我實施大規模演習，並對臺灣周邊進行飛彈、火箭彈實彈射擊、模糊化海峽中線及防空識別區，並將臺海周邊的軍事行動逐漸常態化。對我加大威脅力度，蓄積對臺作戰能量。\n四、以「備戰而不畏戰，能戰而不求戰」為原則，依照國防部所定軍事戰略目標投資國軍作戰能力急速提升，充分憑藉海峽及我國土防衛之地理優勢，向外延伸防衛作戰空間。同時部署多層次防禦兵力，建立多道防線，預防關鍵要地遭到奪取。"},{"bill":"202110206570000","text":"因應中共軍事威脅持續擴增，為建置可強化國軍防衛韌性與不對稱戰力之武器及裝備，運用重層攔截網，打造臺灣之盾；引進高科技及人工智慧，加速擊殺鏈；厚植國防產業，打造非紅供應鏈之強韌防衛體系，以提升聯合作戰效能，確保國家安全，特制定本條例。","note":"一、本條例之立法目的。\n二、鑑於中共具隨時可封鎖臺灣周遭海域，並隔離外國勢力介入之能力，已嚴重威脅我國家安全，為應處中共軍事威脅及犯臺可能行動，國軍優先著重於「建構不對稱戰力」、「強化作戰韌性」、「提升後備戰力」及「厚植灰色地帶應處能量」等四項建軍主軸，以提升整體嚇阻及持久戰力。"},{"bill":"201110176920000","text":"因應中共軍事威脅持續擴增，為建置可強化國軍防衛韌性與不對稱戰力之武器及裝備，運用重層攔截網，打造臺灣之盾；引進高科技及人工智慧，加速擊殺鏈；厚植國防產業，打造非紅供應鏈之強韌防衛體系，以提升聯合作戰效能，確保國家安全，特制定本條例。","note":"一、本條例之立法目的。\n二、鑑於中共具隨時可封鎖臺灣周遭海域，並隔離外國勢力介入之能力，已嚴重威脅我國家安全，為應處中共軍事威脅及犯臺可能行動，國軍優先著重於「建構不對稱戰力」、「強化作戰韌性」、「提升後備戰力」及「厚植灰色地帶應處能量」等四項建軍主軸，以提升整體嚇阻及持久戰力。"},{"bill":"202110196180000","text":"為因應國際情勢，厚植我國防實力，提升區域安全及現代戰爭型態及新興軍事科技發展演進，透過對美國政府及其授權體系之軍事裝備與相關服務採購，建構關鍵防衛能力、確保武器系統及後勤支援之即時取得與有效整合，確保國家安全，特制定本條例。","note":"一、近年來，國際局勢持續緊張，軍事活動頻率與強度明顯提升，區域安全環境呈現高度不確定性與風險升高之趨勢。面對現代戰爭型態快速演變、灰色地帶衝突常態化，以及無人化、精準化、智能化等新興軍事科技之發展，我國國防整備須與時俱進，強化整體防衛韌性與即應能力。\n二、現代戰爭強調聯合戰力整合、快速反應能力及後勤保障穩定性，關鍵武器系統與支援體系之取得，已非單純裝備購置，而係整體戰力建構之一環。為確保國軍戰力不與當前軍事發展脫節，並確保關鍵軍事裝備及相關服務得以即時取得、穩定供應及有效整合，有必要建立明確之法制依據。故明定透過臺美軍事合作體系，加速取得關鍵軍事裝備。\n三、美國為我國重要安全夥伴，其政府體系及授權機制下之軍事裝備與相關服務，具備成熟技術標準、完整後勤支援體系及高度互通性，有助於提升我國整體防衛作戰能力與嚇阻效能。透過制度化採購及建構機制，確保武器系統及其後勤補給能即時取得並達成深度整合，從而建立具備威懾力的關鍵防衛能力，捍衛國家安全與主權，以強化防衛能力之穩定性與持續性。\n四、爰制定本條例，明確揭示立法目的在於因應區域安全情勢變化、建構關鍵防衛能力、強化整體戰力整合，並以確保國家安全為最高目標，使相關軍事採購與戰力建構具有明確法律基礎與政策方向。"}],"changed":true,"final":"為因應敵情威脅及迫切之國防需要，建置可保衛國家安全及強化不對稱戰力之武器及裝備，運用重層嚇阻，強化防衛韌性，厚植國防實力，以提升聯合作戰效能，確保國家安全，特制定本條例。","finalWhy":"照協商條文通過。,,,,","review":{"note":"保留，送院會處理","text":""}},{"no":"第二條","current":null,"versions":[{"bill":"202110189640000","text":"本條例之主管機關為國防部。","note":"明定本條例之主管機關。"},{"bill":"202110206570000","text":"本條例之主管機關為國防部。","note":"本條例之主管機關。"},{"bill":"201110176920000","text":"本條例之主管機關為國防部。","note":"本條例之主管機關。"},{"bill":"202110196180000","text":"本條例之主管機關為國防部。","note":"本條例之主管機關。"}],"changed":true,"final":"本條例之主管機關為國防部。","finalWhy":"照協商條文通過。,,,,","review":{"note":"照案通過","text":"本條例之主管機關為國防部。"}},{"no":"第三條","current":null,"versions":[{"bill":"202110189640000","text":"本條例所稱保衛國家安全及強化不對稱戰力計畫採購，指主管機關及其所屬機關（構）、部隊辦理經行政院核定採購第四條所定項目之裝備、系統與其相關支援系統、裝備之獲得、產製、維修、工程及訓練。","note":"保衛國家安全及強化不對稱戰力計畫採購之定義。"},{"bill":"202110206570000","text":"本條例所稱強化防衛韌性及不對稱戰力計畫採購，指主管機關及其所屬機關（構）、部隊辦理經行政院核定採購第四條所定項目之裝備、系統與其相關支援系統、裝備之獲得、產製、維修、工程及訓練。","note":"強化防衛韌性及不對稱戰力計畫採購之定義。"},{"bill":"201110176920000","text":"本條例所稱強化防衛韌性及不對稱戰力計畫採購，指主管機關及其所屬機關（構）、部隊辦理經行政院核定採購第四條所定項目之裝備、系統與其相關支援系統、裝備之獲得、產製、維修、工程及訓練。","note":"強化防衛韌性及不對稱戰力計畫採購之定義。"},{"bill":"202110196180000","text":"國防部辦理本條例所定軍事採購及相關建構計畫，應依政府採購法及其他國防相關法令辦理之，並視計畫性質，就其防衛目標、戰力需求、裝備規格、取得方式、期程規劃、財務方案、後勤支援、維修整合、預期效益及風險控管等事項，提出詳實規劃；其涉及重大政策或整體戰力結構者，應分別擬具可行性評估、整體規劃及替代方案之成本效益分析等報告，提報行政院核定。","note":"一、軍事採購涉及龐大財政支出、長期戰略布局及整體戰力結構調整，具有高度政策性與專業性，為確保依法行政與財政紀律，明定應依《政府採購法》及其他國防相關法令辦理，以維持制度一致性與法治原則，確保國家公帑之運用具備合法性與正當性，避免程序瑕疵。\n二、現代軍備建構強調全生命週期管理，包括裝備取得、系統整合、後勤維保、升級擴充及退役處理等，若缺乏完整規劃，易產生戰力斷層或資源浪費。爰要求就防衛目標、戰力需求、裝備規格、期程規劃、財務方案、後勤支援、維修整合、風險控管等事項提出詳實規劃，以確保計畫具體可行並符合整體國防需求。此舉旨在落實「生命週期管理」，從取得、維修到整合皆須有預見性之規劃，避免產生後勤斷層。\n三、對於涉及重大政策方向或整體戰力結構調整之軍事建構計畫，影響層面廣泛且具有長期戰略意涵，爰規定應另行擬具可行性評估、整體規劃及替代方案成本效益分析等報告，並提報行政院核定，以強化政策審議層級與責任歸屬。\n四、透過明確之規劃程序與審查機制，可提升決策透明度與合理性，兼顧國防安全與公共財政責任，並建立完整風險管理架構，以確保軍事採購及戰力建構計畫之穩健推動。這不僅是為了確保資源配置的最優化，亦是為了建立跨部會的監督機制，防止單一決策風險，提升國防建設的科學化與透明度。"}],"changed":true,"final":"國防部辦理本條例所定軍事採購及相關建構計畫，應依政府採購法及其他國防相關法令辦理之，並視計畫性質，就其防衛目標、戰力需求、裝備規格、取得方式、期程規劃、財務方案、後勤支援、維修整合、預期效益及風險控管等事項，提出詳實規劃；其涉及重大政策或整體戰力結構者，應分別擬具可行性評估、整體規劃及替代方案之成本效益分析等報告，提報行政院核定。","finalWhy":"照協商條文通過。,,,,","review":{"note":"保留，送院會處理","text":""}},{"no":"第四條","current":null,"versions":[{"bill":"202110189640000","text":"本條例所定保衛國家安全及強化不對稱戰力計畫採購之項目如下：\n一、M109A7自走砲六十門，精準彈藥四千零八十發，彈藥車六十輛、救濟車十三輛、榴彈及附屬裝備，預算上限為新臺幣一千二百六十七億元。\n二、海馬士多管火箭飛彈系統八十二套，精準火箭一千兩百零三箱，陸軍戰術飛彈系統四百二十套，預算上限為新臺幣一千二百七十六億元。\n三、反甲型無人機飛彈系統，預算上限為新臺幣三百四十七億元。\n四、標槍反裝甲飛彈七十套一千零五十枚，預算上限為新臺幣一百十八億元。\n五、拖式2B反裝甲飛彈二十四套一千五百四十五枚，預算上限為新臺幣一百十一億元。\n六、其他為因應國軍作戰能力急速提升之需求且已取得外國同意售出之項目，預算上限為新臺幣八百八十一億元。\n本條例所編列特別預算案，應分節清楚載明採購之裝備、系統與其相關支援系統、裝備之具體名稱、數量、預算金額、全壽期維持成本及預計執行年度。\n依本條例所編列之特別預算案，其支出之計畫及項目，不得與總預算案之計畫及項目重複。","note":"一、本條第一項規定本條例所定保衛國家安全及強化不對稱戰力計畫採購之項目，並依據美國國防部的國防安全合作署（DSCA），於美東時間2025年12月17日公布最新對臺軍售細節項目，一一條列：\n(一)第一款定明採購60門M109A7自走砲；60輛M992A3彈藥車；13輛M88A2救濟車；4,080套精確導引組件（PGK）；以及42套國際野戰砲兵戰術數據系統（IFATDS）。以下非主要國防裝備項目也將包含在內：M2A1機槍；M2A1備用槍管；車輛內部通訊系統訓練；簡易鑰匙裝載器（SKL）；國防先進全球定位系統（GPS）接收器（DAGR）；M795 155毫米高爆彈；底火；引信；發射藥；技術援助；配件；技術資料；備件；新裝備訓練；承包商和美國政府服務；工具包；技術手冊；訓練設備；以及其他相關的後勤和項目支援要素。預計總成本為40.3億美元。（M109A7自走砲為美國陸軍現役主力的155公厘履帶式自走砲系統，採用升級後的底盤與動力系統，並整合先進火控與通訊設備，可在機動部隊行動中即時提供間接火力支援。具備快速部署、射後即走的能力，能執行壓制、阻滯與支援任務，並可搭配PGK精準導引套件提升砲彈命中精度、降低彈藥消耗。其與M992A3彈藥補給車及IFATDS野戰砲兵戰術數據系統共同運作，可形成完整的砲兵作戰體系，對於提升陸軍持續作戰能力與現代化砲兵戰力具有關鍵意義。）\n(二)第二款定明採購82套M142海馬士多管火箭飛彈系統（HIMARS）；420套M57陸軍戰術飛彈系統（ATACMS）；756箱M31A2引導式多管火箭系統－－單一彈頭型彈藥箱（GMLRS-U）；447組M30A2引導式多管火箭系統－－替代彈頭型彈藥箱（GMLRS-AW）。39輛M1152A1悍馬車（HMMWV）；45套國際野戰砲兵戰術數據系統（IFATDS）。以下非主要國防裝備項目也將包含在內：M28A2低成本減程練習火箭（LCRRPR）；5.56毫米M249機槍；.50 口徑M2A1機槍；M1084A2卡車，用於運輸貨物，屬於中型戰術輪車系列（FMTV）；補給車輛（RSV）；M1089A2卡車，用於運輸貨物，屬於中型戰術輪車系列（FMTV）；單頻道地空無線電系統（SINCGRAS）核心通訊管理系統（CCMS），用於支援AN/VRC-90E和AN/VRC-92E；多頻無線電台；工具包；測試設備；輔助設備；技術文件；備件；培訓；美國政府和承包商技術支援；工程和後勤支援服務；外地辦事處支援；以及後勤/專案支援項目。預計總成本為40.5億美元。（海馬士多管火箭飛彈系統係以長射程、高精度為核心的打擊裝備，主要用於對敵方重要軍事目標實施遠距離精準攻擊。該系統結合先進導引、情資偵蒐與指管通聯能力，可在戰場外圍即對高價值目標進行有效打擊，降低我方風險並提升作戰效率。其建置目的在於強化縱深打擊與嚇阻能力，補強整體防衛體系，提升不對稱作戰能力。）\n(三)第三款定明採購反甲型無人機飛彈系統，執行情監偵、目獲及攻擊任務，大幅提升戰場聯戰效能，預算上限為新臺幣三百四十七億元。（現代攻擊型無人機是可用於支援防衛作戰，使我國在低成本、高效率的打擊模式上更具彈性，也加速部隊在「偵打一體」任務中的擊殺鏈。妥善搭配主要武器實施精準打擊，可以創造出不對稱作戰的效益。）\n(四)第四款定明採購1,050枚標槍FGM-148F飛彈；10枚標槍FGM-148F「抽樣飛驗」批次驗收飛彈；以及70套標槍輕量化指揮發射單元（LwCLU）。以下非主要國防裝備項目也將包含在內：標槍輕量化指揮發射單元（LwCLU）基礎技能訓練器；飛彈模擬彈；電池冷卻裝置；互動式電子技術手冊；標槍操作手冊；全壽期支援；實體安全檢查；備件；系統整合和調校；技術援助；工具包；培訓；以及其他後勤和專案支援項目。預計總成本為3.75億美元。（標槍飛彈系統為美國研製之單兵攜行式反裝甲飛彈，具備「發射後不管」能力，使操作人員能迅速轉移掩蔽位置，降低戰場暴露風險。能有效對付主力戰車與各類重裝甲目標，並具備日夜與全天候作戰能力。由於其屬防禦性、不對稱作戰裝備，能以相對有限的人力與成本對抗高價值裝甲戰力，有助於提升整體嚇阻效果。）\n(五)第五款定明採購1,545枚「管式發射、光學追蹤、導線引導」飛彈（TOW）2B BGM-71F-7-RF飛彈；14枚TOW 2B BGM-71F-7-RF「抽樣飛驗」批次驗收飛彈；以及24套改良型目標獲取系統。以下非主要國防裝備項目也將包含在內：鋰離子電池盒；飛彈模擬彈；ITAS高機動性多用途輪式車輛（HMMWV）安裝套件；工程和後勤支援服務；技術援助；訓練；以及其他相關的後勤和專案支援項目。預計總成本為3.53億美元。（重型反裝甲飛彈系統，該系統結構成熟、可靠度高，長期廣泛部署於各型地面載具與固定陣地，具備良好的戰場適應性。特別適合防禦性反裝甲作戰，能有效打擊主力戰車與重裝甲目標。屬於穩定、可大量部署的反裝甲武器，常作為機械化部隊與防衛體系中的重要反裝甲戰力，用以強化地面防禦與遲滯敵軍裝甲推進。）\n(六)第六款為保持國軍緊急戰力提升需求，明定經國外政府同意軍售之項目且符合國軍緊急戰力提升需求，採購項目應以能於3至5年內可立即獲得且經驗證（實戰或作戰測評）過之系統或儎台為主。原則上以各軍種缺裝補充或性能提昇為主，預購置之裝備系統須有明確之標的物，經外國政府同意出售，即可列入此條例預算，預算上限為新臺幣八百八十一億元。\n二、第二項明定本條例所編列特別預算案，應分節清楚載明採購之裝備、系統與其相關支援系統、裝備之具體名稱、數量、預算金額、武器裝備全壽期維持成本及預計執行年度，以強化國會對本條例所編列特別預算案之審議。本次採購包含大量飛彈、火箭彈，其火箭推進段會隨著使用年限劣化，必須關注採購大量彈藥服役生涯全壽期彈藥更新汰換之成本。過往臺灣向法國採購960枚雲母飛彈，於2011年超過使用年限，導致可靠度出現問題，另經進行延壽更新案，才維持飛彈戰力；2012年國庫存近500枚麻雀飛彈的「火推段」屆滿壽期，在國軍實彈射擊中表現欠佳。為避免此類情況重演，採購大量彈藥時應注意其壽限，以及延壽汰換成本。\n三、第三項規定明定為避免特別預算與年度總預算重複編列，造成財政資源重複支用及預算監督失焦，爰明定依本條例編列之特別預算，其支出之計畫及項目不得與總預算案之預算計畫及項目重複。"},{"bill":"202110206570000","text":"本條例所定強化防衛韌性及不對稱戰力計畫採購之項目如下：\n一、精準火砲。\n二、遠程精準打擊飛彈。\n三、無人載具及其反制系統。\n四、防空、反彈道及反裝甲飛彈。\n五、人工智慧輔助與指揮、管制、通信、資訊、網路、情報、監視及偵察系統。\n六、強化作戰持續量能相關裝備。\n七、臺美共同研發及採購合作之裝備、系統。","note":"本條例所定強化防衛韌性及不對稱戰力計畫採購之項目：\n一、第一款定明採購精準火砲（含彈藥），以支援國軍各部隊反擊（制）任務遂行，提升火力支援效能。\n二、第二款定明採購遠程精準打擊飛彈，以制壓共軍各式打擊裝備。\n三、第三款定明採購各類型無人載具及其反制系統，各類型無人載具執行遠距偵蒐、攻擊任務，增加用兵彈性，並發揮早期預警，供我部隊及早應處，創造後續作戰有利態勢；無人載具反制系統，則用於防止共軍無人載具偵察及攻擊，防護各級指揮所、地面部隊、重要軍事基礎設施等高價值目標，確保重要防護目標安全，以利發揮整體戰力。\n四、第四款定明採購各式防空、反彈道及反裝甲飛彈，用以有效削弱、拒止、消耗、遲滯進犯敵軍，提高防衛作戰成功效能。\n五、第五款定明採購人工智慧（AI）輔助與指揮、管制、通信、資訊、網路、情報、監視及偵察系統，以提升聯合情監偵指揮管制效能，大幅提升防衛作戰聯合戰力。\n六、第六款定明採購強化作戰持續量能相關裝備，包含採購可強化整體防衛作戰韌性裝備及設施，用以防範共軍海空封鎖切斷補給，快速提高各式戰備存量，並新建各式軍備產線，以降低外購需求及維持作戰持續性。同時提升戰場阻絕能力，以利快速於灘岸、港口、機場等複合式聯外道路與城鎮重要道路（橋梁）設置阻絕，迅速阻滯敵軍，增強國軍整體防衛韌性。\n七、第七款定明採購臺美共同研發及採購合作之裝備、系統，我國與美國為區域安全共同合作，進行研究發展及採購之裝備、系統與其相關支援系統、裝備之獲得、產製、維修、工程及訓練，以獲取新興科技之裝備及系統，俾強化作戰韌性及提升不對稱戰力。"},{"bill":"201110176920000","text":"本條例所定強化防衛韌性及不對稱戰力計畫採購之項目如下：\n一、精準火砲。\n二、遠程精準打擊飛彈。\n三、無人載具及其反制系統。\n四、防空、反彈道及反裝甲飛彈。\n五、人工智慧輔助與指揮、管制、通信、資訊、網路、情報、監視及偵察系統。\n六、強化作戰持續量能相關裝備。\n七、臺美共同研發及採購合作之裝備、系統。","note":"本條例所定強化防衛韌性及不對稱戰力計畫採購之項目：\n一、第一款定明採購精準火砲（含彈藥），以支援國軍各部隊反擊（制）任務遂行，提升火力支援效能。\n二、第二款定明採購遠程精準打擊飛彈，以制壓共軍各式打擊裝備。\n三、第三款定明採購各類型無人載具及其反制系統，各類型無人載具執行遠距偵蒐、攻擊任務，增加用兵彈性，並發揮早期預警，供我部隊及早應處，創造後續作戰有利態勢；無人載具反制系統，則用於防止共軍無人載具偵察及攻擊，防護各級指揮所、地面部隊、重要軍事基礎設施等高價值目標，確保重要防護目標安全，以利發揮整體戰力。\n四、第四款定明採購各式防空、反彈道及反裝甲飛彈，用以有效削弱、拒止、消耗、遲滯進犯敵軍，提高防衛作戰成功效能。\n五、第五款定明採購人工智慧（AI）輔助與指揮、管制、通信、資訊、網路、情報、監視及偵察系統，以提升聯合情監偵指揮管制效能，大幅提升防衛作戰聯合戰力。\n六、第六款定明採購強化作戰持續量能相關裝備，包含採購可強化整體防衛作戰韌性裝備及設施，用以防範共軍海空封鎖切斷補給，快速提高各式戰備存量，並新建各式軍備產線，以降低外購需求及維持作戰持續性。同時提升戰場阻絕能力，以利快速於灘岸、港口、機場等複合式聯外道路與城鎮重要道路（橋梁）設置阻絕，迅速阻滯敵軍，增強國軍整體防衛韌性。\n七、第七款定明採購臺美共同研發及採購合作之裝備、系統，我國與美國為區域安全共同合作，進行研究發展及採購之裝備、系統與其相關支援系統、裝備之獲得、產製、維修、工程及訓練，以獲取新興科技之裝備及系統，俾強化作戰韌性及提升不對稱戰力。"},{"bill":"202110196180000","text":"本條例所稱強化國防及對美軍事採購，指主管機關及其所屬機關（構）、部隊辦理經行政院核定採購第五條所定項目之裝備、系統與其相關支援系統、裝備之獲得、產製、維修、工程及訓練。","note":"為明確本條例適用範圍，界定「強化國防及對美軍事採購」之定義，爰規定主管機關及所屬機關（構）、部隊經行政院核定後，辦理本條例所定裝備、系統及其支援項目之獲得、產製、維修、工程與訓練等事項，俾資遵循並利於預算審查與監督。"}],"changed":true,"final":"本條例所稱保衛國家安全及強化不對稱戰力計畫採購，指主管機關及其所屬機關（構）、部隊辦理經行政院核定採購第五條所定項目之裝備、系統與其相關支援系統、裝備之獲得、產製、維修、工程及訓練。","finalWhy":"照協商條文通過。,,,,","review":{"note":"保留，送院會處理","text":""}},{"no":"第五條","current":null,"versions":[{"bill":"202110189640000","text":"依本條例辦理保衛國家安全及強化不對稱戰力計畫之採購，總額上限為新臺幣四千億元，其預算編製不受預算法第二十三條及第八十四條之規定限制。\n前項採購採一年一期方式編列，期滿後後續預算及期程，經立法院同意後，分期辦理預算籌編及審議。\n行政院應於本條例通過後一個月內，向立法院提出下列專案報告並備質詢，經立法院同意後始得籌編預算案：\n一、本條例施行前，我國過去五年軍事採購之項目、金額、效益與到貨情形。\n二、本條例採購項目與前款採購之關係，籌獲建軍後如何有效提升聯合作戰效能。\n三、第四條採購項目之籌獲期程、預期交貨時間與全壽期維持成本。\n四、因應本條例之採購後國軍人員維持、後勤補給支援、資訊通信系統維護之策進作為。\n五、第六條之財政衝擊影響評估。\n立法院同意前項各款專案報告後，行政院應於二個月內將第一期特別預算案送交立法院審議。\n自第二期起之特別預算案，行政院應於立法院審議時併同提出採購進度、付款情形、裝備到貨及驗收狀況、次期特別預算案籌編及支用規劃之專案報告。\n本條第一項所需經費來源，得以移用以前年度歲計賸餘或舉借債務方式辦理；其以特別預算方式編列之每年度舉借債務額度，不受公共債務法第五條第七項規定之限制。中央政府總預算及特別預算於本條例施行期間之舉債額度合計數，不得超過該期間總預算及特別預算歲出總額合計數之百分之十五。\n本條例施行期間，中央政府舉借之一年以上公共債務未償餘額預算數，應依公共債務法第五條第一項規定辦理。\n本條例施行期間各年度中央政府總預算案所編列之社會福利支出不得少於一百十五年度中央政府總預算案所編列之社會福利支出占比。","note":"一、第一項定明本條例所需保衛國家安全及強化不對稱戰力計畫採購經費上限，並以特別預算方式編列支應所需經費，及預算編製不受預算法第二十三條不得充經常支出規定之限制，及排除預算法第八十四條為因應情勢之緊急需要，得先支付其一部。\n二、鑑於本條例所涉軍事採購金額龐大，且對我國整體建軍方向、聯合作戰能力及國家財政負擔影響深遠，為強化立法院之實質監督功能，確保相關決策具備充分資訊基礎與合理性，本條第三項爰明定行政院應於本條例通過後一定期間內，先行就過去五年軍事採購執行情形、本條例採購項目與既有建軍規劃之關聯性、裝備籌獲期程與全壽期成本，以及後續人員、後勤與資訊通信維持配套，提出完整專案報告，並就其財政衝擊進行評估說明，經立法院同意後，始得籌編相關預算案。藉此確保軍事投資決策兼顧作戰效能、永續維持及財政紀律，避免重複投資與資源配置失衡，提升國防預算運用之透明度與正當性。\n三、第四項規定前項經專案報告立法院同意後二個月內提出第一期預算案交由立法院審議。\n四、第五項規定明定行政院自第二期起之各期特別預算案於提請立法院同意時，行政院應一併提出採購進度、付款情形、裝備驗收狀況及後續預算籌編與支用規劃之專案報告，以確保預算執行透明並利於整體審議。\n五、第六項定明保衛國家安全及強化不對稱戰力計畫採購所需經費之財源得以移用以前年度歲計賸餘或舉借債務方式辦理，不受公共債務法第五條第七項規定每年舉債額度之流量限制，並為符合財政紀律法第十四條第二項規定意旨，舉債比率仍應有一定控管機制。\n六、第七項定明本條例施行期間，中央政府所舉借之一年以上公共債務未償餘額預算數，仍應依公共債務法第五條第一項規定辦理，以符財政紀律法第十四條第三項之規範意旨。\n七、考量有限財政下，國家必須在國防與民生支出間作必要取捨。為防止軍備擴張壓縮社會福利支出，第八項明定本條例施行期間中央政府社會福利支出不得低於一百十五年度所編列之社會福利支出占比，以制度化方式確保規範民生支出不因國防需求遭侵蝕排擠，並要求行政部門提出預算時同步揭露政策成本、財政影響與長期效果，使資源配置同時兼顧國防安全與社會保障。"},{"bill":"202110206570000","text":"本條例所需經費上限為新臺幣一兆二千五百億元，以特別預算方式編列，其預算編製不受預算法第二十三條不得充經常支出規定之限制。但經費額度因匯率變動影響超過上限部分，得以總預算方式編列。\n前項所需經費來源，得以移用以前年度歲計賸餘或舉借債務方式辦理；其以特別預算方式編列之每年度舉借債務額度，不受公共債務法第五條第七項規定之限制。中央政府總預算及特別預算於本條例施行期間之舉債額度合計數，不得超過該期間總預算及特別預算歲出總額合計數之百分之十五。\n本條例施行期間，中央政府舉借之一年以上公共債務未償餘額預算數，應依公共債務法第五條第一項規定辦理。","note":"一、第一項本文定明本條例所需強化防衛韌性及不對稱戰力計畫採購經費上限，並以特別預算方式編列支應所需經費，及預算編製不受預算法第二十三條不得充經常支出規定之限制，俾使經費編列保持實際預算執行時之支用彈性。又因第四條所列採購項目部分有向國外採購必要，為免匯率變動影響超過所需經費上限，為符本條例立法宗旨，爰於但書規定超過上限部分得以總預算方式編列。\n二、第二項定明強化防衛韌性及不對稱戰力計畫採購所需經費之財源籌措以移用以前年度歲計賸餘或舉借債務方式辦理，不受公共債務法第五條第七項規定每年舉債額度之流量限制，並為符合財政紀律法第十四條第二項規定意旨，舉債比率仍應有一定控管機制。\n三、第三項定明本條例施行期間，中央政府所舉借之一年以上公共債務未償餘額預算數，仍應依公共債務法第五條第一項規定辦理，以符財政紀律法第十四條第三項之規範意旨。"},{"bill":"201110176920000","text":"本條例所需經費上限為新臺幣一兆二千五百億元，以特別預算方式編列，其預算編製不受預算法第二十三條不得充經常支出規定之限制。但經費額度因匯率變動影響超過上限部分，得以總預算方式編列。\n前項所需經費來源，得以移用以前年度歲計賸餘或舉借債務方式辦理；其以特別預算方式編列之每年度舉借債務額度，不受公共債務法第五條第七項規定之限制。中央政府總預算及特別預算於本條例施行期間之舉債額度合計數，不得超過該期間總預算及特別預算歲出總額合計數之百分之十五。\n本條例施行期間，中央政府舉借之一年以上公共債務未償餘額預算數，應依公共債務法第五條第一項規定辦理。","note":"一、第一項本文定明本條例所需強化防衛韌性及不對稱戰力計畫採購經費上限，並以特別預算方式編列支應所需經費，及預算編製不受預算法第二十三條不得充經常支出規定之限制，俾使經費編列保持實際預算執行時之支用彈性。又因第四條所列採購項目部分有向國外採購必要，為免匯率變動影響超過所需經費上限，為符本條例立法宗旨，爰於但書規定超過上限部分得以總預算方式編列。\n二、第二項定明強化防衛韌性及不對稱戰力計畫採購所需經費之財源籌措以移用以前年度歲計賸餘或舉借債務方式辦理，不受公共債務法第五條第七項規定每年舉債額度之流量限制，並為符合財政紀律法第十四條第二項規定意旨，舉債比率仍應有一定控管機制。\n三、第三項定明本條例施行期間，中央政府所舉借之一年以上公共債務未償餘額預算數，仍應依公共債務法第五條第一項規定辦理，以符財政紀律法第十四條第三項之規範意旨。"},{"bill":"202110196180000","text":"本條例所定強化國防及對美軍事採購之項目如下：\n一、M109A7自走砲系統。\n二、海馬士遠程精準打擊系統（HIMARS）。\n三、臺灣戰術網路（TTN）暨部隊覺知應用套件（TAK）。\n四、陸軍「AH-1W型直升機零附件」。\n五、反裝甲型無人機飛彈系統。\n六、拖式飛彈。\n七、海軍「標槍反甲飛彈」。\n八、魚叉飛彈可修件檢修。","note":"本條例所定強化國防及對美軍事採購項目：\n一、第一款明定採購精準火砲（含彈藥），以支援國軍各部隊反擊（制）任務遂行，提升火力支援效能。（約新臺幣1,269億元）\n二、第二款明定採購遠程精準打擊飛彈，以制壓共軍各式打擊裝備。（約新臺幣1,276億元）\n三、第三款明定採購戰術指揮控制套件，提升聯合作戰與態勢感知能力。（約新臺幣318億元）\n四、第四款明定採購陸軍AH-1W直升機零附件，維持現有機隊運作。（約新臺幣30億元）\n五、第五款明定採購反裝甲型無人機飛彈系統，增加戰場偵察、監視及打擊能力，強化不對稱作戰優勢。（約新臺幣347億元）\n六、第六款明定採購反坦克、反裝甲打擊能力的拖式飛彈，增強對地面裝甲目標的遏制與精準打擊能力。（約新臺幣111億元）\n七、第七款明定採購海軍「標槍反甲飛彈」，提升部隊近距離反坦克防衛能力。（約新臺幣118億元）\n八、第八款明定採購反艦能力的魚叉飛彈可修件檢修，維持現有海軍反艦能力。（約新臺幣29億元）"}],"changed":true,"final":"本條例所定保衛國家安全及強化不對稱戰力計畫採購之項目如下：\n一、M109A7自走砲。\n二、海馬士多管火箭飛彈系統。\n三、反甲型無人機飛彈系統。\n四、標槍反甲飛彈。\n五、拖式2B反甲飛彈。\n六、下列經美國政府於本條例施行後一年內同意售予之軍購項目：\n(一)軟、硬殺混合反制無人機系統。\n(二)各型反彈道及防空飛彈。\n(三)中低空防空系統。\n(四)反甲飛彈戰備存量補充案。\n本條例所編列特別預算案，應載明採購之裝備、系統與其相關支援系統、裝備之具體名稱、數量、預算金額、全壽期維持成本及預計執行年度。","finalWhy":"一、第一項明定本條例所定保衛國家安全及強化不對稱戰力計畫採購之項目。惟因過往政府採購多有未符合本國建軍需求與戰略目標之項目，亦有項目過於籠統以規避國會監督之情事發生，爰依據美國國防部之國防安全合作署（DSCA），於美東時間2025年12月17日公布最新對臺軍售細節項目，明確列出採購品項，落實未來預算編列之精準性，以確保公帑支用於必要之國家防衛需求。又因近期國際局勢高度動盪，為確保國家戰力提升具備機動調整空間，遂於第六款明定其他經美國政府於本條例施行後一年內同意售予之軍購項目，亦列入本條例之採購項目。\n二、第二項明定本條例所編列特別預算案，應載明採購之裝備、系統與其相關支援系統、裝備之具體名稱、數量、預算金額、武器裝備全壽期維持成本及預計執行年度，以強化國會對本條例所編列特別預算案之審議。本次採購包含大量飛彈、火箭彈，其火箭推進段會隨著使用年限劣化，必須關注採購大量彈藥服役生涯全壽期彈藥更新汰換之成本。過往臺灣向法國採購960枚雲母飛彈，於2011年超過使用年限，導致可靠度出現問題，另經進行延壽更新案，才維持飛彈戰力；2012年國庫存近500枚麻雀飛彈的「火推段」屆滿壽期，在國軍實彈射擊中表現欠佳。為避免此類情況重演，採購大量彈藥時應注意其壽限，以及延壽汰換成本。","review":{"note":"保留，送院會處理","text":""}},{"no":"第六條","current":null,"versions":[{"bill":"202110189640000","text":"政府依本條例籌編第一期預算時，應考量本條例施行期間我國人口年齡結構變動因素之影響，審慎規劃收支額度及中長程財務計畫，衡量國家歲入負擔能力以因應高齡化及少子女化對編列預算財政衝擊。","note":"考量本條例特別預算將影響中長期財政，且我國面臨高齡化與少子女化帶來之歲入與支出壓力，爰明定編列特別預算時應納入我國未來人口結構變動因素，審慎規劃收支與財務計畫，以維持財政健全。"},{"bill":"202110206570000","text":"本條例所列預算之執行，審計機關應依法辦理審計。","note":"本條例所列預算之執行應依法辦理審計。"},{"bill":"201110176920000","text":"本條例所列預算之執行，審計機關應依法辦理審計。","note":"本條例所列預算之執行應依法辦理審計。"},{"bill":"202110196180000","text":"國防部依本條例支應強化國防及對美軍事採購所需經費以新臺幣三千八百億元為限，並以特別預算方式編列，同一項目之預算不得跨期編列；其預算編製不受預算法第二十三條不得充經常支出規定之限制。但經費額度因匯率變動影響超過上限部分，得以總預算方式編列。","note":"一、明定本條例總上限金額為新臺幣三千八百億元。\n二、本條例為特別預算，故預算編製不受預算法第二十三條不得充經常支出規定之限制。但經費額度因匯率變動影響超過上限部分，得以總預算方式編列。"}],"changed":true,"final":"依本條例辦理保衛國家安全及強化不對稱戰力計畫之採購，前條第一項第一款至第五款項目之第一批發價書預算上限為新臺幣三千億元，前條第一項第六款項目應俟取得美國政府正式同意售予後，依據第二批發價書覈實編列預算案，其預算上限為新臺幣四千八百億元；預算之編列，以特別預算方式編列，其預算編製不受預算法第二十三條之規定限制，非經立法院同意，不得相互流用。\n前項採購採一年一期方式編列，期滿後後續預算及期程，經立法院同意後，分期辦理預算籌編及審議。\n行政院應於本條例通過後一個月內，就第一批發價書預算案向立法院提出下列專案報告並備質詢，經立法院同意後始得籌編預算案；第二批發價書預算案亦同：\n一、本條例施行前，我國過去五年軍事採購之項目、金額、效益與到貨情形。\n二、本條例採購項目與前款採購之關係，籌獲建軍後如何有效提升聯合作戰效能。\n三、第五條採購項目之籌獲期程、預期交貨時間與全壽期維持成本。\n四、因應本條例之採購後國軍人員維持、後勤補給支援、資訊通信系統維護之策進作為。\n立法院同意前項各款專案報告後，行政院應於二個月內將第一批發價書預算案，送立法院審議；第二批發價書預算案亦同。\n行政院應於立法院審議前條第一項第六款之項目時併同提出採購進度、付款情形、裝備到貨及驗收狀況、次期特別預算案籌編及支用規劃之專案報告。\n第一項所需經費來源，得以移用以前年度歲計賸餘或舉借債務方式辦理；其以特別預算方式編列之每年度舉借債務額度，不受公共債務法第五條第七項規定之限制。中央政府總預算及特別預算於本條例施行期間之舉債額度合計數，不得超過該期間總預算及特別預算歲出總額合計數之百分之十五。\n本條例施行期間，中央政府舉借之一年以上公共債務未償餘額預算數，應依公共債務法第五條第一項規定辦理。\n本條例施行期間各年度中央政府總預算案所編列之社會福利支出不得少於一百十五年度中央政府總預算案所編列之社會福利支出。","finalWhy":"一、考量前條第一項第一款至第五款項目，已經美國公布採購品項及細節，故定明預算上限為新臺幣三千億元。另為強化監督，確保預算編列精準性，明定前條第一項第六款項目應俟取得美國政府正式同意售予後覈實編列預算案，其預算上限為新臺幣四千八百億元；預算之編列，以特別預算方式編列，其預算編製不受預算法第二十三條之規定限制，非經立法院同意，不得相互流用，爰於第一項之規定。\n二、第二項明定前項採購採一年一期方式編列，期滿後後續預算及期程，經立法院同意後，分期辦理預算籌編及審議。\n三、鑑於本條例所涉軍事採購金額龐大，且對我國整體建軍方向、聯合作戰能力及國家財政負擔影響深遠，為強化立法院之實質監督功能，確保相關決策具備充分資訊基礎與合理性，第三項爰明定行政院應於本條例通過後一定期間內，先行針對第一批發價書預算案，就過去五年軍事採購執行情形、本條例採購項目與既有建軍規劃之關聯性、裝備籌獲期程與全壽期成本，以及後續人員、後勤與資訊通信維持配套，提出完整專案報告，經立法院同意後，始得籌編相關預算案。藉此確保軍事投資決策兼顧作戰效能、永續維持及財政紀律，避免重複投資與資源配置失衡，提升國防預算運用之透明度與正當性。\n四、第五項規定明定行政院應應於立法院審議前條第一項第六款之項目時一併提出採購進度、付款情形、裝備驗收狀況及後續預算籌編與支用規劃之專案報告，以確保預算執行透明並利於整體審議。\n五、第六項定明保衛國家安全及強化不對稱戰力計畫採購所需經費之財源得以移用以前年度歲計賸餘或舉借債務方式辦理，不受公共債務法第五條第七項規定每年舉債額度之流量限制，並為符合財政紀律法第十四條第二項規定意旨，舉債比率仍應有一定控管機制。\n六、第七項定明本條例施行期間，中央政府所舉借之一年以上公共債務未償餘額預算數，仍應依公共債務法第五條第一項規定辦理，以符財政紀律法第十四條第三項之規範意旨。\n七、考量有限財政下，國家必須在國防與民生支出間作必要取捨。為防止軍備擴張壓縮社會福利支出，第八項明定本條例施行期間中央政府社會福利支出不得低於一百十五年度所編列之社會福利支出占比，以制度化方式確保規範民生支出不因國防需求遭侵蝕排擠，並要求行政部門提出預算時同步揭露政策成本、財政影響與長期效果，使資源配置同時兼顧國防安全與社會保障。","review":{"note":"保留，送院會處理","text":""}},{"no":"第七條","current":null,"versions":[{"bill":"202110189640000","text":"本條例所列預算之執行，應依下列規定辦理：\n一、審計機關應依法辦理審計。\n二、主管機關依預算法第六十三條辦理流用前，應經立法院同意。\n本條例施行屆滿之日次年五月底前，主管機關應就其實施成效作成總結報告，並送立法院。\n主管機關就第四條核定並循外購程序且採購金額達三千萬美元以上之軍事投資建案，應將工業合作項目納入規劃。但經評估不執行並以書面報經行政院同意之建案，不在此限。\n前項書面報告應同時送交立法院備查。","note":"一、第一項明定本條例所列預算之執行應依法辦理審計；另為避免預算遭恣意流用，亦於第一項定明主管機關依預算法第六十三條辦理流用前，應經立法院同意。\n二、為強化國會監督，參酌《海空戰力提升計畫採購特別條例》第七條第三項之規定，於本條第二項訂定之。\n三、第三項明定重大軍事外購案（三千萬美元以上）應納入工業合作，旨在引進關鍵技術，落實國防自主並促進國內產業發展，但考量國際情勢或技術特性，保留例外條款。若評估不具執行效益，經行政院核准後得免予執行，以確保建案推動效率。\n四、第四項明定免除工業合作之報告須送立法院備查，確保重大採購決策透明，落實民主監督機制。"},{"bill":"202110206570000","text":"本條例及其特別預算施行期間，自公布日施行至中華民國一百二十二年十二月三十一日止。\n本條例及其特別預算施行期滿未及執行部分，必要時，得經行政院核定酌予延長。","note":"一、第一項定明本條例及其特別預算之施行期間。\n二、鑑於本條例及其特別預算執行期程較長，第四條所列採購項目部分採對外軍購、商購，如因國際區域衝突影響國際軍事裝備市場之供需期程時，恐有未及執行之顧慮，爰於第二項定明必要時得經行政院核定延長。又軍購係向國際組織、外國政府或其授權機構辦理之採購，行政院依第二項核定延長，僅係針對履約驗收付款階段之延長，不得新增採購項目，併予敘明。"},{"bill":"201110176920000","text":"本條例及其特別預算施行期間，自公布日施行至中華民國一百二十二年十二月三十一日止。\n本條例及其特別預算施行期滿未及執行部分，必要時，得經行政院核定酌予延長。","note":"一、第一項定明本條例及其特別預算之施行期間。\n二、鑑於本條例及其特別預算執行期程較長，第四條所列採購項目部分採對外軍購、商購，如因國際區域衝突影響國際軍事裝備市場之供需期程時，恐有未及執行之顧慮，爰於第二項定明必要時得經行政院核定延長。又軍購係向國際組織、外國政府或其授權機構辦理之採購，行政院依第二項核定延長，僅係針對履約驗收付款階段之延長，不得新增採購項目，併予敘明。"},{"bill":"202110196180000","text":"主管機關應專案列管及考核本條例所列計畫之執行，並將執行進度及績效，每會期向立法院提出專案報告。\n本條例所列預算之執行，審計機關應依法辦理審計。\n審計機關審核各機關依本條例辦理之軍事採購及相關建構計畫，如發現因公務人員違法或失職，致計畫執行進度或交付成果顯著未達核定目標，或其執行成效低於核定進度百分之五十者，應將執行機關首長及相關主管，移送監察院調查懲戒。\n主管機關及其上級機關，應依法執行並落實監督機制，確保國防預算確實投入戰力建構。","note":"一、依國防部之報告，美國尚未交付我國的軍售裝備總額高達新臺幣2,550億元。\n二、本法所規範之對美採購，不僅所涉金額龐大，其執行進度落後更足以影響國家安全。為確保預算之執行及維護國家安全，本案有專案列管及考核之必要。立法院依預算法第五十二、六十一條，得對法定預算附予條件並要求報告執行情形。有鑑於本案之重要性及執行不力之嚴重後果，立法院有必要進行一定程度之監督。爰規範第一項，賦予主管機關定期報告義務，並透過立法院凍結預算之權限以為監督。\n三、依據憲法、審計法及預算法第六十八條，審計機關有權進行外部監督，調查預算之運用狀況。爰規範第二項。\n四、依據審計法第十七條，對於執行預算不法或不當之人員，審計機關應報請監察院處理，涉及刑事者應移送法院。依同法第六十九條，各機關之績效，如認為有未盡職責或效能過低者，除通知其上級機關長官外，並應報告監察院。由於本案之重要性，爰參考審計法，規範第三項。\n五、主管機關及其上級機關，基於行政一體，本質上即有依法管考監督之職權與職務。爰規範第四項。"}],"changed":true,"final":"本條例所列預算之執行，應依下列規定辦理：\n一、審計機關應依法辦理審計。\n二、主管機關依預算法第六十三條辦理流用前，非經立法院同意，不得流用。\n主管機關應專案列管及考核本條例所列計畫之執行，並將執行進度及績效，每會期向立法院提出專案報告。\n主管機關及其上級機關，應依法執行並落實監督機制，確保國防預算確實投入戰力建構。\n本條例施行屆滿之日次年五月底前，主管機關應就其實施成效作成總結報告，並送立法院。","finalWhy":"照協商條文通過。,,,,","review":{"note":"保留，送院會處理","text":""}},{"no":"第八條","current":null,"versions":[{"bill":"202110189640000","text":"本條例及其特別預算施行期間，自公布日施行至中華民國一百二十二年十二月三十一日止。\n本條例及其特別預算施行期滿未及執行部分，必要時，得經立法院同意延長之。","note":"一、第一項定明本條例及其特別預算之施行期間。\n二、鑑於本條例及其特別預算執行期程較長，第四條所列採購項目部分採對外軍購、商購，如因國際區域衝突影響國際軍事裝備市場之供需期程時，恐有未及執行之顧慮，爰於第二項定明必要時得經立法院同意延長。又軍購係向國際組織、外國政府或其授權機構辦理之採購，行政院依第二項核定延長，僅係針對履約驗收付款階段之延長，不得新增採購項目，併予敘明。"},{"bill":"202110196180000","text":"除本條例第五條所列項目之外，如仍有其他對美軍事採購之必要，主管機關得再行提出強化國防及對美軍事採購第二階段特別條例，但以符合國軍臺海作戰需求、美國對臺軍售程序及美國提出軍售發價書者為限。","note":"為了強化我國與美國之政府對政府軍事採購，授權未來得再行提出「強化國防及對美軍事採購第二階段特別條例」，但以符合美國對臺軍售程序、國軍臺海作戰需求、獲得美國正式發出之軍售發價書等條件者為限。"}],"changed":true,"final":"本條例及其特別預算施行期間，自公布日施行至中華民國一百二十二年十二月三十一日止。\n本條例及其特別預算施行期滿未及執行部分，必要時，得經立法院同意延長之。","finalWhy":"照協商條文通過。,,,,","review":{"note":"保留，送院會處理","text":""}},{"no":"第九條","current":null,"versions":[{"bill":"202110196180000","text":"本條例及其特別預算施行期間，自公布日施行至中華民國一百十七年十二月三十一日止。","note":"明定本條例及其特別預算之施行期間。"}],"changed":false,"final":null,"finalWhy":null,"review":null}],"stages":[{"date":"2026-01-30","stage":"一讀","code":"院會-11-4-20","bill":"202110189640000","gazref":"115卷013期5412號一冊 18-18頁"},{"date":"2026-03-06","stage":"一讀","code":"院會-11-5-2","bill":null,"gazref":"115卷017期5416號 7-7,10-10頁"},{"date":"2026-03-06","stage":"一讀","code":"院會-11-5-2","bill":null,"gazref":"115卷017期5416號 7-7頁"},{"date":"2026-03-23","code":"聯席會議-11-5-35,20-1","title":"第11屆第5會期外交及國防、財政委員會第1次聯席會議","gazref":"115卷024期5423號 311-381頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026031817/details?meetingDate=115/03/23","full":["https://ivod.ly.gov.tw/Play/Full/1M/17293"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/24/LCIDC01_1152401_00005.pdf","p1":311,"p2":382}],"clips":[],"props":["202110189640000","201110176920000","202110196180000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":37,"nmem":24,"ntable":0,"nfold":0},{"date":"2026-03-25","code":"聯席會議-11-5-35,20-1","title":"第11屆第5會期外交及國防、財政委員會第1次聯席會議","gazref":"115卷024期5423號 383-482頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026031817/details?meetingDate=115/03/23","full":["https://ivod.ly.gov.tw/Play/Full/1M/17301"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/24/LCIDC01_1152401_00006.pdf","p1":383,"p2":482}],"clips":[],"props":["202110189640000","201110176920000","202110196180000"],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":24,"nmem":16,"ntable":0,"nfold":0},{"date":"2026-03-26","code":"聯席會議-11-5-35,20-1","title":"第11屆第5會期外交及國防、財政委員會第1次聯席會議","gazref":"115卷024期5423號 483-508頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026031817/details?meetingDate=115/03/23","full":["https://ivod.ly.gov.tw/Play/Full/1M/17306"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/24/LCIDC01_1152401_00007.pdf","p1":483,"p2":508}],"clips":[],"props":["202110189640000","201110176920000","202110196180000"],"tr":"tr/3.json","note":null,"mixed":[],"nspeak":19,"nmem":13,"ntable":0,"nfold":0},{"date":"2026-04-09","code":"黨團協商-2026033106","title":"立法院朝野黨團協商","gazref":"115卷030期5429號 451-457頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026033106/details?meetingDate=115/04/09","full":["https://ivod.ly.gov.tw/Play/Full/1M/17340"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2026-04-15","code":"黨團協商-2026041475","title":"立法院朝野黨團協商","gazref":"115卷027期5426號 481-502頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026041475/details?meetingDate=115/04/15","full":["https://ivod.ly.gov.tw/Play/Full/1M/17358"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2026-04-23","code":"黨團協商-2026042240","title":"立法院朝野黨團協商","gazref":"115卷031期5430號二冊 221-252頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026042240/details?meetingDate=115/04/23","full":["https://ivod.ly.gov.tw/Play/Full/1M/17381"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2026-04-24","stage":"一讀","code":"院會-11-5-8","bill":"202110206570000","gazref":"115卷033期5432號 16-17頁"},{"date":"2026-04-24","code":"院會-11-5-8","title":"第11屆第5會期第8次會議","gazref":"115卷033期5432號 16-17頁","stage":"逕付二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026042239/details?meetingDate=115/04/24","full":["https://ivod.ly.gov.tw/Play/Full/1M/17382","https://ivod.ly.gov.tw/Play/Full/1M/17383"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/33/LCIDC01_1153301.pdf","p1":16,"p2":17}],"clips":[],"props":[],"tr":"tr/4.json","note":null,"proc":true,"nspeak":1,"ntable":0},{"date":"2026-04-27","code":"黨團協商-2026042460","title":"立法院朝野黨團協商","gazref":"115卷031期5430號二冊 253-262頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026042460/details?meetingDate=115/04/27","full":["https://ivod.ly.gov.tw/Play/Full/1M/17386"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2026-05-06","code":"黨團協商-2026050414","title":"立法院朝野黨團協商","gazref":"115卷034期5433號二冊 301-316頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026050414/details?meetingDate=115/05/06","full":["https://ivod.ly.gov.tw/Play/Full/1M/17417"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2026-05-08","code":"院會-11-5-9","title":"第11屆第5會期第9次會議","gazref":"115卷035期5434號 52-117頁；115卷035期5434號 117-147頁；115卷035期5434號 147-153頁；115卷035期5434號 149-153頁","stage":"二讀、三讀、附帶決議","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026050618/details?meetingDate=115/05/08","full":["https://ivod.ly.gov.tw/Play/Full/1M/17424"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/35/LCIDC01_1153501_00004.pdf","p1":52,"p2":154}],"clips":[],"props":[],"tr":"tr/5.json","note":null,"nspeak":21,"nmem":14,"ntable":3,"nfold":2}],"votes":[{"topic":"保衛國家安全及強化不對稱戰力計畫採購特別條例　討論事項第二案第五條 台灣民眾黨黨團、國民黨黨團再修正動議","code":"院會-11-5-9","type":"記名表決","src":"公報逐字稿","yes":59,"no":51,"abstain":0,"yesNames":["傅崐萁","林沛祥","許宇甄","謝龍介","涂權吉","馬文君","許忠信","蔡春綢","劉書彬","洪毓祥","陳昭姿","陳清龍","王安祥","邱慧洳","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","王鴻薇","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","羅智強","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["吳沛憶","黃捷","范雲","蔡其昌","莊瑞雄","伍麗華Saidhai Tahovecahe","郭昱晴","吳思瑤","沈伯洋","陳培瑜","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","王義川","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","鍾佳濱","郭國文","陳俊宇","張雅琳","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","林月琴","林淑芬","王正旭","林楚茵","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","柯建銘","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"保衛國家安全及強化不對稱戰力計畫採購特別條例　討論事項第二案第六條 台灣民眾黨黨團、國民黨黨團再修正動議","code":"院會-11-5-9","type":"記名表決","src":"公報逐字稿","yes":59,"no":51,"abstain":0,"yesNames":["傅崐萁","林沛祥","許宇甄","謝龍介","涂權吉","馬文君","許忠信","蔡春綢","劉書彬","洪毓祥","陳昭姿","陳清龍","王安祥","邱慧洳","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","王鴻薇","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","羅智強","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["吳沛憶","黃捷","范雲","蔡其昌","莊瑞雄","伍麗華Saidhai Tahovecahe","郭昱晴","吳思瑤","沈伯洋","陳培瑜","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","王義川","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","鍾佳濱","郭國文","陳俊宇","張雅琳","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","林月琴","林淑芬","王正旭","林楚茵","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","柯建銘","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"保衛國家安全及強化不對稱戰力計畫採購特別條例　討論事項第二案 全案表決","code":"院會-11-5-9","type":"記名表決","src":"公報逐字稿","yes":59,"no":0,"abstain":48,"yesNames":["傅崐萁","林沛祥","許宇甄","謝龍介","涂權吉","馬文君","許忠信","蔡春綢","劉書彬","洪毓祥","陳昭姿","陳清龍","王安祥","邱慧洳","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","王鴻薇","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","羅智強","柯志恩","牛煦庭","王育敏","游顥"],"noNames":[],"abstainNames":["吳沛憶","黃捷","范雲","莊瑞雄","伍麗華Saidhai Tahovecahe","郭昱晴","吳思瑤","沈伯洋","陳培瑜","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","王義川","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","鍾佳濱","郭國文","陳俊宇","張雅琳","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","林月琴","林淑芬","王正旭","林楚茵","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"]},{"topic":"保衛國家安全及強化不對稱戰力計畫採購特別條例　討論事項第二案 委員陳清龍等 針對本案三讀之決議提出復議","code":"院會-11-5-9","type":"記名表決","src":"公報逐字稿","yes":0,"no":59,"abstain":51,"yesNames":[],"noNames":["傅崐萁","林沛祥","許宇甄","謝龍介","涂權吉","馬文君","許忠信","蔡春綢","劉書彬","洪毓祥","陳昭姿","陳清龍","王安祥","邱慧洳","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","王鴻薇","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","羅智強","柯志恩","牛煦庭","王育敏","游顥"],"abstainNames":["吳沛憶","黃捷","范雲","蔡其昌","莊瑞雄","伍麗華Saidhai Tahovecahe","郭昱晴","吳思瑤","沈伯洋","陳培瑜","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","王義川","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","鍾佳濱","郭國文","陳俊宇","張雅琳","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","林月琴","林淑芬","王正旭","林楚茵","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","柯建銘","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"]},{"topic":"保衛國家安全及強化不對稱戰力計畫採購特別條例　討論事項第二案附帶決議2 台灣民眾黨黨團、國民黨黨團提案","code":"院會-11-5-9","type":"記名表決","src":"公報逐字稿","yes":58,"no":51,"abstain":0,"yesNames":["傅崐萁","林沛祥","許宇甄","謝龍介","涂權吉","馬文君","許忠信","蔡春綢","劉書彬","洪毓祥","陳昭姿","陳清龍","王安祥","邱慧洳","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","王鴻薇","呂玉玲","陳雪生","黃建賓","黃健豪","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","羅智強","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["吳沛憶","黃捷","范雲","蔡其昌","莊瑞雄","伍麗華Saidhai Tahovecahe","郭昱晴","吳思瑤","沈伯洋","陳培瑜","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","王義川","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","鍾佳濱","郭國文","陳俊宇","張雅琳","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","林月琴","林淑芬","王正旭","林楚茵","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","柯建銘","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"abstainNames":[]}],"manualVotes":null,"gaps":[],"autoGaps":["5 次黨團協商（4 月 9 日、4 月 15 日、4 月 23 日、4 月 27 日、5 月 6 日）只有完整影片與公報頁碼，沒有文字版逐字稿。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

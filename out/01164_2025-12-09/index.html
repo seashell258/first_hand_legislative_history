@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>自來水法修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"自來水法","version":"01164:2025-12-09-修正","date":"2025-12-09","action":"修正","title":"自來水法　2025 年修正","lede":"","summary":"","key":"01164_2025-12-09","props":[{"id":"201110161340300","who":"行政院","date":"2025-09-30","name":"「電信管理法第七十二條條文修正草案」等7項強化防護我國海纜之法案。","url":"https://ppg.ly.gov.tw/ppg/bills/201110161340300/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/02/LCEWA01_110402_00032.pdf","proposers":[],"ncosign":0,"people":[],"party":[],"reason":"行政院函請審議「電信管理法第七十二條條文修正草案」等7項強化防護我國海纜之法案。","arts":["第七十二條","第七十一條之一","第五十五條之一","第九十七條之一","第二十一條之一","第十五條","第六十五條之四","第八條之一","第十條之一","第十一條之一","第八十二條","第八十九條之一","第一百條"]},{"id":"202110162830000","who":"委員王美惠等19人","date":"2025-10-14","name":"「自來水法第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110162830000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/04/LCEWA01_110404_00023.pdf","proposers":["王美惠","陳冠廷"],"ncosign":17,"people":[["王美惠","民進黨","提案"],["陳冠廷","民進黨","提案"],["蔡易餘","民進黨","連署"],["莊瑞雄","民進黨","連署"],["吳思瑤","民進黨","連署"],["陳培瑜","民進黨","連署"],["范雲","民進黨","連署"],["邱議瑩","民進黨","連署"],["陳素月","民進黨","連署"],["羅美玲","民進黨","連署"],["陳秀寳","民進黨","連署"],["陳亭妃","民進黨","連署"],["李坤城","民進黨","連署"],["黃捷","民進黨","連署"],["許智傑","民進黨","連署"],["林月琴","民進黨","連署"],["吳沛憶","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["王正旭","民進黨","連署"]],"party":[["民進黨",19]],"reason":"本院委員王美惠、陳冠廷等19人，鑒於我國通訊、能源、民生及航運等關鍵基礎設施，對國家安全及社會穩定至關重要。然而，現行法制對於自來水事業海底送水管線之安全運轉與正常運作之保護仍有不足，致難以有效防範惡意破壞或違規行為，一旦發生事故，將嚴重影響國家對外連結與整體社會運作。為此，本提案整合跨部會相關規範，爰擬具「自來水法第九十七條之一條文修正草案」，藉此建構完整的自來水事業海底送水管線與基礎設施保護體系。預期透過本次修法，可提高防護層級、明確法律責任、強化執法效能，降低通訊中斷、能源供應受阻及航運安全風險，確保國家安全與社會穩定。是否有當？敬請公決。","arts":["第九十七條之一"]},{"id":"202110163040000","who":"委員李坤城等18人","date":"2025-10-14","name":"「自來水法第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110163040000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/04/LCEWA01_110404_00043.pdf","proposers":["李坤城"],"ncosign":17,"people":[["李坤城","民進黨","提案"],["林岱樺","民進黨","連署"],["郭國文","民進黨","連署"],["徐富癸","民進黨","連署"],["黃秀芳","民進黨","連署"],["羅美玲","民進黨","連署"],["王正旭","民進黨","連署"],["蘇巧慧","民進黨","連署"],["吳沛憶","民進黨","連署"],["楊曜","民進黨","連署"],["林淑芬","民進黨","連署"],["何欣純","民進黨","連署"],["林楚茵","民進黨","連署"],["邱議瑩","民進黨","連署"],["林月琴","民進黨","連署"],["陳亭妃","民進黨","連署"],["沈發惠","民進黨","連署"],["陳俊宇","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員李坤城等18人，有鑑於自來水為民生必要資源，自來水事業海底送水管線之安全，攸關全國自來水系統正常運作，如有因過失被毀壞或以其他非法方法危害自來水事業海底送水管線之功能正常運作之情形，將對民生、社會安定及國家安全造成嚴重影響，爰擬具「自來水法第九十七條之一條文修正草案」，將自來水事業海底送水管線納入保護範圍，並增訂過失犯之刑罰規範；另針對故意侵害特定自來水事業設施、設備之犯罪態樣，明定供犯罪用之工具、船舶或其他機械設備之沒收及處置規定。是否有當？敬請公決。","arts":["第九十七條之一"]},{"id":"202110163460000","who":"委員伍麗華Saidhai Tahovecahe等16人","date":"2025-10-14","name":"「自來水法第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110163460000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/04/LCEWA01_110404_00065.pdf","proposers":["伍麗華Saidhai‧Tahovecahe"],"ncosign":15,"people":[["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["徐富癸","民進黨","連署"],["王世堅","民進黨","連署"],["何欣純","民進黨","連署"],["邱志偉","民進黨","連署"],["鍾佳濱","民進黨","連署"],["許智傑","民進黨","連署"],["黃秀芳","民進黨","連署"],["羅美玲","民進黨","連署"],["陳秀寳","民進黨","連署"],["陳俊宇","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳瑩","民進黨","連署"],["陳素月","民進黨","連署"],["林淑芬","民進黨","連署"],["沈伯洋","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員伍麗華Saidhai Tahovecahe等16人，自來水為民生必要資源，自來水事業之海底送水管線安全，攸關全國自來水系統正常運作。如有因過失毀壞或以其他非法方法危害海底送水管線功能正常運作之情事，將對民生供水、社會安定及國家安全造成重大影響。爰擬具「自來水法第九十七條之一條文修正草案」，將自來水事業海底送水管線明定納入保護範圍，並增訂過失犯之刑罰規範；另針對故意侵害特定自來水事業設施設備之犯罪態樣，明定相關犯罪工具（如船舶或其他機械設備）不問所有權均應沒收，並規範其處置方式，以確保全國自來水系統之安全與穩定。是否有當？敬請公決。","arts":["第九十七條之一"]},{"id":"202110163840000","who":"委員賴瑞隆等16人","date":"2025-10-14","name":"「自來水法第三條、第十六條之一及第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110163840000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/04/LCEWA01_110404_00087.pdf","proposers":["賴瑞隆","莊瑞雄"],"ncosign":14,"people":[["賴瑞隆","民進黨","提案"],["莊瑞雄","民進黨","提案"],["范雲","民進黨","連署"],["王正旭","民進黨","連署"],["王美惠","民進黨","連署"],["郭昱晴","民進黨","連署"],["張雅琳","民進黨","連署"],["王義川","民進黨","連署"],["黃捷","民進黨","連署"],["李昆澤","民進黨","連署"],["陳素月","民進黨","連署"],["蘇巧慧","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["何欣純","民進黨","連署"],["劉建國","民進黨","連署"],["蔡其昌","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員賴瑞隆、莊瑞雄等16人，鑑於自來水為民生重要必需品，攸關人民生命、身體與財產安全，為強化對海底送水管線及與公共安全有關之自來水設施、設備之保護，建立明確之定義與公告機制，並健全危害行為之刑事責任與犯罪工具沒收處置規範，爰擬具「自來水法第三條、第十六條之一及第九十七條之一條文修正草案」，以完備供水安全體系，維護社會安定與國家安全。是否有當？敬請公決。","arts":["第三條","第十六條之一","第九十七條之一"]},{"id":"202110165260000","who":"委員吳沛憶等16人","date":"2025-10-17","name":"「自來水法第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110165260000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/05/LCEWA01_110405_00210.pdf","proposers":["吳沛憶"],"ncosign":15,"people":[["吳沛憶","民進黨","提案"],["陳培瑜","民進黨","連署"],["王美惠","民進黨","連署"],["林宜瑾","民進黨","連署"],["王義川","民進黨","連署"],["林楚茵","民進黨","連署"],["李坤城","民進黨","連署"],["沈伯洋","民進黨","連署"],["黃捷","民進黨","連署"],["郭昱晴","民進黨","連署"],["徐富癸","民進黨","連署"],["吳思瑤","民進黨","連署"],["陳秀寳","民進黨","連署"],["沈發惠","民進黨","連署"],["張宏陸","民進黨","連署"],["羅美玲","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員吳沛憶等16人，為確保國民用水安全，維繫民生，防堵境外敵對勢力之灰色地帶攻勢，爰擬具「自來水法第九十七條之一條文修正草案」。是否有當？敬請公決。","arts":["第九十七條之一"]},{"id":"202110164160000","who":"委員羅美玲等19人","date":"2025-10-17","name":"「自來水法第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110164160000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/05/LCEWA01_110405_00019.pdf","proposers":["羅美玲"],"ncosign":18,"people":[["羅美玲","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["沈發惠","民進黨","連署"],["許智傑","民進黨","連署"],["莊瑞雄","民進黨","連署"],["范雲","民進黨","連署"],["林楚茵","民進黨","連署"],["李昆澤","民進黨","連署"],["王正旭","民進黨","連署"],["陳俊宇","民進黨","連署"],["吳思瑤","民進黨","連署"],["林宜瑾","民進黨","連署"],["王義川","民進黨","連署"],["李柏毅","民進黨","連署"],["蔡易餘","民進黨","連署"],["何欣純","民進黨","連署"],["張宏陸","民進黨","連署"],["蔡其昌","民進黨","連署"],["郭昱晴","民進黨","連署"]],"party":[["民進黨",19]],"reason":"本院委員羅美玲等19人，鑒於自來水為民生必要資源，自來水事業海底送水管線之安全，攸關全國自來水系統正常運作，對民生、社會安定及國家安全有嚴重影響，爰擬具「自來水法第九十七條之一條文修正草案」，將自來水事業海底送水管線納入保護範圍，並增訂過失犯之刑罰規範、提高故意犯之罰金刑上限；另針對故意侵害特定自來水事業設施、設備之犯罪態樣，明定供犯罪用之工具、船舶或其他機械設備之沒收及處置規定。是否有當？敬請公決。","arts":["第九十七條之一"]},{"id":"202110164270000","who":"委員賴惠員等21人","date":"2025-10-17","name":"「自來水法第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110164270000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/05/LCEWA01_110405_00026.pdf","proposers":["賴惠員","莊瑞雄"],"ncosign":19,"people":[["賴惠員","民進黨","提案"],["莊瑞雄","民進黨","提案"],["林月琴","民進黨","連署"],["黃捷","民進黨","連署"],["王正旭","民進黨","連署"],["蔡易餘","民進黨","連署"],["陳素月","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳俊宇","民進黨","連署"],["王美惠","民進黨","連署"],["陳亭妃","民進黨","連署"],["王義川","民進黨","連署"],["林淑芬","民進黨","連署"],["沈伯洋","民進黨","連署"],["范雲","民進黨","連署"],["陳秀寳","民進黨","連署"],["李坤城","民進黨","連署"],["何欣純","民進黨","連署"],["張宏陸","民進黨","連署"],["陳瑩","民進黨","連署"],["李昆澤","民進黨","連署"]],"party":[["民進黨",21]],"reason":"本院委員賴惠員、莊瑞雄等21人，自來水為民生必要資源，然而有關自來水之相關事業，多數皆從海底連接送水管線之安全，攸關全國自來水系統得以正常運作，如有因過失被毀壞或以其他非法行為危害自來水事業海底送水管線之功能正常運作之情形，將對民生、社會安定及國家安全造成嚴重影響，爰擬具「自來水法第九十七條之一條文修正草案」，將自來水相關事業納入保護範圍，並增訂過失犯之刑罰規範，以及就故意侵害特定自來水事業設施、設備之犯罪態樣，明定供犯罪用之工具、船舶或其他機械設備之沒收及處置等規定。是否有當？敬請公決。","arts":["第九十七條之一"]},{"id":"202110164240000","who":"委員黃捷等22人","date":"2025-10-17","name":"「自來水法第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110164240000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/05/LCEWA01_110405_00041.pdf","proposers":["黃捷"],"ncosign":21,"people":[["黃捷","民進黨","提案"],["林月琴","民進黨","連署"],["郭昱晴","民進黨","連署"],["何欣純","民進黨","連署"],["賴惠員","民進黨","連署"],["蔡其昌","民進黨","連署"],["林楚茵","民進黨","連署"],["賴瑞隆","民進黨","連署"],["林淑芬","民進黨","連署"],["陳俊宇","民進黨","連署"],["張雅琳","民進黨","連署"],["沈伯洋","民進黨","連署"],["陳秀寳","民進黨","連署"],["王美惠","民進黨","連署"],["王定宇","民進黨","連署"],["李柏毅","民進黨","連署"],["李坤城","民進黨","連署"],["王正旭","民進黨","連署"],["吳思瑤","民進黨","連署"],["陳素月","民進黨","連署"],["吳秉叡","民進黨","連署"],["王義川","民進黨","連署"]],"party":[["民進黨",22]],"reason":"本院委員黃捷等22人，鑑於近年權宜旗之船舶頻繁破壞我國通訊海纜，危害國家安全。為一併加強保護自來水送水管線，明定不問屬於犯罪行為人與否，沒收犯罪工具與犯罪航次之全部收益，爰擬具「自來水法第九十七條之一條文修正草案」。是否有當？敬請公決。","arts":["第九十七條之一"]},{"id":"202110164850000","who":"委員陳亭妃等17人","date":"2025-10-17","name":"「自來水法第九十七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110164850000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/05/LCEWA01_110405_00048.pdf","proposers":["陳亭妃","莊瑞雄"],"ncosign":15,"people":[["陳亭妃","民進黨","提案"],["莊瑞雄","民進黨","提案"],["許智傑","民進黨","連署"],["邱議瑩","民進黨","連署"],["何欣純","民進黨","連署"],["黃捷","民進黨","連署"],["李坤城","民進黨","連署"],["蔡易餘","民進黨","連署"],["蘇巧慧","民進黨","連署"],["徐富癸","民進黨","連署"],["羅美玲","民進黨","連署"],["王美惠","民進黨","連署"],["沈伯洋","民進黨","連署"],["賴惠員","民進黨","連署"],["陳冠廷","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳素月","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員陳亭妃、莊瑞雄等17人，考量自來水為民生必要資源，自來水事業海底送水管線之安全，攸關全國自來水系統正常運作，如有因過失被毀壞或以其他非法方法危害自來水事業海底送水管線之功能正常運作之情形，將對民生、社會安定及國家安全造成嚴重影響。爰擬具「自來水法第九十七條之一條文修正草案」，將自來水事業海底送水管線納入保護範圍，並增訂過失犯之刑罰規範；另針對故意侵害特定自來水事業設施、設備之犯罪態樣，明定供犯罪用之工具、船舶或其他機械設備之沒收及處置規定。是否有當？敬請公決。","arts":["第九十七條之一"]}],"arts":[{"no":"第三條","current":"中央主管機關辦理左列事項：\n一、有關自來水事業發展、經營、管理、監督法令之訂定事項。\n二、有關全國性自來水事業發展計畫之訂定及監督實施事項。\n三、有關直轄市及縣（市）自來水事業之監督及輔導事項。\n四、有關供水區域涉及二個以上直轄市、縣（市）之自來水事業規劃及管理事項。\n五、有關供水區域之劃定事項。\n六、有關跨供水區域供水之輔導事項，以及停止、限制供水之執行標準與相關措施之訂定。\n七、其他有關全國性之自來水事業事項。","versions":[{"bill":"202110163840000","text":"中央主管機關辦理左列事項：\n一、有關自來水事業發展、經營、管理、監督法令之訂定事項。\n二、有關全國性自來水事業發展計畫之訂定及監督實施事項。\n三、有關直轄市及縣（市）自來水事業之監督及輔導事項。\n四、有關供水區域涉及二個以上直轄市、縣（市）之自來水事業規劃及管理事項。\n五、有關供水區域之劃定事項。\n六、有關跨供水區域供水之輔導事項，以及停止、限制供水之執行標準與相關措施之訂定。\n七、有關訂定並公告與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備清單及其維護管理基準，並定期滾動檢討；涉及海域者，會商海洋主管機關辦理其圖資建置、揭露、標示與通報機制。\n八、其他有關全國性之自來水事業事項。","note":"一、新增第一項第七款，以確立中央統一標準與跨部會協作基礎，確保關鍵設施之識別、維護與通報流暢。\n二、原第七款改為第八款。"}],"changed":false,"final":"中央主管機關辦理左列事項：\n一、有關自來水事業發展、經營、管理、監督法令之訂定事項。\n二、有關全國性自來水事業發展計畫之訂定及監督實施事項。\n三、有關直轄市及縣（市）自來水事業之監督及輔導事項。\n四、有關供水區域涉及二個以上直轄市、縣（市）之自來水事業規劃及管理事項。\n五、有關供水區域之劃定事項。\n六、有關跨供水區域供水之輔導事項，以及停止、限制供水之執行標準與相關措施之訂定。\n七、其他有關全國性之自來水事業事項。","finalWhy":null,"review":{"note":"不予通過，維持現行法條文","text":""}},{"no":"第八條之一","current":null,"versions":[{"bill":"201110161340300","text":"下列船舶，除公務船舶於海上執法，或航行水域開啟船舶自動識別系統船載臺有危害船舶安全之虞者外，應於航行或錨泊時，維持該設備正常運作，並發送正確之船名、國際海事組織船舶識別編號、水上行動業務識別碼及船舶呼號等船舶識別資訊：\n一、依本法規定應裝設船舶自動識別系統船載臺之中華民國船舶。\n二、於中華民國領海外界線以內水域或臺灣地區禁止水域，依海上人命安全國際公約規定應裝設船舶自動識別系統船載臺之非中華民國船舶。\n船舶自動識別系統船載臺故障未能正常運作時，應即通報航政機關，並依航政機關所定期限完成改善，或令其按時通報船舶位置。","note":"一、本條新增。\n二、訂定第一項：\n(一)船舶自動識別系統船載臺（Automatic Identification System，AIS）係藉由與鄰近船舶或岸臺交換船舶資訊，以利識別船舶、掌握狀態及追蹤位置，維持其正常運作，可避免發生船舶碰撞事故，有效提升船舶航行安全，並強化航政機關、海岸巡防機關、漁政機關等有關機關監控船舶動態，以維護海域秩序及安全。惟實務上，部分船舶因執行業務之特殊性，確有不公開其船舶航行資訊之必要，如公務船舶於海上執法，或航行水域（如受海盜或非法武力威脅高風險海域）開啟該設備有危害船舶安全之虞時，則不在此限。\n(二)第一款所稱依本法規定，係指依本法授權訂定之相關子法，例如：小船檢查丈量規則第四十一條、船舶設備規則第二百四十二條之三、遊艇管理規則第二十九條第一項第二款及第三十條附件三等規定。\n(三)第二款參酌海上人命安全國際公約（International Convention for the Safety of Life at Sea，以下簡稱SOLAS）第五章規則十九規定，從事國際航線總噸位三百以上之所有船舶，非從事國際航線總噸位五百以上之貨船，以及不論及大小之客船，應裝設船舶自動識別系統船載臺，爰本款以此為基準，規範非我國船舶，於依中華民國領海及鄰接區法第五條訂定之領海外界線以內水域，以及依臺灣地區與大陸地區人民關係條例第二十九條第二項公告之禁止水域，課予維持船舶自動識別系統船載臺正常運作之義務。\n三、船舶於海上航行可能發生不可預期海況或事故等不可歸責於船舶所有人或船長之情事，導致船舶自動識別系統船載臺無法正常運作，為確保該等無法以船舶自動識別系統船載臺監控之船舶航行安全，需借助海岸巡防機關建置之岸際雷達，或透過無線電信設備回報位置等方式予以監控，爰訂定第二項，規範船舶自動識別系統船載臺故障未能正常運作時應即通報航政機關，並依航政機關所定期限完成改善，或令其按時通報船舶位置，以利相關機關協助監控。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第十條之一","current":null,"versions":[{"bill":"201110161340300","text":"非中華民國船舶於中華民國領海外界線以內水域或臺灣地區禁止水域航行或錨泊時，船身應具備下列標誌：\n一、船名。\n二、國際海事組織船舶識別編號。但依海上人命安全國際公約規定無須具備者，不在此限。\n前項標誌應為正確標示，並不得毀壞、塗改或隱蔽。","note":"一、本條新增。\n二、為迅速透過船舶外觀識別是否為非我國船舶，參酌SOLAS第十一之一章規則三規定，國際海事組織（\nInternational Maritime Organization，以下簡稱IMO）船舶識別編號應永久標記於船身及機艙隔艙壁上、艙口上、液貨船之液貨泵間或駛上駛下船之駛上駛下空間隔艙壁等位置；其中船身上標記IMO船舶識別編號可有效於海上識別船舶資訊，並參酌修正條文第八條之一第一項第二款水域範圍規定，爰為第一項規定。\n三、參照SOLAS第十一之一章規則三規定，於第二項定明非我國船舶標示第一項規定之標誌，應為正確標示，並不得毀壞、塗改或隱蔽。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第十一條之一","current":null,"versions":[{"bill":"201110161340300","text":"總噸位一百五十以上之非中華民國船舶於中華民國領海外界線以內水域或臺灣地區禁止水域航行或錨泊時，應具備航海日誌，詳實記載航行活動；遇有事故者，並應一併載明。\n前項航行活動及事故應記載事項如下：\n一、船舶開航前之船舶狀態。\n二、船舶航行期間與航程有關之詳細資訊。\n三、船舶發生事故或特殊事件之詳細資訊。\n四、船舶錨泊或在港時之操作或行政事務資訊、與船舶安全及保全有關之詳細資訊。","note":"一、本條新增。\n二、為有效掌握非我國船舶航行資訊，參酌SOLAS第五章規則一、四及規則二十八，於第一項規範船舶航行或錨泊時，應具備航海日誌並詳實記載，並參酌修正條文第八條之一第一項第二款水域範圍規定，定明本條適用範圍。\n三、參酌IMO採納A.916(22)決議案，爰為第二項航行活動及事故應記載事項之規定。\n四、依海岸巡防法第四條第一項第三款規定：「海巡機關人員執行職務時，得行使下列職權。但不得逾越必要程度：……三、對航行海域內之船舶或其他運輸工具，有正當理由，認有違法之虞時，得命船舶出示船舶文書、航海紀錄及其他有關航海事項之資料。」，爰海岸巡防機關可依上開規定查驗船舶航海日誌，併予敘明。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第十五條","current":"商港區域內停泊之船舶，商港經營事業機構、航港局或指定機關認為妨礙船席調度或港區安全時，得指定地點令其移泊或疏散他處停泊；未依規定移泊者，得逕行移泊。\n商港經營事業機構、航港局或指定機關為維護港區秩序、疏導航運、便利作業，得對港區內小船艘數、停泊位置、行駛及作業，予以限制；必要時並得將小船移置他處停放。\n船舶、浮具未經商港經營事業機構、航港局或指定機關同意，不得在港區內行駛或作業。\n第一項、第二項由商港經營事業機構、航港局或指定機關執行移泊、停放所需之費用，由船舶所有人負擔。","versions":[{"bill":"201110161340300","text":"商港區域內停泊之船舶，商港經營事業機構、航港局或指定機關認為妨礙船席調度或港區安全時，得令其於三個月內離港；或指定地點令其移泊，未依規定移泊者，得逕行移泊，並於完成移泊後令其於三個月內離港。\n商港經營事業機構、航港局或指定機關為維護港區秩序、疏導航運、便利作業，得對港區內小船艘數、停泊位置、行駛及作業，予以限制；必要時並得將小船移置他處停放。\n船舶、浮具未經商港經營事業機構、航港局或指定機關同意，不得在港區內行駛或作業。\n第一項、第二項由商港經營事業機構、航港局或指定機關執行移泊、停放所需之費用，由船舶所有人負擔。","note":"一、修正第一項：\n(一)為避免船舶滯留商港，影響船舶作業安全及效率，商港區域內停泊之船舶，經商港經營事業機構、航港局或指定機關認為船舶持續滯留商港有妨礙船席調度或港區安全者，增列得令該船舶於三個月內離港之規定。另對於未依規定移泊，經逕行完成移泊者，增訂於完成移泊後令該船舶於三個月內離港之規定。如該船舶無正當理由未於所定期限離港者，航港局或指定機關將依修正條文第六十五條之四第一項規定沒入該船舶。\n(二)考量「指定地點令其移泊」於文義上已涵蓋「疏散他處停泊」，為避免重複爰予刪除。\n(三)第一項船舶除經商港經營事業機構、航港局或指定機關認有嚴重妨礙船席調度或對港區安全危害重大之情形，得令其於三個月內離港外，應指定地點令其移泊，併予敘明。\n二、第二項至第四項未修正。"}],"changed":false,"final":"（刪除）","finalWhy":null,"review":null},{"no":"第十六條之一","current":null,"versions":[{"bill":"202110163840000","text":"本法所稱海底送水管線，指設置於我國領海、毗連區或其他依法具有管轄權之海域與海床，供輸送自來水之管線及其附屬設施。\n本法所稱與公共安全有關之必要設施、設備，指中央主管機關依第三條第八款公告之設施、設備。","note":"一、本條新增。\n二、透過定義條款，使刑罰規範與管理措施具有可確定性與可預見性。"}],"changed":false,"final":null,"finalWhy":null,"review":{"note":"不予增訂","text":""}},{"no":"第二十一條之一","current":"以竊取、毀壞或其他非法方法危害氣象設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n第一項及第二項之未遂犯罰之。","versions":[{"bill":"201110161340300","text":"以竊取、毀壞或其他非法方法危害氣象設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害氣象設施或設備之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。","note":"一、第一項至第三項未修正。\n二、為強化氣象設施或設備安全防護，參酌電信管理法第七十二條第四項，增訂第四項因過失毀壞或以其他非法方法危害氣象設施或設備功能正常運作之罰則。\n三、第四項移列為第五項，內容未修正。\n四、鑒於近年來迭有權宜輪違規破壞我國海纜，影響海嘯及地震預警時效，甚至危及國家安全，為有效嚇阻該等不法行為，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項定明相關犯罪用之工具、船舶或其他機械設備之沒收及處置規定。沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，例如捐作公益及教學使用等用途。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第五十五條之一","current":"以竊取、毀壞或其他非法方法危害天然氣進口事業之卸收設備、儲氣設備、氣化設備、摻配設備、高壓輸配氣設備或監控調度中心之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n第一項及第二項之未遂犯罰之。","versions":[{"bill":"201110161340300","text":"以竊取、毀壞或其他非法方法危害天然氣進口事業之卸收設備、儲氣設備、氣化設備、摻配設備、高壓輸配氣設備或監控調度中心之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害天然氣進口事業之海底輸氣管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。","note":"一、第一項至第三項未修正。\n二、增訂第四項，理由如下：\n(一)近年我國周邊海域因船隻活動造成海底纜線受損事件頻傳。考量海底纜線之型態多元，並非僅指海底電纜，海底輸氣管線係輸送天然氣之重要設備，有強化保護之必要。\n(二)第一項已明定故意犯型態，所稱高壓輸配氣設備業即涵蓋海底輸氣管線在內。考量因過失毀壞或以其他非法方法危害海底輸氣纜線之功能正常運作，對於國內天然氣穩定供應亦將產生嚴重影響；復以海底管線布建之相關圖資已於海洋委員會之國家海洋資料庫及共享平台公開，從事海域航行或相關工作者應可預先知悉及避免前述情形發生，爰參考電信管理法第七十二條第四項規定，明定過失犯之刑罰規範。\n三、第四項移列為第五項，內容未修正。\n四、為維護國內整體供氣安全穩定，對侵害第一項所定輸儲設備（包括天然氣進口事業之海底輸氣管線）之犯罪態樣，就供其犯罪用之工具、船舶等有不問何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第六十五條之四","current":null,"versions":[{"bill":"201110161340300","text":"船舶經商港經營事業機構、航港局或指定機關依第十五條第一項規定令其限期離港，無正當理由未於所定期限離港者，不問屬於何人所有，由航港局或指定機關沒入之。\n依第六十條第一項規定留置之外國商船，經查有船舶登記、船舶證書、國際海事組織船舶識別編號或其他船舶識別資料與實際情形不符者，航港局或指定機關應令船舶所有人或其代理人於三個月內補正正當理由、所有權證明文件及相關船舶證書；屆期未補正者，該外國商船不問屬於何人所有，由航港局或指定機關沒入之。","note":"一、本條新增。\n二、為減少船舶所有人未處置船舶而衍生長期棄置問題，於第一項針對船舶經商港經營事業機構、航港局或指定機關依第十五條規定令其限期離港（包含令其於三個月內離港，及遭逕行移泊後令其三個月內離港之情形），無正當理由未於期限內離港者，不問船舶屬於何人所有，由航港局或指定機關予以沒入之規定。\n三、鑒於部分外國商船因管理不善，常有持偽冒船舶登記、船舶證書等識別資料，或發生海事案件，積欠船員薪資，船東不願出面處理之情形，即所謂「三無船舶」（無船籍、無證書、無船舶登記），因無法改善其缺失，以致船舶長期滯留我國商港，積欠港埠費用之情事發生，甚至造成船席調度困難或影響港區安全。爰於第二項前段定明針對航港局或指定機關依第六十條第一項規定留置，且經查有船舶登記等船舶識別資料與實際情形不符之外國商船，應令該外國商船之船舶所有人或其代理人於三個月內補正相關船舶識別資料之規定。另考量國際間船旗國及其認可驗船機構皆設有網路聯絡窗口，且相關船舶證書等證明文件可透過電子郵件迅速補發，因此，如船舶無法取得船旗國及驗船機構所核發之船舶證書證明其所有權及適航性，即可顯示該船舶有極大風險成為惡意破壞我國商港設施之工具，為免其滯留我國領海，影響航行及商港安全，伺機破壞我國商港設施，爰於後段定明對此類船舶不問屬於何人所有予以沒入，上述作法應符合比例原則，並能有效防止相關船舶再犯，亦能嚇阻其他類似船舶之不法意圖，併予說明。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第七十一條之一","current":"以竊取、毀壞或其他非法方法危害裝置容量一百萬瓩以上之水力發電廠、一百二十萬瓩以上之火力發電廠之主要發電設備、燃料輸儲設備、控制室、開關場、資通訊機房，或特高壓以上輸電、變電設備或調度室之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n第一項及第二項之未遂犯罰之。","versions":[{"bill":"201110161340300","text":"以竊取、毀壞或其他非法方法危害裝置容量一百萬瓩以上之水力發電廠、一百二十萬瓩以上之火力發電廠之主要發電設備、燃料輸儲設備、控制室、開關場、資通訊機房，或特高壓以上輸電、變電設備、調度室，或海底電力電纜之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害海底電力電纜之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。","note":"一、因應近期離岸風力發電發展及國內電力傳輸所需，為避免海底電力電纜受到侵害致影響電力傳輸及供應，爰於第一項新增「海底電力電纜」為保護客體，以強化保護範圍，穩定供電。凡由發電業及輸配電業等電業所設置之海底電力電纜，均屬保護對象，不限於特高壓以上者，併予補充。\n二、第二項及第三項未修正。\n三、考量海底電力電纜對電力傳輸及供應之重要性，如因過失毀壞或以其他非法方法危害其功能之正常運作，對於國內電力穩定供應將產生嚴重影響；又考量海底管線布建之相關圖資已於海洋委員會之國家海洋資料庫及共享平台公開，從事海域航行或相關工作者應可預先知悉並避免前述情形發生，爰參考電信管理法第七十二條第四項規定增訂第四項，明定過失犯之刑罰規範。\n四、第四項移列為第五項，內容未修正。\n五、為維護供電安全穩定，對故意侵害第一項所定電業設備（包括海底電力電纜）之犯罪態樣，就供其犯罪用之工具、船舶等有不問屬何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第七十二條","current":"以竊取、毀壞或其他非法方法危害海纜登陸站、機房或與其連接之纜線、國際交換機房或衛星通信中心之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害海纜登陸站、機房或與其連接之纜線、國際交換機房或衛星通信中心之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n第一項所稱纜線，指海纜登陸站與機房向海一側之纜線，及海纜登陸站與內陸介接站間之纜線。","versions":[{"bill":"201110161340300","text":"以竊取、毀壞或其他非法方法危害海纜登陸站、機房或與其連接之纜線、國際交換機房或衛星通信中心之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害海纜登陸站、機房或與其連接之纜線、國際交換機房或衛星通信中心之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所稱纜線，指海纜登陸站與機房向海一側之纜線，及海纜登陸站與內陸介接站間之纜線。","note":"一、鑒於近年來迭有權宜輪違規破壞我國通訊海纜，衝擊我國聯外與離島間通信，甚至危及國家安全，為有效嚇阻該等不法行為，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項，定明相關犯罪用之工具、船舶或其他機械設備之沒收及處置規定。沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。\n二、第一項至第五項未修正。\n三、現行第六項移列為第七項，內容未修正。"},{"bill":"201110161340300","text":"自用遊艇，除本章、第一章、第十五條之一第二項、第二十七條第一項、第二十八條、第二十八條之一、第二十八條之二第一項、第二十八條之三第一項、第二十九條第一項、第三十條第一項、第三十二條、第四十條第一項、第四十一條第一項與第二項前段、第八十四條第一項、第八十九條第一項、第八十九條之一、第九十一條、第九十二條第一項與第三項、第九十三條至第九十五條、第九十七條第一項第一款與第三項及第九十九條至第一百零二條規定外，不適用本法規定。\n非自用遊艇，除本章、第一章、第十五條之一第二項、第二十七條第一項、第二十八條、第二十八條之一、第二十八條之二第一項、第二十八條之三第一項、第二十九條第一項、第三十條第一項、第三十二條、第四十條第一項、第四十一條第一項與第二項前段、第五章、第八十四條第一項、第八十九條第一項、第八十九條之一、第九十一條、第九十二條第一項與第三項、第九十三條至第九十五條、第九十七條第一項第一款與第三項及第九十九條至第一百零二條規定外，不適用本法規定。\n自用遊艇及非自用遊艇準用第二十八條之二第二項規定，並應將遊艇證書繳回航政機關。","note":"一、依現行規定，自用或非自用遊艇均適用第一章規定，爰亦適用本次增訂之修正條文第八條之一、第十條之一及第十一條之一，配合修正條文第八十九條之一係規範違反前開規定之罰則，爰增訂第一項自用遊艇及第二項非自用遊艇適用本法規定之範圍。\n二、第三項未修正。"}],"changed":false,"final":"自來水用戶對其用水設備、量水器失效或不準確，或水質不清潔時，得請求自來水事業派員檢校。\n前項檢校結果，除因量水器失效或不準確或水質不清潔外，得酌收檢校費用。","finalWhy":null,"review":null},{"no":"第八十二條","current":"小船，除本章、第一章、第十五條之一、第二十七條第一項、第二十八條、第二十八條之一第一項與第三項、第二十八條之二第一項、第二十八條之三、第四十條第一項、第四十一條第一項與第二項前段、第八十九條第一項、第九十條、第九十二條第一項與第三項、第九十三條、第九十四條、第九十七條第一項第一款及第九十八條至第一百零二條規定外，不適用本法之規定。\n小船準用第二十八條之二第二項規定，並應將小船執照繳回航政機關。\n載客小船準用第三十四條之一規定。","versions":[{"bill":"201110161340300","text":"小船，除本章、第一章、第十五條之一、第二十七條第一項、第二十八條、第二十八條之一第一項與第三項、第二十八條之二第一項、第二十八條之三、第四十條第一項、第四十一條第一項與第二項前段、第八十九條第一項、第八十九條之一、第九十條、第九十二條第一項與第三項、第九十三條、第九十四條、第九十七條第一項第一款及第九十八條至第一百零二條規定外，不適用本法之規定。\n小船準用第二十八條之二第二項規定，並應將小船執照繳回航政機關。\n載客小船準用第三十四條之一規定。","note":"一、第一項規定小船適用第一章規定，爰適用本次增訂之修正條文第八條之一、第十條之一及第十一條之一，配合修正條文第八十九條之一係規範違反前開規定之罰則，爰增列該條文為小船適用之範圍。\n二、第二項及第三項未修正。"}],"changed":false,"final":"自來水事業辦理不善時，主管機關得限期令其改善；逾期不改善者，得擬具監理計劃報請上級主管機關核准後監督其業務，並予整頓，繼續供水。\n前項監理之自來水事業，在整頓完善後停止其監理。","finalWhy":null,"review":null},{"no":"第八十九條之一","current":null,"versions":[{"bill":"201110161340300","text":"有下列情形之一者，由航政機關依情節輕重，處船舶所有人、船長、遊艇駕駛或小船駕駛新臺幣三萬元以上一千萬元以下罰鍰，並得令其限期改善；屆期未改善者，按次處罰：\n一、違反第八條之一第一項規定，未維持船舶自動識別系統船載臺正常運作，或發送不正確之船舶識別資訊。\n二、違反第八條之一第二項規定，未即通報航政機關，或未依航政機關所定期限完成改善，或未按時通報船舶位置。\n三、違反第十條之一第一項規定，船身未具備該項所定標誌。\n四、違反第十條之一第二項規定，未正確標示，或毀壞、塗改、隱蔽標誌。\n五、違反第十一條之一規定，未具備航海日誌，或航海日誌未詳實記載航行活動或事故。\n前項情形，航政機關得令船舶進港並停泊至指定處所，必要時，得洽請海岸巡防機關或其他機關協助通知及執行；其進港及停泊期間所需費用，由船舶所有人、船長、遊艇駕駛或小船駕駛負擔。\n前項進港並停泊至指定處所之船舶，進港後逾三個月，未依第一項規定完成改善，而有妨礙港口或水域安全之虞者，該船舶不問屬於何人所有，由航政機關或行政院指定之機關沒入之。","note":"一、本條新增。\n二、配合修正條文第八條之一、第十條之一、第十一條之一，就行為人違反行政法上義務增訂罰則，爰為第一項規定。\n三、考慮船舶航行過程隱匿船舶資訊會造成船舶航行安全之危害，爰於第二項增訂航政機關得令該船舶進港並停泊至指定處所，又為及時有效處置違規船舶，必要時，得洽請海岸巡防機關或其他機關協助通知及執行押送船舶至指定處所。另就進港及停泊期間費用應由何者負擔，於後段定明。\n四、為加速航政機關對於違反修正條文第八條之一、第十條之一、第十一條之一，且有妨礙港區或水域安全之虞船舶之處置，於第三項定明依第二項規定進港，並停泊至指定處所之船舶，進港後逾三個月，未依第一項規定完成改善，而有妨礙港口或水域安全之虞者，不問該船舶屬於何人所有，由航政機關或行政院指定之機關沒入之。另考量船舶具前開違規情形之水域，可能位於金門、馬祖等地區水域，為迅速處置該船舶，提升執行效能，將令其就近於鄰近港口進港停泊，爰參酌商港法第二條第二項第二款，納入行政院指定之機關，增加執法之彈性。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第九十七條之一","current":"以竊取、毀壞或其他非法方法危害與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","versions":[{"bill":"202110162830000","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線，與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、考量自來水為民生必要資源，其設備之運作攸關人民生命、身體及財產之安全，如自來水事業之海底送水管線遭侵害，將對民生社會安定、公共及國家安全造成嚴重影響，為強化對海底送水管線之保護，於第一項增訂自來水事業之海底送水管線為保護客體。\n二、第二項及第三項未修正。\n三、考量海底送水管線對民生供水之重要性，如因過失毀壞或以其他非法方法危害其功能之正常運作，對於國內民生用水穩定供應將產生嚴重影響；又考量海底送水管線布建之相關圖資已規劃納入海洋委員會之國家海洋資料庫及共享平台，從事海域航行或相關工作者應能知悉並避免造成侵害，爰參考電信管理法第七十二條第四項規定，增訂第四項過失犯之刑罰規範。\n四、第四項移列為第五項，內容未修正。\n五、為維護全國自來水系統正常運作及安全，對第一項所定自來水事業設施、設備（包括自來水事業之海底送水管線）之犯罪態樣，就供其犯罪用之工具、船舶等有不問何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。\n六、第五項移列為第七項，內容未修正。"},{"bill":"202110163040000","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處一年以下有期徒刑、拘役或科新臺幣三百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、考量自來水為民生必要資源，其設備之運作攸關人民生命、身體及財產之安全，如自來水事業之海底送水管線遭侵害，將對民生社會安定、公共及國家安全造成嚴重影響，為強化對海底送水管線之保護，於第一項增訂自來水事業之海底送水管線為保護客體。\n二、第二項及第三項未修正。\n三、考量海底送水管線對民生供水之重要性，如因過失毀壞或以其他非法方法危害其功能之正常運作，對於國內民生用水穩定供應將產生嚴重影響；又考量海底送水管線布建之相關圖資已規劃納入海洋委員會之國家海洋資料庫及共享平台，從事海域航行或相關工作者應能知悉並避免造成侵害，爰參考電信管理法第七十二條第四項規定，增訂第四項過失犯之刑罰規範。\n四、第四項移列為第五項，內容未修正。\n五、為維護全國自來水系統正常運作及安全，對第一項所定自來水事業設施、設備（包括自來水事業之海底送水管線）之犯罪態樣，就供其犯罪用之工具、船舶等有不問何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。\n六、第五項移列為第七項，內容未修正。"},{"bill":"202110163460000","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、考量自來水為民生必要資源，其設施設備之運作攸關人民生命、身體及財產安全。若自來水事業之海底送水管線遭受侵害，將對社會安定、公共安全及國家安全造成嚴重影響。為強化保護，爰於第一項增訂自來水事業之海底送水管線為保護客體。\n二、第二項及第三項未修正。\n三、海底送水管線對民生供水具關鍵性，如因過失毀壞或以其他非法方法危害其功能正常運作，將對國內穩定供水造成重大影響。又相關圖資已規劃納入國家海洋資料庫及共享平台，從事海域航行或相關作業者應能預先知悉並避免侵害。爰參考《電信管理法》第七十二條第四項，增訂第四項，明定過失犯之刑罰規範。\n四、現行第四項移列為第五項，內容未修正。\n五、為維護全國自來水系統之正常運作與安全，對於侵害第一項所定自來水事業設施設備（包括海底送水管線）之犯罪態樣，所使用之船舶、機械等工具，不問所有權，均應沒收，並明定處置方式。爰參考《土石採取法》第三十六條第三項及《中華民國專屬經濟海域及大陸礁層法》第十八條第三項，增訂第六項。其處置方式如下，可因應犯罪工具（如大型或外籍船舶）不易保管或拍賣等困難，授權檢察機關依個案性質、保管條件及處所，專案報准妥速處理，兼顧公共利益與實務操作需求：\n(一)適於公務使用者，得無償留供原機關或其他機關公用。\n(二)衡酌保管費用與價值，確無拍賣或變價實益者，得予廢棄。\n(三)其他適當方式，如捐作公益或教學使用。\n六、現行第五項移列為第七項，內容未修正。"},{"bill":"202110163840000","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣三百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、自來水為民生必需品，其設施、設備是否正常運作，與人民生命、身體及財產安全等息息相關，倘自來水事業之海底送水管線遭侵害或毀損，將對社會民生安定、國家及公共安全造成嚴重影響，故為強化對海底送水管線之保護，於第一項增訂自來水事業之海底送水管線為保護客體。\n二、第二項及第三項未修正。\n三、海底送水管線對民生供水具有極大重要性，如因過失毀壞或以其他非法方法危害其功能之正常運作，對國內民生用水穩定供應將產生重大影響；另考量海底送水管線布建之相關圖資已規劃納入海洋委員會之國家海洋資料庫及共享平台，從事海域航行或相關工作者應能知悉並避免造成侵害，爰參考電信管理法第七十二條第四項規定，增訂第四項過失犯之刑罰規範。\n四、第四項移列為第五項，內容未修正。\n五、為維護全國自來水系統正常運作及安全，對第一項所定自來水事業設施、設備（包括自來水事業之海底送水管線）之犯罪態樣，就供其犯罪用之工具、船舶等有不問何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。\n六、第五項移列為第七項，內容未修正。"},{"bill":"202110165260000","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、於第一項所定之犯行中新增危害自來水事業海底送水管線。\n二、新增第四項，配合第一項之修正增列相關罰則。\n三、新增第六項。對為第一項至第三項犯罪所用工具、船舶或其他機械設備為沒收之規定。"},{"bill":"202110164160000","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣三千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億五千萬元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣一億元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、考量自來水為民生必要資源，其設備之運作攸關人民生命、身體及財產之安全，如自來水事業之海底送水管線遭侵害，將對民生社會安定、公共及國家安全造成嚴重影響，為強化對海底送水管線之保護，於第一項增訂自來水事業之海底送水管線為保護客體，並提高故意毀損之罰金刑上限，以生嚇阻效力。\n二、考量海底送水管線對民生供水之重要性，如因過失毀壞或以其他非法方法危害其功能之正常運作，對於國內民生用水穩定供應將產生嚴重影響；又考量海底送水管線布建之相關圖資已規劃納入海洋委員會之國家海洋資料庫及共享平台，從事海域航行或相關工作者應能知悉並避免造成侵害，爰參考電信管理法第七十二條第四項規定，增訂第四項過失犯之刑罰規範。\n三、第四項移列為第五項。\n四、為維護全國自來水系統正常運作及安全，對第一項所定自來水事業設施、設備（包括自來水事業之海底送水管線）之犯罪態樣，就供其犯罪用之工具、船舶等有不問何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。\n五、第五項移列為第七項。"},{"bill":"202110164270000","text":"以竊取、毀壞或其他非法行為危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法行為危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、考量自來水為民生必要資源，其設備之運作攸關人民生命、身體及財產之安全，如自來水事業之海底送水管線遭侵害，將對民生社會安定、公共及國家安全造成嚴重影響，為強化對海底送水管線之保護，於第一項增訂自來水事業之海底送水管線為保護客體。\n二、第二項及第三項未修正。\n三、考量海底送水管線對民生供水之重要性，如因過失毀壞或以其他非法方法危害其功能之正常運作，對於國內民生用水穩定供應將產生嚴重影響；又考量海底送水管線布建之相關圖資已規劃納入海洋委員會之國家海洋資料庫及共享平台，從事海域航行或相關工作者應能知悉並避免造成侵害，爰參考電信管理法第七十二條第四項規定，增訂第四項過失犯之刑罰規範。\n四、第四項移列為第五項，內容未修正。\n五、為維護全國自來水系統正常運作及安全，對第一項所定自來水事業設施、設備（包括自來水事業之海底送水管線）之犯罪態樣，就供其犯罪用之工具、船舶等有不問何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。\n六、第五項移列為第七項，內容未修正。"},{"bill":"202110164240000","text":"以竊取、毀壞或其他非法方法危害與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送氣管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n有前項應沒收船舶之情形者，其犯罪航次之全部收益，不問屬於犯罪行為人與否，沒收之。但於全部或一部不能沒收時，追徵其價額。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、為因應近年懸掛權宜旗之船舶（權宜輪）頻繁破壞我國通訊海纜，對我國對外及離島通訊造成衝擊，甚至危害國家安全。鑑於海底送水管線係輸送自來水之重要設備，亦應一併強化保護之必要。本次修法旨在建立有效的嚇阻機制，參考《電信管理法》第七十二條第四項規定，增訂第四項明定過失犯之刑罰規範。\n二、參考《土石採取法》及《中華民國專屬經濟海域及大陸礁層法》相關規定，增訂第六項，明確規範犯罪所用之船舶、工具等設備的沒收與處置程序。考量到此類犯罪所用船舶常因噸位龐大、保管困難，或因外國籍身份致使拍賣不易，新法特別賦予檢察機關在個案上更大的處置彈性。經專案報准後，得不採傳統拍賣方式，改以「無償留供公用」、「廢棄」（若不具經濟效益）或「為其他適當處置」（如捐作公益或教學之用）等方式。\n三、媒體報導，中華電信曾指出，近年海纜遭破壞主要原因除被少數漁撈作業及大型貨商油船停泊下錨損傷外，大部分障礙是被中國盜砂船在馬祖南竿至西莒間海域作業所傷。參酌美國《海洋哺乳動物保護法》（Marine Mammal Protection Act, MMPA），16 U.S.C.§ 1376「以任何方式用於非法捕撈海洋哺乳動物，其全部貨物或其貨幣價值應予以扣押和沒收。」增訂第七項，若船舶有「毀損海底送水管線」及「船舶被沒收」的情形，其犯罪航次收益，例如非法砂石、非法漁獲，將被視為毀損海底送水管線此犯罪航次之收益而沒收之。若犯罪航次收益已經變賣脫手，亦可追徵其價額。"},{"bill":"202110164850000","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、考量自來水為民生必要資源，其設備之運作攸關人民生命、身體及財產之安全，如自來水事業之海底送水管線遭侵害，將對民生社會安定、公共及國家安全造成嚴重影響，為強化對海底送水管線之保護，於第一項增訂自來水事業之海底送水管線為保護客體。\n二、第二項及第三項未修正。\n三、考量海底送水管線對民生供水之重要性，如因過失毀壞或以其他非法方法危害其功能之正常運作，對於國內民生用水穩定供應將產生嚴重影響；又考量海底送水管線布建之相關圖資已規劃納入海洋委員會之國家海洋資料庫及共享平台，從事海域航行或相關工作者應能知悉並避免造成侵害，爰參考電信管理法第七十二條第四項規定，增訂第四項過失犯之刑罰規範。\n四、第四項移列為第五項，內容未修正。\n五、為維護全國自來水系統正常運作及安全，對第一項所定自來水事業設施、設備（包括自來水事業之海底送水管線）之犯罪態樣，就供其犯罪用之工具、船舶等有不問何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。\n六、第五項移列為第七項，內容未修正。"},{"bill":"201110161340300","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","note":"一、考量自來水為民生必要資源，其設備之運作攸關人民生命、身體及財產之安全，如自來水事業之海底送水管線遭侵害，將對民生社會安定、公共及國家安全造成嚴重影響，為強化對海底送水管線之保護，於第一項增訂自來水事業之海底送水管線為保護客體。\n二、第二項及第三項未修正。\n三、考量海底送水管線對民生供水之重要性，如因過失毀壞或以其他非法方法危害其功能之正常運作，對於國內民生用水穩定供應將產生嚴重影響；又考量海底送水管線布建之相關圖資已規劃納入海洋委員會之國家海洋資料庫及共享平台，從事海域航行或相關工作者應能知悉並避免造成侵害，爰參考電信管理法第七十二條第四項規定，增訂第四項過失犯之刑罰規範。\n四、第四項移列為第五項，內容未修正。\n五、為維護全國自來水系統正常運作及安全，對第一項所定自來水事業設施、設備（包括自來水事業之海底送水管線）之犯罪態樣，就供其犯罪用之工具、船舶等有不問何人所有均予沒收及明定處置方式之必要，爰參考土石採取法第三十六條第三項及中華民國專屬經濟海域及大陸礁層法第十八條第三項規定，增訂第六項。又沒收物有經濟價值者，實務一般係採拍賣或變價方式執行，惟審酌供第一項至第三項及第五項犯罪用之工具（如船舶）往往具有噸數鉅大或其他原因難以保管，或因非我國籍船舶欠缺船籍資料而不易拍賣等特性，爰授權地方檢察署、高等檢察署及其分署得視具體個案沒收物性質與保管方式及處所等情節，專案報准依下列方式之一妥速處置沒收物，俾利實務運作：(一)沒收物有利公務使用者，得無償留供原機關或其他機關公用。(二)衡酌保管費用與沒收物價值後，認無拍賣或變價實益者，得予廢棄。(三)其他適當處置方式，如捐作公益及教學使用等用途。\n六、第五項移列為第七項，內容未修正。"}],"changed":true,"final":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。","finalWhy":"","review":{"note":"照行政院提案通過","text":"以竊取、毀壞或其他非法方法危害自來水事業之海底送水管線、與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水必要設施或設備之功能正常運作者，處一年以上七年以下有期徒刑，得併科新臺幣一千萬元以下罰金。\n意圖危害國家安全或社會安定，而犯前項之罪者，處三年以上十年以下有期徒刑，得併科新臺幣五千萬元以下罰金。\n前二項情形致釀成災害者，加重其刑至二分之一；因而致人於死者，處無期徒刑或七年以上有期徒刑，得併科新臺幣一億元以下罰金；致重傷者，處五年以上十二年以下有期徒刑，得併科新臺幣八千萬元以下罰金。\n因過失毀壞或以其他非法方法危害自來水事業之海底送水管線之功能正常運作者，處六月以下有期徒刑、拘役或科新臺幣二百萬元以下罰金。\n第一項及第二項之未遂犯罰之。\n供第一項至第三項及前項犯罪所用之工具、船舶或其他機械設備，不問屬於犯罪行為人與否，沒收之；其經裁判沒收確定者，得視個案情節需要拍賣或變賣，或專案報准依下列方式之一處置之：\n一、無償留供公用。\n二、廢棄。\n三、為其他適當之處置。\n第一項所定與公共安全有關之自來水事業取水、貯水、導水、淨水、送水、配水之必要設施、設備，由中央主管機關會商相關機關及自來水事業，衡酌其規模、供水量、所在地區、影響民眾生命、身體、財產安全程度及影響經濟產業程度等因素公告之；其異動時，亦同。"}},{"no":"第一百條","current":"本法關於船長或駕駛之規定，於代理船長、駕駛或執行其職務者準用之。\n代理船長、駕駛或執行其職務者，違反前項準用規定者，依第八十九條至第九十四條、第九十八條或第九十九條規定處罰。\n本法關於船舶所有人於第八條、第二十八條之三、第三十條之一、第三十四條之一、第五十二條第三項、第五十九條第二項、第七十條、第七十四條第二項規定，於船舶租用人準用之。\n船舶租用人違反前項準用規定者，依第八十九條、第九十條、第九十一條第一項、第九十七條、第九十八條或第九十九條規定處罰。","versions":[{"bill":"201110161340300","text":"本法關於船長或駕駛之規定，於代理船長、駕駛或執行其職務者準用之。\n代理船長、駕駛或執行其職務者，違反前項準用規定者，依第八十九條至第九十四條、第九十八條或第九十九條規定處罰。\n本法關於船舶所有人於第八條、第八條之一、第十條之一、第十一條之一、第二十八條之三、第三十條之一、第三十四條之一、第五十二條第三項、第五十九條第二項、第七十條、第七十四條第二項規定，於船舶租用人準用之。\n船舶租用人違反前項準用規定者，依第八十九條、第八十九條之一、第九十條、第九十一條第一項、第九十七條、第九十八條或第九十九條規定處罰。","note":"一、為使船舶租用人亦有應遵循修正條文第八條之一、第十條之一及第十一條之一之義務，並適用相應之罰則，爰修正第三項及第四項。\n二、第一項、第二項未修正。"}],"changed":false,"final":"違反第四十七條之規定，經主管機關或自來水事業通知限期改正仍不遵辦著，處一千元以下罰鍰。","finalWhy":null,"review":null}],"stages":[{"date":"2025-09-30","stage":"一讀","code":"院會-11-4-2","bill":null,"gazref":"114卷078期5371號 4-4頁"},{"date":"2025-10-14","stage":"一讀","code":"院會-11-4-4","bill":"202110162830000","gazref":"114卷079期5372號一冊 4-4頁"},{"date":"2025-10-14","stage":"一讀","code":"院會-11-4-4","bill":"202110163040000","gazref":"114卷079期5372號一冊 6-6頁"},{"date":"2025-10-14","stage":"一讀","code":"院會-11-4-4","bill":"202110163460000","gazref":"114卷079期5372號一冊 8-8頁"},{"date":"2025-10-14","stage":"一讀","code":"院會-11-4-4","bill":"202110163840000","gazref":"114卷079期5372號一冊 10-10頁"},{"date":"2025-10-17","stage":"一讀","code":"院會-11-4-5","bill":"202110165260000","gazref":"114卷080期5373號一冊 16-16頁"},{"date":"2025-10-17","stage":"一讀","code":"院會-11-4-5","bill":"202110164160000","gazref":"114卷080期5373號一冊 19-19頁"},{"date":"2025-10-17","stage":"一讀","code":"院會-11-4-5","bill":"202110164270000","gazref":"114卷080期5373號一冊 20-20頁"},{"date":"2025-10-17","stage":"一讀","code":"院會-11-4-5","bill":"202110164240000","gazref":"114卷080期5373號一冊 21-21頁"},{"date":"2025-10-17","stage":"一讀","code":"院會-11-4-5","bill":"202110164850000","gazref":"114卷080期5373號一冊 22-22頁"},{"date":"2025-10-29","code":"委員會-11-4-19-8","title":"第11屆第4會期經濟委員會第8次全體委員會議","gazref":"114卷089期5382號 333-412頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025102281/details?meetingDate=114/10/29","full":["https://ivod.ly.gov.tw/Play/Full/1M/16987"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/89/LCIDC01_1148901_00007.pdf","p1":333,"p2":412}],"clips":[{"n":"羅美玲","t":"09:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164842"},{"n":"羅美玲","t":"09:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164738"},{"n":"邱議瑩","t":"09:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164838"},{"n":"林岱樺","t":"09:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164843"},{"n":"林岱樺","t":"09:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164747"},{"n":"陳亭妃","t":"09:43","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164844"},{"n":"陳亭妃","t":"09:43","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164752"},{"n":"鄭天財Sra Kacaw","t":"09:54","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164754"},{"n":"張啓楷","t":"10:03","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164760"},{"n":"呂玉玲","t":"10:17","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164767"},{"n":"邱志偉","t":"10:26","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164773"},{"n":"謝衣鳯","t":"10:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164778"},{"n":"賴瑞隆","t":"10:48","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164782"},{"n":"楊瓊瓔","t":"10:58","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164784"},{"n":"伍麗華Saidhai Tahovecahe","t":"11:22","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164788"},{"n":"黃國昌","t":"11:30","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164794"},{"n":"賴士葆","t":"11:40","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164839"},{"n":"葉元之","t":"11:47","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164796"},{"n":"徐欣瑩","t":"11:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164799"},{"n":"王鴻薇","t":"12:00","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164800"},{"n":"鄭正鈐","t":"12:06","u":"https://ivod.ly.gov.tw/Play/Clip/1M/164803"}],"props":["201110161340300","202110162830000","202110163040000","202110163840000","202110165260000","202110164160000","202110164270000","202110164240000","202110164850000"],"tr":"tr/1.json","note":null,"mixed":["電業法","天然氣事業法"],"nspeak":34,"nmem":16,"ntable":0,"nfold":5},{"date":"2025-10-30","code":"委員會-11-4-19-8","title":"第11屆第4會期經濟委員會第8次全體委員會議","gazref":"114卷089期5382號 413-437頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025102281/details?meetingDate=114/10/29","full":["https://ivod.ly.gov.tw/Play/Full/1M/16994"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/89/LCIDC01_1148901_00008.pdf","p1":413,"p2":438}],"clips":[],"props":["201110161340300","202110162830000","202110163040000","202110163840000","202110165260000","202110164160000","202110164270000","202110164240000","202110164850000"],"tr":"tr/2.json","note":null,"mixed":["電業法","天然氣事業法"],"nspeak":10,"nmem":5,"ntable":0,"nfold":0},{"date":"2025-12-09","code":"院會-11-4-12","title":"第11屆第4會期第12次會議","gazref":"114卷102期5395號一冊 310-358頁；114卷102期5395號一冊 358-358頁；114卷102期5395號一冊 358-359頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025120335/details?meetingDate=114/12/05","full":["https://ivod.ly.gov.tw/Play/Full/1M/17107"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/102/LCIDC01_11410201_00009.pdf","p1":310,"p2":359}],"clips":[],"props":[],"tr":"tr/3.json","note":null,"nspeak":1,"nmem":0,"ntable":0,"nfold":1}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["10 月 29 日、10 月 30 日的委員會同時審查電業法、天然氣事業法，逐字稿包含那些法案的討論，沒有切開。","10 月 30 日的委員會沒有委員個別發言的影片片段，只有完整影片。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

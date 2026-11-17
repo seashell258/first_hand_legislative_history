@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>地方民意代表費用支給及村里長事務補助費補助條例修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"地方民意代表費用支給及村里長事務補助費補助條例","version":"04819:2024-06-04-修正","date":"2024-06-04","action":"修正","title":"地方民意代表費用支給及村里長事務補助費補助條例　2024 年修正","lede":"","summary":"","key":"04819_2024-06-04","props":[{"id":"202110006500000","who":"委員楊瓊瓔等20人","date":"2024-03-01","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110006500000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/03/LCEWA01_110103_00051.pdf","proposers":["楊瓊瓔","黃健豪","廖偉翔","林沛祥","牛煦庭"],"ncosign":15,"people":[["楊瓊瓔","國民黨","提案"],["黃健豪","國民黨","提案"],["廖偉翔","國民黨","提案"],["林沛祥","國民黨","提案"],["牛煦庭","國民黨","提案"],["羅智強","國民黨","連署"],["蘇清泉","國民黨","連署"],["洪孟楷","國民黨","連署"],["賴士葆","國民黨","連署"],["王育敏","國民黨","連署"],["陳雪生","國民黨","連署"],["張嘉郡","國民黨","連署"],["陳超明","無黨籍","連署"],["陳玉珍","國民黨","連署"],["邱鎮軍","國民黨","連署"],["葉元之","國民黨","連署"],["盧縣一","國民黨","連署"],["黃仁","國民黨","連署"],["謝龍介","國民黨","連署"],["吳宗憲","國民黨","連署"]],"party":[["國民黨",19],["無黨籍",1]],"reason":"本院委員楊瓊瓔、黃健豪、廖偉翔、林沛祥、牛煦庭等20人，鑑於《地方民意代表費用支給及村里長事務補助費補助條例》施行已超過20年，隨著經濟發展及物價上升，勞工基本薪資已逐年上調，然而地方民意代表之公費助理補助費未曾調整，為保障公費助理權益並提升地方民代問政品質，完善地方議會公費助理聘用制度，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110006900000","who":"委員黃捷等22人","date":"2024-03-01","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110006900000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/03/LCEWA01_110103_00075.pdf","proposers":["黃捷","蔡易餘","王美惠"],"ncosign":19,"people":[["黃捷","民進黨","提案"],["蔡易餘","民進黨","提案"],["王美惠","民進黨","提案"],["羅美玲","民進黨","連署"],["李坤城","民進黨","連署"],["吳沛憶","民進黨","連署"],["蔡其昌","民進黨","連署"],["陳俊宇","民進黨","連署"],["張雅琳","民進黨","連署"],["陳秀寳","民進黨","連署"],["王正旭","民進黨","連署"],["林月琴","民進黨","連署"],["吳秉叡","民進黨","連署"],["范雲","民進黨","連署"],["陳培瑜","民進黨","連署"],["徐富癸","民進黨","連署"],["王定宇","民進黨","連署"],["邱議瑩","民進黨","連署"],["沈伯洋","民進黨","連署"],["何欣純","民進黨","連署"],["賴惠員","民進黨","連署"],["陳冠廷","民進黨","連署"]],"party":[["民進黨",22]],"reason":"本院委員黃捷、蔡易餘、王美惠等22人，鑑於民意代表助理工作內容已隨時代演變而更多元化，相較於消費者物價指數、軍公教待遇調整、基本工資調整，二十年來公費助理補助費用未有任何調整，公費助理之人數限制、支領上限亦不符實際需求。為活化政治工作環境，應提升公費支出彈性加以培育、吸納專業人才投身政治，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110007680000","who":"委員吳沛憶等20人","date":"2024-03-01","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110007680000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/03/LCEWA01_110103_00081.pdf","proposers":["吳沛憶"],"ncosign":19,"people":[["吳沛憶","民進黨","提案"],["徐富癸","民進黨","連署"],["邱議瑩","民進黨","連署"],["沈伯洋","民進黨","連署"],["張雅琳","民進黨","連署"],["吳秉叡","民進黨","連署"],["邱志偉","民進黨","連署"],["王美惠","民進黨","連署"],["范雲","民進黨","連署"],["賴惠員","民進黨","連署"],["王世堅","民進黨","連署"],["林月琴","民進黨","連署"],["陳冠廷","民進黨","連署"],["陳秀寳","民進黨","連署"],["黃捷","民進黨","連署"],["陳俊宇","民進黨","連署"],["吳思瑤","民進黨","連署"],["陳培瑜","民進黨","連署"],["王正旭","民進黨","連署"],["蔡其昌","民進黨","連署"]],"party":[["民進黨",20]],"reason":"本院委員吳沛憶等20人，鑑於地方民意代表公費助理補助費用總額制定至今已逾二十四年未調整，影響助理勞動條件，又為明定地方民意代表公費助理適用勞動基準法相關規範之補助費用項目，保障助理做為勞工之勞動權益，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110009590000","who":"委員鄭天財Sra Kacaw等19人","date":"2024-03-08","name":"「地方民意代表費用支給及村里長事務補助費補助條例部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110009590000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/04/LCEWA01_110104_00019.pdf","proposers":["鄭天財Sra Kacaw","盧縣一","高金素梅","羅明才"],"ncosign":15,"people":[["鄭天財Sra Kacaw","國民黨","提案"],["盧縣一","國民黨","提案"],["高金素梅","無黨籍","提案"],["羅明才","國民黨","提案"],["陳超明","無黨籍","連署"],["陳雪生","國民黨","連署"],["萬美玲","國民黨","連署"],["徐欣瑩","國民黨","連署"],["張嘉郡","國民黨","連署"],["陳玉珍","國民黨","連署"],["呂玉玲","國民黨","連署"],["林倩綺","國民黨","連署"],["鄭正鈐","國民黨","連署"],["賴士葆","國民黨","連署"],["魯明哲","國民黨","連署"],["柯志恩","國民黨","連署"],["翁曉玲","國民黨","連署"],["謝衣鳯","國民黨","連署"],["顏寬恒","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",2]],"reason":"本院委員鄭天財Sra Kacaw、盧縣一、高金素梅、羅明才等19人，有鑑於直轄市及縣市議會議員之公費助理聘任及其勞動權益保障，以及提升村（里）長之身體健康權益日趨重要，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例部分條文修正草案」。是否有當？敬請公決。","arts":["第六條","第七條","第九條","第十條"]},{"id":"202110013160000","who":"委員羅智強等25人","date":"2024-03-15","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110013160000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00065.pdf","proposers":["羅智強","傅崐萁","黃健豪","張嘉郡","蘇清泉","鄭天財Sra Kacaw","高金素梅","洪孟楷","游顥"],"ncosign":16,"people":[["羅智強","國民黨","提案"],["傅崐萁","國民黨","提案"],["黃健豪","國民黨","提案"],["張嘉郡","國民黨","提案"],["蘇清泉","國民黨","提案"],["鄭天財Sra Kacaw","國民黨","提案"],["高金素梅","無黨籍","提案"],["洪孟楷","國民黨","提案"],["游顥","國民黨","提案"],["鄭正鈐","國民黨","連署"],["陳雪生","國民黨","連署"],["徐欣瑩","國民黨","連署"],["林倩綺","國民黨","連署"],["馬文君","國民黨","連署"],["牛煦庭","國民黨","連署"],["廖先翔","國民黨","連署"],["邱若華","國民黨","連署"],["葛如鈞","國民黨","連署"],["林思銘","國民黨","連署"],["陳玉珍","國民黨","連署"],["謝龍介","國民黨","連署"],["羅明才","國民黨","連署"],["王鴻薇","國民黨","連署"],["林沛祥","國民黨","連署"],["涂權吉","國民黨","連署"]],"party":[["國民黨",24],["無黨籍",1]],"reason":"本院委員羅智強、傅崐萁、黃健豪、張嘉郡、蘇清泉、鄭天財Sra Kacaw、高金素梅、洪孟楷、游顥等25人，有鑑於《地方民意代表費用支給及村里長事務補助費補助條例》（以下簡稱本條例），自民國八十九年制定時，即明定定額之費用，補助直轄市、縣（市）議員聘用公費助理。然本條例公布施行迄今已逾二十年。期間內，隨著國家經濟成長及物價波動，軍公教人員待遇業經六次調整，勞工基本薪資亦經十八次公告調整，惟前述地方民意代表公費助理補助費用總額，二十餘年來均未調整。且公費助理補助費，實務上係屬公費助理實質薪資給付性質，而非補助性質。為提升地方民意代表問政品質，健全地方議會公費助理聘用制度，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」，將地方議會公費助理制度，比照立法院公費助理制度，並保障公費助理相關勞動權益，以健全地方議會公費助理聘用制度。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110012810000","who":"委員羅美玲等18人","date":"2024-03-15","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110012810000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00073.pdf","proposers":["羅美玲","陳冠廷","陳亭妃","許智傑","莊瑞雄","伍麗華Saidhai‧Tahovecahe","王美惠"],"ncosign":11,"people":[["羅美玲","民進黨","提案"],["陳冠廷","民進黨","提案"],["陳亭妃","民進黨","提案"],["許智傑","民進黨","提案"],["莊瑞雄","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["王美惠","民進黨","提案"],["徐富癸","民進黨","連署"],["張雅琳","民進黨","連署"],["陳培瑜","民進黨","連署"],["黃秀芳","民進黨","連署"],["王世堅","民進黨","連署"],["李坤城","民進黨","連署"],["陳秀寳","民進黨","連署"],["沈伯洋","民進黨","連署"],["吳秉叡","民進黨","連署"],["林月琴","民進黨","連署"],["洪申翰","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員羅美玲、陳冠廷、陳亭妃、許智傑、莊瑞雄、伍麗華Saidhai Tahovecahe、王美惠等18人，鑒於現今議員服務型態與助理工作隨時代與科技演進變化更加多元。二十四年來台灣勞工基本薪資、軍公教薪資皆歷經多次調漲，惟公費助理補助費用未曾調整，明顯不符公平原則，為使議員人力資源配置更加彈性，及為利議員吸納人才兼顧議員公費助理勞動權益，以維護縣市議會問政品質，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110014200000","who":"委員呂玉玲等19人","date":"2024-03-15","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110014200000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00124.pdf","proposers":["呂玉玲","牛煦庭","萬美玲","涂權吉","邱若華","魯明哲"],"ncosign":13,"people":[["呂玉玲","國民黨","提案"],["牛煦庭","國民黨","提案"],["萬美玲","國民黨","提案"],["涂權吉","國民黨","提案"],["邱若華","國民黨","提案"],["魯明哲","國民黨","提案"],["顏寬恒","國民黨","連署"],["張嘉郡","國民黨","連署"],["葛如鈞","國民黨","連署"],["丁學忠","國民黨","連署"],["廖偉翔","國民黨","連署"],["陳雪生","國民黨","連署"],["王鴻薇","國民黨","連署"],["許宇甄","國民黨","連署"],["林倩綺","國民黨","連署"],["陳超明","無黨籍","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["鄭正鈐","國民黨","連署"]],"party":[["國民黨",18],["無黨籍",1]],"reason":"本院委員呂玉玲、牛煦庭、萬美玲、涂權吉、邱若華、魯明哲等19人，有鑒於地方議會公費助理薪資補助總額已逾二十四年未有調整，薪資無法及時反映現實生活所需。爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110014190000","who":"委員吳思瑤等17人","date":"2024-03-15","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110014190000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00134.pdf","proposers":["吳思瑤","李坤城","范雲"],"ncosign":14,"people":[["吳思瑤","民進黨","提案"],["李坤城","民進黨","提案"],["范雲","民進黨","提案"],["林楚茵","民進黨","連署"],["林月琴","民進黨","連署"],["吳沛憶","民進黨","連署"],["郭昱晴","民進黨","連署"],["郭國文","民進黨","連署"],["陳俊宇","民進黨","連署"],["何欣純","民進黨","連署"],["蔡易餘","民進黨","連署"],["陳培瑜","民進黨","連署"],["林淑芬","民進黨","連署"],["許智傑","民進黨","連署"],["賴惠員","民進黨","連署"],["陳冠廷","民進黨","連署"],["李昆澤","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員吳思瑤、李坤城、范雲等17人，為強化地方議會監督能量，落實地方自治，合理提高各地方議會議員助理補助費總額，刪除聘用公費助理人數上限，增列助理適用勞動基準法相關費用由議會編列補助，另為減少詐領費用情事，明定議會應建立內控機制，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110014040000","who":"委員陳超明等18人","date":"2024-03-22","name":"「地方民意代表費用支給及村里長事務補助費補助條例增訂第七條之一條文草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110014040000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/06/LCEWA01_110106_00009.pdf","proposers":["陳超明","張智倫","丁學忠","游顥","羅廷瑋","顏寬恒"],"ncosign":11,"people":[["陳超明","無黨籍","提案"],["張智倫","國民黨","提案"],["丁學忠","國民黨","提案"],["游顥","國民黨","提案"],["羅廷瑋","國民黨","提案"],["顏寬恒","國民黨","提案"],["邱鎮軍","國民黨","連署"],["馬文君","國民黨","連署"],["翁曉玲","國民黨","連署"],["陳菁徽","國民黨","連署"],["黃建賓","國民黨","連署"],["牛煦庭","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["邱若華","國民黨","連署"],["李彥秀","國民黨","連署"],["陳玉珍","國民黨","連署"],["盧縣一","國民黨","連署"]],"party":[["國民黨",16],["無黨籍",1]],"reason":"本院委員陳超明、張智倫、丁學忠、游顥、羅廷瑋、顏寬恒等18人，鑒於地方民意代表行使職權議決縣（市）法規規章、預算、監督施政、接受民眾陳情等職事，從事服務工作多年，以及村（里）長從事基層服務多年，於退休之際，卻無相關制度保障其老年生活。為保障地方民意代表及村里長多年代表民意、服務基層，至老年之生活有所基本保障，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例增訂第七條之一條文草案」，規定地方民意代表及村里長任職滿二十年且年滿六十五歲，退職應發給退職金。是否有當？敬請公決。","arts":["第七條之一"]},{"id":"202110016690000","who":"委員李柏毅等17人","date":"2024-03-22","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110016690000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/06/LCEWA01_110106_00057.pdf","proposers":["李柏毅","許智傑"],"ncosign":15,"people":[["李柏毅","民進黨","提案"],["許智傑","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["林俊憲","民進黨","連署"],["王美惠","民進黨","連署"],["黃捷","民進黨","連署"],["沈伯洋","民進黨","連署"],["陳俊宇","民進黨","連署"],["鍾佳濱","民進黨","連署"],["郭昱晴","民進黨","連署"],["羅美玲","民進黨","連署"],["李昆澤","民進黨","連署"],["吳沛憶","民進黨","連署"],["林楚茵","民進黨","連署"],["張雅琳","民進黨","連署"],["蔡易餘","民進黨","連署"],["陳冠廷","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員李柏毅、許智傑等17人，為使民意代表得以順利開展其工作，《地方民意代表費用支給及村里長事務補助費補助條例》第六條以公費助理的方式，使地方民代得以不受限於個人財務狀況而聘用助理，但本條例有關縣（市）議會議員之補助費用以新臺幣8萬元為限，以目前基本工資27,470元計算，僅能聘用2位助理，而此數額甚至包含了加班費、勞健保雇主負擔與勞退雇主提撥，等同大幅壓縮縣（市）議員的用人彈性，斲傷地方民意與問政品質。為有效增進縣（市）議員聘用助理之彈性、確保縣（市）議會專業問政並合理改善地方民代助理之待遇，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110018380000","who":"委員黃健豪等17人","date":"2024-03-22","name":"「地方民意代表費用支給及村里長事務補助費補助條例增訂第七條之一條文草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110018380000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/06/LCEWA01_110106_00119.pdf","proposers":["黃健豪"],"ncosign":16,"people":[["黃健豪","國民黨","提案"],["楊瓊瓔","國民黨","連署"],["羅廷瑋","國民黨","連署"],["陳菁徽","國民黨","連署"],["盧縣一","國民黨","連署"],["萬美玲","國民黨","連署"],["林德福","國民黨","連署"],["鄭正鈐","國民黨","連署"],["呂玉玲","國民黨","連署"],["林沛祥","國民黨","連署"],["蘇清泉","國民黨","連署"],["張嘉郡","國民黨","連署"],["洪孟楷","國民黨","連署"],["林倩綺","國民黨","連署"],["邱若華","國民黨","連署"],["張智倫","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"]],"party":[["國民黨",17]],"reason":"本院委員黃健豪等17人，鑒於地方村（里）長是第一線直接面對選民、服務民眾的最基層民選公職人員，協調在地公私事務，協助居民溝通互動，對在地事務熟悉、與民眾互動密切，是民選公職的基柱。然而，兢兢業業服務多年，臨老退休前卻無任何制度保障其老年生活，相對剝奪感極大。為使村（里）長老年生活有基本保障，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例增訂第七條之一條文草案」，增訂村里長任職滿二十年且年滿65歲，退職應發給退職金，其認定標準、計算方式與申領辦法由中央主管機關訂定。是否有當？敬請公決。","arts":["第七條之一"]},{"id":"202110018620000","who":"委員徐巧芯等28人","date":"2024-03-22","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110018620000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/06/LCEWA01_110106_00129.pdf","proposers":["徐巧芯","黃健豪","林沛祥","徐欣瑩","游顥"],"ncosign":23,"people":[["徐巧芯","國民黨","提案"],["黃健豪","國民黨","提案"],["林沛祥","國民黨","提案"],["徐欣瑩","國民黨","提案"],["游顥","國民黨","提案"],["葛如鈞","國民黨","連署"],["顏寬恒","國民黨","連署"],["洪孟楷","國民黨","連署"],["陳雪生","國民黨","連署"],["賴士葆","國民黨","連署"],["林倩綺","國民黨","連署"],["張智倫","國民黨","連署"],["廖先翔","國民黨","連署"],["廖偉翔","國民黨","連署"],["陳菁徽","國民黨","連署"],["柯志恩","國民黨","連署"],["羅智強","國民黨","連署"],["涂權吉","國民黨","連署"],["高金素梅","無黨籍","連署"],["馬文君","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["羅明才","國民黨","連署"],["謝龍介","國民黨","連署"],["邱鎮軍","國民黨","連署"],["林思銘","國民黨","連署"],["牛煦庭","國民黨","連署"],["王鴻薇","國民黨","連署"]],"party":[["國民黨",27],["無黨籍",1]],"reason":"本院委員徐巧芯、黃健豪、林沛祥、徐欣瑩、游顥等28人，有鑑於《地方民意代表費用支給及村里長事務補助費補助條例》（以下簡稱本條例），自民國八十九年制定時，即明定定額之費用，補助直轄市、縣（市）議員聘用公費助理。期間內，因應經濟成長及物價波動，勞工基本薪資業經17次公告調整，勞工基本工資自89年調整迄今（113年），已自每月新臺幣1萬5,840元調整為2萬7,470元，調整幅度為73.42%；軍公教人員待遇亦經6次調整，今（113）年軍公教人員待遇亦調增4%，累進調整幅度為18.19%。然公費助理補助費總額24年來均未曾調整，顯非合理。且公費助理補助費，實務上係屬公費助理實質薪資給付性質，而非補助性質。為提升地方民意代表問政品質，健全地方議會公費助理聘用制度，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」，將地方議會公費助理制度，比照立法院公費助理制度，並保障公費助理相關勞動權益，以健全地方議會公費助理聘用制度。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110018540000","who":"委員莊瑞雄等18人","date":"2024-03-22","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110018540000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/06/LCEWA01_110106_00142.pdf","proposers":["莊瑞雄","李坤城","蔡易餘","許智傑","黃秀芳","王美惠"],"ncosign":12,"people":[["莊瑞雄","民進黨","提案"],["李坤城","民進黨","提案"],["蔡易餘","民進黨","提案"],["許智傑","民進黨","提案"],["黃秀芳","民進黨","提案"],["王美惠","民進黨","提案"],["林月琴","民進黨","連署"],["郭昱晴","民進黨","連署"],["鍾佳濱","民進黨","連署"],["何欣純","民進黨","連署"],["王正旭","民進黨","連署"],["陳培瑜","民進黨","連署"],["王定宇","民進黨","連署"],["林楚茵","民進黨","連署"],["吳沛憶","民進黨","連署"],["陳秀寳","民進黨","連署"],["羅美玲","民進黨","連署"],["吳思瑤","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員莊瑞雄、李坤城、蔡易餘、許智傑、黃秀芳、王美惠等18人，有鑑於物價和勞工基本薪資歷經多次調整，然關係直轄市及縣市議會議員之公費助理聘任及其相關勞動權益保障之《地方民意代表費用支給及村里長事務補助費補助條例》業已逾廿餘年未隨之調整。為強化民意代表助理之勞動權益保障，健全地方議會公費助理聘用制度，活化政治工作環境，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110020850000","who":"委員高金素梅等29人","date":"2024-03-29","name":"「地方民意代表費用支給及村里長事務補助費補助條例第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110020850000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00028.pdf","proposers":["高金素梅","鄭天財Sra Kacaw","謝衣鳯","楊瓊瓔","顏寬恒","游顥","羅明才","傅崐萁"],"ncosign":21,"people":[["高金素梅","無黨籍","提案"],["鄭天財Sra Kacaw","國民黨","提案"],["謝衣鳯","國民黨","提案"],["楊瓊瓔","國民黨","提案"],["顏寬恒","國民黨","提案"],["游顥","國民黨","提案"],["羅明才","國民黨","提案"],["傅崐萁","國民黨","提案"],["許宇甄","國民黨","連署"],["麥玉珍","民眾黨","連署"],["洪孟楷","國民黨","連署"],["羅智強","國民黨","連署"],["徐巧芯","國民黨","連署"],["林倩綺","國民黨","連署"],["王育敏","國民黨","連署"],["林沛祥","國民黨","連署"],["柯志恩","國民黨","連署"],["邱鎮軍","國民黨","連署"],["王鴻薇","國民黨","連署"],["翁曉玲","國民黨","連署"],["邱若華","國民黨","連署"],["牛煦庭","國民黨","連署"],["林思銘","國民黨","連署"],["賴士葆","國民黨","連署"],["林德福","國民黨","連署"],["廖先翔","國民黨","連署"],["陳菁徽","國民黨","連署"],["萬美玲","國民黨","連署"],["張嘉郡","國民黨","連署"]],"party":[["國民黨",27],["無黨籍",1],["民眾黨",1]],"reason":"本院委員高金素梅、鄭天財Sra Kacaw、謝衣鳯、楊瓊瓔、顏寬恒、游顥、羅明才、傅崐萁等29人，有鑑於民眾對於村（里）長的服務品質要求日遽提升，同時亦須協助地方政府推動政策及宣傳，扮演政府與人民間重要聯絡窗口，故對於專職與專業性更加要求，導致村（里）長繁忙與辛勤情況不下於地方或中央民意代表。又因近年物價通膨嚴重，目前村（里）長事務補助費似不敷使用，若無法隨同物價指數調整，將使服務基層的村（里）長更顯艱辛，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第七條條文修正草案」，比照地方民意代表與公費助理增加村（里）長的春節慰勞金費用，並規範村（里）長事務補助費應依消費者物價指數調整。是否有當？敬請公決。","arts":["第七條"]},{"id":"202110021580000","who":"委員林思銘等26人","date":"2024-03-29","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110021580000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00072.pdf","proposers":["林思銘","蘇清泉","林沛祥"],"ncosign":23,"people":[["林思銘","國民黨","提案"],["蘇清泉","國民黨","提案"],["林沛祥","國民黨","提案"],["顏寬恒","國民黨","連署"],["吳宗憲","國民黨","連署"],["廖偉翔","國民黨","連署"],["涂權吉","國民黨","連署"],["徐巧芯","國民黨","連署"],["黃仁","國民黨","連署"],["黃建賓","國民黨","連署"],["陳玉珍","國民黨","連署"],["牛煦庭","國民黨","連署"],["廖先翔","國民黨","連署"],["賴士葆","國民黨","連署"],["邱若華","國民黨","連署"],["林德福","國民黨","連署"],["陳菁徽","國民黨","連署"],["萬美玲","國民黨","連署"],["邱鎮軍","國民黨","連署"],["高金素梅","無黨籍","連署"],["王鴻薇","國民黨","連署"],["翁曉玲","國民黨","連署"],["傅崐萁","國民黨","連署"],["謝龍介","國民黨","連署"],["盧縣一","國民黨","連署"],["馬文君","國民黨","連署"]],"party":[["國民黨",25],["無黨籍",1]],"reason":"本院委員林思銘、蘇清泉、林沛祥等26人，有鑑於議員服務型態隨時代變遷有所變化，議員助理工作方式、內容亦趨多元，為使議員用人更有彈性以符合實際需求，並要求議員聘用基本助理人數維持問政品質及兼顧議會行政成本等，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110021560000","who":"委員王美惠等17人","date":"2024-03-29","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110021560000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00077.pdf","proposers":["王美惠","陳冠廷","許智傑","伍麗華Saidhai‧Tahovecahe","蔡易餘"],"ncosign":12,"people":[["王美惠","民進黨","提案"],["陳冠廷","民進黨","提案"],["許智傑","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["蔡易餘","民進黨","提案"],["林俊憲","民進黨","連署"],["郭昱晴","民進黨","連署"],["張雅琳","民進黨","連署"],["李坤城","民進黨","連署"],["黃捷","民進黨","連署"],["陳培瑜","民進黨","連署"],["莊瑞雄","民進黨","連署"],["徐富癸","民進黨","連署"],["何欣純","民進黨","連署"],["陳素月","民進黨","連署"],["洪申翰","民進黨","連署"],["吳沛憶","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員王美惠、陳冠廷、許智傑、伍麗華Saidhai Tahovecahe、蔡易餘等17人，鑒於議員服務型態趨於多元，議員助理服務與工作勞動條件已與過往大相逕庭。又我國基本工資已逐年調整，惟現行縣市議員公費助理人數、費用總額之限制已逾二十四年未調整，顯不符實際需求。為維持民意代表問政之品質，提升政治工作勞動條件，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110021890000","who":"委員盧縣一等19人","date":"2024-03-29","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條、第七條及第九條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110021890000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00086.pdf","proposers":["盧縣一","鄭天財Sra Kacaw","蘇清泉","黃仁"],"ncosign":15,"people":[["盧縣一","國民黨","提案"],["鄭天財Sra Kacaw","國民黨","提案"],["蘇清泉","國民黨","提案"],["黃仁","國民黨","提案"],["陳菁徽","國民黨","連署"],["邱鎮軍","國民黨","連署"],["牛煦庭","國民黨","連署"],["涂權吉","國民黨","連署"],["陳雪生","國民黨","連署"],["馬文君","國民黨","連署"],["林沛祥","國民黨","連署"],["王育敏","國民黨","連署"],["林思銘","國民黨","連署"],["羅廷瑋","國民黨","連署"],["黃健豪","國民黨","連署"],["陳超明","無黨籍","連署"],["高金素梅","無黨籍","連署"],["廖先翔","國民黨","連署"],["羅智強","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",2]],"reason":"本院委員盧縣一、鄭天財Sra Kacaw、蘇清泉、黃仁等19人，有鑑於直轄市及縣市議員服務型態及其助理之工作內容及日趨複雜及多樣，地方民意代表為強化其問政及進行選民服務實有賴其助理之協助，爰對於直轄市、縣（市）議會議員之公費助理之聘任彈性及其勞動權益之保障；以及為提升村（里）長之服務量能，酌情提高其工作待遇及意外事故之理賠保障，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條、第七條及第九條條文修正草案」。是否有當？敬請公決。","arts":["第六條","第七條","第九條"]},{"id":"202110022180000","who":"委員蔡易餘等19人","date":"2024-03-29","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110022180000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00105.pdf","proposers":["蔡易餘","王美惠","陳俊宇"],"ncosign":16,"people":[["蔡易餘","民進黨","提案"],["王美惠","民進黨","提案"],["陳俊宇","民進黨","提案"],["洪申翰","民進黨","連署"],["陳亭妃","民進黨","連署"],["邱志偉","民進黨","連署"],["莊瑞雄","民進黨","連署"],["賴惠員","民進黨","連署"],["林岱樺","民進黨","連署"],["王世堅","民進黨","連署"],["郭昱晴","民進黨","連署"],["林月琴","民進黨","連署"],["吳沛憶","民進黨","連署"],["陳冠廷","民進黨","連署"],["徐富癸","民進黨","連署"],["何欣純","民進黨","連署"],["黃捷","民進黨","連署"],["陳培瑜","民進黨","連署"],["陳秀寳","民進黨","連署"]],"party":[["民進黨",19]],"reason":"本院委員蔡易餘、王美惠、陳俊宇等19人，鑑於目前議員公費助理之加班費、職業災害保險皆由議員自行支應，導致公費助理難以實質得到應有之勞動權益；又我國基本工資已逐年調整，議員公費助理補助費用總額應綜合考量社會薪資成長比例及地方財政狀況調整酌增，為保持調薪之彈性，毋須規定總額上限；爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110027170000","who":"委員范雲等17人","date":"2024-04-09","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110027170000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/08/LCEWA01_110108_00068.pdf","proposers":["范雲","莊瑞雄","陳冠廷"],"ncosign":14,"people":[["范雲","民進黨","提案"],["莊瑞雄","民進黨","提案"],["陳冠廷","民進黨","提案"],["洪申翰","民進黨","連署"],["林楚茵","民進黨","連署"],["王美惠","民進黨","連署"],["陳秀寳","民進黨","連署"],["張宏陸","民進黨","連署"],["黃捷","民進黨","連署"],["劉建國","民進黨","連署"],["林月琴","民進黨","連署"],["吳沛憶","民進黨","連署"],["沈伯洋","民進黨","連署"],["李坤城","民進黨","連署"],["陳俊宇","民進黨","連署"],["陳培瑜","民進黨","連署"],["張雅琳","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員范雲、莊瑞雄、陳冠廷等17人，有鑑於地方民意代表公費助理補助費用總額制定至今已逾二十四年未調整，補助費用上限已不符實際需求；且未明定補助加班費等適用勞動基準法相關規範之費用，長期影響助理勞動環境、薪資條件，更影響民意代表問政品質，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110027210000","who":"委員許宇甄等16人","date":"2024-04-09","name":"「地方民意代表費用支給及村里長事務補助費補助條例第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110027210000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/08/LCEWA01_110108_00072.pdf","proposers":["許宇甄","游顥"],"ncosign":14,"people":[["許宇甄","國民黨","提案"],["游顥","國民黨","提案"],["蘇清泉","國民黨","連署"],["黃建賓","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["傅崐萁","國民黨","連署"],["吳宗憲","國民黨","連署"],["林德福","國民黨","連署"],["高金素梅","無黨籍","連署"],["張智倫","國民黨","連署"],["丁學忠","國民黨","連署"],["牛煦庭","國民黨","連署"],["翁曉玲","國民黨","連署"],["張嘉郡","國民黨","連署"],["黃健豪","國民黨","連署"],["林倩綺","國民黨","連署"]],"party":[["國民黨",15],["無黨籍",1]],"reason":"本院委員許宇甄、游顥等16人，有鑑於傳統村（里）辦公處服務的被動需求已不符民眾及社會所需，村里雖是我國選區劃分的最小單位，但村里長的工作卻是非常瑣碎且複雜的，不僅要主動服務民眾、政令宣導之外，還需要整合社區資源，並積極爭取公部門補助，維護村里的生活環境品質，其辛勞程度不亞於中央或地方民意代表。惟目前事務補助費無法及時反應村（里）長現實生活所需，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第七條條文修正草案」發放村（里）長的春節慰勞金及為民服務費。是否有當？敬請公決。","arts":["第七條"]},{"id":"202110027340000","who":"委員黃秀芳等19人","date":"2024-04-09","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110027340000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/08/LCEWA01_110108_00085.pdf","proposers":["黃秀芳"],"ncosign":18,"people":[["黃秀芳","民進黨","提案"],["林月琴","民進黨","連署"],["王美惠","民進黨","連署"],["賴惠員","民進黨","連署"],["黃捷","民進黨","連署"],["吳秉叡","民進黨","連署"],["許智傑","民進黨","連署"],["王正旭","民進黨","連署"],["林俊憲","民進黨","連署"],["郭國文","民進黨","連署"],["蔡易餘","民進黨","連署"],["范雲","民進黨","連署"],["陳培瑜","民進黨","連署"],["鍾佳濱","民進黨","連署"],["李坤城","民進黨","連署"],["陳俊宇","民進黨","連署"],["羅美玲","民進黨","連署"],["陳秀寳","民進黨","連署"],["陳亭妃","民進黨","連署"]],"party":[["民進黨",19]],"reason":"本院委員黃秀芳等19人，有鑑於地方民意代表公費助理補助費用總額制定迄今已逾二十四年未調整，且直轄市及縣（市）議員服務型態漸趨多元，已不再局限於一般選民服務及質詢內容準備，網路社群經營及行銷亦成為地方議員工作內容之一，助理工作亦隨之多元化而加重工作負擔，為維護各縣市議會問政品質，裨利政治專業人才之留任，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條」條文修正草案。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110027870000","who":"委員鍾佳濱等27人","date":"2024-04-09","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110027870000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/08/LCEWA01_110108_00114.pdf","proposers":["鍾佳濱","伍麗華Saidhai‧Tahovecahe","林俊憲"],"ncosign":24,"people":[["鍾佳濱","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["林俊憲","民進黨","提案"],["賴惠員","民進黨","連署"],["吳秉叡","民進黨","連署"],["蔡易餘","民進黨","連署"],["李坤城","民進黨","連署"],["蔡其昌","民進黨","連署"],["許智傑","民進黨","連署"],["王美惠","民進黨","連署"],["羅美玲","民進黨","連署"],["王正旭","民進黨","連署"],["郭昱晴","民進黨","連署"],["林月琴","民進黨","連署"],["陳培瑜","民進黨","連署"],["陳素月","民進黨","連署"],["沈伯洋","民進黨","連署"],["劉建國","民進黨","連署"],["吳沛憶","民進黨","連署"],["張雅琳","民進黨","連署"],["黃秀芳","民進黨","連署"],["陳俊宇","民進黨","連署"],["陳秀寳","民進黨","連署"],["陳冠廷","民進黨","連署"],["何欣純","民進黨","連署"],["李柏毅","民進黨","連署"],["徐富癸","民進黨","連署"]],"party":[["民進黨",27]],"reason":"本院委員鍾佳濱、伍麗華Saidhai Tahovecahe、林俊憲等27人，鑑於2024年起基本工資進一步調漲至2萬7,470元，惟依現行條例規定計算，縣（市）議員公費助理聘至上限人數將不符合最低基本工資要求，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110029290000","who":"委員陳瑩等17人","date":"2024-04-12","name":"「地方民意代表費用支給及村里長事務補助費補助條例第五條、第六條及第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110029290000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/09/LCEWA01_110109_00035.pdf","proposers":["陳瑩","伍麗華Saidhai‧Tahovecahe"],"ncosign":15,"people":[["陳瑩","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["劉建國","民進黨","連署"],["賴惠員","民進黨","連署"],["黃秀芳","民進黨","連署"],["王正旭","民進黨","連署"],["林月琴","民進黨","連署"],["陳秀寳","民進黨","連署"],["洪申翰","民進黨","連署"],["郭昱晴","民進黨","連署"],["羅美玲","民進黨","連署"],["張啓楷","民眾黨","連署"],["陳俊宇","民進黨","連署"],["沈伯洋","民進黨","連署"],["吳秉叡","民進黨","連署"],["鍾佳濱","民進黨","連署"],["王美惠","民進黨","連署"]],"party":[["民進黨",16],["民眾黨",1]],"reason":"本院委員陳瑩、伍麗華Saidhai Tahovecahe等17人，鑑於為健全地方民意代表公費助理與村（里）長保障制度，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第五條、第六條及第七條條文修正草案」。是否有當？敬請公決。","arts":["第五條","第六條","第七條"]},{"id":"202110030640000","who":"委員伍麗華Saidhai Tahovecahe等17人","date":"2024-04-12","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110030640000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/09/LCEWA01_110109_00063.pdf","proposers":["伍麗華Saidhai‧Tahovecahe"],"ncosign":16,"people":[["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["陳秀寳","民進黨","連署"],["林俊憲","民進黨","連署"],["吳沛憶","民進黨","連署"],["郭昱晴","民進黨","連署"],["王正旭","民進黨","連署"],["王美惠","民進黨","連署"],["徐富癸","民進黨","連署"],["羅美玲","民進黨","連署"],["鍾佳濱","民進黨","連署"],["張雅琳","民進黨","連署"],["何欣純","民進黨","連署"],["黃捷","民進黨","連署"],["沈伯洋","民進黨","連署"],["賴瑞隆","民進黨","連署"],["黃秀芳","民進黨","連署"],["劉建國","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員伍麗華Saidhai Tahovecahe等17人，鑑於目前議員公費助理之加班費、職業災害保險皆由議員自行支應，導致公費助理難以實質得到應有之勞動權益；又我國基本工資已逐年調整，議員公費助理補助費用上限應視消費者物價指數調整酌增，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110030470000","who":"委員陳素月等21人","date":"2024-04-19","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110030470000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00007.pdf","proposers":["陳素月","蔡易餘"],"ncosign":19,"people":[["陳素月","民進黨","提案"],["蔡易餘","民進黨","提案"],["邱志偉","民進黨","連署"],["陳俊宇","民進黨","連署"],["林楚茵","民進黨","連署"],["何欣純","民進黨","連署"],["徐富癸","民進黨","連署"],["黃捷","民進黨","連署"],["陳培瑜","民進黨","連署"],["王美惠","民進黨","連署"],["邱議瑩","民進黨","連署"],["陳亭妃","民進黨","連署"],["林月琴","民進黨","連署"],["陳秀寳","民進黨","連署"],["李坤城","民進黨","連署"],["鍾佳濱","民進黨","連署"],["吳琪銘","民進黨","連署"],["張雅琳","民進黨","連署"],["林岱樺","民進黨","連署"],["吳沛憶","民進黨","連署"],["羅美玲","民進黨","連署"]],"party":[["民進黨",21]],"reason":"本院委員陳素月、蔡易餘等21人，鑑於各直轄市、縣（市）議員服務型態改變且多元複雜，惟地方民意代表公費助理待遇卻近二十四年未調整；諸多聘用限制如助理人數、薪資待遇及工作加班費等規定，有與時俱進的必要性。爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110033290000","who":"委員徐欣瑩等19人","date":"2024-04-19","name":"「地方民意代表費用支給及村里長事務補助費補助條例第三條及第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110033290000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00018.pdf","proposers":["徐欣瑩","林沛祥","游顥","邱鎮軍"],"ncosign":15,"people":[["徐欣瑩","國民黨","提案"],["林沛祥","國民黨","提案"],["游顥","國民黨","提案"],["邱鎮軍","國民黨","提案"],["鄭天財Sra Kacaw","國民黨","連署"],["葛如鈞","國民黨","連署"],["牛煦庭","國民黨","連署"],["賴士葆","國民黨","連署"],["涂權吉","國民黨","連署"],["蘇清泉","國民黨","連署"],["林倩綺","國民黨","連署"],["林德福","國民黨","連署"],["羅廷瑋","國民黨","連署"],["王育敏","國民黨","連署"],["高金素梅","無黨籍","連署"],["陳玉珍","國民黨","連署"],["廖先翔","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["傅崐萁","國民黨","連署"]],"party":[["國民黨",18],["無黨籍",1]],"reason":"本院委員徐欣瑩、林沛祥、游顥、邱鎮軍等19人，有鑑於縣（市）、鄉（鎮、市）民意代表研究費於立法時，遷就當時現況訂定標準時並未納入主管職務加給，立法不妥應予修正納入。另外，每一位縣（市）議員每月助理補助費用總額，亦須調整提升。爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第三條及第六條條文修正草案」。是否有當？敬請公決。","arts":["第三條","第六條"]},{"id":"202110031750000","who":"委員洪申翰等16人","date":"2024-04-19","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110031750000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00037.pdf","proposers":["洪申翰"],"ncosign":15,"people":[["洪申翰","民進黨","提案"],["林淑芬","民進黨","連署"],["林楚茵","民進黨","連署"],["黃捷","民進黨","連署"],["王美惠","民進黨","連署"],["陳亭妃","民進黨","連署"],["吳沛憶","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳培瑜","民進黨","連署"],["張雅琳","民進黨","連署"],["范雲","民進黨","連署"],["王正旭","民進黨","連署"],["吳思瑤","民進黨","連署"],["沈伯洋","民進黨","連署"],["鍾佳濱","民進黨","連署"],["黃秀芳","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員洪申翰等16人，鑑於目前議員公費助理之加班費、職業災害保險皆由議員自行支應，導致公費助理難以實質得到應有之勞動權益；又我國基本工資已逐年調整，議員公費助理補助費用總額應綜合考量社會薪資成長比例及地方財政狀況調整酌增，為保持調薪之彈性，毋須規定總額上限；爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110032270000","who":"委員李彥秀等20人","date":"2024-04-19","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110032270000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00057.pdf","proposers":["李彥秀","蘇清泉","游顥","黃健豪"],"ncosign":16,"people":[["李彥秀","國民黨","提案"],["蘇清泉","國民黨","提案"],["游顥","國民黨","提案"],["黃健豪","國民黨","提案"],["陳玉珍","國民黨","連署"],["顏寬恒","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["邱若華","國民黨","連署"],["鄭正鈐","國民黨","連署"],["翁曉玲","國民黨","連署"],["林思銘","國民黨","連署"],["林沛祥","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["謝龍介","國民黨","連署"],["張智倫","國民黨","連署"],["馬文君","國民黨","連署"],["邱鎮軍","國民黨","連署"],["張嘉郡","國民黨","連署"],["傅崐萁","國民黨","連署"],["羅廷瑋","國民黨","連署"]],"party":[["國民黨",20]],"reason":"本院委員李彥秀、蘇清泉、游顥、黃健豪等20人，有鑑於地方民意代表費用支給及村里長事務補助費補助條例，自民國九十五年制定公費助理補助費用總額後，迄今均未曾調整額度，顯已跟不上物價變化而應適度調整。另公費助理為勞動基準法之勞工，由地方議會承擔雇主之相應責任，應將編列經費負擔相關費用之規定法制化方為妥適。又為因應民意代表服務型態變化，助理工作更加多元之實際情況，應取消聘用人數上限、取消每人每月之支領上限，及新增「部分時間工作」之聘用類型，以增加用人彈性，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110033410000","who":"委員吳琪銘等18人","date":"2024-04-19","name":"「地方民意代表費用支給及村里長事務補助費補助條例第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110033410000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00094.pdf","proposers":["吳琪銘","王美惠","郭國文","陳亭妃","劉建國"],"ncosign":13,"people":[["吳琪銘","民進黨","提案"],["王美惠","民進黨","提案"],["郭國文","民進黨","提案"],["陳亭妃","民進黨","提案"],["劉建國","民進黨","提案"],["李柏毅","民進黨","連署"],["李坤城","民進黨","連署"],["吳沛憶","民進黨","連署"],["郭昱晴","民進黨","連署"],["邱志偉","民進黨","連署"],["何欣純","民進黨","連署"],["陳俊宇","民進黨","連署"],["黃捷","民進黨","連署"],["陳秀寳","民進黨","連署"],["陳培瑜","民進黨","連署"],["蔡易餘","民進黨","連署"],["鍾佳濱","民進黨","連署"],["許智傑","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員吳琪銘、王美惠、郭國文、陳亭妃、劉建國等18人，鑑於村（里）長除服務民眾，協助政令宣導外，面臨各項重大災害時，更是冒著高風險第一時間到現場疏導民眾、整合資訊、通報災情及協助救災。同時身兼政府與民眾之溝通橋梁，並協助各項政策之推行，辛勞程度與中央或地方民意代表相差無幾。惟現行法並未規定村（里）長得比照地方民意代表請領春節慰勞金，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第七條條文修正草案」。是否有當？敬請公決。","arts":["第七條"]},{"id":"202110034170000","who":"委員黃建賓等17人","date":"2024-04-19","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條及第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110034170000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00123.pdf","proposers":["黃建賓","林沛祥","黃健豪"],"ncosign":14,"people":[["黃建賓","國民黨","提案"],["林沛祥","國民黨","提案"],["黃健豪","國民黨","提案"],["張嘉郡","國民黨","連署"],["王育敏","國民黨","連署"],["羅廷瑋","國民黨","連署"],["牛煦庭","國民黨","連署"],["黃仁","國民黨","連署"],["廖偉翔","國民黨","連署"],["林倩綺","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["萬美玲","國民黨","連署"],["葛如鈞","國民黨","連署"],["徐巧芯","國民黨","連署"],["洪孟楷","國民黨","連署"],["邱若華","國民黨","連署"],["丁學忠","國民黨","連署"]],"party":[["國民黨",17]],"reason":"本院委員黃建賓、林沛祥、黃健豪等17人，鑒於地方議會公費助理薪資補助總額已逾二十四年未有調整，薪資無法及時反映現實生活所需。再加上民眾對於村（里）長的服務品質要求日益提升，除協助地方政府推動政策及宣傳外，還需擔任政府與人民間重要聯絡窗口。近年來物價通膨嚴重，造成地方民意代助理薪資無法調整影響問政外，更造成村（里）長事務補助費似不敷使用，無法確實服務到民眾需求，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條及第七條條文修正草案」，調整助理薪資及增加村（里）長慰勞金費用。是否有當？敬請公決。","arts":["第六條","第七條"]},{"id":"202110034100000","who":"委員劉建國等16人","date":"2024-04-26","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110034100000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/11/LCEWA01_110111_00015.pdf","proposers":["劉建國","楊曜","郭國文","陳冠廷"],"ncosign":12,"people":[["劉建國","民進黨","提案"],["楊曜","民進黨","提案"],["郭國文","民進黨","提案"],["陳冠廷","民進黨","提案"],["郭昱晴","民進黨","連署"],["黃捷","民進黨","連署"],["王世堅","民進黨","連署"],["陳秀寳","民進黨","連署"],["張雅琳","民進黨","連署"],["黃秀芳","民進黨","連署"],["蔡易餘","民進黨","連署"],["王正旭","民進黨","連署"],["何欣純","民進黨","連署"],["范雲","民進黨","連署"],["沈伯洋","民進黨","連署"],["林月琴","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員劉建國、楊曜、郭國文、陳冠廷等16人，鑒於近年來物價指數上升幅度劇烈，勞工薪資已多次調整，而地方民意代表之助理人員之人事費用已多年未調整。為避免使助理人員之生活陷入困境、難以負荷生活負擔，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110036180000","who":"委員高金素梅等22人","date":"2024-04-26","name":"「地方民意代表費用支給及村里長事務補助費補助條例第八條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110036180000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/11/LCEWA01_110111_00060.pdf","proposers":["高金素梅","鄭天財Sra Kacaw","蘇清泉","陳超明","牛煦庭","顏寬恒","呂玉玲","伍麗華Saidhai‧Tahovecahe","羅智強"],"ncosign":13,"people":[["高金素梅","無黨籍","提案"],["鄭天財Sra Kacaw","國民黨","提案"],["蘇清泉","國民黨","提案"],["陳超明","無黨籍","提案"],["牛煦庭","國民黨","提案"],["顏寬恒","國民黨","提案"],["呂玉玲","國民黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["羅智強","國民黨","提案"],["邱鎮軍","國民黨","連署"],["洪孟楷","國民黨","連署"],["林國成","民眾黨","連署"],["翁曉玲","國民黨","連署"],["麥玉珍","民眾黨","連署"],["林倩綺","國民黨","連署"],["馬文君","國民黨","連署"],["林德福","國民黨","連署"],["廖先翔","國民黨","連署"],["黃建賓","國民黨","連署"],["林沛祥","國民黨","連署"],["羅廷瑋","國民黨","連署"],["楊瓊瓔","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",2],["民眾黨",2],["民進黨",1]],"reason":"本院委員高金素梅、鄭天財Sra Kacaw、蘇清泉、陳超明、牛煦庭、顏寬恒、呂玉玲、伍麗華Saidhai Tahovecahe、羅智強等22人，鑑於民眾對於村（里）長的服務品質要求日遽提升，同時亦須協助地方政府推動政策及宣傳，扮演政府與人民間重要聯絡窗口，故對於專職與專業性更加要求，導致村（里）長繁忙與辛勤情況不下於地方或中央民意代表。又因近年物價通膨嚴重，目前村（里）長事務補助費似不敷使用，若無法隨同物價指數調整，將使服務基層的村（里）長更顯不一。再加上原鄉與偏鄉的村（里）長因地理環境因素，更顯艱辛，以花蓮縣秀林鄉為例，該鄉面積為1,642平方公里，將近彰化縣面積的1.5倍、雲林縣的1.2倍，光一個秀林鄉的面積，服務範圍就大於彰化縣或雲林縣。目前地方民意代表費用支給及村里長事務補助費補助條例未考量原鄉與偏鄉幅員遼闊的特殊性，僅以形式上規範事務補助費之補助項目及標準，反造成實質之不公平，恐間接影響國人的參政權益。為解決此一長期不公平之現象，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第八條條文修正草案」，要求通盤考量區域之差異性與實際需求，規劃實質公平且最為適宜的相關費用協助方案。是否有當？敬請公決。","arts":["第八條"]},{"id":"202110036390000","who":"委員鄭正鈐等18人","date":"2024-04-26","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110036390000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/11/LCEWA01_110111_00072.pdf","proposers":["鄭正鈐"],"ncosign":17,"people":[["鄭正鈐","國民黨","提案"],["楊瓊瓔","國民黨","連署"],["邱若華","國民黨","連署"],["翁曉玲","國民黨","連署"],["陳超明","無黨籍","連署"],["張嘉郡","國民黨","連署"],["張智倫","國民黨","連署"],["王育敏","國民黨","連署"],["呂玉玲","國民黨","連署"],["黃建賓","國民黨","連署"],["林沛祥","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["邱鎮軍","國民黨","連署"],["萬美玲","國民黨","連署"],["涂權吉","國民黨","連署"],["廖偉翔","國民黨","連署"],["徐巧芯","國民黨","連署"],["林思銘","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",1]],"reason":"本院委員鄭正鈐等18人，有鑑於議員服務型態隨時代變遷有所變化，議員助理工作方式、內容亦趨多元，為使議員用人更有彈性以符合實際需求，並要求議員聘用基本助理人數維持問政品質及兼顧議會行政成本等，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110036580000","who":"委員陳素月等22人","date":"2024-04-26","name":"「地方民意代表費用支給及村里長事務補助費補助條例第五條附表修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110036580000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/11/LCEWA01_110111_00088.pdf","proposers":["陳素月","陳冠廷","蔡易餘","陳秀寳","伍麗華Saidhai‧Tahovecahe"],"ncosign":17,"people":[["陳素月","民進黨","提案"],["陳冠廷","民進黨","提案"],["蔡易餘","民進黨","提案"],["陳秀寳","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["范雲","民進黨","連署"],["沈伯洋","民進黨","連署"],["徐富癸","民進黨","連署"],["賴惠員","民進黨","連署"],["陳亭妃","民進黨","連署"],["邱議瑩","民進黨","連署"],["鍾佳濱","民進黨","連署"],["林月琴","民進黨","連署"],["邱志偉","民進黨","連署"],["陳俊宇","民進黨","連署"],["黃捷","民進黨","連署"],["王美惠","民進黨","連署"],["李坤城","民進黨","連署"],["蔡其昌","民進黨","連署"],["陳培瑜","民進黨","連署"],["何欣純","民進黨","連署"],["林岱樺","民進黨","連署"]],"party":[["民進黨",22]],"reason":"本院委員陳素月、陳冠廷、蔡易餘、陳秀寳、伍麗華Saidhai Tahovecahe等22人，鑑於各直轄市、縣（市）議員服務型態改變且多元複雜，不只地方民意代表公費助理待遇二十四年未調整，連同各地方民意代表為民服務費都未調整，直轄市議員每月為民服務費2萬元，縣市議員僅9千元、鄉鎮市民代表更只有3千元，現今每月為民服務費早已入不敷出，實有調整之必要，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第五條附表修正草案」。是否有當？敬請公決。","arts":[]},{"id":"202110037470000","who":"委員陳培瑜等21人","date":"2024-04-26","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110037470000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/11/LCEWA01_110111_00149.pdf","proposers":["陳培瑜","陳亭妃","陳秀寳"],"ncosign":18,"people":[["陳培瑜","民進黨","提案"],["陳亭妃","民進黨","提案"],["陳秀寳","民進黨","提案"],["林月琴","民進黨","連署"],["羅美玲","民進黨","連署"],["陳俊宇","民進黨","連署"],["王正旭","民進黨","連署"],["王美惠","民進黨","連署"],["李坤城","民進黨","連署"],["吳琪銘","民進黨","連署"],["沈伯洋","民進黨","連署"],["劉建國","民進黨","連署"],["鍾佳濱","民進黨","連署"],["黃捷","民進黨","連署"],["林楚茵","民進黨","連署"],["張雅琳","民進黨","連署"],["黃秀芳","民進黨","連署"],["郭昱晴","民進黨","連署"],["何欣純","民進黨","連署"],["徐富癸","民進黨","連署"],["王世堅","民進黨","連署"]],"party":[["民進黨",21]],"reason":"本院委員陳培瑜、陳亭妃、陳秀寳等21人，有鑑於直轄市議員與縣（市）議員服務型態趨於多元，雖物價和勞工基本薪資已歷經多次調整，然涉及議員聘用公費助理其勞動條件之相關規定，已逾二十餘年未有隨之調整，實難引進優秀之公費助理人員。為提升直轄市議員與縣（市）議員服務量能、網羅人才投入政治工作，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110038900000","who":"委員王美惠等21人","date":"2024-05-03","name":"「地方民意代表費用支給及村里長事務補助費補助條例第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110038900000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/12/LCEWA01_110112_00022.pdf","proposers":["王美惠","莊瑞雄","王世堅","陳冠廷"],"ncosign":17,"people":[["王美惠","民進黨","提案"],["莊瑞雄","民進黨","提案"],["王世堅","民進黨","提案"],["陳冠廷","民進黨","提案"],["林俊憲","民進黨","連署"],["陳素月","民進黨","連署"],["張宏陸","民進黨","連署"],["黃捷","民進黨","連署"],["李柏毅","民進黨","連署"],["吳琪銘","民進黨","連署"],["蘇巧慧","民進黨","連署"],["許智傑","民進黨","連署"],["何欣純","民進黨","連署"],["賴惠員","民進黨","連署"],["吳秉叡","民進黨","連署"],["郭國文","民進黨","連署"],["林月琴","民進黨","連署"],["王正旭","民進黨","連署"],["黃秀芳","民進黨","連署"],["林淑芬","民進黨","連署"],["李坤城","民進黨","連署"]],"party":[["民進黨",21]],"reason":"本院委員王美惠、莊瑞雄、王世堅、陳冠廷等21人，有鑑於我國村里長事務補助費調整均需修法，無法即時配合物價，又里長工作繁重，服務民眾全年無休，每逢民俗節日更常犧牲自身過節時光，為村里中弱勢付出，卻未有春節慰問金。爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第七條條文修正草案」。是否有當？敬請公決。","arts":["第七條"]},{"id":"202110041270000","who":"委員王育敏等16人","date":"2024-05-03","name":"「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110041270000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/12/LCEWA01_110112_00063.pdf","proposers":["王育敏","顏寬恒"],"ncosign":14,"people":[["王育敏","國民黨","提案"],["顏寬恒","國民黨","提案"],["牛煦庭","國民黨","連署"],["林沛祥","國民黨","連署"],["林思銘","國民黨","連署"],["邱若華","國民黨","連署"],["邱鎮軍","國民黨","連署"],["洪孟楷","國民黨","連署"],["翁曉玲","國民黨","連署"],["高金素梅","無黨籍","連署"],["陳玉珍","國民黨","連署"],["傅崐萁","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["鄭正鈐","國民黨","連署"],["羅明才","國民黨","連署"],["羅智強","國民黨","連署"]],"party":[["國民黨",15],["無黨籍",1]],"reason":"本院委員王育敏、顏寬恒等16人，有鑑於「地方民意代表費用支給及村里長事務補助費補助條例」，自民國八十九年制定時，即明定補助直轄市、縣（市）議員聘用公費助理之費用，該條例公布施行迄今已逾二十年，已難以因應物價波動與多次最低薪資調整狀況，導致聘用公費助理更加困難。為健全地方議會公費助理聘用制度，爰擬具「地方民意代表費用支給及村里長事務補助費補助條例第六條條文修正草案」，將地方議會公費助理制度，比照立法院公費助理制度，並保障公費助理相關勞動權益。是否有當？敬請公決。","arts":["第六條"]}],"arts":[{"no":"第三條","current":"地方民意代表每月得支給之研究費，不得超過下列標準：\n一、直轄市議會議長：參照直轄市長月俸及公費。\n二、直轄市議會副議長：參照直轄市副市長本俸、專業加給及主管職務加給。\n三、直轄市議會議員：參照直轄市政府所屬一級機關首長本俸、專業加給及主管職務加給。\n四、縣（市）議會議長：參照縣（市）長本俸、專業加給及主管職務加給。\n五、縣（市）議會副議長：參照副縣（市）長本俸、專業加給及主管職務加給。\n六、縣（市）議會議員：參照縣（市）政府一級單位主管簡任第十一職等本俸一級及專業加給。\n七、鄉（鎮、市）民代表會主席：參照鄉（鎮、市）長本俸、專業加給及主管職務加給。\n八、鄉（鎮、市）民代表會副主席：參照縣轄市副市長本俸、專業加給及主管職務加給。\n九、鄉（鎮、市）民代表會代表：參照鄉（鎮、市）公所單位主管薦任第八職等本俸一級及專業加給。\n前項所稱專業加給，係指一般公務人員專業加給。","versions":[{"bill":"202110033290000","text":"地方民意代表每月得支給之研究費，不得超過下列標準：\n一、直轄市議會議長：參照直轄市長月俸及公費。\n二、直轄市議會副議長：參照直轄市副市長本俸、專業加給及主管職務加給。\n三、直轄市議會議員：參照直轄市政府所屬一級機關首長本俸、專業加給及主管職務加給。\n四、縣（市）議會議長：參照縣（市）長本俸、專業加給及主管職務加給。\n五、縣（市）議會副議長：參照副縣（市）長本俸、專業加給及主管職務加給。\n六、縣（市）議會議員：參照縣（市）政府一級單位主管簡任第十一職等本俸一級、專業加給及主管職務加給。\n七、鄉（鎮、市）民代表會主席：參照鄉（鎮、市）長本俸、專業加給及主管職務加給。\n八、鄉（鎮、市）民代表會副主席：參照縣轄市副市長本俸、專業加給及主管職務加給。\n九、鄉（鎮、市）民代表會代表：參照鄉（鎮、市）公所單位主管薦任第八職等本俸一級、專業加給及主管職務加給。\n前項所稱專業加給，係指一般公務人員專業加給。","note":"修正本條第一項第六款及第九款，將縣（市）議員及鄉（鎮、市）民代表之研究費標準，均增加納入主管職務加給。查中央立法委員或直轄市議員，比照所監督之政府機關，均有列入主管職務加給，縣（市）議員及鄉（鎮、市）民代表卻並未納入，本次修正特予以納入，以符合此類人員匯聚民意、運行民主機制之重要性。"}],"changed":true,"final":"地方民意代表每月得支給之研究費，不得超過下列標準：\n一、直轄市議會議長：參照直轄市長月俸及公費。\n二、直轄市議會副議長：參照直轄市副市長本俸、專業加給及主管職務加給。\n三、直轄市議會議員：參照直轄市政府所屬一級機關首長本俸、專業加給及主管職務加給。\n四、縣（市）議會議長：參照縣（市）長本俸、專業加給及主管職務加給。\n五、縣（市）議會副議長：參照副縣（市）長本俸、專業加給及主管職務加給。\n六、縣（市）議會議員：參照縣（市）政府一級單位主管簡任第十一職等本俸一級、專業加給及主管職務加給。\n七、鄉（鎮、市）民代表會主席：參照鄉（鎮、市）長本俸、專業加給及主管職務加給。\n八、鄉（鎮、市）民代表會副主席：參照縣轄市副市長本俸、專業加給及主管職務加給。\n九、鄉（鎮、市）民代表會代表：參照鄉（鎮、市）公所單位主管薦任第八職等本俸一級、專業加給及主管職務加給。\n前項所稱專業加給，係指一般公務人員專業加給。","finalWhy":"修正本條第一項第六款及第九款，將縣（市）議員及鄉（鎮、市）民代表之研究費標準，均增加納入主管職務加給。","review":{"note":"照委員徐欣瑩等19人提案及委員王美惠、劉建國等所提修正動議通過","text":"地方民意代表每月得支給之研究費，不得超過下列標準：\n一、直轄市議會議長：參照直轄市長月俸及公費。\n二、直轄市議會副議長：參照直轄市副市長本俸、專業加給及主管職務加給。\n三、直轄市議會議員：參照直轄市政府所屬一級機關首長本俸、專業加給及主管職務加給。\n四、縣（市）議會議長：參照縣（市）長本俸、專業加給及主管職務加給。\n五、縣（市）議會副議長：參照副縣（市）長本俸、專業加給及主管職務加給。\n六、縣（市）議會議員：參照縣（市）政府一級單位主管簡任第十一職等本俸一級、專業加給及主管職務加給。\n七、鄉（鎮、市）民代表會主席：參照鄉（鎮、市）長本俸、專業加給及主管職務加給。\n八、鄉（鎮、市）民代表會副主席：參照縣轄市副市長本俸、專業加給及主管職務加給。\n九、鄉（鎮、市）民代表會代表：參照鄉（鎮、市）公所單位主管薦任第八職等本俸一級、專業加給及主管職務加給。\n前項所稱專業加給，係指一般公務人員專業加給。"}},{"no":"第五條","current":"地方民意代表因職務關係，得由各該地方民意機關編列預算，支應其健康檢查費、保險費、為民服務費、春節慰勞金及出國考察費。\n直轄市議會議長、副議長、縣（市）議會議長、副議長及鄉（鎮、市）民代表會主席、副主席，得由各該地方民意機關編列預算，支應因公支出之特別費。\n前二項費用編列最高標準如附表。","versions":[{"bill":"202110029290000","text":"地方民意代表因職務關係，得由各該地方民意機關編列預算，支應其健康檢查費、保險費、為民服務費、春節慰勞金及出國考察費。\n直轄市議會議長、副議長、縣（市）議會議長、副議長及鄉（鎮、市）民代表會主席、副主席，得由各該地方民意機關編列預算，支應因公支出之特別費。\n前二項費用編列最高標準如附表，原住民地方民意代表之為民服務費最高為一點五倍。","note":"一、修正第三項。\n二、原住民地方民意代表需服務範圍遼闊，原住民地方民意代表「為民服務費」最高為一點五倍。"}],"changed":false,"final":"地方民意代表因職務關係，得由各該地方民意機關編列預算，支應其健康檢查費、保險費、為民服務費、春節慰勞金及出國考察費。\n直轄市議會議長、副議長、縣（市）議會議長、副議長及鄉（鎮、市）民代表會主席、副主席，得由各該地方民意機關編列預算，支應因公支出之特別費。\n前二項費用編列最高標準如附表。\n[附表：]","finalWhy":null,"review":{"note":"第五條維持現行條文；附表照委員吳琪銘等所提修正動議修正通過，如附件","text":"地方民意代表因職務關係，得由各該地方民意機關編列預算，支應其健康檢查費、保險費、為民服務費、春節慰勞金及出國考察費。\n直轄市議會議長、副議長、縣（市）議會議長、副議長及鄉（鎮、市）民代表會主席、副主席，得由各該地方民意機關編列預算，支應因公支出之特別費。\n前二項費用編列最高標準如附表。"}},{"no":"第六條","current":"直轄市議會議員每人得聘用公費助理六人至八人，縣（市）議會議員每人得聘用公費助理二人至四人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣二十四萬元。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元，縣（市）議會議員每人每月不得超過新臺幣八萬元。公費助理適用勞動基準法之規定，其相關費用，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","versions":[{"bill":"202110006500000","text":"直轄市議會議員每人得聘用公費助理六人至八人，縣（市）議會議員每人得聘用公費助理二人至四人，公費助理均與議員同進退。\n直轄市議會、縣（市）議會應每年編列每一議員一定數額之助理補助費。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元，縣（市）議會議員每人每月不得超過新臺幣八萬元。公費助理適用勞動基準法之規定，其加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n前項薪資補助費用總額及前項依勞動基準法所規定之相關費用總額，議會得比照軍公教人員待遇調整比例調整之。","note":"一、為保障直轄市及縣（市）議會議員公費助理之勞工權益，明定其加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，應由議會編列經費支應。\n二、參考現行立法院助理費相關規定，新增第三項，規定薪資補助費用及依勞動基準法所規定之相關費用總額，得比照軍公教人員待遇調整比例調整之。"},{"bill":"202110006900000","text":"直轄市議會議員及縣（市）議會議員得聘用公費助理，人數由各議會自訂，與議員同進退，其工作內容由議員與公費助理商訂之。\n前項公費助理補助費用總額，直轄市議會議員每人每月新臺幣二十四萬元，但公費助理人數未超過二人者，每人每月支領金額，最多不得超過新臺幣八萬元。縣（市）議會議員每人每月新臺幣八萬元。補助費用總額議會得綜合考量消費者物價指數漲幅、軍公教員工待遇調幅及地方財政狀況調整。\n公費助理其依法由雇主負擔之加班費、勞工保險費、全民健康保險費及勞工退休金等費用，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","note":"一、民意代表助理工作包羅萬象涉及層面既廣且深，需活化工作環境，才能吸納專業人才投身政治。惟查《地方民意代表費用支給及村里長事務補助費補助條例》自89年立法以來，聘用助理補助費用總額從未調整，相比之下20年間消費物價指數上漲23.59%，軍公教調薪5次累計16%，基本工資亦由15,840調升至27,470。近年立法院公費助理費用亦隨軍公教調薪幅度同時調，二十年來公費助理補助費用未有任何調整，公費助理之人數限制、支領上限亦不符實際需求，實有調整必要。\n二、刪除直轄市公費助理補助費用總額不得超過24萬之規定，並授權直轄市議會及縣市議會得綜合考量消費者物價指數漲幅、軍公教薪資調幅及地方財政狀況進行調整。\n三、修正人數限制及公費助理每人每月支領金額限制。參酌立法院公費助理之相關規定，公費助理費用總額每月44萬，聘用助理8人至14人，若未聘滿8人，則無法領滿44萬之規定。公費助理人數未超過二人者，每人每月支領金額，最多不得超過新臺幣八萬元。\n四、參酌立法院之規定，明訂加班費、勞工保險費、全民健康保險費及勞工退休金之雇主負擔由議會編列經費支應之。"},{"bill":"202110007680000","text":"直轄市議會議員每人聘用公費助理至少六人，縣（市）議會議員每人聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理薪資補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣十六萬元；其中聘用部分時間工作公費助理之費用數額，不得超過助理費用總額二分之一。\n公費助理適用勞動基準法之規定，其勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，均由議會編列經費支應之；加班費、資遣費及職業災害補償等補助費用總額，直轄市議會議員每人每月不得超過新臺幣六萬元，縣（市）議會議員每人每月不得超過新臺幣二萬元，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項薪資補助費用總額及前項加班費、資遣費及職業災害補償等補助費用總額，直轄市、縣（市）議會得比照軍公教人員待遇調整比例調整之。","note":"一、為因應當代民意代表服務更多元之趨勢，提供議員聘用助理之彈性，爰刪除原文第一項聘用公費助理人數上限之限制，僅規定人數下限。\n二、鑑於地方民意代表公費助理補助費總額自本條例制定迄今超過二十四年未調整，顯未能符合當前國內經濟環境與法規條件，爰酌予調整。\n三、刪除原條文第二項前段但書，取消直轄市公費助理每人每月支領不得超過新臺幣八萬元之限制；同時，賦予地方民意代表得聘用部分工時公費助理並建立相關規範，增加議員因應問政需求所需彈性。\n四、增加第三項，將地方民代公費助理適用勞動基準法之規定，例如：加班費、資遣費及職業災害補償等項目，明文規定由地方議會編列經費支應。\n五、地方議會得併隨全國軍公教人員待遇調整比例，調整相關補助費總額，以保障公費助理勞動權益。"},{"bill":"202110009590000","text":"直轄市議會議員每人聘用公費助理至少六人，縣（市）議會議員每人聘用公費助理至少四人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣二十萬元。其中聘用部分時間工作公費助理之費用數額，不得超過補助費用總額四分之一。\n第二項公費助理補助費總額，議會應比照軍公教人員待遇調整比例調整之。\n公費助理適用勞動基準法之規定，其勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","note":"一、修正第一項、第二項；增訂第三項。\n二、因時代進步，議員服務型態及其助理之工作內容日趨多元，為使議員用人更具彈性，並兼顧基本人力需求，爰修正第一項，取消現行聘用公費助理人數之規定，明定直轄市議會議員每人得聘用公費助理至少四人；縣（市）議員每人得聘用公費助理至少二人，以符議員問政之需。\n三、第二項增定議員聘用部分工時公費助理之費用數額，不得超過補助費用總額四分之一；另為利吸收人才，刪除第二項公費助理每人每月支領金額之上限。\n四、為保障公費助理權益參考立法院助理待遇，應比照軍公教人員待遇調整比例調整之。\n五、第二項後段移至第四項，明定公費助理適用勞動基準法及酌給春節慰勞金，並明確規範相關保險與退休金由議會編列預算支應，以保障其勞工權益。"},{"bill":"202110013160000","text":"直轄市議會議員每人聘用公費助理至少六人，縣（市）議會議員每人聘用公費助理至少四人，公費助理均與議員同進退。\n前項公費助理薪資費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣二十萬元；其中聘用部分時間工作公費助理之費用數額，不得超過補助費用總額二分之一。\n公費助理適用勞動基準法之規定，其勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，均由議會編列經費支應之；加班費、資遣費及職業災害補償之補助費用總額，直轄市議會議員每人每月不得超過新臺幣六萬元，縣（市）議會議員每人每月不得超過新臺幣四萬元，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項薪資費用總額及前項加班費、資遣費及職業災害補償之補助費用總額，直轄市、縣（市）議會得比照軍公教人員待遇調整比例調整之。","note":"一、刪除第一項聘用公費助理人數上限之限制，僅規定人數下限，以因應民意代表問政事務多元化趨勢，提供議員聘用助理之彈性。\n二、鑑於公費助理薪資費用總額自本條例制定迄今已逾二十年未調整，爰酌予調整。\n三、刪除原條文第二項前段但書，取消直轄市議員公費助理每人每月支領金額不得超過新臺幣八萬元之限制，並賦予議員得聘用部分時間工作之公費助理，增加用人彈性，以應實際問政需求。\n四、鑑於現行法並未將適公費助理用勞動基準法之規定，由議會編列經費支應之相關費用項目明列，雖於立法理由明示比照本院公費助理模式辦理，惟就各議會得編列支應之相關費用項目，中央主管機關採取限縮解釋，限制加班費、資遣費及職業災害補償等項目編列，與立法院實際運作情形未臻一致，衍生各議會預算編列與執行疑義，為落實現行法義，保障地方議會公費助理勞動權益及杜絕爭議，爰予明定項目，以資明確。\n五、為健全代議制度及保障公費助理勞動權益，相關補助費總額得併隨全國軍公教人員待遇調整比例調整之。"},{"bill":"202110012810000","text":"直轄市議會議員每人聘用公費助理至少四人；縣（市）議會議員每人聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元。但公費助理每人每月支領金額，最多不得超過新臺幣十萬元，縣（市）議會議員每人每月不得超過新臺幣十六萬元。公費助理適用勞動基準法之規定，其相關費用及加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n前項議員公費助理薪資補助費用總額及加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分，直轄市、縣（市）議會得比照軍公教人員待遇調整比例調整之。","note":"一、鑑於現今議員服務型態與助理工作內容更加多元，為使議員人力資源配置更加彈性並兼顧助理基本人數，爰修正第一項，取消議員聘用公費助理人數上限，並將直轄市議會議員每人聘用公費助理人數下限降為四人；縣（市）議會議員每人聘用公費助理人數下限維持二人。\n二、鑒於近年國際經濟環境變動劇烈致使通膨嚴重，且根據行政院主計總處統計資料顯示，2000年台灣基本薪資為每月新台幣15,840元，迄今2024年台灣基本薪資已大幅成長百分之七十三至每月新台幣27,470元。惟本條例自2000年1月26日實施二十四年以來未曾修訂調整地方民代公費助理補助金額，明顯不符公平原則。為利議員吸納人才以維護議員問政品質，爰修正本條例第二項，上調議員公費助理補助上限及公費助理每人每月支領金額上限規定。\n三、根據「內政部98年9月3日內授中民字第0980722124號函研商議員公費助理相關費用編列及聘用助理申請作業表件事宜會議紀錄」討論第二案：「研商議員助理之勞健保及勞工退休金提繳等費用之處理方式」，結論第二點：「原則由議員加保先行繳納費用後，檢據向議會申領，但各議會與議員溝通後，亦得視實際作業情形彈性處理。」雖結論表示議員得向議會申領公費助理之勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分經費，但為避免實務上仍無法落實造成公費助理權益受損，爰修正本條第二項明定由議會編列經費支應上述費用。\n四、因公費助理需彈性協助議員處理公務與參加活動，經常有加班情事，故應將助理加班費納入議會編列經費以保障公費助理權益。\n五、為保障公費助理勞動權益，並維護議員問政品質，酌新增第三項，規定薪資補助費用及依勞動基準法所規定之相關費用總額，得比照全國軍公教人員待遇調整比例調整。"},{"bill":"202110014200000","text":"直轄市議會議員每人聘用公費助理至少六人，縣（市）議會議員每人聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理薪資補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣十六萬元：其中聘用部分時間工作公費助理之費用數額，不得超過補助費用總額二分之一。\n公費助理適用勞動基準法之規定，其勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，均由議會編列經費支應之；加班費、資遣費及職業災害補償等補助費用總額，直轄市議會議員每人每月不得超過新臺幣六萬元，縣（市）議會議員每人每月不得超過新臺幣二萬元，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項薪資補助費用總額及前項加班費、資遣費及職業災害補償等補助費用總額，直轄市、縣（市）議會得比照軍公教人員待遇調整比例調整之。","note":"一、刪除第一項聘用公費助理人數上限之限制，僅規定人數下限，以因應民意代表問政事務多元化趨勢，提供議員聘用助理之彈性，議會議員公費助理任用資格選聘，應盡可能比照公務機關鼓勵晉用身心障礙人士。\n二、鑑於公費助理薪資補助費用總額自本條例制定迄今已逾二十四年未調整，爰酌予調整。\n三、刪除原條文第二項前段但書，取消直轄市議員、縣（市）議員公費助理每人每月支領金額不得超過新台幣八萬元之限制，並賦予議員得聘用部分時間工作之公費助理，因議員服務地方面向多元，又無法聘用部分工時助理，實務上不免有由一位助理掛名，再由兩個以上部分工時助理提供服務之情形，故增加用人彈性，方能因應實際問政及服務民眾之需求。\n四、鑑於現行法並未將適用勞動基準法之規定，由議會編列經費支應之相關費用項目明列，雖於立法理由明示比照立法院公費助理模式辦理，惟就各議會得編列支應之相關費用項目，中央主管機關採取限縮解釋，限制加班費、資遣費及職業災害補償等項目編列，與立法院實際運作情形未臻一致，衍生各議會預算編列與執行疑義，為落實現行法義，保障地方議會公費助理勞動權益及杜絕爭議，爰予明定項目及金額，以資明確，至事病假之保障，亦應同上法義。\n五、為健全代議制度及保障公費助理勞動權益，相關補助費總額得併隨全國軍公教人員待遇調整比例調整。"},{"bill":"202110014190000","text":"各直轄市議會、縣（市）議會得編列議員助理補助費，補助各議員聘用助理；助理補助費總額，直轄市議會議員每人每月不得超過新臺幣三十萬元，縣（市）議會議員每人每月不得超過新臺幣二十萬元。但全國公務人員各種加給年度通案調整時，應比照其通案調幅調整，調整後助理補助費總額及施行日期由內政部公告之。\n以前項助理補助費聘用之助理，直轄市議會議員每人應至少聘用六人，縣（市）議會議員每人應至少聘用四人，均與議員同進退。\n前項助理適用勞動基準法之規定，其相關費用，由議會編列經費支應之，助理加班費、不休假加班費、資遣費及職災補償費等費用，不得超過第一項規定總額百分之二十。助理並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n議會應就第一項助理補助費總額及前項助理適用勞動基準法相關費用之支出情形，建立內部控制制度。","note":"一、地方制度法第三十五條及第三十六條明定直轄市、縣（市）議會之職權，為補助議員得聘僱助理協助履行職權，爰明定各議會得編列議員助理補助費；又為彰顯本條相關費用屬「補助」性質，刪除本條有關「公費」之規定；另參考第七條第一項規定之體例，增列第一項前段規定，並將現行條文第二項有關直轄市議會議員、縣（市）議會議員助理補助費用總額上限之規定移列至第一項後段，並適度提高各地方議會議員助理補助費總額。另為使助理補助費總額應比照全國公務人員各種加給年度通案調幅調整，爰參酌法官法第七十一條第六項立法體例予以明定；又為明確調整後總額及施行日期俾憑議會遵循，爰參酌國民年金法第五十四條之一規定立法體例，增訂第一項但書，授權內政部於每次調整時公告之。\n二、為增加議員用人彈性，兼顧議員助理基本人數以維持問政品質，刪除現行條文第一項聘用助理人數上限規定，並將上開人數規定移列為第二項。另為利議員吸納人才，刪除現行條文第二項有關助理每人每月支領金額新臺幣八萬元之上限規定。\n三、現行條文有關議員助理適用勞動基準法及酌給春節慰勞金等規定移列為第三項。全民健康保險費、勞工保險費、勞工退休準備金有關雇主應負擔部分，自本條例九十八年五月二十七日公布施行後，已由議會編列預算支應。另參照立法院組織法第三十二條規定及其立法理由，增列助理加班費、不休假加班費、資遣費及職災補償費等費用之編列額度，惟支出金額倘超過該額度，不足部分仍應由議員自行支應。\n四、參照立法院運作模式，增訂議會應就助理補助費總額及助理適用勞動基準法相關費用之支出情形，建立內部控制制度，確認聘僱事實及撥款程序，以減少詐領情事。"},{"bill":"202110016690000","text":"直轄市議會議員每人得聘用公費助理六人至十人，縣（市）議會議員每人得聘用公費助理二人至六人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣二十四萬元。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元，縣（市）議會議員每人每月不得超過新臺幣八萬元。\n第一項公費助理得聘用部分工時人員，其人數、薪資不得超過公費助理總人數、補助費用之半數。\n公費助理適用勞動基準法之規定，其包含加班費、勞工保險費、全民健康保險費雇主負擔部分及勞工退休金雇主提撥等相關費用，由議會另編列經費支應之，不列入第二項補助費用之計算，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n前項加班費支給，直轄市議會議員每人每月不得超過新臺幣五萬元；縣（市）議會議員每人每月不得超過新臺幣二萬元。","note":"一、本法之公費助理聘用規範係於民國98年修訂，在近15年後使得民代缺乏聘用公費助理的彈性，也間接使地方民代問政品質下降。依據《立法院組織法》第三十二條規定，立法委員每人得聘請8至14位公費助理。為因應議會事務、落實民意、服務民眾，地方民意代表聘用助理之彈性應予以放寬，爰參照《立法院組織法》第三十二條規定修正第一項增加可聘用人數上限。\n二、本條例規定縣（市）議員之公費助理補助費用總額上限為8萬元，鑒於目前基本工資已達27,470元，縣（市）議員難以聘任2人以上之公費助理，第一項之公費助理聘用人數上限形同虛設。考量縣（市）議員之問政與服務型態，應允聘用部分工時人員，並為避免浮報薪資或濫用勞健保轉做酬庸，爰增訂第三項，允許聘用部分工時人員，限制部分工時人員聘用人數及薪資上限，直轄市議員部分比照適用。\n三、為確保地方議會公費助理得以合理領取加班費，修正第四項，明文規定加班費、勞健保雇主負擔及勞退雇主提撥部分由議會支應；並規定相關費用不列入公費助理補助費用，使補助費用專用於公費助理之薪資。\n四、現行立法院公費助理加班費每位委員辦公室上限為8.8萬元。為防止浮報公費助理加班費挪作他用，參考立法院目前公費助理加班費申請上限，並考量與地方議會公費助理人數差距，增訂第五項加班費上限。"},{"bill":"202110018620000","text":"直轄市議會議員每人聘用公費助理至少六人，縣（市）議會議員每人聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理薪資補助費用總額，依勞動基準法所規定之相關費用，均由直轄市及縣（市）議會編列預算支應之；其中聘用部分時間工作公費助理之費用數額，不得超過補助費用總額二分之一。\n公費助理適用勞動基準法之規定，其勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，均由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項薪資補助費用總額及前項加班費、資遣費及職業災害補償等補助費用總額，直轄市、縣（市）議會得比照軍公教人員待遇調整比例調整之。\n直轄市議會及縣（市）議會應每年編列預算補助公費助理實施健康檢查及文康活動費用；其對象、項目、方法、標準及其他應遵行之事項，由議會另定之，自中華民國○年○月○日施行。","note":"一、刪除第一項聘用公費助理人數上限之限制，僅規定人數下限，以因應民意代表問政事務多元化趨勢，提供議員聘用助理之彈性。\n二、鑑於公費助理薪資補助費用總額自本條例制定迄今已逾二十四年未調整，爰酌予調整，並比照立法院組織法第三十二條，公費助理相關法源依據。\n三、刪除原條文第二項前段但書，取消直轄市議員公費助理每人每月支領金額不得超過新臺幣八萬元之限制，並賦予議員得聘用部分時間工作之公費助理，增加用人彈性，以應實際問政需求。"},{"bill":"202110018540000","text":"直轄市議會議員每人得聘用公費助理至少六人，縣（市）議會議員每人得聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元。縣（市）議會議員每人每月不得超過新臺幣十六萬元；其中聘用部分時間工作公費助理之費用數額，不得超過助理費用總額二分之一。\n公費助理適用勞動基準法之規定，其由雇主負擔之勞工保險費、全民健康保險費、勞工職業災害保險費及勞工退休金，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項公費助理補助費用總額及前項費用，直轄市、縣（市）議會得比照軍公教人員待遇調幅及地方財政狀況調整之。","note":"一、刪除現行條文第一項聘用公費助理人數上限之限制，僅規定人數之下限，以符當前地方民意代表問政及服務型態多元化趨勢之實際需要。\n二、鑑於公費助理薪資補助費用總額自立法以來皆未調整，然同為民意代表之公費助理，近年立法院公費助理費用亦隨軍公教調薪幅度同時調整，爰酌予調整第二項直轄市及縣（市）議會議員公費助理補助費用之總額。\n三、除全部時間工作勞工公費助理外，為兼顧議員聘用部分時間工作公費助理需求及議會行政成本，於第二項賦予議員得聘用部分時間工作之公費助理，增加用人彈性，其費用數額，不得超過補助費用總額二分之一。\n四、鑑於現行法未將適用勞動基準法之規定，由議會編列經費支應之相關費用項目明列，爰將現行條文第二項後段移至第三項，並明定公費助理由雇主負擔之勞工保險費、全民健康保險費、勞工職業災害保險費及勞工退休金，由議會編列預算支應，使公費助理之勞動權益保障以臻完善。\n五、為保障公費助理勞動權益，又顧全各直轄市、縣（市）政府財政狀況，爰新增第四項明定公費助理補助費用及前項相關補助費用，得併隨全國軍公教人員待遇調幅比例及地方政府財政狀況調整之。"},{"bill":"202110021580000","text":"直轄市議會議員每人聘用公費助理至少四人；縣（市）議會議員每人聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣二十四萬元，縣（市）議會議員每人每月不得超過新臺幣十二萬元；其中聘用部分時間工作公費助理之費用數額，不得超過補助費用數額三分之一。\n直轄市議會議員及縣（市）議會議員應按月將公費助理補助費用之領用助理姓名及分別支領之數額報議會備查。\n公費助理適用勞動基準法之規定，其加班費、勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","note":"一、修正第一項，取消聘用公費助理人數上限規定，並將直轄市議會議員每人聘用公費助理人數下限降低為四人；縣（市）議會議員下限為二人，增加議員用人彈性以符合實際需求。\n二、修正第二項，縣（市）議會議員公費助理費用每人每月增加至新臺幣十二萬元，以促進問政品質；另增列開放議員聘用部分時間工作公費助理，費用數額不得超過補助費用總額三分之一之規定；又為有利於議員吸收人才，刪除第二項有關公費助理每人每月支領金額上限規定。\n三、增列第三項，為防止公費助理補助費用遭不當挪用，明訂直轄市議會議員及縣（市）議會議員應按月將公費助理補助費用之支用助理姓名與分別支領之金額報議會備查。\n四、原第二項後段之規定移至第四項，並增訂公費助理依勞動基準法衍生之相關費用，係包含加班費、勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，應由議會編列經費支應，以資明確。"},{"bill":"202110021560000","text":"直轄市議會、縣（市）議會得編列議員助理補助費，補助各議員聘用助理；助理補助費總額，直轄市議會議員每人每月不得超過新臺幣三十萬元，縣（市）議會議員每人每月不得超過新臺幣十二萬元。但全國公務人員各種加給年度通案調整時，應比照其通案調幅調整，調整後助理補助費總額及施行日期由內政部公告之。\n以前項助理補助費補助聘用之助理，直轄市議會議員每人應至少聘用四人，縣（市）議會議員每人應至少聘用二人，均與議員同進退。\n前項助理適用勞動基準法之規定，其勞工保險費、全民健康保險費、勞工退休準備金、加班費、不休假加班費、資遣費及職災補償費等關於法定應由雇主負擔費用，由議會於不超過第一項規定總額百分之二十內編列預算支應之，並得以所領補助費之額度比照軍公教人員年終工作獎金酌給春節慰勞金。\n議會應就各議員關於第一項及第二項助理補助費總額與分配情形、助理聘用關係及第三項所列各項費用之支應情形，建立內部控制制度。","note":"一、《地方民意代表費用支給及村里長事務補助費補助條例》自89年立法以來，聘用助理補助費用總額從未調整，於此規定實難吸引專業人才投身政治，助理聘用人數限制亦無法滿足民意代表服務民眾之需求，實有調整必要。\n二、現行縣（市）議會議員助理補助費用八萬元，卻須支應最多四人之薪資，每人只可領得二萬元，不但低於現行基本工資門檻，也與直轄市議會議員補助金額相差甚遠；基於培育人才及發展需求，不應以縣市層級補助有過大差距，爰修正本條第二項規定，參酌自立法以來二十四年間，基本工資已調漲七次，共調漲百分之七十三、軍公教調整六次，調整幅度超過百分之十八，爰將直轄市議會議員每人每月提高為新台幣三十萬元、縣（市）議會議員公費助理補助費提高為每人每月十二萬元。\n三、另為使助理補助費總額應比照全國公務人員各種加給年度通案調幅調整，爰參酌法官法第七十一條第六項立法體例予以明定；又為明確調整後總額及施行日期俾憑議會遵循，爰參酌國民年金法第五十四條之一規定立法體例，增訂第一項但書，授權內政部於每次調整時公告之。\n四、考量議員與助理係民事僱傭關係，議會並非雇主，爰議會編列預算補助相關費用仍宜有界限。又為使現行條文有關助理適用勞動基準法規定之相關費用更加明確，爰將現行條文移列至第三項，並擴大範圍包括助理之勞工保險費、全民健康保險費、勞工退休準備金、加班費、不休假加班費、資遣費及職災補償費等關於法定應由雇主負擔費用，得由議會於第一項助理費總額之百分之二十額度內編列預算補助支應，倘議員支出金額超過補助額度，不足部分仍應由議員自行負擔。至春節慰勞金部分，則以現行規定及依各議會發放春節慰勞金實務，明確化酌給助理春節慰勞金之計算方式。\n五、參照立法院運作模式，增訂議會應就各議員關於第一項及第二項助理補助費總額與分配情形、助理聘用關係及第三項所列各項費用之支應情形，建立內部控制制度。具體應包括由議會代為直接撥付助理補助費予助理、每月製作印領清冊載明助理費總額分配情形、助理加班時數及領取金額，並經議員及助理簽章，以確認助理聘僱、加班事實及撥款程序，俾從制度面減少詐領機會。"},{"bill":"202110021890000","text":"直轄市議會議員每人得聘用公費助理至少四人，縣（市）議會議員每人得聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十二萬元，縣（市）議會議員每人每月不得超過新臺幣十六萬元；其中聘用部分時間工作公費助理之費用總額，不得超過補助費用總額之二分之一。\n公費助理適用勞動基準法之規定，其加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分等相關費用，由議會編列經費支應之；加班費、資遣費及職業災害補償等補助費用總額，直轄市議會議員每人每月不得超過新臺幣六萬元，縣（市）議會議員每人每月不得超過新臺幣二萬元，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n前二項公費助理補助費用總額、加班費、資遣費及職業災害補償等補助費用總額，直轄市、縣（市）議會應比照軍行政院對公教員工待遇調整比例調整之。","note":"一、肇因時代進步，議員服務型態及其助理之工作內容日趨多元，為使議員用人更具彈性，並兼顧實際服務選民之人力需求，爰修正第一項，直轄市及縣市議會議員之聘用公費助理人數要求，僅明定直轄市議會議員每人得聘用公費助理至少四人；縣（市）議員每人得聘用公費助理至少二人，以利議員問政之人力需要。\n二、本法於民國八十九年公布施行，明訂補助直轄市、縣（市）議會議員聘用公費助理及其公費助理補助費用總額，迄今已逾24年，期間經濟成長、物價波動、基本工資及軍公教員工待遇多次提升與調整，惟公費助理聘用員額及助理補助費用總額卻仍未進行檢討討。如，過往縣（市）議員，若以每月基本工資之待遇遴聘公費助理，得於新台幣八萬元之額度聘用至多3名公費助理。但自113年1月1日起實施，每月基本工資調整為27,470元，導致許多縣（市）議員必須自行貼補所短絀之公費助理之費用，爰基於此，特修正直轄市、縣（市）議員其公費助理補助費用總額，分別調高至每人每月不得超過新臺幣三十二萬元與十六萬元。另，第二項增定議員聘用部分工時公費助理之費用數額，不得超過補助費用總額二分之一；另為利吸收人才，刪除第二項公費助理每人每月支領金額之上限。\n三、第二項後段，移列新增為第三項。明定公費助理適用勞動基準法及酌給春節慰勞金，並明確規範加班費、勞工保險費、全民健康保險費、勞工退休金之雇主提繳部分等相關費用應由議會編列預算支應。\n四、參考立法院組織法第三十二條規定，明定前二項公費助理補助費用總額、加班費、資遣費及職業災害補償等補助費用總額，直轄市、縣（市）議會應比照軍行政院對公教員工待遇調整比例調整之。"},{"bill":"202110022180000","text":"直轄市議會議員每人得聘用公費助理六人至八人，縣（市）議會議員每人得聘用公費助理一定人數，公費助理均與議員同進退。\n直轄市議會、縣（市）議會應每年編列每一議員一定數額之公費助理費及其辦公事務預算。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元，縣（市）議會議員每人每月不得超過新臺幣八萬元。公費助理適用勞動基準法之規定，其相關費用，其加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n前項公費助理費總額，議會得綜合考量社會薪資成長比例與軍公教員工待遇調幅及地方財政狀況調整。","note":"一、目前議員公費助理之加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費皆由議員自行支應，導致公費助理難以實質得到應有之勞動權益。雖現行條文明定「公費助理適用勞動基準法之規定，其相關費用，由議會編列經費支應」，但內政部則以行政函釋的方式，要求相關費用由議員自行負擔。爰此，實有必要修正本條第二項，明確將公費助理之加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，列入由議會編列經費支應之項目，以保障公費助理之勞動權益。\n二、新增第三項。我國基本工資已逐年調整，議員公費助理補助費用總額應綜合考量社會薪資成長比例及地方財政狀況調整酌增，為保持調薪之彈性，毋須規定總額上限，可授權主管機關參照各社會經濟與地方財政因素再行調整。"},{"bill":"202110027170000","text":"直轄市議會議員每人得聘用公費助理至少四人，縣（市）議會議員每人得聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月新臺幣不得超過三十萬元。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元，縣（市）議會議員每人每月不得超過新臺幣十二萬元。其中聘用部分工時公費助理之費用總額，不得超過補助費用之三分之一。\n公費助理適用勞動基準法之規定，其相關費用包含加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n補助費用總額，得由議會綜合考量消費者物價指數漲幅、軍公教員工待遇調幅及地方財政狀況調整。","note":"一、地方民意代表助理協助民意代表執行政策研究、地方法規修訂、民眾溝通等多項重要工作，唯有專業優質人才協助，民意代表方能確實監督市政並為民喉舌，足見完善民意代表助理工作之勞動與薪資條件，以達徵才留才作用之必要性。\n二、然而，本條例自制定迄今，就公費助理補助費用總額，已超過二十四年未調整，對應基本工資已由15,840元調升至27,470元，本條例所規範之支領金額上限顯有未符實際經濟情勢與勞動環境之情形，有修正之必要，爰上修第二項直轄市與縣（市）議會公費助理補助費用總額；且為符合實際人力需求與提高薪資條件，修正第一項之公費助理人數限制，並增加第二項後段之部分工時公費助理費用總額限制，以期鼓勵地方民意代表聘任全時、完整之人力，並同時兼顧用人彈性。\n三、次查，為符合勞動基準法之規定、保障民意代表助理基礎勞動條件，避免民意代表以自身財務為由影響助理權益，並考量助理難以避免加班之工作型態，爰將原條文第二項後段移至第三項，明定加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，由議會編列經費支應。\n四、另新增第四項，考量助理補助費用應符合當下實際經濟情勢與勞動環境，爰授權各地方議會綜合考量社會薪資成長比例及地方財政狀況調整酌增。"},{"bill":"202110027340000","text":"直轄市議會議員每人得聘用公費助理至少六人，縣（市）議會議員每人得聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元。但公費助理每人每月支領金額，最多不得超過新臺幣十萬元，縣（市）議會議員每人每月不得超過新臺幣十六萬元。公費助理適用勞動基準法之規定，其加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分及相關費用，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n前項直轄市、縣（市）議員公費助理補助費用總額及加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分等相關費用，得比照軍公教人員待遇調整之。","note":"一、為提供議員彈性分配人力空間，修正第一項有關直轄市議員及縣市議員聘用助理之人數限制。\n二、查現行議員公費助理費用總額已逾二十四年未調整，參考二十多年來消費者物價指數漲幅已逾23%，勞工及軍公教人員亦多次調漲薪資，議員公費助理補助費用實有調整之必要，爰修正第二項，將直轄市議員助理費用總額調整為三十六萬元，並規定勞動產生之相關費用應由議會編列經費支應。\n三、為保障公費助理勞動權益，增列第三項規定包含薪資補助費用及雇主應負擔之相關費用，得比照軍公教人員待遇隨之調整。"},{"bill":"202110027870000","text":"直轄市議會議員及縣（市）議會議員每人得聘用公費助理至少四人，公費助理均與議員同進退。\n前項公費助理補助費用總額，每人每月不得超過新臺幣二十四萬元；其中聘用部分時間工作公費助理之費用數額，不得超過補助費用總額二分之一。\n公費助理適用勞動基準法之規定，其相關費用，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","note":"一、隨社會資訊化，地方議會議員為民服務型態大幅改變，民眾對問政品質標準不斷提高，且2024年起基本工資將調整為2萬7,470元，惟依現行條例規定計算，縣（市）議員公費助理若聘至上限人數，平均將僅有2萬元，顯不符合最低基本工資要求。爰比照直轄市議員，調升縣（市）議員公費上限至24萬元。\n二、為使議員用人更符合實際需要及公費助理薪資達到最低基本工資，符合勞動法令規定，爰修正第一項，取消議員聘用公費助理人數上限，並調降直轄市議員公費助理人數下限。\n三、除全部時間工作勞工公費助理外，為兼顧議員聘用部分時間工作公費助理需求及議會行政成本，參照勞動部「僱用部分時間工作勞工應行注意事項」有關「部分時間工作勞工」之定義，於第二項增列有關議員聘用部分時間工作公費助理之費用數額，不得超過補助費用總額二分之一之規定；另為利議員吸收人才，刪除第二項有關公費助理每人每月支領金額之上限規定；並將適用勞動基準法及酌給春節慰勞金等規定移列為修正條文第三項，以資明確。"},{"bill":"202110029290000","text":"直轄市議會議員與縣（市）議會議員得聘用公費助理，公費助理均與議員同進退，聘用人數由議會定之。\n前項公費助理補助費用總額及依照勞動基準法相關費用，均由議會編列預算支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","note":"一、修正第一及第二項。\n二、全國各直轄市及縣（市）行政區域內，地理環境皆存在差異，且為求落實地方自治，議員助理聘用人數、薪資補助費用總額及依照勞動基準法相關費用總額，皆由議會定之。\n三、依照「勞動基準法」相關費用，包含加班費、勞工保險費、全民健康保險費、勞工退休金、健康檢查費……等"},{"bill":"202110030640000","text":"直轄市議會議員每人得聘用公費助理六人至八人，縣（市）議會議員每人得聘用公費助理二人至四人，公費助理均與議員同進退。\n直轄市議會、縣（市）議會應每年編列每一議員一定數額之公費助理費，直轄市議會議員每人每月不得超過新臺幣三十二萬元，縣（市）議員每人每月不得超過新臺幣十六萬元，並得於中央主計機關發布之消費者物價指數累計成長率達正負百分之五時，依該成長率調整之；但公費助理每人每月支領金額不得超過新臺幣八萬元。公費助理適用勞動基準法之規定，其加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","note":"一、修正第二項。\n二、「地方民意代表費用支給及村里長事務補助費補助條例」民國89年制定時，直轄市、縣（市）議員分別最多得遴聘助理六人與二人，其助理費用每人每月支給不得超過四萬元，於95年修法明訂助理補助總額上限，但於98年修訂直轄市、縣（市）議員分別最多得遴聘公費助理六人至八人與二人至四人，相關公費助理補助總額上限卻未隨之調整。\n三、爰此，修正第二項，直轄市議會、縣（市）議會應每年編列每一議員一定數額之公費助理費，直轄市議會議員每人每月不得超過三十二萬元，縣（市）議員每人每月不得超過十六萬元，且應考量國內物價及經濟成長等因素進行調整，議會得於中央主計機關發布之消費者物價指數累計成長率達正負百分之五時，依該成長率調整公費助理費上限；另，加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，亦由議會編列經費支應之。"},{"bill":"202110030470000","text":"直轄市議會議員每人得聘用公費助理至少四人，縣（市）議會議員每人得聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元。縣（市）議會議員每人每月不得超過新臺幣十六萬元。其中聘用部分時間工作公費助理之費用總額，不得超過補助費用之三分之一。\n公費助理適用勞動基準法之規定，其加班費、勞工保險費、全民健康保險費及勞工退休金之雇主負擔之相關費用，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項公費助理費總額，議會應考量社會薪資成長比例、消費者物價指數及軍公教員工待遇調幅一併調整之。其後每兩年調整一次，由議會參照中央主計機關發布之最近一年消費者物價指數較前次調整之前一年消費者物價指數成長率，或消費者物價指數累計成長率達百分之五即公告調整之，但成長率為零或負數時，不予調整。","note":"一、因應時代進步，議員服務型態及其助理之工作內容多元繁雜，為符合實際需要，且協助縣市議員提升問政品質及服務量能，爰修正本條第一項公費助理人數上限，適度放寬本法相關限制。\n二、第二項增訂議員聘用部分工時公費助理之費用數額，不得超過補助費用總額三分之一；另刪除第二項公費助理每人每月支領金額之上限。\n此外參照立法院組織法第三十二條修正，將編列公費助理費及其辦公事務預算，予以地方議會編列總額，保留因地制宜的權衡。\n三、第二項後段，移列新增為第三項。明定公費助理適用勞動基準法及酌給春節慰勞金，並明確規範加班費、勞工保險費、全民健康保險費、勞工退休金之雇主提繳部分等相關費用應由議會編列預算支應。\n四、新增本法第四項，本條公費助理費總額之調整，應審酌整體社會薪資成長比例、消費者物價指數及軍公教員工待遇調幅一併調整，並於後段新增每兩年一次調整數額之機制，加以明文規範。"},{"bill":"202110033290000","text":"直轄市議會議員每人得聘用公費助理六人至八人，縣（市）議會議員每人得聘用公費助理二人至四人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣二十四萬元。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元，縣（市）議會議員每人每月不得超過新臺幣十五萬元。公費助理適用勞動基準法之規定，其相關費用，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","note":"修正本條第二項。現行規定每一位縣（市）議員每月助理補助費用總額為新臺幣八萬元，惟公費助理之職責繁重程度不一，現行規定彈性不足，而不利於縣（市）議員之問政，對助理之勞動權益亦有不利，本次修正特予以提升為十五萬。"},{"bill":"202110031750000","text":"直轄市議會議員每人得聘用公費助理六人至八人，縣（市）議會議員每人得聘用公費助理二人至四人，公費助理均與議員同進退。\n直轄市議會、縣（市）議會應每年編列每一議員一定數額之公費助理費及其辦公事務預算。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元，縣（市）議會議員每人每月不得超過新臺幣八萬元。公費助理適用勞動基準法之規定，其相關費用，其加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n前項公費助理費總額，議會得綜合考量社會薪資成長比例與軍公教員工待遇調幅及地方財政狀況調整。","note":"一、目前議員公費助理之加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費皆由議員自行支應，導致公費助理難以實質得到應有之勞動權益。雖現行條文明定「公費助理適用勞動基準法之規定，其相關費用，由議會編列經費支應」，但內政部則以行政函釋的方式，要求相關費用由議員自行負擔。爰此，實有必要修正本條第二項，明確將公費助理之加班費、勞工保險費、全民健康保險費、勞工退休金之雇主負擔部分、勞工職業災害保險費，列入由議會編列經費支應之項目，以保障公費助理之勞動權益。\n二、新增第三項。我國基本工資已逐年調整，議員公費助理補助費用總額應綜合考量社會薪資成長比例及地方財政狀況調整酌增，為保持調薪之彈性，毋須規定總額上限，可授權主管機關參照各社會經濟與地方財政因素再行調整。"},{"bill":"202110032270000","text":"直轄市議會議員每人得聘用公費助理至少六人，縣（市）議會議員每人得聘用公費助理至少二人，公費助理均與議員同進退，並應優先進用身心障礙者及中高齡者。\n前項公費助理薪資補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，加班費、資遣費及職業災害補償等補助費用總額，每人每月不得超過新臺幣六萬元；縣（市）議會議員薪資補助費用總額每人每月不得超過新臺幣十六萬元，加班費、資遣費及職業災害補償等補助費用總額，每人每月不得超過新臺幣二萬元。\n聘用部分時間工作之公費助理，該費用數額不得超過薪資補助費用總額二分之一。\n公費助理適用勞動基準法之規定，其勞工保險費、全民健康保險費及雇主為勞工負擔提繳之退休金部分，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項薪資補助費用總額、加班費、資遣費及職業災害補償等補助費用總額，議會得考量基本薪資成長比例、軍公教人員待遇調整比例及地方財政狀況綜合考量後調整。","note":"一、為因應民意代表服務型態變化，以及問政之實際需求，配合助理工作態樣之多元化，不應限制聘用公費助理之人數上限，於相同補助費用總額內，給予民意代表更多用人之彈性，方符合實際運作之現況。另地方民意代表之公費助理，其資格之選聘，應盡可能聘僱需要特別促進就業照護的弱勢群體，爰參酌身心障礙者權益保障法、中高齡者及高齡者就業促進法及就業服務法之相關規定，應優先進用身心障礙者及中高齡人員。\n二、有鑑於本條自民國九十五年新增公費助理補助費用總額後，該總額迄今均未曾調整，期間軍公教待遇已歷經六次調整、勞工基本薪資亦調整達十七次，為因應物價上漲之變化，費用總額自應進行調整。\n三、有關於公費助理之加班費、資遣費及職業災補償等費用，應與薪資補助費用同等看待，由議會編列及支應。\n四、公費助理實質上為勞動基準法所規定之勞工，依照相關法令雇主本即應負擔勞工保險費、全民健康保險費及提繳勞工退休金之部分費用，此部分應屬雇主之責任，則亦應由議會編列經費支應。\n五、我國基本工資得每年進行審議後決定是否調整，為保障公費助理之勞動權益，相關補助費用總額自應賦予相應之調整機制，故授權由各地方議會綜合考量基本薪資成長比例、軍公教人員待遇調整幅度及各地方財政狀況調整酌增，有效保持調薪之彈性，方能符合實際薪資現況及公費助理之權益，以便維持地方民意代表良好之問政及服務品質。"},{"bill":"202110034170000","text":"直轄市議會議員每人聘用公費助理至少六人，縣（市）議會議員每人聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理薪資補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣二十萬元：其中聘用部分時間工作公費助理之費用數額，不得超過補助費用總額二分之一。\n公費助理適用勞動基準法之規定，其勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，由議會編列經費支應之；加班費、資遣費及職業災害補償等補助費用總額，直轄市議會議員每人每月不得超過新臺幣六萬元，縣（市）議會議員每人每月不得超過新臺幣二萬元，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項薪資補助費用總額及第三項加班費、資遣費及職業災害補償等補助費用總額，直轄市、縣（市）議會得比照軍公教人員待遇調整比例調整之。","note":"一、刪除第一項聘用公費助理人數上限之限制，僅規定人數下限，增加議員聘用助理之彈性。\n二、鑑於公費助理薪資補助費用總額自本條例制定迄今已逾二十四年未調整，爰酌予調整，並取消直轄市議員、縣（市）議員公費助理每人每月支領金額不得超過新臺幣八萬元之限制，並賦予議員得聘用部分時間工作之公費助理，因議員服務地方面向多元，又無法聘用部分工時助理，實務上不免有由一位助理掛名，再由兩名以上助理採部分工作時間提供服務之情形，故增加用人彈性，方能因應實際問政及服務民眾之需求。\n三、鑑於現行法並未將適用勞動基準法之規定，由議會編列經費支應之相關費用項目明列，雖於立法理由明示比照立法院公費助理模式辦理，惟就各議會得編列支應之相關費用項目，中央主管機關採取限縮解釋，限制加班費、資遣費及職業災害補償等項目編列，與立法院實際運作情形未臻一致，衍生各議會預算編列與執行疑義，為落實現行法義，保障地方議會公費助理勞動權益及杜絕爭議，爰予明定項目及金額，以玆明確，至事病假之保障，亦應同上法義。\n四、為健全代議制度及保障公費助理勞動權益，相關補助費總額得併隨全國軍公教人員待遇調整比例調整。"},{"bill":"202110034100000","text":"各直轄市議會、縣（市）議會得編列議員助理補助費，補助各議員聘用助理；助理補助費總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣二十六萬元。但全國公務人員各種加給年度通案調整時，應比照其通案調幅調整，調整後助理補助費總額及施行日期由內政部公告之。\n以前項助理補助費聘用之助理，直轄市議會議員每人得聘用六人至八人，縣（市）議會議員每人得聘用五人至七人，均與議員同進退。\n前項助理適用勞動基準法之規定，其相關費用，由議會編列經費支應之，助理加班費、不休假加班費、資遣費及職災補償費等費用，不得超過第一項規定總額百分之二十。助理並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n議會應就第一項助理補助費總額及前項助理適用勞動基準法相關費用之支出情形，建立內部控制制度。","note":"一、隨社會資訊化,地方議會議員為民服務型態大幅改變，民眾對問政品質標準不斷提高，且2024年起基木工資將調整為2萬7.470元，惟依現行條例規定計算,縣（市）議員公費助理若聘至上限人數，平均將僅有2萬元，顯不符合最低基本工資要求。爰比照直轄市議員，調升縣（市）議員公費上限至26萬元，另為使助理補助費總額應比照全國公務人員各種加給年度通案調幅調整，爰參酌法官法第七十一條第六項立法體例予以明定；又為明確調整後總額及施行日期俾憑議會遵循，爰參酌國民年金法第五十四條之一規定立法體例，增訂第一項但書，授權內政部於每次調整時公告之。\n二、為增加議員用人彈性，兼顧議員助理基本人數以維持問政品質，調整現行條文第一項聘用助理人數上限規定，並將上開人數規定移列為第二項。另為利議員吸納人才，刪除現行條文第二項有關助理每人每月支領金額之上限規定。除全部時間工作勞工公費助理外，為兼顧議員聘用部分時間工作公費助理需求及議會行政成本，參照勞動部「適用部分時間工作勞工應行注意事項」有關「部分時間工作勞工」之定義，於第二項增列有關議員時用部分時間工作公費助理之費用數額，不得超過補助費用總額二分之一之規定；另為利議員吸收人才，刪除第二項有關公費助理每人每月支領金額之上限規定：並將適用勞動基準法及酌給春節慰勞金等規定移列為修正條文第三項，以茲明確。\n三、現行條文有關議員助理適用勞動基準法及酌給春節慰勞金等規定移列為第三項。全民健康保險費、勞工保險費、勞工退休準備金有關雇主應負擔部分，自本條例九十八年五月二十七日公布施行後，已由議會編列預算支應。另參照立法院組織法第三十二條規定及其立法理由，增列助理加班費、不休假加班費、資遣費及職災補償費等費用之編列額度，惟支出金額倘超過該額度，不足部分仍應由議員自行支應。\n四、參照立法院運作模式，增訂議會應就助理補助費總額及助理適用勞動基準法相關費用之支出情形，建立內部控制制度，確認聘僱事實及撥款程序，以減少詐領情事。"},{"bill":"202110036390000","text":"直轄市議會議員每人聘用公費助理至少四人；縣（市）議會議員每人聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣十二萬元；其中聘用部分時間工作公費助理之費用數額，不得超過補助費用數額三分之一。\n直轄市議會議員及縣（市）議會議員應按月將公費助理補助費用之領用助理姓名及分別支領之數額報議會備查。\n公費助理適用勞動基準法之規定，其加班費、勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。","note":"一、修正第一項，取消聘用公費助理人數上限規定，並將直轄市議會議員每人聘用公費助理人數下限降低為四人；縣（市）議會議員下限為二人，增加議員用人彈性以符合實際需求。\n二、修正第二項，直轄市議會議員公費助理費用每人每月增加至新臺幣三十六萬元，縣（市）議會議員公費助理費用每人每月增加至新臺幣十二萬元，以促進問政品質；另增列開放議員聘用部分時間工作公費助理，費用數額不得超過補助費用總額三分之一之規定；又為有利於議員吸收人才，刪除第二項有關公費助理每人每月支領金額上限規定。\n三、增列第三項，為防止公費助理補助費用遭不當挪用，明訂直轄市議會議員及縣（市）議會議員應按月將公費助理補助費用之支用助理姓名與分別支領之金額報議會備查。\n四、原第二項後段之規定移至第四項，並增訂公費助理依勞動基準法衍生之相關費用，係包含加班費、勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，應由議會編列經費支應，以資明確。"},{"bill":"202110037470000","text":"直轄市議會議員每人得聘用公費助理至少六人，縣（市）議會議員每人得聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣十六萬元。但公費助理每人每月支領金額，最多不得超過新臺幣八萬元。\n公費助理適用勞動基準法之規定，其相關費用，由議會編列經費支應之，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n第二項公費助理補助費用總額及前項費用，直轄市、縣（市）議會得綜合考量軍公教人員待遇調幅及地方財政狀況調整之。","note":"一、因應個別議員其服務工作之多元需求，刪除現行條文第一項聘用公費助理人數上限之限制，以增加用人彈性。\n二、鑑於涉及公費助理勞動條件之補助費用總額已逾二十餘年未有調整，同時考量物價變動及縣市議員公費助理費用總額較直轄市議員相對偏低，爰酌予調整第二項直轄市及縣（市）議會議員公費助理補助費用之總額。\n三、原第二項後段規定改列第三項，依勞動基準法規定雇主負擔之勞工保險費、全民健康保險費、勞工職業災害保險費及勞工退休金等相關費用，由議會編列經費支應之。\n四、為保障公費助理勞動權益，並兼顧各直轄市與縣（市）政府財政狀況，新增第四項規定，明定第二項公費助理補助費用及第三項相關費用，得綜合考量軍公教人員待遇調幅及地方財政狀況進行調整。"},{"bill":"202110041270000","text":"直轄市議會議員每人得聘用公費助理至少六人，縣（市）議會議員每人得聘用公費助理至少二人，公費助理均與議員同進退。\n前項公費助理補助費用總額，直轄市議會議員每人每月不得超過新臺幣三十六萬元，縣（市）議會議員每人每月不得超過新臺幣十二萬元；其中聘用部分時間工作公費助理之費用數額，不得超過補助費用總額二分之一。公費助理適用勞動基準法之規定，其勞工保險費、全民健康保險費及勞工退休金之雇主負擔部分，均由議會編列經費支應之；加班費、資遣費及職業災害補償之補助費用總額，直轄市議會議員每人每月不得超過新臺幣六萬元，縣（市）議會議員每人每月不得超過新臺幣二萬元，並得比照軍公教人員年終工作獎金酌給春節慰勞金。\n前項薪資補助費用總額及加班費、資遣費及職業災害補償之補助費用總額，直轄市、縣（市）議會得比照軍公教人員待遇調整比例調整之。","note":"一、刪除第一項聘用公費助理人數上限之限制，僅規定人數下限，以因應民意代表問政事務多元化趨勢，提供議員聘用助理之彈性。\n二、刪除原條文第二項前段但書，取消直轄市議員公費助理每人每月支領金額不得超過新臺幣八萬元之限制，並賦予議員得聘用部分時間工作之公費助理，增加用人彈性，以應實際問政需求。\n三、鑑於現行法並未將適公費助理用勞動基準法之規定，由議會編列經費支應之相關費用項目明列，雖於立法理由明示比照本院公費助理模式辦理，惟就各議會得編列支應之相關費用項目，中央主管機關採取限縮解釋，限制加班費、資遣費及職業災害補償等項目編列，與立法院實際運作情形未臻一致，衍生各議會預算編列與執行疑義，為落實現行法義，保障地方議會公費助理勞動權益及杜絕爭議，爰予明定項目，以資明確。\n四、為健全代議制度及保障公費助理勞動權益，增列第三項，相關補助費總額得併隨全國軍公教人員待遇調整比例調整之。"}],"changed":true,"final":"直轄市議會、縣（市）議會得編列議員助理補助費，補助各議員聘用助理；助理補助費總額，直轄市議會議員每人每月不得超過新臺幣三十二萬元，縣（市）議會議員每人每月不得超過新臺幣十六萬元；並應於全國公務人員各種加給年度通案調整時，比照其通案調整幅度調整，調整後之助理補助費總額及實施日期由內政部公告之。\n以前項助理補助費補助聘用之助理，直轄市議會議員每人應至少聘用六人，縣（市）議會議員每人應至少聘用二人，均與議員同進退。議員得聘以日薪計之助理，其日薪累計之月總支出，不得超過前項助理補助費用總額四分之一。\n前項助理適用勞動基準法之規定，其勞工保險費、全民健康保險費、勞工退休準備金、加班費、不休假加班費、資遣費及職業災害補償等依法令應由雇主負擔費用部分，由議會於不超過第一項規定總額百分之二十內編列預算支應之，並得以所領補助費之額度比照軍公教人員年終工作獎金酌給春節慰勞金。\n議會應就各議員有關第一項、第二項助理補助費總額與分配情形、助理聘用關係及第三項所列各項費用之支應情形，建立內部控制制度。","finalWhy":"一、第二項有關議員助理補助費用總額規定部分移列第一項，修正如下：\n(一)地方制度法第三十五條及第三十六條業定明直轄市議會、縣（市）議會之職權，為補助議員聘僱專職助理協助履行議員職權，爰定明各議會得編列議員助理補助費，補助各議員聘用助理。又為彰顯相關費用屬「補助」性質，刪除「公費」二字並參考修正條文第七條第一項規定體例，增列前段規定。\n(二)考量民眾對於議員問政專業及服務之要求日益增加、地方政府及議會處理公共事務日益龐雜，議員助理所需專業及工作內容亦隨之增加，並考量本條例自八十九年公布施行迄今，基本工資自新臺幣一萬五千八百四十元至一百十三年已調升至新臺幣二萬七千四百七十元，且物價也有一定漲幅，故為利議員攬才，並適度縮小直轄市、縣（市）議會議員助理補助費總額之差距，在考量地方財政負擔下，爰將助理補助費總額每月上限，於直轄市議會部分調升至新臺幣三十二萬元、縣（市）議會部分調升至新臺幣十六萬元，並為利議員吸納人才，刪除但書規定助理每人每月支領金額新臺幣八萬元之上限規定。\n(三)另考量國內財經指標、民間企業平均薪資及政府財政狀況等因素，使助理補助費總額得比照全國公務人員各種加給年度通案調幅調整，並為明確調整後助理補助費總額及施行日期俾利議會遵循，爰參考法官法第七十一條第六項及國民年金法第五十四條之一規定之立法體例，增訂後段之通案調整機制並授權內政部於每次調整時公告調整後之助理補助費總額及實施日期。\n二、第一項修正移列為第二項。為增加議員用人彈性，兼顧議員助理基本人數以維持問政品質，刪除聘用助理人數上限規定及修正直轄市議會議員聘用助理人數下限為六人、縣（市）議會議員聘用助理人數下限為二人，且各議員應聘至本項規定之人數下限，始得全額支用前項之助理補助費總額，以符合第一項及本項之修正目的。另在確保整體議員問政品質前提下，為因應議員為民服務之實務需要，增訂議員得聘以日薪制之助理，其分配支領第一項助理補助費，以所有日薪制之助理日薪累計之月總支出，不得超過前項助理補助費用總額四分之一。\n三、考量議員與助理係民事僱傭關係，議會並非雇主，爰議會編列預算補助相關費用仍宜有界限。又為使第二項後段有關助理適用勞動基準法規定之相關費用更加明確，爰移列至第三項，並擴大範圍，包括助理之勞工保險費、全民健康保險費、勞工退休準備金、加班費、不休假加班費、資遣費及職業災害補償等依法令應由雇主負擔費用部分，由議會於第一項助理補助費總額百分之二十額度內編列預算補助支應之，倘議員支出金額超過補助額度，不足部分仍應由議員自行負擔。至春節慰勞金部分，則以現行規定及依各議會發放春節慰勞金實務，於第三項後段定明酌給助理春節慰勞金之計算方式，並應優先發給月薪制之助理；如有賸餘者，始由議員就賸餘部分分配予日薪制之助理，具體金額則依議員與日薪制之助理約定發給。\n四、參照立法院運作模式，增訂第四項，定明議會應就各議員有關第一項與第二項助理補助費總額及分配情形、助理聘用關係及第三項所列各項費用之支應情形，建立內部控制制度。具體應包括由議會代為直接撥付助理補助費予助理、每月製作印領清冊載明助理補助費總額、分配情形、助理加班時數及領取金額，並經議員及助理簽章，以確認助理聘僱、加班事實及撥款程序，俾從制度面減少詐領機會。","review":{"note":"修正通過","text":"直轄市議會、縣（市）議會得編列議員助理補助費，補助各議員聘用助理；助理補助費總額，直轄市議會議員每人每月不得超過新臺幣三十二萬元，縣（市）議會議員每人每月不得超過新臺幣十六萬元；並應於全國公務人員各種加給年度通案調整時，比照其通案調整幅度調整，調整後之助理補助費總額及實施日期由內政部公告之。\n以前項助理補助費補助聘用之助理，直轄市議會議員每人應至少聘用六人，縣（市）議會議員每人應至少聘用二人，均與議員同進退。議員得聘以日薪計之助理，其日薪累計之月總支出，不得超過前項助理補助費用總額四分之一。\n前項助理適用勞動基準法之規定，其勞工保險費、全民健康保險費、勞工退休準備金、加班費、不休假加班費、資遣費及職業災害補償等依法令應由雇主負擔費用部分，由議會於不超過第一項規定總額百分之二十內編列預算支應之，並得以所領補助費之額度比照軍公教人員年終工作獎金酌給春節慰勞金。\n議會應就各議員有關第一項、第二項助理補助費總額與分配情形、助理聘用關係及第三項所列各項費用之支應情形，建立內部控制制度。"}},{"no":"第七條","current":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所編列預算，支應其保險費，並得編列預算，支應其健康檢查費，其標準均比照地方民意代表。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。","versions":[{"bill":"202110009590000","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元。\n村（里）長因職務關係，得由鄉（鎮、市、區）公所編列預算，支應其健康檢查費、保險費、春節慰問金及為民服務費，其標準比照鄉（鎮、市）民代表會代表。\n中央主管機關應辦理村（里）長團體保險，且每一被保險人之保險金額為新臺幣一千二百萬元；其範圍、繳費方式、期程、給付基準、權利與義務、辦理方式及其他相關事項之辦法，由中央主管機關定之。","note":"一、修正第二項及第三項、刪除第四項。\n二、村（里）長辦理公務及協助推行政府政令，為體恤其辛勞，爰參照本條例第五條關於民意代表之相關規定修正第二項，增列春節慰問金及為民服務費之給付。\n三、為提供村（里）長執行公務時更高之保障，明定由中央主管機關辦理全國村（里）長團體保險，其保險金額為新臺幣一千二百萬元，俾利村（里）長因公致傷亡時，其本人或家屬仍可獲得相當之生活經濟保障。其相關辦法則授權由中央主管機關定之。"},{"bill":"202110020850000","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所分別編列下列之預算：\n一、保險費。\n二、健康檢查費。\n三、春節慰勞金。\n前項健康檢查費，其標準均比照地方民意代表；前項春節慰勞金，其標準均比照軍公教人員年終工作獎金酌給。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。\n第一項之村（里）長事務補助費額度，自中華民國一百十四年起，每四年調整一次，由中央主管機關參照中央主計機關發布之最近一年消費者物價指數較前次調整之前一年消費者物價指數成長率公告調整之，但成長率為零或負數時，不予調整。","note":"一、村（里）長因職務關係，勤於村（里）事務治理，因應時空環境之不同，民眾對於村（里）長的服務品質要求日遽提升，同時又須協助地方政府推動政策及宣傳，扮演政府與人民間重要聯絡窗口，故對於專職與專業性更加要求，導致村（里）長繁忙與辛勤情況不下於地方或中央民意代表。\n二、又近年通膨嚴重，政府難以解決。2023年物價水準（CPI）為2.49%，剔除物價因素後，實質可支配的金額更少。而目前村（里）長事務補助費，無法隨同物價指數調整，更讓服務基層的村（里）長更顯艱辛。\n三、據此，爰增訂第二項春節慰勞金費用，並參酌本法第六條第二項規範比照軍公教人員年終工作獎金酌給之。\n四、又因村（里）長事務補助費乃職務關係而產生的因公支出費用，惟近年通膨嚴重，其相關經費應隨消費者物價指數定期調整，俾能定期檢討標準，以符合實際，爰增訂第五項。"},{"bill":"202110021890000","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元。但原住民族地區之村（里）每月新臺幣五萬五千元。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所編列預算，支應其春節慰問金、出國考察費及保險費，並得編列預算，支應其健康檢查費，其標準均比照地方民意代表。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣一千萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣一千萬元以上傷害保險之保險費。","note":"一、有鑑於村里長工作繁瑣，時常協助政府政令宣導、推行各項政策，於疫情期間又站在第一線協助政府推動防疫工作，每個月雖有4萬5千元的村（里）長事務補助費，但皆是拿來補助弱勢、紅白帖、村（里）辦公室的支出等，而相關待遇卻已近21年未調整，對於村里長的辛勞，實有必要透過待遇的調整，齊一保障其權益。又考量行政院研議調整111年軍公教待遇，村里長待遇亦應同步納入調整。爰修正第一項，將村里長事務補助提高至新臺幣五萬元。而經行政院核定之「原住民地區」包括30個山地鄉及25個平地原住民鄉（鎮、市），共55個鄉（鎮、市），肇因其行政區幅員遼闊、受限其地勢及交通建設相較落後，以致鄰里服務較為艱辛，亦酌增其事務補助費。\n二、村（里）長辦理公務及協助推行政府政令，為體恤其辛勞，爰參照本條例第五條關於民意代表之相關規定，於本條文第三項修正增列春節慰問金及出國考察費。\n三、村（里）長長年服務鄉梓，遭遇意外事故之情事所在多有，爰應提高其保險保障金額至最高新臺幣壹千萬元，俾利村（里）長因公致傷亡時，其本人及家屬仍可獲得一定程度之理賠保障，以維繫其等往後之經濟需要。\n四、為健全全國村（里）長之權益並提升其服務量能，其事務補助費應隨同全國軍公教人員待遇調整比例調整之。"},{"bill":"202110027210000","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所得分別編列預算，支應其保險費、健康檢查費、春節慰問金及為民服務費，其標準均比照地方民意代表。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。","note":"一、傳統村（里）辦公處服務的被動需求已不符民眾及社會所需，村里雖是我國選區劃分的最小單位，但村里長的工作卻是非常瑣碎且複雜的，不僅要主動服務民眾、政令宣導之外，還需要整合社區資源，並積極爭取公部門補助，維護村里的生活環境品質，其辛勞程度不亞於中央或地方民意代表。\n二、近年來通膨問題居高不下，2023全年CPI平均上漲2.5%，創15年來的次高水準，因此目前村（里）長事務補助費，幾乎無法反應村（里）長現實生活所需，讓全年無休、服務基層的村（里）長更顯艱辛。\n三、據此，爰編列春節慰勞金及為民服務費，其標準均比照地方民意代表。"},{"bill":"202110029290000","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所編列預算，支應其保險費，並得編列預算，支應其健康檢查費、春節慰勞金及為民服務費。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。\n第二項村（里）長春節慰勞金，每人每年不得超過一點五個月事務補助費；為民服務費每人每月不得超過新臺幣三千元，原住民族地區之村（里）長每人每月不得超過新臺幣四千五百元。","note":"一、修正第二項、增列第五項。\n二、為健全村（里）長保障制度及服務資源，第二項增加村（里）長「春節慰問金」及「為民服務費」。"},{"bill":"202110033410000","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元、年終七萬五千元為春節慰勞金。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所編列預算，支應其保險費，並得編列預算，支應其健康檢查費其標準均比照地方民意代表。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。","note":"依本條例第五條規定，地方民意代表係有編列春節慰問金，然村（里）長辦理公務及協助政府推行政令，與民眾溝通，村（里）長工作性質與地方民意代表相同。惟為體恤其辛勞，爰參照本條例第五條關於民意代表之相關規定，增列春節慰勞金給付。"},{"bill":"202110034170000","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所分別編列下列預算：\n一、保險費。\n二、健康檢查費。\n三、春節慰勞金。\n前項健康檢查費，其標準應比照地方民意代表；前項春節慰勞金，其標準應比照軍公教人員年終工作獎金酌給。\n鄉（鎮、市、區）公所編列第二項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。\n第一項之村（里）長事務補助費額度，自中華民國一百十四年起，每四年調整一次，由中央主管機關參照中央主計機關發布之最近一年消費者物價指數較前次調整之前一年消費者物價指數成長率公告調整之，但成長率為零或負數時，不予調整。","note":"一、因時空環境改變與政策多元化，民眾對於村（里）長的服務品質要求日益提升外，又須肩負地方政府推動政策及宣傳，扮演政府與人民間重要聯絡窗口，讓村（里）長專職與專業性更高，再加上又是站在第一線處理民眾事務，也讓村（里）長服務事項情況不亞於地方或中央民意代表。\n二、加之近年通膨嚴重，2023年物價水準（CPI）更達2.49%，剔除物價因素後，民眾實質可支配的金額更少。而目前村（里）長事務補助費，無法隨同物價指數調整，更讓服務基層的村（里）長倍感艱辛。\n三、為強化村（里）長服務能量，爰增訂第二項春節慰勞金費用，並參酌本法第六條第二項規範比照軍公教人員年終工作獎金酌給之。\n四、又因村（里）長事務補助費乃職務關係而產生的因公支出費用，惟近年通膨嚴重，參酌《老年農民津貼暫行條例》第四條第一項規定，其相關經費應隨消費者物價指數定期調整，以符合實際，爰增訂第五項。"},{"bill":"202110038900000","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元、春節慰勞金新臺幣七萬五千元。\n前項事務補助費與春節慰勞金應每四年調整一次，由中央主管機關參照中央主計機關發布之最近一年消費者物價指數較前次調整之前一年消費者物價指數成長率公告調整之，但成長率為零或負數時，不予調整。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所編列預算，支應其保險費，並得編列預算，支應其健康檢查費，其標準均比照地方民意代表。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。","note":"一、現行直轄市、縣市首長、地方民意代表等均比照公務人員領有年終工作獎金或春節慰勞金。而村里長事務繁重，全年無休，目前依法無薪資，僅有事務補助費，且每逢民俗節日又需服務弱勢，卻無俗稱年終獎金之相關。為體恤村里長之付出，爰提案發給村里長春節慰勞金。\n二、村里長事務補助費自民國89年本條例立法以來，即維持4萬5,000元之數額，並維持22年未曾調整，直至111年5月方才透過修法調整。主要原因在於數額明確訂於法條中，更動數額僅能透過修法。然物價變動迅速，若每次調整數額均需透過修法，曠日廢時。爰參考老農津貼與公務員退休金調整數額之方法，明訂每4年調整一次，且調整時須參照消費者物價指數之變動調整之。"}],"changed":true,"final":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元，於原住民族地區之村（里）每月再增加百分之二十；並應於全國公務人員各種加給年度通案調整時，比照其通案調整幅度調整，調整後之事務補助費總額及實施日期由內政部公告之。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所編列預算，支應其保險費，並得編列預算，支應其健康檢查費，其標準均比照地方民意代表。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。\n村（里）長由鄉（鎮、市、區）公所參照軍公教人員年終工作獎金發給規定編列預算於春節期間另發給事務補助費，其金額以第一項事務補助費數額為基準計算之；該支出由內政部編列預算支應之。","finalWhy":"一、考量行政院依法核定屬原住民族地區之鄉（鎮、市）及直轄市山地原住民區共五十五個，多有幅員較大，並需更著重執行照顧與保障原住民族之法令及政策，且該村（里）長受限於地理環境因素，服務居民需要耗費更多包括交通在內之相關成本，爰修正第一項，於原住民族地區之鄉（鎮、市）及直轄市山地原住民區，其村（里）長事務補助費每月再增加百分之二十，即每月之事務補助費為新臺幣六萬元。另為建立通案性調整機制，並修正第一項後段增訂跟隨全國公務人員各種加給年度通案調整之機制。\n二、村（里）長依地方制度法第五十九條第一項及第六十一條第三項規定，係無給職，經選舉產生之第一線民選公職人員，不受公務員服務法（如經商兼業等）限制，亦非彈劾權及懲戒權之行使對象，係支領事務補助費，補助用於推動各項村（里）公務、服務居民所需費用，故無支領薪資、無支給退職金之規定。考量村（里）長辦理村（里）公務及服務民眾全年無休，中央各部會主管法規賦予村（里）長任務者，遍及社政、兵役、警政、營建、消防、衛生、環保、農漁業、選舉等領域，亦須負擔來自於各級地方政府賦予之工作，職務繁重，更於春節期間要配合各級政府強化執行春節期間各種政策措施，並加強服務居民、關懷弱勢，爰增訂第五項，在春節期間加發第一項之事務補助費，其計算基準係參照軍公教人員年終工作獎金之發給月數作為基準。另事務補助費依現行規定本屬村（里）公務之支出之補助，內政部已解釋村（里）長事務補助費應作為處理村里事務及推行政令之用，屬核實支用性質，非屬村（里）長個人所得，尚無須課徵所得稅。至如有村（里）長換屆、補選、停職、解職等情形，則由內政部參照民選地方公職人員支給規定處理。\n三、因鄉（鎮、市、區）公所對轄內村（里）長情形掌握甚詳，為利能於春節前及時發給村（里）長有關第五項之事務補助費，簡化作業程序，仍由鄉（鎮、市、區）公所編列預算先支應有關第五項之事務補助費，再由各直轄市、縣（市）政府彙整轄內各鄉（鎮、市、區）公所之支出後並製據向內政部申請全額補助。\n四、第二項至第四項未修正。","review":{"note":"修正通過","text":"村（里）長由鄉（鎮、市、區）公所編列村（里）長事務補助費，每村（里）每月新臺幣五萬元，於原住民族地區之村（里）每月再增加百分之二十；並應於全國公務人員各種加給年度通案調整時，比照其通案調整幅度調整，調整後之事務補助費總額及實施日期由內政部公告之。\n村（里）長因職務關係，應由鄉（鎮、市、區）公所編列預算，支應其保險費，並得編列預算，支應其健康檢查費，其標準均比照地方民意代表。\n鄉（鎮、市、區）公所編列前項保險費預算，應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費金額。\n村（里）長除有正當理由未能投保或未足額投保傷害保險外，於當年度檢據支領保險費時，其單據應包含投保保險金額新臺幣五百萬元以上傷害保險之保險費。\n村（里）長由鄉（鎮、市、區）公所參照軍公教人員年終工作獎金發給規定編列預算於春節期間另發給事務補助費，其金額以第一項事務補助費數額為基準計算之；該支出由內政部編列預算支應之。"}},{"no":"第七條之一","current":null,"versions":[{"bill":"202110014040000","text":"地方民意代表及村里長任職滿二十年且年滿六十五歲，退職應發給退職金，其認定標準、計算方式與申領辦法由中央主管機關訂定。","note":"一、本條新增。\n二、我國實施地方公職人員選舉多年，期間各縣市、鄉鎮均曾有不少資深民代，對在地事務熟稔，協助改善地方建設、表達民瘼有極大貢獻。尤其近年來對於民代強調建立資深制度，希望透過專業的累積，讓議事能更有效運作。\n三、又許多國家地方民代為專職，對於推動專業問政及提升議事品質是一大幫助。相對於我國地方民代不被視為專職，漠視許多資深民代付出多年時間與心血代表基層民意，無疑是對於推動專業問政方向是相違背的，也對專職資深地方民代並不公平。\n四、爰此，增訂第七條之一草案，地方民意代表及村里長任職滿二十年且年滿六十五歲，退職應發給退職金，其認定標準、計算方式與申領辦法，則授權由中央主管機關訂定，以保障資深民代權益。"},{"bill":"202110018380000","text":"村里長任職滿二十年且年滿六十五歲，退職應發給退職金，其認定標準、計算方式與申領辦法由中央主管機關訂定。","note":"一、本條新增。\n二、村（里）長是最基層民選公職人員，對在地事務熟稔，協助改善地方、表達民瘼有極大貢獻。然而現行制度對待村（里）長，既不視為公務員，也並非民意代表，卻要處理各項大小事務，負擔沉重，純屬志業付出。\n三、我國逐漸轉型為完善福利制度的先進國家，許多職業都有完善的法令制度保障其就業與退休生活，村（里）長卻成為疏漏的一塊。\n四、爰此，增訂第七條之一，村（里）長任職滿二十年且年滿65歲，退職應發給退職金，其認定標準、計算方式與申領辦法由中央主管機關訂定。是否有當，敬請公決。"}],"changed":true,"final":"村（里）長任職滿六屆且年滿六十五歲者，應給予慰勞金及表揚，其額度及支給辦法由內政部訂定之。","finalWhy":"一、本條新增。\n二、為表彰久任之村（里）長在第一線執行各種公務及為民服務之辛勞，爰增訂村（里）長任職滿六屆且年滿六十五歲者，應給予慰勞金及表揚，其額度及具體表揚方式，授權由內政部訂定辦法據以辦理。","review":{"note":"修正通過","text":"村（里）長任職滿六屆且年滿六十五歲者，應給予慰勞金及表揚，其額度及支給辦法由內政部訂定之。"}},{"no":"第八條","current":"地方民意代表費用之支給及村（里）長事務補助費之補助項目及標準，依本條例之規定；本條例未規定者，不得編列預算支付。","versions":[{"bill":"202110036180000","text":"地方民意代表費用之支給及村（里）長事務補助費之補助項目及標準，依本條例之規定；本條例未規定者，不得編列預算支付。\n除第一項之規定外，應編列預算補助因區域幅員遼闊、地理環境、交通狀況、氣候條件等因素而衍生之費用，其實施辦法、標準及其他應遵行之事項，由中央主管機關另定之。\n前項補助之額度，自中華民國一百十四年起，每二年調整一次，由中央主管機關參照中央主計機關發布之最近一年消費者物價指數較前次調整之前一年消費者物價指數成長率公告調整之，但成長率為零或負數時，不予調整。\n第二項之補助費用，其經費由中央主管機關年度編列預算補助地方政府支應之。","note":"鑑於民眾對於村（里）長的服務品質要求日遽提升，同時亦須協助地方政府推動政策及宣傳，扮演政府與人民間重要聯絡窗口，故對於專職與專業性更加要求，導致村（里）長繁忙與辛勤情況不下於地方或中央民意代表。又因近年物價通膨嚴重，目前村（里）長事務補助費似不敷使用，若無法隨同物價指數調整，將使服務基層的村（里）長更顯不一。再加上原鄉與偏鄉的村（里）長因地理環境因素，更顯艱辛，以花蓮縣秀林鄉為例，該鄉面積為1,642平方公里，將近彰化縣面積的1.5倍、雲林縣的1.2倍，光一個秀林鄉的面積，服務範圍就大於彰化縣或雲林縣。目前地方民意代表費用支給及村里長事務補助費補助條例未考量原鄉與偏鄉幅員遼闊的特殊性，僅以形式上規範事務補助費之補助項目及標準，反造成實質之不公平，恐間接影響國人的參政權益。為解決此一長期不公平之現象，就因選區幅員遼闊、地理環境、交通狀況、氣候條件等因素而衍生之等不便費用，應採類似地域加給的方式予以補助跟補貼，爰增訂第二項至第四項。"}],"changed":false,"final":"地方民意代表費用之支給及村（里）長事務補助費之補助項目及標準，依本條例之規定；本條例未規定者，不得編列預算支付。","finalWhy":null,"review":{"note":"維持現行條文","text":""}},{"no":"第九條","current":"本條例規定之費用，應依地方制度法第七十條第二項、財政收支劃分法第三十七條第一項、第二項規定，由地方自治團體編列預算辦理之。","versions":[{"bill":"202110009590000","text":"本條例規定之費用，應依地方制度法第七十條第二項、財政收支劃分法第三十七條第一項、第二項規定，由地方自治團體編列預算辦理之；第七條第三項之經費，由中央主管機關按年度編列預算支應之。","note":"一、修正第一項後段。\n二、考量地方財政短絀，明定本法第七條第三項有關村（里）長團體保險之經費，應由中央主管機關編列預算支應。"},{"bill":"202110021890000","text":"本條例規定之費用，應依地方制度法第七十條第二項、財政收支劃分法第三十七條第一項、第二項規定，由地方自治團體編列預算辦理之。\n本條例第七條第二項春節慰問金及出國考察費之年度經費，由中央主管機關編列預算補助之。","note":"一、增訂第二項。\n二、考量地方政府財政短絀，明定本條例第二項春節慰問金及出國考察費之年度經費，由中央主管機關編列預算支應之。"}],"changed":false,"final":"本條例規定之費用，應依地方制度法第七十條第二項、財政收支劃分法第三十七條第一項、第二項規定，由地方自治團體編列預算辦理之。","finalWhy":null,"review":{"note":"維持現行條文","text":""}},{"no":"第十條","current":"本條例除中華民國九十八年七月八日公布之第七條第一項及第三項自九十九年一月一日施行，一百零七年四月二十五日公布之第七條第三項至第五項自一百零七年十二月二十五日施行，一百十一年四月十五日修正之第七條自一百十一年十二月二十五日施行外，自公布日施行。","versions":[{"bill":"202110009590000","text":"本條例除中華民國九十八年七月八日公布之第七條第一項及第三項自九十九年一月一日施行，一百零七年四月二十五日公布之第七條第三項至第五項自一百零七年十二月二十五日施行，一百十一年四月十五日修正之第七條自一百十一年十二月二十五日施行外，自公布日施行。\n本條例第六條、第七條第三項及第四項之規定，自中華民國○年○月○日起施行。","note":"增訂第二項，明定修正條文施行日期為○年○月○日。"}],"changed":true,"final":"本條例除中華民國九十八年七月八日修正公布之第七條第一項及第三項，自九十九年一月一日施行；一百零七年四月二十五日修正公布之第七條第三項至第五項，自一百零七年十二月二十五日施行；一百十一年五月四日修正公布條文，自一百十一年十二月二十五日施行；一百十三年六月四日修正之條文，自一百十四年一月一日施行外，自公布日施行。","finalWhy":"考量本次修正之條文第三條、第五條附表、第六條、第七條及第七條之一規定，涉及地方政府編列年度預算，爰定明該等修正條文之施行日期，另依法制體例，酌作文字及標點符號修正。又修正條文第七條有關村（里）長於春節期間另發給事務補助費部分，係指一百十四年之春節即予發給，併予說明。","review":{"note":"照委員吳琪銘等所提修正動議通過","text":"本條例除中華民國九十八年七月八日修正公布之第七條第一項及第三項，自九十九年一月一日施行；一百零七年四月二十五日修正公布之第七條第三項至第五項，自一百零七年十二月二十五日施行；一百十一年五月四日修正公布條文，自一百十一年十二月二十五日施行；一百十三年○月○日修正之條文，自一百十四年一月一日施行外，自公布日施行。"}}],"stages":[{"date":"2024-03-01","stage":"一讀","code":"院會-11-1-3","bill":"202110006500000","gazref":"113卷005期5187號 6-6頁"},{"date":"2024-03-01","stage":"一讀","code":"院會-11-1-3","bill":"202110006900000","gazref":"113卷005期5187號 8-8頁"},{"date":"2024-03-01","stage":"一讀","code":"院會-11-1-3","bill":"202110007680000","gazref":"113卷005期5187號 9-9頁"},{"date":"2024-03-08","stage":"一讀","code":"院會-11-1-4","bill":"202110009590000","gazref":"113卷006期5188號 3-3頁"},{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110013160000","gazref":"113卷010期5192號 7-7頁"},{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110012810000","gazref":"113卷010期5192號 8-8頁"},{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110014200000","gazref":"113卷010期5192號 13-13頁"},{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110014190000","gazref":"113卷010期5192號 14-14頁"},{"date":"2024-03-22","stage":"一讀","code":"院會-11-1-6","bill":"202110014040000","gazref":"113卷014期5196號 1-1頁"},{"date":"2024-03-22","stage":"一讀","code":"院會-11-1-6","bill":"202110016690000","gazref":"113卷014期5196號 6-6頁"},{"date":"2024-03-22","stage":"一讀","code":"院會-11-1-6","bill":"202110018380000","gazref":"113卷014期5196號 12-12頁"},{"date":"2024-03-22","stage":"一讀","code":"院會-11-1-6","bill":"202110018620000","gazref":"113卷014期5196號 13-13頁"},{"date":"2024-03-22","stage":"一讀","code":"院會-11-1-6","bill":"202110018540000","gazref":"113卷014期5196號 14-14頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110020850000","gazref":"113卷018期5200號 3-3頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110021580000","gazref":"113卷018期5200號 8-8頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110021560000","gazref":"113卷018期5200號 8-8頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110021890000","gazref":"113卷018期5200號 9-9頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110022180000","gazref":"113卷018期5200號 11-11頁"},{"date":"2024-04-09","stage":"一讀","code":"院會-11-1-8","bill":"202110027170000","gazref":"113卷020期5202號 7-7頁"},{"date":"2024-04-09","stage":"一讀","code":"院會-11-1-8","bill":"202110027210000","gazref":"113卷020期5202號 8-8頁"},{"date":"2024-04-09","stage":"一讀","code":"院會-11-1-8","bill":"202110027340000","gazref":"113卷020期5202號 9-9頁"},{"date":"2024-04-09","stage":"一讀","code":"院會-11-1-8","bill":"202110027870000","gazref":"113卷020期5202號 12-12頁"},{"date":"2024-04-12","stage":"一讀","code":"院會-11-1-9","bill":"202110029290000","gazref":"113卷025期5207號 4-4頁"},{"date":"2024-04-12","stage":"一讀","code":"院會-11-1-9","bill":"202110030640000","gazref":"113卷025期5207號 7-7頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110030470000","gazref":"113卷028期5210號 1-1頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110033290000","gazref":"113卷028期5210號 2-2頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110031750000","gazref":"113卷028期5210號 4-4頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110032270000","gazref":"113卷028期5210號 6-6頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110033410000","gazref":"113卷028期5210號 10-10頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110034170000","gazref":"113卷028期5210號 14-14頁"},{"date":"2024-04-26","stage":"一讀","code":"院會-11-1-11","bill":"202110034100000","gazref":"113卷031期5213號 2-2頁"},{"date":"2024-04-26","stage":"一讀","code":"院會-11-1-11","bill":"202110036180000","gazref":"113卷031期5213號 7-7頁"},{"date":"2024-04-26","stage":"一讀","code":"院會-11-1-11","bill":"202110036390000","gazref":"113卷031期5213號 8-8頁"},{"date":"2024-04-26","stage":"一讀","code":"院會-11-1-11","bill":"202110036580000","gazref":"113卷031期5213號 10-10頁"},{"date":"2024-04-26","stage":"一讀","code":"院會-11-1-11","bill":"202110037470000","gazref":"113卷031期5213號 16-16頁"},{"date":"2024-05-03","stage":"一讀","code":"院會-11-1-12","bill":"202110038900000","gazref":"113卷035期5217號 3-3頁"},{"date":"2024-05-03","stage":"一讀","code":"院會-11-1-12","bill":"202110041270000","gazref":"113卷035期5217號 7-7頁"},{"date":"2024-05-08","code":"委員會-11-1-15-17","title":"第11屆第1會期內政委員會第17次全體委員會議","gazref":"113卷042期5224號一冊 69-71,74-275頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024050333/details?meetingDate=113/05/08","full":["https://ivod.ly.gov.tw/Play/Full/1M/15890"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/113/42/LCIDC01_1134201_00002.pdf","p1":69,"p2":276}],"clips":[{"n":"楊瓊瓔","t":"09:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152272"},{"n":"徐欣瑩","t":"09:12","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152273"},{"n":"王美惠","t":"09:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152274"},{"n":"盧縣一","t":"09:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152275"},{"n":"黃捷","t":"09:20","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152276"},{"n":"吳琪銘","t":"09:22","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152277"},{"n":"伍麗華Saidhai Tahovecahe","t":"09:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152278"},{"n":"吳沛憶","t":"09:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152279"},{"n":"高金素梅","t":"09:30","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152280"},{"n":"許宇甄","t":"09:33","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152281"},{"n":"李柏毅","t":"09:36","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152282"},{"n":"呂玉玲","t":"09:38","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152283"},{"n":"王育敏","t":"09:42","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152284"},{"n":"李彥秀","t":"09:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152285"},{"n":"徐巧芯","t":"09:48","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152286"},{"n":"蔡易餘","t":"09:50","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152287"},{"n":"劉建國","t":"09:54","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152288"},{"n":"黃建賓","t":"09:57","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152289"},{"n":"鄭正鈐","t":"09:58","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152290"},{"n":"蘇巧慧","t":"10:10","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152308"},{"n":"麥玉珍","t":"10:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152309"},{"n":"張宏陸","t":"10:28","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152310"},{"n":"王美惠","t":"10:44","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152332"},{"n":"許宇甄","t":"10:53","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152333"},{"n":"李柏毅","t":"11:02","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152334"},{"n":"牛煦庭","t":"11:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152335"},{"n":"黃捷","t":"11:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152336"},{"n":"黃建賓","t":"11:23","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152337"},{"n":"吳琪銘","t":"11:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152338"},{"n":"高金素梅","t":"11:36","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152339"},{"n":"張智倫","t":"11:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152340"},{"n":"徐欣瑩","t":"11:55","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152341"},{"n":"丁學忠","t":"12:02","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152342"},{"n":"李坤城","t":"12:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152343"},{"n":"鄭天財Sra Kacaw","t":"13:03","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152346"},{"n":"伍麗華Saidhai Tahovecahe","t":"13:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152347"},{"n":"黃國昌","t":"13:15","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152348"},{"n":"洪孟楷","t":"13:23","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152349"},{"n":"楊瓊瓔","t":"13:31","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152350"},{"n":"盧縣一","t":"13:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152351"},{"n":"鍾佳濱","t":"13:42","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152352"},{"n":"劉建國","t":"13:51","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152353"},{"n":"羅智強","t":"13:59","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152354"},{"n":"李彥秀","t":"14:05","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152355"}],"props":["202110006500000","202110006900000","202110007680000","202110013160000","202110012810000","202110014200000","202110014190000","202110014040000","202110016690000","202110018380000","202110018620000","202110018540000","202110020850000","202110021580000","202110021560000","202110021890000","202110022180000","202110027170000","202110027210000","202110027340000","202110027870000","202110029290000","202110030470000","202110033290000","202110031750000","202110032270000","202110033410000","202110034170000","202110034100000","202110036180000","202110036390000","202110036580000","202110037470000","202110038900000","202110041270000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":48,"nmem":34,"ntable":0,"mixedOther":["宣讀上次會議議事錄"],"nfold":1},{"date":"2024-06-04","code":"院會-11-1-16","title":"第11屆第1會期第16次會議","gazref":"113卷051期5233號二冊 13-157頁；113卷051期5233號二冊 157-160頁；113卷051期5233號二冊 160-169頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024052941/details?meetingDate=113/05/31","full":["https://ivod.ly.gov.tw/Play/Full/1M/15976"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/113/51/LCIDC01_1135102_00002.pdf","p1":13,"p2":169}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"nspeak":26,"nmem":20,"ntable":7,"nfold":3}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["5 月 8 日的委員會同時處理「宣讀上次會議議事錄」，詢答合併進行，逐字稿裡有那部分的問答。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

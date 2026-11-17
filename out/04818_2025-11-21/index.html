@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>地方制度法修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"地方制度法","version":"04818:2025-11-21-修正","date":"2025-11-21","action":"修正","title":"地方制度法　2025 年修正","lede":"","summary":"","key":"04818_2025-11-21","props":[{"id":"202110010220000","who":"委員賴士葆等20人","date":"2024-03-15","name":"「地方制度法第七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110010220000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00012.pdf","proposers":["賴士葆","王鴻薇"],"ncosign":18,"people":[["賴士葆","國民黨","提案"],["王鴻薇","國民黨","提案"],["李彥秀","國民黨","連署"],["蘇清泉","國民黨","連署"],["羅明才","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["陳玉珍","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["黃仁","國民黨","連署"],["張嘉郡","國民黨","連署"],["林德福","國民黨","連署"],["陳永康","國民黨","連署"],["顏寬恒","國民黨","連署"],["王育敏","國民黨","連署"],["呂玉玲","國民黨","連署"],["徐巧芯","國民黨","連署"],["廖偉翔","國民黨","連署"],["邱鎮軍","國民黨","連署"],["涂權吉","國民黨","連署"],["盧縣一","國民黨","連署"]],"party":[["國民黨",20]],"reason":"本院委員賴士葆、王鴻薇等20人，鑒於地方制度法第七條之一所定縣市合併或改制攸關地方自治團體及其住民之權益變動，為落實憲法保障之地方自治意旨，爰擬具「地方制度法第七條之一條文修正草案」，明定內政部擬訂之改制計畫，須徵得相關直轄市政府、縣（市）政府及各該直轄市議會、縣（市）議會之同意後，始得報請行政院核定之，避免因缺乏地方民意機關參與，而發生中央剝奪地方參與改制計畫權利之爭議。是否有當？敬請公決。","arts":["第七條之一"]},{"id":"202110021370000","who":"委員陳玉珍等18人","date":"2024-03-29","name":"「地方制度法增訂第七條之四條文草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110021370000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00052.pdf","proposers":["陳玉珍"],"ncosign":17,"people":[["陳玉珍","國民黨","提案"],["黃仁","國民黨","連署"],["謝龍介","國民黨","連署"],["洪孟楷","國民黨","連署"],["王育敏","國民黨","連署"],["徐巧芯","國民黨","連署"],["林倩綺","國民黨","連署"],["顏寬恒","國民黨","連署"],["羅明才","國民黨","連署"],["翁曉玲","國民黨","連署"],["李彥秀","國民黨","連署"],["呂玉玲","國民黨","連署"],["王鴻薇","國民黨","連署"],["盧縣一","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["黃珊珊","民眾黨","連署"],["萬美玲","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"]],"party":[["國民黨",17],["民眾黨",1]],"reason":"本院委員陳玉珍等18人，鑑於中華民國憲法增修條文第十條第十二項之規定，已有二十餘年之久，然該項規定後段「對澎湖、金門及馬祖地區人民之特別保障」規定從未見實質有效討論。原住民族有「原住民族基本法」為框架之上位法源，藉以授權制定保障原住民族之各項權益之法制規定，反觀金門、馬祖及澎湖地區，僅有「離島建設條例」一部法令，此實與原住民族完整法體系不相比擬。爰擬具「地方制度法增訂第七條之四條文草案」，增訂授權制定離島基本法，以為上位法源，藉以落實憲法增修條文之保障規定。同時考量離島基本法制定需時較長，故在離島基本法未完成立法前，如涉及有關離島人民之權益事項，行政院須訂定規制離島人民之特別保障法規命令。是否有當？敬請公決。","arts":["第七條之四"]},{"id":"202110028230000","who":"委員伍麗華Saidhai Tahovecahe等17人","date":"2024-04-09","name":"「地方制度法第八十三條之三條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110028230000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/08/LCEWA01_110108_00119.pdf","proposers":["伍麗華Saidhai‧Tahovecahe"],"ncosign":16,"people":[["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["林俊憲","民進黨","連署"],["沈伯洋","民進黨","連署"],["陳亭妃","民進黨","連署"],["邱議瑩","民進黨","連署"],["陳培瑜","民進黨","連署"],["黃捷","民進黨","連署"],["蔡其昌","民進黨","連署"],["鍾佳濱","民進黨","連署"],["林月琴","民進黨","連署"],["李坤城","民進黨","連署"],["莊瑞雄","民進黨","連署"],["吳思瑤","民進黨","連署"],["陳冠廷","民進黨","連署"],["吳秉叡","民進黨","連署"],["林楚茵","民進黨","連署"],["蔡易餘","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員伍麗華Saidhai Tahovecahe等17人，鑒於保障山地原住民區財政自主，避免山地原住民區因縣市合併造成自治事項不利之影響，爰依財政收支劃分法第八條、第十二條及公共債務法第五條規定，爰擬具「地方制度法第八十三條之三條文修正草案」，納入升格前鄉（鎮、市）稅捐及公共債之收入。是否有當？敬請公決。","arts":["第八十三條之三"]},{"id":"202110038000000","who":"委員伍麗華Saidhai Tahovecahe等16人","date":"2024-04-26","name":"「地方制度法第五十二條及第六十一條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110038000000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/11/LCEWA01_110111_00138.pdf","proposers":["伍麗華Saidhai‧Tahovecahe"],"ncosign":15,"people":[["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["王美惠","民進黨","連署"],["黃捷","民進黨","連署"],["許智傑","民進黨","連署"],["郭昱晴","民進黨","連署"],["蘇巧慧","民進黨","連署"],["陳素月","民進黨","連署"],["李柏毅","民進黨","連署"],["王世堅","民進黨","連署"],["王正旭","民進黨","連署"],["賴瑞隆","民進黨","連署"],["徐富癸","民進黨","連署"],["黃秀芳","民進黨","連署"],["張宏陸","民進黨","連署"],["林月琴","民進黨","連署"],["何欣純","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員伍麗華Saidhai Tahovecahe等16人，現行「地方制度法」的規定，直轄市長等地方政府首長，因公死亡或病故者應給與其遺屬撫卹金，但同樣係依「公職人員選舉罷免法」所選出之直轄市議員等地方民意代表與村（里）長卻因為被認定其性質與公務人員不同，而在現行法律體制上被排除撫卹金之適用甚為不公，爰擬具「地方制度法第五十二條及第六十一條條文修正草案」。是否有當？敬請公決。","arts":["第五十二條","第六十一條"]},{"id":"202110069720000","who":"委員陳玉珍等18人","date":"2024-10-11","name":"「地方制度法第五十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110069720000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/04/LCEWA01_110204_00019.pdf","proposers":["陳玉珍"],"ncosign":17,"people":[["陳玉珍","國民黨","提案"],["徐欣瑩","國民黨","連署"],["許宇甄","國民黨","連署"],["李彥秀","國民黨","連署"],["盧縣一","國民黨","連署"],["丁學忠","國民黨","連署"],["羅廷瑋","國民黨","連署"],["廖先翔","國民黨","連署"],["林德福","國民黨","連署"],["邱鎮軍","國民黨","連署"],["林思銘","國民黨","連署"],["陳雪生","國民黨","連署"],["萬美玲","國民黨","連署"],["吳宗憲","國民黨","連署"],["魯明哲","國民黨","連署"],["高金素梅","無黨籍","連署"],["林倩綺","國民黨","連署"],["張智倫","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",1]],"reason":"本院委員陳玉珍等18人，鑑於縣（市）政府與中央機關間之分權互動與業務聯繫，在經過廢省後已有所更張，地方政府與中央直接互動，形成中央與地方二級制。而定期改選的民選地方政府為積極回應地方居民需求，兌現競選政見，需要行政組織及人員的協助，並能加以控制。再加上在全球化下，城市競爭逐漸取代國家競爭，為因應全球城市競爭，縣（市）地方政府需要更多的資源、更彈性的組織權與人事權，方能達到因地制宜、專業分工等綜效。爰擬具「地方制度法第五十六條條文修正草案」，將地方副縣（市）長名額增至二人，同時將縣（市）政府其一級單位主管及所屬一級機關首長，除主計、人事、警察、稅捐及政風之主管或首長外，其餘均比照直轄市政府，職務均比照簡任第十二職等，由縣（市）長任免之。是否有當？敬請公決。","arts":["第五十六條"]},{"id":"202110069950000","who":"委員李坤城等20人","date":"2024-10-18","name":"「地方制度法第七十八條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110069950000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/05/LCEWA01_110205_00016.pdf","proposers":["李坤城"],"ncosign":19,"people":[["李坤城","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["徐富癸","民進黨","連署"],["吳琪銘","民進黨","連署"],["林岱樺","民進黨","連署"],["李柏毅","民進黨","連署"],["林俊憲","民進黨","連署"],["羅美玲","民進黨","連署"],["郭昱晴","民進黨","連署"],["黃秀芳","民進黨","連署"],["何欣純","民進黨","連署"],["林楚茵","民進黨","連署"],["洪申翰","民進黨","連署"],["王美惠","民進黨","連署"],["賴惠員","民進黨","連署"],["陳瑩","民進黨","連署"],["郭國文","民進黨","連署"],["陳培瑜","民進黨","連署"],["王正旭","民進黨","連署"],["張雅琳","民進黨","連署"]],"party":[["民進黨",20]],"reason":"本院委員李坤城等20人，擬具「地方制度法第七十八條條文修正草案」。是否有當？敬請公決。","arts":["第七十八條"]},{"id":"202110076150000","who":"委員李彥秀等16人","date":"2024-11-08","name":"「地方制度法第五十五條及第五十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110076150000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/08/LCEWA01_110208_00108.pdf","proposers":["李彥秀","王鴻薇","羅智強","許宇甄"],"ncosign":12,"people":[["李彥秀","國民黨","提案"],["王鴻薇","國民黨","提案"],["羅智強","國民黨","提案"],["許宇甄","國民黨","提案"],["張嘉郡","國民黨","連署"],["徐欣瑩","國民黨","連署"],["鄭正鈐","國民黨","連署"],["葛如鈞","國民黨","連署"],["陳菁徽","國民黨","連署"],["魯明哲","國民黨","連署"],["廖偉翔","國民黨","連署"],["黃建賓","國民黨","連署"],["張智倫","國民黨","連署"],["洪孟楷","國民黨","連署"],["邱鎮軍","國民黨","連署"],["謝龍介","國民黨","連署"]],"party":[["國民黨",16]],"reason":"本院委員李彥秀、王鴻薇、羅智強、許宇甄等16人，依國家發展委員會之人口推估報告，「民國113年之總人口數為負成長，且未來趨勢難以逆轉，人口自然減少幅度預期將持續擴大」，顯見未來各縣市人口數將持續下降，然而地方政府之任務卻係日趨繁雜，需要高度分工及專業化方能有效顧及民眾需求，依地方制度法第五十五條規定，直轄市人口達二百五十萬人，得增設第三位副市長，且當時立法理由敘明僅臺南市未達人口標準故無法增設第三位副市長，第五十六條規定縣（市）人口達一百二十五萬人，得增設第二位副縣（市）長，卻無任何縣（市）得增設，可見此門檻於現今社會狀況之變遷已有所不合，人口數日趨減少但政府職責卻日益趨重，自宜調整放寬增設副直轄市市長及副縣（市）長之規定，爰擬具「地方制度法第五十五條及第五十六條條文修正草案」。是否有當？敬請公決。","arts":["第五十五條","第五十六條"]},{"id":"202110075260000","who":"委員高金素梅等18人","date":"2024-11-08","name":"「地方制度法第八十三條之三條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110075260000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/08/LCEWA01_110208_00039.pdf","proposers":["高金素梅","鄭天財Sra Kacaw","黃仁","羅廷瑋"],"ncosign":14,"people":[["高金素梅","無黨籍","提案"],["鄭天財Sra Kacaw","國民黨","提案"],["黃仁","國民黨","提案"],["羅廷瑋","國民黨","提案"],["林倩綺","國民黨","連署"],["馬文君","國民黨","連署"],["謝龍介","國民黨","連署"],["牛煦庭","國民黨","連署"],["徐欣瑩","國民黨","連署"],["麥玉珍","民眾黨","連署"],["羅智強","國民黨","連署"],["陳玉珍","國民黨","連署"],["林沛祥","國民黨","連署"],["林德福","國民黨","連署"],["徐巧芯","國民黨","連署"],["陳雪生","國民黨","連署"],["顏寬恒","國民黨","連署"],["張嘉郡","國民黨","連署"]],"party":[["國民黨",16],["無黨籍",1],["民眾黨",1]],"reason":"本院委員高金素梅、鄭天財Sra Kacaw、黃仁、羅廷瑋等17人，有鑑於民國九十年《地方制度法》修正時，由於五都直轄市的升格，導致原住民的五個山地鄉，包括新北市的烏來區、台中市的和平區，以及高雄市茂林區、桃源區和那瑪夏區，喪失地方自治與參政的權益。然一百零三年修法重新恢復前開山地原住民區之地方自治地位之時，惟僅給山地原住民族區自治地位，剝奪「山地原住民區稅捐」以及「山地原住民區公共債務」等財政事項，導致山地原住民區籌措財源的能力不若其他鄉鎮市，常處於經濟拮据的狀況，難以分配專屬的統籌分配稅款，僅僅只能依靠原民會的補助款在生存。據此，為了保障山地原住民區的財政自主，避免因縣市合併導致對其自治事項產生不利影響，爰擬具「地方制度法第八十三條之三條文修正草案」，修正該條第一項之財政事項並新增第二項，恢復山地原住民區原有之「山地原住民區稅捐」以及「山地原住民區公共債務」之財政事項，讓其得與其他鄉鎮市有同等地位的財政能力，進而紓緩山地原住民地區的財政壓力。是否有當？敬請公決。","arts":["第八十三條之三"]},{"id":"202110077150000","who":"委員魯明哲等16人","date":"2024-11-15","name":"「地方制度法第七條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110077150000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/09/LCEWA01_110209_00039.pdf","proposers":["魯明哲"],"ncosign":15,"people":[["魯明哲","國民黨","提案"],["陳雪生","國民黨","連署"],["黃仁","國民黨","連署"],["邱若華","國民黨","連署"],["林沛祥","國民黨","連署"],["羅廷瑋","國民黨","連署"],["許宇甄","國民黨","連署"],["陳玉珍","國民黨","連署"],["張智倫","國民黨","連署"],["萬美玲","國民黨","連署"],["陳超明","無黨籍","連署"],["林思銘","國民黨","連署"],["廖先翔","國民黨","連署"],["羅明才","國民黨","連署"],["游顥","國民黨","連署"],["盧縣一","國民黨","連署"]],"party":[["國民黨",15],["無黨籍",1]],"reason":"本院委員魯明哲等16人，鑒於住民自治之理念與垂直分權之功能乃憲法所保障之範疇，然目前我國現行之地方制度法第七條之一第一項所訂之改制計畫，僅須徵詢地方政府，而未考量地方民心之所向，更無賦予地方議會實質否決之權力，此況恐有違地方自治之精神，亦與主權在民之憲法基本架構相悖。為保障地方自治之精神，爰擬具「地方制度法第七條之一條文修正草案」。是否有當？敬請公決。","arts":["第七條之一"]},{"id":"202110080350000","who":"委員盧縣一等18人","date":"2024-11-29","name":"「地方制度法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110080350000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/11/LCEWA01_110211_00062.pdf","proposers":["盧縣一","黃仁","鄭天財Sra Kacaw","蘇清泉"],"ncosign":14,"people":[["盧縣一","國民黨","提案"],["黃仁","國民黨","提案"],["鄭天財Sra Kacaw","國民黨","提案"],["蘇清泉","國民黨","提案"],["翁曉玲","國民黨","連署"],["徐欣瑩","國民黨","連署"],["陳玉珍","國民黨","連署"],["游顥","國民黨","連署"],["林沛祥","國民黨","連署"],["陳超明","無黨籍","連署"],["林倩綺","國民黨","連署"],["涂權吉","國民黨","連署"],["黃建賓","國民黨","連署"],["廖先翔","國民黨","連署"],["林德福","國民黨","連署"],["陳菁徽","國民黨","連署"],["謝龍介","國民黨","連署"],["邱鎮軍","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",1]],"reason":"本院委員盧縣一、黃仁、鄭天財Sra Kacaw、蘇清泉等18人，鑒於103年12月25日直轄市轄內六個山地原住民區（新北市烏來區、桃園市復興區、台中市和平區、高雄市桃源區、高雄市茂林區、高雄市那瑪夏區）恢復地方自治團體公法人地位後，體現中華民國憲法及憲法增修條文第十條第十二項「國家應依民族意願，保障原住民族之地位及政治參與」及原住民族基本法第四條：「政府應依原住民族意願，保障原住民族之平等地位及自主發展，實行原住民族自治」中關於扶持及保障原住民自治及相關福利之意旨。惟自六個山地原住民區恢復公法人地位迄今，山地原住民區之財政收支情形甚至與改制前之山地鄉相較更為困窘！由於現行山地原住民區之自治事項中，原屬改制前山地鄉之稅捐及公共債務等財政權利並未加以恢復，故每年度之歲入來源亟需中央及直轄市政府之補助始勉強得以維持，但除山地原住民區之人事及一般政務支出外，過去地方之基礎建設及社會福利等經費支出由於財政窘迫，使區務推展受阻、剝奪其財政自主權、嚴重衝擊地方發展！山地原住民區之財稅收入反而更加仰賴中央及地方政府的統籌分配稅款、直轄市政府依照地方制度法第八十三條之七所設算之補助、以及透過提案向直轄市或中央政府各機關爭取計畫型、競爭型經費補助後，僅勉強維持其區內政務之推動。六個山地原住民區之財政，明顯受制於直轄市政府，導致各原住民區區長爭取地方建設經費不易，爰擬具「地方制度法部分條文修正草案」。是否有當？敬請公決。","arts":["第八十三條之三","第八十三條之七","第八十三條之九","第八十三條之十","第八十三條之十一","第八十三條之十二"]},{"id":"202110080310000","who":"委員徐巧芯等21人","date":"2024-11-29","name":"「地方制度法第五十五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110080310000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/11/LCEWA01_110211_00064.pdf","proposers":["徐巧芯","廖偉翔"],"ncosign":19,"people":[["徐巧芯","國民黨","提案"],["廖偉翔","國民黨","提案"],["黃仁","國民黨","連署"],["高金素梅","無黨籍","連署"],["林倩綺","國民黨","連署"],["鄭正鈐","國民黨","連署"],["陳菁徽","國民黨","連署"],["傅崐萁","國民黨","連署"],["翁曉玲","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["牛煦庭","國民黨","連署"],["陳雪生","國民黨","連署"],["張嘉郡","國民黨","連署"],["謝龍介","國民黨","連署"],["邱鎮軍","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["馬文君","國民黨","連署"],["羅廷瑋","國民黨","連署"],["羅智強","國民黨","連署"],["陳玉珍","國民黨","連署"],["羅明才","國民黨","連署"]],"party":[["國民黨",20],["無黨籍",1]],"reason":"本院委員徐巧芯、廖偉翔等21人，鑒於內政部電信信令人口統計，各直轄市日夜間人口活動數與戶籍人口數差額甚多。顯示地方政府在行政上除需先照顧原先戶籍人口也需照顧外縣市人口需求，應將直轄市設置副市長固定為三人，爰擬具「地方制度法第五十五條條文修正草案」。是否有當？敬請公決。","arts":["第五十五條"]},{"id":"202110085880000","who":"委員邱鎮軍等16人","date":"2025-01-10","name":"「地方制度法第五十五條及第五十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110085880000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/17/LCEWA01_110217_00042.pdf","proposers":["邱鎮軍","游顥","林沛祥","蘇清泉"],"ncosign":12,"people":[["邱鎮軍","國民黨","提案"],["游顥","國民黨","提案"],["林沛祥","國民黨","提案"],["蘇清泉","國民黨","提案"],["黃仁","國民黨","連署"],["盧縣一","國民黨","連署"],["馬文君","國民黨","連署"],["高金素梅","無黨籍","連署"],["黃建賓","國民黨","連署"],["魯明哲","國民黨","連署"],["陳超明","無黨籍","連署"],["羅智強","國民黨","連署"],["翁曉玲","國民黨","連署"],["陳雪生","國民黨","連署"],["牛煦庭","國民黨","連署"],["謝龍介","國民黨","連署"]],"party":[["國民黨",14],["無黨籍",2]],"reason":"本院委員邱鎮軍、游顥、林沛祥、蘇清泉等16人，有鑑於我國地方自治面臨新型態網路服務、數位治理及數位轉型等新趨勢治理挑戰，另外因應少子化、缺工及通膨問題，以及推動國土計畫、防災型都更等重大政策，亟需增加專業度高的副首長；另鑑於軌道運輸普及後大幅縮短一日生活圈，跨縣市工作人口、旅遊民眾、國際移工及在地住民，才是人口服務及治理全貌，應將直轄市政府之副市長固定為三人、面積超過一千平方公里之縣政府副縣長固定為二人，爰擬具「地方制度法第五十五條及第五十六條條文修正草案」。是否有當？敬請公決。","arts":["第五十五條","第五十六條"]},{"id":"202110086600000","who":"委員范雲等24人","date":"2025-01-17","name":"「地方制度法第三十三條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110086600000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/18/LCEWA01_110218_00039.pdf","proposers":["范雲","黃捷","賴惠員","張宏陸","蘇巧慧","許智傑","何欣純"],"ncosign":17,"people":[["范雲","民進黨","提案"],["黃捷","民進黨","提案"],["賴惠員","民進黨","提案"],["張宏陸","民進黨","提案"],["蘇巧慧","民進黨","提案"],["許智傑","民進黨","提案"],["何欣純","民進黨","提案"],["吳沛憶","民進黨","連署"],["林淑芬","民進黨","連署"],["陳培瑜","民進黨","連署"],["張雅琳","民進黨","連署"],["陳秀寳","民進黨","連署"],["林楚茵","民進黨","連署"],["劉建國","民進黨","連署"],["王世堅","民進黨","連署"],["林宜瑾","民進黨","連署"],["郭昱晴","民進黨","連署"],["羅美玲","民進黨","連署"],["王正旭","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["李柏毅","民進黨","連署"],["陳素月","民進黨","連署"],["鍾佳濱","民進黨","連署"],["吳琪銘","民進黨","連署"]],"party":[["民進黨",24]],"reason":"本院委員范雲、黃捷、賴惠員等17人，有鑑於我國已於2007年簽署「消除對婦女一切形式歧視公約」（CEDAW），其第23號一般性建議指出，婦女參與政治和公共生活的比例應達到30%至35%；為確保政府施政關注多元面向、實質促進女性參政，爰擬具「地方制度法第三十三條條文修正草案」。是否有當？敬請公決。","arts":["第三十三條"]},{"id":"202110087490000","who":"委員蘇清泉等19人","date":"2025-02-25","name":"「地方制度法第三十三條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110087490000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/02/LCEWA01_110302_00014.pdf","proposers":["蘇清泉","林倩綺","盧縣一","翁曉玲","邱若華","邱鎮軍","黃仁"],"ncosign":12,"people":[["蘇清泉","國民黨","提案"],["林倩綺","國民黨","提案"],["盧縣一","國民黨","提案"],["翁曉玲","國民黨","提案"],["邱若華","國民黨","提案"],["邱鎮軍","國民黨","提案"],["黃仁","國民黨","提案"],["謝龍介","國民黨","連署"],["林沛祥","國民黨","連署"],["游顥","國民黨","連署"],["吳宗憲","國民黨","連署"],["涂權吉","國民黨","連署"],["林德福","國民黨","連署"],["張智倫","國民黨","連署"],["葛如鈞","國民黨","連署"],["廖先翔","國民黨","連署"],["洪孟楷","國民黨","連署"],["呂玉玲","國民黨","連署"],["鄭正鈐","國民黨","連署"]],"party":[["國民黨",19]],"reason":"本院委員蘇清泉、林倩綺、盧縣一、翁曉玲、邱若華、邱鎮軍、黃仁等19人，有鑑於台灣受少子化、老年化大環境的影響，人口逐年減少，是目前也是未來縣市及鄉鎮市所需面臨的議題與窘境，然隨著社會進步，自民國88年起至今113年共計25年期間，政府與人民間之相關福利政策與權利事務卻年年倍增，鄉親的服務廣度及深度更要周延提昇，在在需要鄉（鎮、市）民代表對地方的投入，俾以深植民意，傳達民情。現行法令鄉鎮市代表會代表應選出總額的規定已不合時宜，實亟需檢討修正，爰擬具「地方制度法第三十三條條文修正草案」。是否有當？敬請公決。","arts":["第三十三條"]},{"id":"202110093790000","who":"委員黃捷等18人","date":"2025-03-07","name":"「地方制度法第三十三條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110093790000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/04/LCEWA01_110304_00036.pdf","proposers":["黃捷"],"ncosign":17,"people":[["黃捷","民進黨","提案"],["王美惠","民進黨","連署"],["王義川","民進黨","連署"],["范雲","民進黨","連署"],["陳秀寳","民進黨","連署"],["陳培瑜","民進黨","連署"],["羅美玲","民進黨","連署"],["陳素月","民進黨","連署"],["李坤城","民進黨","連署"],["郭國文","民進黨","連署"],["陳俊宇","民進黨","連署"],["王定宇","民進黨","連署"],["鍾佳濱","民進黨","連署"],["黃秀芳","民進黨","連署"],["王正旭","民進黨","連署"],["賴瑞隆","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["劉建國","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員黃捷等18人，為確保政府施政充分納入多元觀點，並符合《消除對婦女一切形式歧視公約》（CEDAW）對女性參與政治與公共生活比例應達30%至35%的要求，爰修訂現行四分之一婦女保障名額制度為：選區當選人數達三人以上時，每三位當選人中，任一性別不得低於三分之一，爰擬具「地方制度法第三十三條條文修正草案」。是否有當？敬請公決。","arts":["第三十三條"]},{"id":"202110105150000","who":"委員徐富癸等17人","date":"2025-04-18","name":"「地方制度法第三十三條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110105150000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/08/LCEWA01_110308_00075.pdf","proposers":["徐富癸","伍麗華Saidhai‧Tahovecahe"],"ncosign":15,"people":[["徐富癸","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["陳秀寳","民進黨","連署"],["吳沛憶","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳俊宇","民進黨","連署"],["賴瑞隆","民進黨","連署"],["何欣純","民進黨","連署"],["林岱樺","民進黨","連署"],["林月琴","民進黨","連署"],["陳素月","民進黨","連署"],["羅美玲","民進黨","連署"],["邱志偉","民進黨","連署"],["王正旭","民進黨","連署"],["李柏毅","民進黨","連署"],["劉建國","民進黨","連署"],["黃秀芳","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員徐富癸、伍麗華Saidhai Tahovecahe等17人，鑒於近年各區域發展不均，部分縣市人口外移嚴重，若依現行地方制度法規定，恐對於鄉（鎮、市）民代表人數產生衝擊，影響地方問政品質。爰擬具「地方制度法第三十三條條文修正草案」。調整部分人口數之縣市應具備之議員總額上限。是否有當？敬請公決。","arts":["第三十三條"]},{"id":"202110120080000","who":"委員許智傑等26人","date":"2025-05-09","name":"「地方制度法第三十三條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110120080000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/11/LCEWA01_110311_00019.pdf","proposers":["許智傑"],"ncosign":25,"people":[["許智傑","民進黨","提案"],["陳培瑜","民進黨","連署"],["陳亭妃","民進黨","連署"],["陳瑩","民進黨","連署"],["李柏毅","民進黨","連署"],["林月琴","民進黨","連署"],["黃捷","民進黨","連署"],["范雲","民進黨","連署"],["王正旭","民進黨","連署"],["王美惠","民進黨","連署"],["林楚茵","民進黨","連署"],["徐富癸","民進黨","連署"],["陳素月","民進黨","連署"],["王世堅","民進黨","連署"],["鍾佳濱","民進黨","連署"],["賴惠員","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["蔡其昌","民進黨","連署"],["陳俊宇","民進黨","連署"],["黃秀芳","民進黨","連署"],["李坤城","民進黨","連署"],["沈伯洋","民進黨","連署"],["林俊憲","民進黨","連署"],["張宏陸","民進黨","連署"],["吳琪銘","民進黨","連署"],["郭國文","民進黨","連署"]],"party":[["民進黨",26]],"reason":"本院委員許智傑等26人，為消除對婦女一切形式歧視公約（CEDAW）第七條規定，締約國應採取一切適當措施，消除在政治中對婦女之歧視，並確保婦女在政治享有與男性平等之地位，保障女性參政權益，然婦女保障名額規定誠有進步空間，為落實促進性別平等參政，爰擬具「地方制度法第三十三條條文修正草案」。是否有當？敬請公決。","arts":["第三十三條"]},{"id":"202110133650000","who":"委員許宇甄等19人","date":"2025-06-13","name":"「地方制度法第五十五條及第五十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110133650000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/23/LCEWA01_110323_00249.pdf","proposers":["許宇甄","游顥","邱鎮軍","牛煦庭"],"ncosign":15,"people":[["許宇甄","國民黨","提案"],["游顥","國民黨","提案"],["邱鎮軍","國民黨","提案"],["牛煦庭","國民黨","提案"],["徐巧芯","國民黨","連署"],["謝龍介","國民黨","連署"],["陳雪生","國民黨","連署"],["柯志恩","國民黨","連署"],["林沛祥","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["馬文君","國民黨","連署"],["丁學忠","國民黨","連署"],["葛如鈞","國民黨","連署"],["張嘉郡","國民黨","連署"],["羅明才","國民黨","連署"],["黃建賓","國民黨","連署"],["鄭正鈐","國民黨","連署"],["張智倫","國民黨","連署"],["涂權吉","國民黨","連署"]],"party":[["國民黨",19]],"reason":"本院委員許宇甄、游顥、邱鎮軍、牛煦庭等19人，鑒於我國少子化情況嚴峻，人口已連續16個月負成長，人口自然減少幅度將逐年擴大，此一趨勢將對各縣市人口規模產生直接影響；現行以人口數作為法定設置職務門檻之規定，愈發難以符合實際需求；民國88年《地方制度法》制定時，明定直轄市得置副市長二人，其後於99年增訂人口達二百五十萬人之直轄市，得增設第三位副市長，縣市僅可設置1席副縣長，此規定與當前地方治理實務之發展已出現落差，當前地方政府面對施政事項日趨多元且繁重，舉凡長期照護、環境保護、都市建設、公共工程、社會福利及產業發展等，均須仰賴專業分工與行政協調以提升施政效能；尤其《財政收支劃分法》將於明年施行，未來地方政府將承接更多來自中央之法定業務與財政責任，行政負擔勢必大幅提升，為增加地方政府聘用彈性，爰擬具「地方制度法第五十五條及第五十六條條文修正草案」。是否有當？敬請公決。","arts":["第五十五條","第五十六條"]},{"id":"202110174440000","who":"委員蘇清泉等19人","date":"2025-11-21","name":"「地方制度法第五十七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110174440000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/10/LCEWA01_110410_00155.pdf","proposers":["蘇清泉","林倩綺"],"ncosign":17,"people":[["蘇清泉","國民黨","提案"],["林倩綺","國民黨","提案"],["邱若華","國民黨","連署"],["馬文君","國民黨","連署"],["張啓楷","民眾黨","連署"],["邱鎮軍","國民黨","連署"],["謝龍介","國民黨","連署"],["盧縣一","國民黨","連署"],["黃仁","國民黨","連署"],["羅智強","國民黨","連署"],["林沛祥","國民黨","連署"],["牛煦庭","國民黨","連署"],["涂權吉","國民黨","連署"],["陳菁徽","國民黨","連署"],["張智倫","國民黨","連署"],["鄭正鈐","國民黨","連署"],["王鴻薇","國民黨","連署"],["洪孟楷","國民黨","連署"],["羅廷瑋","國民黨","連署"]],"party":[["國民黨",18],["民眾黨",1]],"reason":"本院委員蘇清泉、林倩綺等19人，有鑑於近年來，臺灣面臨極為嚴峻的少子化危機，此一難以逆轉的趨勢，導致人口減少幅度擴大，根據內政部及國家發展委員會的推估，預計民國129年（2040年）總人口數將顯著減少。這種人口結構的根本性變遷，對各縣市產生直接影響。現行地方制度法規中，許多重要的法定職務設置（例如副市長、副縣/市長、主任秘書）均以特定人口數作為設立門檻。然而，在人口減少趨勢下，現有法制設計與實際需求落差正不斷擴大。以人口數作為設置高階職務的門檻，將使地方政府在面臨施政事項日趨多元且繁重時，因員額限制而難以透過分工和行政協調來提升施政效能。因此，亟需通盤檢討並調整現行人口門檻規定，以確保地方自治體的治理能力與行政彈性，避免因人口減少而影響地方政務推動。爰擬具「地方制度法第五十七條條文修正草案」。是否有當？敬請公決。","arts":["第五十七條"]}],"arts":[{"no":"第七條之一","current":"內政部基於全國國土合理規劃及區域均衡發展之需要，擬將縣（市）改制或與其他直轄市、縣（市）合併改制為直轄市者，應擬訂改制計畫，徵詢相關直轄市政府、縣（市）政府意見後，報請行政院核定之。\n縣（市）擬改制為直轄市者，縣（市）政府得擬訂改制計畫，經縣（市）議會同意後，由內政部報請行政院核定之。\n縣（市）擬與其他直轄市、縣（市）合併改制為直轄市者，相關直轄市政府、縣（市）政府得共同擬訂改制計畫，經各該直轄市議會、縣（市）議會同意後，由內政部報請行政院核定之。\n行政院收到內政部陳報改制計畫，應於六個月內決定之。\n內政部應於收到行政院核定公文之次日起三十日內，將改制計畫發布，並公告改制日期。","versions":[{"bill":"202110010220000","text":"內政部基於全國國土合理規劃及區域均衡發展之需要，擬將縣（市）改制或與其他直轄市、縣（市）合併改制為直轄市者，應擬訂改制計畫，並徵得各該直轄市政府、縣（市）政府及各該直轄市議會、縣（市）議會之同意後，報請行政院核定之。\n縣（市）擬改制為直轄市者，縣（市）政府得擬訂改制計畫，經縣（市）議會同意後，由內政部報請行政院核定之。\n縣（市）擬與其他直轄市、縣（市）合併改制為直轄市者，相關直轄市政府、縣（市）政府得共同擬訂改制計畫，經各該直轄市議會、縣（市）議會同意後，由內政部報請行政院核定之。\n行政院收到內政部陳報改制計畫，應於六個月內決定之。\n內政部應於收到行政院核定公文之次日起三十日內，將改制計畫發布，並公告改制日期。","note":"一、修正第一項。\n二、鑒於本項所定縣市合併或改制攸關地方自治團體及其住民之權益變動，為落實憲法保障之地方自治意旨，爰明定內政部擬訂之改制計畫，須徵得相關直轄市政府、縣（市）政府及各該直轄市議會、縣（市）議會之同意後，始得報請行政院核定之，避免因缺乏地方民意機關參與，而發生中央剝奪地方參與改制計畫權利之爭議。"},{"bill":"202110077150000","text":"內政部基於全國國土合理規劃及區域均衡發展之需要，擬將縣（市）改制或與其他直轄市、縣（市）合併改制為直轄市者，應擬訂改制計畫，徵詢相關直轄市政府、縣（市）政府意見，並經各該直轄市政府、縣（市）政府及各該直轄市議會、縣（市）議會同意後，報請行政院核定之。\n縣（市）擬改制為直轄市者，縣（市）政府得擬訂改制計畫，經縣（市）議會同意後，由內政部報請行政院核定之。\n縣（市）擬與其他直轄市、縣（市）合併改制為直轄市者，相關直轄市政府、縣（市）政府得共同擬訂改制計畫，經各該直轄市議會、縣（市）議會同意後，由內政部報請行政院核定之。\n行政院收到內政部陳報改制計畫，應於六個月內決定之。\n內政部應於收到行政院核定公文之次日起三十日內，將改制計畫發布，並公告改制日期。","note":"一、依據大法官釋字第498號解釋文所示，地方自治為憲法所保障之制度。基於住民自治之理念與垂直分權之功能，地方自治團體設有地方行政機關及立法機關，其首長與民意代表均由自治區域內之人民依法選舉產生，分別綜理地方自治團體之地方事務，或行使地方立法機關之職權，地方行政機關與地方立法機關間依法並有權責制衡之關係。中央政府或其他上級政府對地方自治團體辦理自治事項、委辦事項，依法僅得按事項之性質，為適法或適當與否之監督。地方自治團體在憲法及法律保障之範圍內，享有自主與獨立之地位，國家機關自應予以尊重。\n二、目前我國現行之地方制度法第七條之一第一項所訂之改制計畫，僅須徵詢地方政府，而未考量地方民心之所向，亦無賦予實質否決之權力，此況恐有違地方自治之精神，與主權在民之憲法基本架構。\n三、為保障地方自治之理念與垂直分權之功能，爰擬具「地方制度法第七條之一條文修正草案」。"}],"changed":false,"final":"內政部基於全國國土合理規劃及區域均衡發展之需要，擬將縣（市）改制或與其他直轄市、縣（市）合併改制為直轄市者，應擬訂改制計畫，徵詢相關直轄市政府、縣（市）政府意見後，報請行政院核定之。\n縣（市）擬改制為直轄市者，縣（市）政府得擬訂改制計畫，經縣（市）議會同意後，由內政部報請行政院核定之。\n縣（市）擬與其他直轄市、縣（市）合併改制為直轄市者，相關直轄市政府、縣（市）政府得共同擬訂改制計畫，經各該直轄市議會、縣（市）議會同意後，由內政部報請行政院核定之。\n行政院收到內政部陳報改制計畫，應於六個月內決定之。\n內政部應於收到行政院核定公文之次日起三十日內，將改制計畫發布，並公告改制日期。","finalWhy":null,"review":{"note":"維持現行條文","text":""}},{"no":"第七條之四","current":null,"versions":[{"bill":"202110021370000","text":"依中華民國憲法增修條文第十條第十二項後段對於澎湖、金門及馬祖地區人民之保障規定，應制定離島基本法為特別保障規定。\n前項離島基本法未完成立法前，如有涉及離島人民之權益事項，行政院須訂定規制離島人民之特別保障法規命令。","note":"一、本條新增。\n二、中華民國憲法增修條文第十條第十二項之規定，「國家應依民族意願，保障原住民族之地位及政治參與，並對其教育文化、交通水利、衛生醫療、經濟土地及社會福利事業予以保障扶助並促其發展，其辦法另以法律定之。對於澎湖、金門及馬祖地區人民亦同。」其所展現之憲政主義，旨在將原住民族與澎湖、金門及馬祖地區人民之權益保障作同等規範之設計。然查原住民族已有原住民族基本法為上位法之原住民族法體系，而金門、馬祖及澎湖三離島縣只有「離島建設條例」之保障規定，此實與原住民族完整法體系不相比擬。爰此，特增訂本條文為法源依據，藉以責成行政院等相關部會協力制定離島基本法，以為離島完整保障法制之濫觴。在離島基本法尚未完成立法前，行政院應訂定特別保障之法規命令，以促使保障離島人民之國家憲政主義旨意得以進一步實現。"}],"changed":false,"final":null,"finalWhy":null,"review":{"note":"不予增訂","text":""}},{"no":"第三十三條","current":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表分別由直轄市民、縣（市）民、鄉（鎮、市）民依法選舉之，任期四年，連選得連任。\n直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額，應參酌各該直轄市、縣（市）、鄉（鎮、市）財政、區域狀況，並依下列規定，於地方立法機關組織準則定之：\n一、直轄市議員總額：\n(一)區域議員名額：直轄市人口扣除原住民人口在二百萬人以下者，不得超過五十五人；超過二百萬人者，不得超過六十二人。\n(二)原住民議員名額：有平地原住民人口在二千人以上者，應有平地原住民選出之議員名額；有山地原住民人口在二千人以上或改制前有山地鄉者，應有山地原住民選出之議員名額。\n二、縣（市）議員總額：\n(一)區域議員名額：縣（市）人口扣除原住民人口在一萬人以下者，不得超過十一人；人口在二十萬人以下者，不得超過十九人；人口在四十萬人以下者，不得超過三十三人；人口在七十萬人以下者，不得超過四十三人；人口在一百六十萬人以下者，不得超過五十七人；人口超過一百六十萬人者，不得超過六十人。但依第二目規定計算無原住民議員名額者，原住民人口應計入之。\n(二)原住民議員名額：有平地原住民人口在一千五百人以上者，應有平地原住民選出之議員名額；有山地原住民人口在一千五百人以上或有山地鄉者，應有山地原住民選出之議員名額。無山地鄉之縣（市）山地原住民、平地原住民人口數均未達一千五百人以上者，且原住民人口數在二千人以上者，應有原住民選出之議員名額。\n(三)有離島鄉且該鄉人口在二千五百人以上者，依前二目規定計算之名額內應有該鄉選出之議員名額。\n三、鄉（鎮、市）民代表總額：\n(一)鄉（鎮、市）人口在一千人以下者，不得超過五人；人口在一萬人以下者，不得超過七人；人口在五萬人以下者，不得超過十一人；人口在十五萬人以下者，不得超過十九人；人口超過十五萬人者，不得超過三十一人。\n(二)鄉（鎮、市）有平地原住民人口在一千五百人以上者，於前目總額內應有平地原住民選出之鄉（鎮、市）民代表名額。\n直轄市議員由原住民選出者，以其行政區域內之原住民為選舉區，並得按平地原住民、山地原住民或在其行政區域內劃分選舉區。\n本法中華民國一百十三年七月十六日修正之條文施行後，依第二項規定計算之縣（市）區域議員名額多於一百十一年十一月二十六日選出名額者，除離島縣人口多於一百十一年五月三十一日之人口五千人以上，其餘縣（市）人口多於四萬人以上者外，以一百十一年十一月二十六日選出名額為其名額，不適用第二項規定。\n各選舉區選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額達四人者，應有婦女當選名額一人；超過四人者，每增加四人增一人。\n直轄市及有山地鄉之縣（市）選出之山地原住民、平地原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。市及無山地鄉之縣選出之原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。山地鄉以外之鄉（鎮、市）選出之平地原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。\n依第一項選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表，應於上屆任期屆滿之日宣誓就職。該宣誓就職典禮分別由行政院、內政部、縣政府召集，並由議員、代表當選人互推一人主持之。其推選會議由曾任議員、代表之資深者主持之；年資相同者，由年長者主持之。","versions":[{"bill":"202110087490000","text":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表分別由直轄市民、縣（市）民、鄉（鎮、市）民依法選舉之，任期四年，連選得連任。\n直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額，應參酌各該直轄市、縣（市）、鄉（鎮、市）財政、區域狀況，並依下列規定，於地方立法機關組織準則定之：\n一、直轄市議員總額：\n(一)區域議員名額：直轄市人口扣除原住民人口在二百萬人以下者，不得超過五十五人；超過二百萬人者，不得超過六十二人。\n(二)原住民議員名額：有平地原住民人口在二千人以上者，應有平地原住民選出之議員名額；有山地原住民人口在二千人以上或改制前有山地鄉者，應有山地原住民選出之議員名額。\n二、縣（市）議員總額：\n(一)區域議員名額：縣（市）人口扣除原住民人口在一萬人以下者，不得超過十一人；人口在二十萬人以下者，不得超過十九人；人口在四十萬人以下者，不得超過三十三人；人口在七十萬人以下者，不得超過四十三人；人口在一百六十萬人以下者，不得超過五十七人；人口超過一百六十萬人者，不得超過六十人。但依第二目規定計算無原住民議員名額者，原住民人口應計入之。\n(二)原住民議員名額：有平地原住民人口在一千五百人以上者，應有平地原住民選出之議員名額；有山地原住民人口在一千五百人以上或有山地鄉者，應有山地原住民選出之議員名額。無山地鄉之縣（市）山地原住民、平地原住民人口數均未達一千五百人以上者，且原住民人口數在二千人以上者，應有原住民選出之議員名額。\n(三)有離島鄉且該鄉人口在二千五百人以上者，依前二目規定計算之名額內應有該鄉選出之議員名額。\n三、鄉（鎮、市）民代表總額：\n(一)鄉（鎮、市）人口在一千人以下者，不得超過五人；人口在一萬人以下者，每減少一千人遞減一人，至七人為止；人口在五萬人以下者，不得超過十一人；人口在十五萬人以下者，不得超過十九人；人口超過十五萬人者，不得超過三十一人。\n(二)鄉（鎮、市）有平地原住民人口在一千五百人以上者，於前目總額內應有平地原住民選出之鄉（鎮、市）民代表名額。\n直轄市議員由原住民選出者，以其行政區域內之原住民為選舉區，並得按平地原住民、山地原住民或在其行政區域內劃分選舉區。\n本法中華民國一百十三年七月十六日修正之條文施行後，依第二項規定計算之縣（市）區域議員名額多於一百十一年十一月二十六日選出名額者，除離島縣人口多於一百十一年五月三十一日之人口五千人以上，其餘縣（市）人口多於四萬人以上者外，以一百十一年十一月二十六日選出名額為其名額，不適用第二項規定。\n各選舉區選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額達四人者，應有婦女當選名額一人；超過四人者，每增加四人增一人。\n直轄市及有山地鄉之縣（市）選出之山地原住民、平地原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。市及無山地鄉之縣選出之原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。山地鄉以外之鄉（鎮、市）選出之平地原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。\n依第一項選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表，應於上屆任期屆滿之日宣誓就職。該宣誓就職典禮分別由行政院、內政部、縣政府召集，並由議員、代表當選人互推一人主持之。其推選會議由曾任議員、代表之資深者主持之；年資相同者，由年長者主持之。","note":"一、現行地制法規定，鄉鎮市民代表席次因人口數而遞減，然而鄉鎮市土地面積並未相應減少，尤其屏東縣幅員遼闊，地方建設、道路面積、水電鋪設只會隨著經濟發展而增加，鄉鎮市民代表需要服務的事項只會增加、不會減少，為避免斷崖式下降，目前鄉鎮市民代表席次規定，宜做適當調整。\n二、地方反映，改以『千人』為單位，若鄉（鎮、市）人口9千人，則有9席鄉（鎮、市）民代表、8千人則有8席鄉（鎮、市）民代表，遞減至7席為止。爰修正第二項第三款第一目部分文字。"},{"bill":"202110093790000","text":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表分別由直轄市民、縣（市）民、鄉（鎮、市）民依法選舉之，任期四年，連選得連任。\n直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額，應參酌各該直轄市、縣（市）、鄉（鎮、市）財政、區域狀況，並依下列規定，於地方立法機關組織準則定之：\n一、直轄市議員總額：\n(一)區域議員名額：直轄市人口扣除原住民人口在二百萬人以下者，不得超過五十五人；超過二百萬人者，不得超過六十二人。\n(二)原住民議員名額：有平地原住民人口在二千人以上者，應有平地原住民選出之議員名額；有山地原住民人口在二千人以上或改制前有山地鄉者，應有山地原住民選出之議員名額。\n二、縣（市）議員總額：\n(一)區域議員名額：縣（市）人口扣除原住民人口在一萬人以下者，不得超過十一人；人口在二十萬人以下者，不得超過十九人；人口在四十萬人以下者，不得超過三十三人；人口在七十萬人以下者，不得超過四十三人；人口在一百六十萬人以下者，不得超過五十七人；人口超過一百六十萬人者，不得超過六十人。但依第二目規定計算無原住民議員名額者，原住民人口應計入之。\n(二)原住民議員名額：有平地原住民人口在一千五百人以上者，應有平地原住民選出之議員名額；有山地原住民人口在一千五百人以上或有山地鄉者，應有山地原住民選出之議員名額。無山地鄉之縣（市）山地原住民、平地原住民人口數均未達一千五百人以上者，且原住民人口數在二千人以上者，應有原住民選出之議員名額。\n(三)有離島鄉且該鄉人口在二千五百人以上者，依前二目規定計算之名額內應有該鄉選出之議員名額。\n三、鄉（鎮、市）民代表總額：\n(一)鄉（鎮、市）人口在一千人以下者，不得超過五人；人口在一萬人以下者，不得超過七人；人口在五萬人以下者，不得超過十一人；人口在十五萬人以下者，不得超過十九人；人口超過十五萬人者，不得超過三十一人。\n(二)鄉（鎮、市）有平地原住民人口在一千五百人以上者，於前目總額內應有平地原住民選出之鄉（鎮、市）民代表名額。\n直轄市議員由原住民選出者，以其行政區域內之原住民為選舉區，並得按平地原住民、山地原住民或在其行政區域內劃分選舉區。\n本法中華民國一百十三年七月十六日修正之條文施行後，依第二項規定計算之縣（市）區域議員名額多於一百十一年十一月二十六日選出名額者，除離島縣人口多於一百十一年五月三十一日之人口五千人以上，其餘縣（市）人口多於四萬人以上者外，以一百十一年十一月二十六日選出名額為其名額，不適用第二項規定。\n各選舉區選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額達三人者，每三人任一性別不低於三分之一比例。\n直轄市、縣（市）選出之山地原住民、平地原住民名額達三人者，每三人任一性別不得低於三分之一比例；鄉（鎮、市）選出之平地原住民名額達三人者，每三人任一性別不得低於三分之一比例。\n依第一項選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表，應於上屆任期屆滿之日宣誓就職。該宣誓就職典禮分別由行政院、內政部、縣政府召集，並由議員、代表當選人互推一人主持之。其推選會議由曾任議員、代表之資深者主持之；年資相同者，由年長者主持之。","note":"一、我國《憲法》第一百三十四條規定，法律應制定婦女保障名額制度。1999年修正《地方制度法》時，設立地方選舉四分之一婦女保障名額制度，確實提升女性參選意願。然而，現行規定僅適用於當選名額超過四人的選區，導致當選名額為三人以下的小選區未受性別保障名額制度涵蓋。\n二、2022年大選結束後，直轄縣市議員女性比例為39.97%，鄉鎮市區民代表為26%，全國681個鄉鎮市民選區中，仍有318個選區沒有女性當選，比例高達47%，顯示女性在基層的政治參與仍受阻，需制度的改革加以支持。\n三、爰提案修正本條條文，將婦女保障名額改為性別中立用詞，確保任何性別當選比例之衡平，規範每三人之單一性別不得低於三分之一。此規範不僅強化對女性在基層參政權的保障，在女性當選比例較高的選區亦能保障男性參政權，確保政策多元及衡平。"},{"bill":"202110086600000","text":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表分別由直轄市民、縣（市）民、鄉（鎮、市）民依法選舉之，任期四年，連選得連任。\n直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額，應參酌各該直轄市、縣（市）、鄉（鎮、市）財政、區域狀況，並依下列規定，於地方立法機關組織準則定之：\n一、直轄市議員總額：\n(一)區域議員名額：直轄市人口扣除原住民人口在二百萬人以下者，不得超過五十五人；超過二百萬人者，不得超過六十二人。\n(二)原住民議員名額：有平地原住民人口在二千人以上者，應有平地原住民選出之議員名額；有山地原住民人口在二千人以上或改制前有山地鄉者，應有山地原住民選出之議員名額。\n二、縣（市）議員總額：\n(一)區域議員名額：縣（市）人口扣除原住民人口在一萬人以下者，不得超過十一人；人口在二十萬人以下者，不得超過十九人；人口在四十萬人以下者，不得超過三十三人；人口在七十萬人以下者，不得超過四十三人；人口在一百六十萬人以下者，不得超過五十七人；人口超過一百六十萬人者，不得超過六十人。但依第二目規定計算無原住民議員名額者，原住民人口應計入之。\n(二)原住民議員名額：有平地原住民人口在一千五百人以上者，應有平地原住民選出之議員名額；有山地原住民人口在一千五百人以上或有山地鄉者，應有山地原住民選出之議員名額。無山地鄉之縣（市）山地原住民、平地原住民人口數均未達一千五百人以上者，且原住民人口數在二千人以上者，應有原住民選出之議員名額。\n(三)有離島鄉且該鄉人口在二千五百人以上者，依前二目規定計算之名額內應有該鄉選出之議員名額。\n三、鄉（鎮、市）民代表總額：\n(一)鄉（鎮、市）人口在一千人以下者，不得超過五人；人口在一萬人以下者，不得超過七人；人口在五萬人以下者，不得超過十一人；人口在十五萬人以下者，不得超過十九人；人口超過十五萬人者，不得超過三十一人。\n(二)鄉（鎮、市）有平地原住民人口在一千五百人以上者，於前目總額內應有平地原住民選出之鄉（鎮、市）民代表名額。\n直轄市議員由原住民選出者，以其行政區域內之原住民為選舉區，並得按平地原住民、山地原住民或在其行政區域內劃分選舉區。\n本法中華民國一百十三年七月十六日修正之條文施行後，依第二項規定計算之縣（市）區域議員名額多於一百十一年十一月二十六日選出名額者，除離島縣人口多於一百十一年五月三十一日之人口五千人以上，其餘縣（市）人口多於四萬人以上者外，以一百十一年十一月二十六日選出名額為其名額，不適用第二項規定。\n各選舉區選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額達三人者，每三人任一性別不低於三分之一比例。\n直轄市、縣（市）選出之山地原住民、平地原住民名額達三人者，每三人任一性別不得低於三分之一比例；鄉（鎮、市）選出之平地原住民名額達三人者，每三人任一性別不得低於三分之一比例。\n依第一項選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表，應於上屆任期屆滿之日宣誓就職。該宣誓就職典禮分別由行政院、內政部、縣政府召集，並由議員、代表當選人互推一人主持之。其推選會議由曾任議員、代表之資深者主持之；年資相同者，由年長者主持之。","note":"一、我國憲法第一百三十四條規定：「各種選舉，應規定婦女當選名額，其辦法以法律定之。」1999年修正的《地方制度法》進一步設立地方選舉中四分之一婦女保障名額制度，該制度自2002年地方大選首次實施，適用於縣市議員選舉，顯示出對女性參政的保障與支持。然依照本法，僅縣市議員、鄉鎮市民代應當選人數超過四人以上之選區，才適用障名額規定；應當選人數三人以下的小選區，女性參政無法受到保障。\n二、我國《消除對婦女一切形式歧視公約施行法》已於2012年正式生效，明定各級政府機關行使職權，應符合公約有關性別人權保障之規定。2024年聯合國消除對婦女歧視委員會公布第40號一般性建議，要求各國應達成女性參政比例達50%，並以更加有力的法律保障女性參政權，以促進政治或決策之性別平等實現。\n三、研究指出，現行制度對女性參政的積極作用已飽和，2022年全國地方議員選舉，有22.11%的選區沒有任何女性議員。而與縣市層級的女性議員相比，鄉鎮市區層級的女性代表比例更低，全國鄉鎮市區民代表會裡，有46.71%的選區沒有女性代表當選。以上研究結果，顯示現行婦女參政保障制度之不足，且城鄉差距問題依然存在，無法保障到較小選區。\n四、為回應現行制度對實際影響已趨飽和，並為符合《消除對婦女一切形式歧視公約施行法》之規範，爰提案修正本條，提高婦女保障名額比例至三分之一，並將「婦女保障名額」改為性別中立配額，確保任何性別當選比例，每三人之單一性別不低於三分之一。此改革將延續對女性參政的保障，且於女性比例較高的選區，亦能保障男性參政權，促進選舉結果之性別平衡與多元性。"},{"bill":"202110105150000","text":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表分別由直轄市民、縣（市）民、鄉（鎮、市）民依法選舉之，任期四年，連選得連任。\n直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額，應參酌各該直轄市、縣（市）、鄉（鎮、市）財政、區域狀況，並依下列規定，於地方立法機關組織準則定之：\n一、直轄市議員總額：\n(一)區域議員名額：直轄市人口扣除原住民人口在二百萬人以下者，不得超過五十五人；超過二百萬人者，不得超過六十二人。\n(二)原住民議員名額：有平地原住民人口在二千人以上者，應有平地原住民選出之議員名額；有山地原住民人口在二千人以上或改制前有山地鄉者，應有山地原住民選出之議員名額。\n二、縣（市）議員總額：\n(一)區域議員名額：縣（市）人口扣除原住民人口在一萬人以下者，不得超過十一人；人口在二十萬人以下者，不得超過十九人；人口在四十萬人以下者，不得超過三十三人；人口在七十萬人以下者，不得超過四十三人；人口在一百六十萬人以下者，不得超過五十七人；人口超過一百六十萬人者，不得超過六十人。但依第二目規定計算無原住民議員名額者，原住民人口應計入之。\n(二)原住民議員名額：有平地原住民人口在一千五百人以上者，應有平地原住民選出之議員名額；有山地原住民人口在一千五百人以上或有山地鄉者，應有山地原住民選出之議員名額。無山地鄉之縣（市）山地原住民、平地原住民人口數均未達一千五百人以上者，且原住民人口數在二千人以上者，應有原住民選出之議員名額。\n(三)有離島鄉且該鄉人口在二千五百人以上者，依前二目規定計算之名額內應有該鄉選出之議員名額。\n三、鄉（鎮、市）民代表總額：\n(一)鄉（鎮、市）人口在一千人以下者，不得超過五人；人口在七千人以下者，不得超過七人；人口在五萬人以下者，不得超過十一人；人口在十五萬人以下者，不得超過十九人；人口超過十五萬人者，不得超過三十一人。\n(二)鄉（鎮、市）有平地原住民人口在一千五百人以上者，於前目總額內應有平地原住民選出之鄉（鎮、市）民代表名額。\n直轄市議員由原住民選出者，以其行政區域內之原住民為選舉區，並得按平地原住民、山地原住民或在其行政區域內劃分選舉區。\n本法中華民國一百十三年七月十六日修正之條文施行後，依第二項規定計算之縣（市）區域議員名額多於一百十一年十一月二十六日選出名額者，除離島縣人口多於一百十一年五月三十一日之人口五千人以上，其餘縣（市）人口多於四萬人以上者外，以一百十一年十一月二十六日選出名額為其名額，不適用第二項規定。\n各選舉區選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額達四人者，應有婦女當選名額一人；超過四人者，每增加四人增一人。\n直轄市及有山地鄉之縣（市）選出之山地原住民、平地原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。市及無山地鄉之縣選出之原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。山地鄉以外之鄉（鎮、市）選出之平地原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。\n依第一項選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表，應於上屆任期屆滿之日宣誓就職。該宣誓就職典禮分別由行政院、內政部、縣政府召集，並由議員、代表當選人互推一人主持之。其推選會議由曾任議員、代表之資深者主持之；年資相同者，由年長者主持之。","note":"一、本條第一項、第三項、第四項、第五項、第六項及第七項未修正。\n二、本條第二項針對鄉（鎮、市）民代表總額之縣市人口規定已逾十五年未修，為配合我國人口結構改變，調整各人口數之縣市所應享有之鄉（鎮、市）民代表上限，以維護地方議會之問政品質。"},{"bill":"202110120080000","text":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表分別由直轄市民、縣（市）民、鄉（鎮、市）民依法選舉之，任期四年，連選得連任。\n直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額，應參酌各該直轄市、縣（市）、鄉（鎮、市）財政、區域狀況，並依下列規定，於地方立法機關組織準則定之：\n一、直轄市議員總額：\n(一)區域議員名額：直轄市人口扣除原住民人口在二百萬人以下者，不得超過五十五人；超過二百萬人者，不得超過六十二人。\n(二)原住民議員名額：有平地原住民人口在二千人以上者，應有平地原住民選出之議員名額；有山地原住民人口在二千人以上或改制前有山地鄉者，應有山地原住民選出之議員名額。\n二、縣（市）議員總額：\n(一)區域議員名額：縣（市）人口扣除原住民人口在一萬人以下者，不得超過十一人；人口在二十萬人以下者，不得超過十九人；人口在四十萬人以下者，不得超過三十三人；人口在七十萬人以下者，不得超過四十三人；人口在一百六十萬人以下者，不得超過五十七人；人口超過一百六十萬人者，不得超過六十人。但依第二目規定計算無原住民議員名額者，原住民人口應計入之。\n(二)原住民議員名額：有平地原住民人口在一千五百人以上者，應有平地原住民選出之議員名額；有山地原住民人口在一千五百人以上或有山地鄉者，應有山地原住民選出之議員名額。無山地鄉之縣（市）山地原住民、平地原住民人口數均未達一千五百人以上者，且原住民人口數在二千人以上者，應有原住民選出之議員名額。\n(三)有離島鄉且該鄉人口在二千五百人以上者，依前二目規定計算之名額內應有該鄉選出之議員名額。\n三、鄉（鎮、市）民代表總額：\n(一)鄉（鎮、市）人口在一千人以下者，不得超過五人；人口在一萬人以下者，不得超過七人；人口在五萬人以下者，不得超過十一人；人口在十五萬人以下者，不得超過十九人；人口超過十五萬人者，不得超過三十一人。\n(二)鄉（鎮、市）有平地原住民人口在一千五百人以上者，於前目總額內應有平地原住民選出之鄉（鎮、市）民代表名額。\n直轄市議員由原住民選出者，以其行政區域內之原住民為選舉區，並得按平地原住民、山地原住民或在其行政區域內劃分選舉區。\n本法中華民國一百十三年七月十六日修正之條文施行後，依第二項規定計算之縣（市）區域議員名額多於一百十一年十一月二十六日選出名額者，除離島縣人口多於一百十一年五月三十一日之人口五千人以上，其餘縣（市）人口多於四萬人以上者外，以一百十一年十一月二十六日選出名額為其名額，不適用第二項規定。\n各選舉區選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額達四人者，應設性別比例當選名額；各選舉區當選之結果，含性別比例當選名額，須符合單一性別不低於四分之一之比例。\n直轄市及有山地鄉之縣（市）選出之山地原住民、平地原住民名額在四人以上者，應有婦女當選名額；超過四人者，每增加四人增一人。市及無山地鄉之縣選出之原住民名額在四人以上者，應設性別比例當選名額；各選舉區當選之結果，含性別比例當選名額，須符合單一性別不低於四分之一之比例；山地鄉以外之鄉（鎮、市）選出之平地原住民名額在四人以上者，應設性別比例當選名額；各選舉區當選之結果，含性別比例當選名額，須符合單一性別不低於四分之一之比例。\n依第一項選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表，應於上屆任期屆滿之日宣誓就職。該宣誓就職典禮分別由行政院、內政部、縣政府召集，並由議員、代表當選人互推一人主持之。其推選會議由曾任議員、代表之資深者主持之；年資相同者，由年長者主持之。","note":"一、我國自2012年內國法化之聯合國「消除婦女一切形式歧視公約」第七條亦規定，各締約國應採取一切適當措施，消除在政治和公共生活中對婦女的歧視，並確保婦女在政治和公共生活方面享有與男性平等的地位。\n二、1999年《地方制度法》修法明定地方選舉當選名額應有四分之一婦女保障，激勵女性參選人數大增，達到制度改革帶動女性參政的鼓勵風氣，女性當選人數亦有增加，2022年選舉直轄市議員女性比例為39.79%、縣（市）議員36.02%、鄉（鎮、市、區）民代表26.15%，又2024年選舉立法委員女性比例為41.6%。\n三、參採國際對於選舉體制設計之「Gender quotas」（性別配額）概念，以性別中立的出發點保障選區裡之相對少數性別，不預設受到保障的一定是女性，而是女性、男性都有可能受益，爰修正第五項及第六項，明定當選名額在四人以上者，應設性別比例當選名額，各選舉區當選之結果，含性別比例當選名額，任一性別不得低於四分之一。"}],"changed":true,"final":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表分別由直轄市民、縣（市）民、鄉（鎮、市）民依法選舉之，任期四年，連選得連任。\n直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額，應參酌各該直轄市、縣（市）、鄉（鎮、市）財政、區域狀況，並依下列規定，於地方立法機關組織準則定之：\n一、直轄市議員總額：\n(一)區域議員名額：直轄市人口扣除原住民人口在二百萬人以下者，不得超過五十五人；超過二百萬人者，不得超過六十二人。\n(二)原住民議員名額：有平地原住民人口在二千人以上者，應有平地原住民選出之議員名額；有山地原住民人口在二千人以上或改制前有山地鄉者，應有山地原住民選出之議員名額。\n二、縣（市）議員總額：\n(一)區域議員名額：縣（市）人口扣除原住民人口在一萬人以下者，不得超過十一人；人口在二十萬人以下者，不得超過十九人；人口在四十萬人以下者，不得超過三十三人；人口在七十萬人以下者，不得超過四十三人；人口在一百六十萬人以下者，不得超過五十七人；人口超過一百六十萬人者，不得超過六十人。但依第二目規定計算無原住民議員名額者，原住民人口應計入之。\n(二)原住民議員名額：有平地原住民人口在一千五百人以上者，應有平地原住民選出之議員名額；有山地原住民人口在一千五百人以上或有山地鄉者，應有山地原住民選出之議員名額。無山地鄉之縣（市）山地原住民、平地原住民人口數均未達一千五百人以上者，且原住民人口數在二千人以上者，應有原住民選出之議員名額。\n(三)有離島鄉且該鄉人口在二千五百人以上者，依前二目規定計算之名額內應有該鄉選出之議員名額。\n三、鄉（鎮、市）民代表總額：\n(一)鄉（鎮、市）人口在一千人以下者，不得超過五人；人口在一萬人以下者，不得超過七人；人口在五萬人以下者，不得超過十一人；人口在十五萬人以下者，不得超過十九人；人口超過十五萬人者，不得超過三十一人。\n(二)鄉（鎮、市）有平地原住民人口在一千五百人以上者，於前目總額內應有平地原住民選出之鄉（鎮、市）民代表名額。\n直轄市議員由原住民選出者，以其行政區域內之原住民為選舉區，並得按平地原住民、山地原住民或在其行政區域內劃分選舉區。\n本法中華民國一百十三年七月十六日修正之條文施行後，依第二項規定計算之縣（市）區域議員名額多於一百十一年十一月二十六日選出名額者，除離島縣人口多於一百十一年五月三十一日之人口五千人以上，其餘縣（市）人口多於四萬人以上者外，以一百十一年十一月二十六日選出名額為其名額，不適用第二項規定。\n各選舉區選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額在三人以上者，應有任一性別當選名額一人；超過三人者，每增加三人增一人。\n直轄市、縣（市）選出之山地原住民、平地原住民名額在三人以上者，應有任一性別當選名額一人；超過三人者，每增加三人增一人。鄉（鎮、市）選出之平地原住民名額在三人以上者，應有任一性別當選名額一人；超過三人者，每增加三人增一人。\n依第一項選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表，應於上屆任期屆滿之日宣誓就職。該宣誓就職典禮分別由行政院、內政部、縣政府召集，並由議員、代表當選人互推一人主持之。其推選會議由曾任議員、代表之資深者主持之；年資相同者，由年長者主持之。\n中華民國一百十四年十一月二十一日修正之第五項及第六項條文，自中華民國一百十九年十二月二十五日就職之直轄市議員、縣（市）議員、鄉（鎮、市）民代表適用之。","finalWhy":"一、第一項至第四項未修正。\n二、考量基層之鄉（鎮、市）民代表女性當選比例仍未達百分之三十，且鄉（鎮、市）民代表選舉應選名額為三席之選區將近三成，為鼓勵女性參與政治並適度衡平地方民意代表女性與男性當選比例，落實「消除對婦女一切形式歧視公約」有關促進女性與男性在政治參與享有平等權利之目標，並兼顧保障女性與男性參政權，爰將原第五項及第六項婦女當選名額，修正為任一性別當選名額，並提高保障比例由每四人應有一人修正為每三人應有一人。\n三、增列第八項，考量中華民國一百十五年地方公職人員選舉政黨初選規劃與布局在即，為免直接衝擊下屆選舉結果，並使各政黨有充足時間培育優秀女性參政，以利縮小女性參政之城鄉差距，爰明定前開項次修正條文自中華民國一百十九年十二月二十五日就職之地方民意代表開始適用。","review":{"note":"修正通過","text":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表分別由直轄市民、縣（市）民、鄉（鎮、市）民依法選舉之，任期四年，連選得連任。\n直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額，應參酌各該直轄市、縣（市）、鄉（鎮、市）財政、區域狀況，並依下列規定，於地方立法機關組織準則定之：\n一、直轄市議員總額：\n(一)區域議員名額：直轄市人口扣除原住民人口在二百萬人以下者，不得超過五十五人；超過二百萬人者，不得超過六十二人。\n(二) 原住民議員名額：有平地原住民人口在二千人以上者，應有平地原住民選出之議員名額；有山地原住民人口在二千人以上或改制前有山地鄉者，應有山地原住民選出之議員名額。\n二、縣(市)議員總額：\n(一)區域議員名額：縣（市）人口扣除原住民人口在一萬人以下者，不得超過十一人；人口在二十萬人以下者，不得超過十九人；人口在四十萬人以下者，不得超過三十三人；人口在七十萬人以下者，不得超過四十三人；人口在一百六十萬人以下者，不得超過五十七人；人口超過一百六十萬人者，不得超過六十人。但依第二目規定計算無原住民議員名額者，原住民人口應計入之。\n(二)原住民議員名額：有平地原住民人口在一千五百人以上者，應有平地原住民選出之議員名額；有山地原住民人口在一千五百人以上或有山地鄉者，應有山地原住民選出之議員名額。無山地鄉之縣（市）山地原住民、平地原住民人口數均未達一千五百人以上者，且原住民人口數在二千人以上者，應有原住民選出之議員名額。\n(三)有離島鄉且該鄉人口在二千五百人以上者，依前二目規定計算之名額內應有該鄉選出之議員名額。\n三、鄉（鎮、市）民代表總額：\n(一) 鄉（鎮、市）人口在一千人以下者，不得超過五人；人口在一萬人以下者，不得超過七人；人口在五萬人以下者，不得超過十一人；人口在十五萬人以下者，不得超過十九人；人口超過十五萬人者，不得超過三十一人。\n(二) 鄉（鎮、市）有平地原住民人口在一千五百人以上者，於前目總額內應有平地原住民選出之鄉（鎮、市）民代表名額。\n直轄市議員由原住民選出者，以其行政區域內之原住民為選舉區，並得按平地原住民、山地原住民或在其行政區域內劃分選舉區。\n本法中華民國一百十三年七月十六日修正之條文施行後，依第二項規定計算之縣（市）區域議員名額多於一百十一年十一月二十六日選出名額者，除離島縣人口多於一百十一年五月三十一日之人口五千人以上，其餘縣（市）人口多於四萬人以上者外，以一百十一年十一月二十六日選出名額為其名額，不適用第二項規定。\n各選舉區選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表名額在三人以上者，應有任一性別當選名額一人；超過三人者，每增加三人增一人。\n直轄市、縣（市）選出之山地原住民、平地原住民名額在三人以上者，應有任一性別當選名額一人；超過三人者，每增加三人增一人。鄉（鎮、市）選出之平地原住民名額在三人以上者，應有任一性別當選名額一人；超過三人者，每增加三人增一人。\n依第一項選出之直轄市議員、縣（市）議員、鄉（鎮、市）民代表，應於上屆任期屆滿之日宣誓就職。該宣誓就職典禮分別由行政院、內政部、縣政府召集，並由議員、代表當選人互推一人主持之。其推選會議由曾任議員、代表之資深者主持之；年資相同者，由年長者主持之。\n中華民國○年○月○日修正之第五項及第六項條文，自中華民國一百十九年十二月二十五日就職之直轄市議員、縣（市）議員、鄉（鎮、市）民代表適用之。"}},{"no":"第五十二條","current":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表得支研究費等必要費用；在開會期間並得酌支出席費、交通費及膳食費。\n違反第三十四條第四項規定召開之會議，不得依前項規定支領出席費、交通費及膳食費，或另訂項目名稱、標準支給費用。\n第一項各費用支給項目及標準，另以法律定之；非依法律不得自行增加其費用。","versions":[{"bill":"202110038000000","text":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表得支研究費等必要費用；在開會期間並得酌支出席費、交通費及膳食費。\n違反第三十四條第四項規定召開之會議，不得依前項規定支領出席費、交通費及膳食費，或另訂項目名稱、標準支給費用。因公死亡者應給與遺族撫卹金。\n第一項各費用支給項目、標準及撫卹金之支給，另以法律定之；非依法律不得自行增加其費用。","note":"一、直轄市議員、縣（市）議員、鄉（鎮、市）民代表等地方民意代表，因係民意匯集、整合與立法監督之功能，與永業化的公務人員在本質上有所不同，因此在現行法律體系上因公死亡後其遺屬無法支領撫卹金。\n二、但與同為依照「公職人員選舉罷免法」所選出之公職人員相比，直轄市長、縣（市）長、鄉（鎮、市）長等地方政府首長，卻明文規定因公死亡或病故者應給與遺族撫金。\n三、爰此，現行規定將地方民意代表排除撫卹金之適用甚不公平，因此修正第二項直轄市議員等地方民意代表因公死亡者應給與遺族撫卹金；同時配合修正第三項，其撫卹金之支給另以法律定之。"}],"changed":false,"final":"直轄市議員、縣（市）議員、鄉（鎮、市）民代表得支研究費等必要費用；在開會期間並得酌支出席費、交通費及膳食費。\n違反第三十四條第四項規定召開之會議，不得依前項規定支領出席費、交通費及膳食費，或另訂項目名稱、標準支給費用。\n第一項各費用支給項目及標準，另以法律定之；非依法律不得自行增加其費用。","finalWhy":null,"review":{"note":"維持現行條文","text":""}},{"no":"第五十五條","current":"直轄市政府置市長一人，對外代表該市，綜理市政，由市民依法選舉之，每屆任期四年，連選得連任一屆。置副市長二人，襄助市長處理市政；人口在二百五十萬以上之直轄市，得增置副市長一人，職務均比照簡任第十四職等，由市長任命，並報請行政院備查。\n直轄市政府置秘書長一人，由市長依公務人員任用法任免；其一級單位主管或所屬一級機關首長除主計、人事、警察及政風之主管或首長，依專屬人事管理法律任免外，其餘職務均比照簡任第十三職等，由市長任免之。\n副市長及職務比照簡任第十三職等之主管或首長，於市長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之市長，應於上屆任期屆滿之日宣誓就職。","versions":[{"bill":"202110076150000","text":"直轄市政府置市長一人，對外代表該市，綜理市政，由市民依法選舉之，每屆任期四年，連選得連任一屆。置副市長三人，襄助市長處理市政，職務均比照簡任第十四職等，由市長任命，並報請行政院備查。\n直轄市政府置秘書長一人，由市長依公務人員任用法任免；其一級單位主管或所屬一級機關首長除主計、人事、警察及政風之主管或首長，依專屬人事管理法律任免外，其餘職務均比照簡任第十三職等，由市長任免之。\n副市長及職務比照簡任第十三職等之主管或首長，於市長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之市長，應於上屆任期屆滿之日宣誓就職。","note":"一、據統計截至民國（下同）112年底我國總人口數約2,342萬人，依據國家發展委員會之人口推估報告，我國人口數將從113年起進入負成長，且未來趨勢難以逆轉，人口自然減少幅度將持續擴大，至129年將約僅為2,100萬人，故可預見我國各地方人口數將不斷下降。\n二、依大法官解釋釋字第498號意旨，地方自治為憲法所保障之制度，且中央所制定之政策，往往須仰賴地方政府實踐，地方政府之責任不可謂不重，且近年來施政方向均朝向高度分工及專業化，故有多元專業之副市長協助市政之規劃，才能有效落實地方自治。\n三、查直轄市相較於縣（市），可能因法律規定而被賦予特殊事務（例如社會教育法要求直轄市設立社會教育館），然人口數未達一定數量之直轄市，須負擔相同之事務卻無額外副市長協助，如本條於99年修正時之立法理由載明，「除臺南縣（市）外，人口數皆高達二百五十萬以上，是以市長政務之推動，若仍僅設置副市長二人輔佐恐有不足，……」，迄今臺南市人口據統計約186萬人，距250萬人之門檻顯有差距，故為求直轄市間之衡平，及考量現今政務之繁雜與未來人口減少之趨勢，宜修正為直轄市均得增設第三位副市長，以利政務之推動及直轄市設置之目的。"},{"bill":"202110080310000","text":"直轄市政府置市長一人，對外代表該市，綜理市政，由市民依法選舉之，每屆任期四年，連選得連任一屆。置副市長三人，襄助市長處理市政；職務均比照簡任第十四職等，由市長任命，並報請行政院備查。\n直轄市政府置秘書長一人，由市長依公務人員任用法任免；其一級單位主管或所屬一級機關首長除主計、人事、警察及政風之主管或首長，依專屬人事管理法律任免外，其餘職務均比照簡任第十三職等，由市長任免之。\n副市長及職務比照簡任第十三職等之主管或首長，於市長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之市長，應於上屆任期屆滿之日宣誓就職。","note":"一、依據內政部110年電信信令資料統計，臺北市平日時的日間活動人口數為350.8萬人，較夜間停留人口增加71.8萬人（+25.7%）。同時比對戶籍人口數和電信信令狀況，平日夜間停留人數中，新北市有440.5萬人、臺中市308.4萬人及臺北市279萬人，分居前三位。若與戶籍人數比較，在六都中，新北市較戶籍數多37.4萬人、臺中市多26.5萬人、桃園市多26萬人、臺北市多18.5萬人。\n二、以臺北市歷年戶籍人口統計數據為例，近40年內臺北市的人口數於79年達到最高峰，總計271萬人，並在約20年的時間維持在260萬人上下。即使在柯文哲擔任臺北市長的第一年，臺北市人口數也曾達到270萬。自2015年起，因少子化、高齡化等問題，加上疫情爆發後，許多在國外的市民因無法回國而被除戶，導致110年臺北市總人口從超過260萬人大幅降至252萬人，且減少趨勢持續，於111年跌破250萬門檻，僅剩248萬人。\n三、臺北市人口外移狀況多數僅是戶籍移置至新北市、桃園市等鄰近的直轄市，但許多民眾工作或居住地都還是維持在臺北市等情形。為了推動及執行市政，各直轄市均修正規定，設置三位副市長。"},{"bill":"202110085880000","text":"直轄市政府置市長一人，對外代表該市，綜理市政，由市民依法選舉之，每屆任期四年，連選得連任一屆。置副市長三人，襄助市長處理市政；職務均比照簡任第十四職等，由市長任命，並報請行政院備查。\n直轄市政府置秘書長一人，由市長依公務人員任用法任免；其一級單位主管或所屬一級機關首長除主計、人事、警察及政風之主管或首長，依專屬人事管理法律任免外，其餘職務均比照簡任第十三職等，由市長任免之。\n副市長及職務比照簡任第十三職等之主管或首長，於市長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之市長，應於上屆任期屆滿之日宣誓就職。","note":"一、我國地方自治業已面臨新型態網路服務、數位治理及數位轉型等新趨勢治理挑戰，並面臨新世代重大政策轉型，亟需增置專業副市長一人。\n二、修正第一項，直轄市為人口高度集中之大都會，後續改制或擴大行政區之直轄市共有五個，除人口均超過180萬人外，並兼有幅員廣大之行政轄區，為全面提升直轄市治理品質，爰規定直轄市一律得置副市長三人。"},{"bill":"202110133650000","text":"直轄市政府置市長一人，對外代表該市，綜理市政，由市民依法選舉之，每屆任期四年，連選得連任一屆。置副市長三人，襄助市長處理市政，職務均比照簡任第十四職等，由市長任命，並報請行政院備查。\n直轄市政府置秘書長一人，由市長依公務人員任用法任免；其一級單位主管或所屬一級機關首長除主計、人事、警察及政風之主管或首長，依專屬人事管理法律任免外，其餘職務均比照簡任第十三職等，由市長任免之。\n副市長及職務比照簡任第十三職等之主管或首長，於市長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之市長，應於上屆任期屆滿之日宣誓就職。","note":"一、依據內政部統計，截至民國112年底，我國總人口數約為2,342萬人，據國家發展委員會人口推估報告，我國自113年起正式進入負成長階段，且此一趨勢難以逆轉，人口自然減少幅度將逐年擴大，預估至129年將減至約2,100萬人；由此可見，未來各地方政府所轄人口將持續下滑，對既有依人口數設置地方政府職位門檻之法制設計，已構成重大挑戰，亟需通盤檢討。\n二、依據司法院大法官釋字第498號解釋意旨，地方自治為憲法所保障之制度內涵，中央制定之公共政策需賴地方政府落實執行，地方政府實為國家治理之第一線。近年來施政日益專業化與多元化，地方事務範疇擴增且執行難度提高，副市長作為地方首長之輔佐人員，其設置應更具彈性與功能性，以強化地方自治體之治理能力與施政效率。\n三、查直轄市除一般地方行政職掌外，尚有部分中央法規賦予其特定義務，如《社會教育法》規定直轄市應設立社會教育館，顯見其承擔之政務範圍較縣（市）更為廣泛。然而現行《地方制度法》第五十五條規定，僅當直轄市人口達250萬人者，始得增設第三位副市長，然現行六都中，僅有新北市達到門檻，其餘縣（市）皆未達標，其所承擔政務並未因此而減輕，造成行政資源配置之不均，影響施政效能。爰此，為因應政務需求、確保直轄市間之治理衡平，修正條文，明定直轄市得視實際需要增設第三位副市長。"}],"changed":true,"final":"直轄市政府置市長一人，對外代表該市，綜理市政，由市民依法選舉之，每屆任期四年，連選得連任一屆。置副市長三人，襄助市長處理市政，職務均比照簡任第十四職等，由市長任命，並報請行政院備查。\n直轄市政府置秘書長一人，由市長依公務人員任用法任免；置副秘書長三人，由市長依法任免之；其一級單位主管或所屬一級機關首長除主計、人事、警察及政風之主管或首長，依專屬人事管理法律任免外，其餘職務均比照簡任第十三職等，由市長任免之。\n副市長及職務比照簡任第十三職等之主管或首長，於市長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之市長，應於上屆任期屆滿之日宣誓就職。\n中華民國一百十四年十一月二十一日修正之第一項及第二項規定，自一百十五年一月一日施行。","finalWhy":"照國民黨黨團、台灣民眾黨黨團共同再修正動議條文通過。","review":{"note":"照委員牛煦庭〔李彥秀〕等11人所提修正動議保留協商","text":""}},{"no":"第五十六條","current":"縣（市）政府置縣（市）長一人，對外代表該縣（市），綜理縣（市）政，並指導監督所轄鄉（鎮、市）自治。縣（市）長由縣（市）民依法選舉之，每屆任期四年，連選得連任一屆。置副縣（市）長一人，襄助縣（市）長處理縣（市）政，職務比照簡任第十三職等；人口在一百二十五萬人以上之縣（市），得增置副縣（市）長一人，均由縣（市）長任命，並報請內政部備查。\n縣（市）政府置秘書長一人，由縣（市）長依公務人員任用法任免；其一級單位主管及所屬一級機關首長，除主計、人事、警察、稅捐及政風之主管或首長，依專屬人事管理法律任免，其總數二分之一得列政務職，職務比照簡任第十二職等，其餘均由縣（市）長依法任免之。\n副縣（市）長及職務比照簡任第十二職等之主管或首長，於縣（市）長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之縣（市）長，應於上屆任期屆滿之日宣誓就職。","versions":[{"bill":"202110069720000","text":"縣（市）政府置縣（市）長一人，對外代表該縣（市），綜理縣（市）政，並指導監督所轄鄉（鎮、市）自治。縣（市）長由縣（市）民依法選舉之，每屆任期四年，連選得連任一屆。置副縣（市）長二人，襄助縣（市）長處理縣（市）政，職務比照簡任第十三職等；人口在一百二十五萬人以上之縣（市），得增置副縣（市）長一人，均由縣（市）長任命，並報請內政部備查。\n縣（市）政府置秘書長一人，由縣（市）長依公務人員任用法任免；其一級單位主管及所屬一級機關首長，除主計、人事、警察、稅捐及政風之主管或首長，依專屬人事管理法律任免外，其餘職務均比照簡任第十二職等，由縣（市）長任免之。\n副縣（市）長及職務比照簡任第十二職等之主管或首長，於縣（市）長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之縣（市）長，應於上屆任期屆滿之日宣誓就職。","note":"一、修正第一項及第二項。\n二、當前社會呈現高度多元化且專業分工明確的情況下，為強化縣市政府效能，襄助民選縣長在各領域均能有專業人才可協助處理地方自治事項，爰修正第一項，將副縣（市）長由原本一人增加為二人，同時修正第二項，將縣（市）政府其一級單位主管及所屬一級機關首長，除主計、人事、警察、稅捐及政風之主管或首長外，其餘均比照直轄市政府，職務均比照簡任第十二職等，由縣（市）長任免之。"},{"bill":"202110076150000","text":"縣（市）政府置縣（市）長一人，對外代表該縣（市），綜理縣（市）政，並指導監督所轄鄉（鎮、市）自治。縣（市）長由縣（市）民依法選舉之，每屆任期四年，連選得連任一屆。置副縣（市）長一人，襄助縣（市）長處理縣（市）政，職務比照簡任第十三職等；人口數達全國人口總數百分之二以上之縣（市），得增置副縣（市）長一人，均由縣（市）長任命，並報請內政部備查。\n縣（市）政府置秘書長一人，由縣（市）長依公務人員任用法任免；其一級單位主管及所屬一級機關首長，除主計、人事、警察、稅捐及政風之主管或首長，依專屬人事管理法律任免，其總數二分之一得列政務職，職務比照簡任第十二職等，其餘均由縣（市）長依法任免之。\n副縣（市）長及職務比照簡任第十二職等之主管或首長，於縣（市）長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之縣（市）長，應於上屆任期屆滿之日宣誓就職。","note":"本條規定，縣（市）人口數達125萬人則可增設第二位副市長，然依現狀卻無任何縣（市）人口數達125萬人，考量我國目前人口數下降之趨勢及政務之增加，且為避免人口數下降幅度過快而影響政務推動，宜明訂縣（市）人口數達內政部戶政司統計之人口總數2%時，即得增設第二位副市長。"},{"bill":"202110085880000","text":"縣（市）政府置縣（市）長一人，對外代表該縣（市），綜理縣（市）政，並指導監督所轄鄉（鎮、市）自治。縣（市）長由縣（市）民依法選舉之，每屆任期四年，連選得連任一屆。置副縣（市）長一人，襄助縣（市）長處理縣（市）政，職務比照簡任第十三職等；人口在一百二十五萬人以上或行政區域面積超過一千平方公里之縣（市），得增置副縣（市）長一人，均由縣（市）長任命，並報請內政部備查。\n縣（市）政府置秘書長一人，由縣（市）長依公務人員任用法任免；其一級單位主管及所屬一級機關首長，除主計、人事、警察、稅捐及政風之主管或首長，依專屬人事管理法律任免，其總數二分之一得列政務職，職務比照簡任第十二職等，其餘均由縣（市）長依法任免之。\n副縣（市）長及職務比照簡任第十二職等之主管或首長，於縣（市）長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之縣（市）長，應於上屆任期屆滿之日宣誓就職。","note":"一、修正第一項。\n二、我國縣市政府層級，共有十個縣的行政區域面積超過一千平方公里，包括新竹縣、苗栗縣、南投縣、彰化縣、雲林縣、嘉義縣、屏東縣、台東縣、花蓮縣及宜蘭縣，其治理型態與複雜程度遠非現行地方政府組織能堪負荷，惟目前僅有彰化縣因人口超過一百二十五萬人，得依現行規定增置一名副市長，爰修正為人口在一百二十五萬人以上或行政區域面積超國一千平方公里以上之縣（市），均得增置副縣（市）長一人。"},{"bill":"202110133650000","text":"縣（市）政府置縣（市）長一人，對外代表該縣（市），綜理縣（市）政，並指導監督所轄鄉（鎮、市）自治。縣（市）長由縣（市）民依法選舉之，每屆任期四年，連選得連任一屆。置副縣（市）長一人，襄助縣（市）長處理縣（市）政，職務比照簡任第十三職等；人口在達全國人口總數百分之二以上之縣（市），得增置副縣（市）長一人，均由縣（市）長任命，並報請內政部備查。\n縣（市）政府置秘書長一人，由縣（市）長依公務人員任用法任免；其一級單位主管及所屬一級機關首長，除主計、人事、警察、稅捐及政風之主管或首長，依專屬人事管理法律任免，其總數二分之一得列政務職，職務比照簡任第十二職等，其餘均由縣（市）長依法任免之。\n副縣（市）長及職務比照簡任第十二職等之主管或首長，於縣（市）長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之縣（市）長，應於上屆任期屆滿之日宣誓就職。","note":"原依本條規定，縣（市）人口數達125萬人則可增設第二位副市長，惟現狀無任何縣（市）人口數達125萬人，考兩我國目前人口負成長趨勢愈增及政務增加，且為避免人扣數下降幅度過快而影響政務推動，爰訂定縣（市）人口數達內政部戶政司統計之人口總數2%時，即得增設第二位副市長。"}],"changed":true,"final":"縣（市）政府置縣（市）長一人，對外代表該縣（市），綜理縣（市）政，並指導監督所轄鄉（鎮、市）自治。縣（市）長由縣（市）民依法選舉之，每屆任期四年，連選得連任一屆。置副縣（市）長二人，襄助縣（市）長處理縣（市）政，職務比照簡任第十三職等，均由縣（市）長任命，並報請內政部備查。\n縣（市）政府置秘書長一人，由縣（市）長依公務人員任用法任免；置副秘書長一人，由縣（市）長依法任免之；其一級單位主管及所屬一級機關首長，除主計、人事、警察、稅捐及政風之主管或首長，依專屬人事管理法律任免，其總數二分之一得列政務職，職務比照簡任第十二職等，其餘均由縣（市）長依法任免之。\n副縣（市）長及職務比照簡任第十二職等之主管或首長，於縣（市）長卸任、辭職、去職或死亡時，隨同離職。\n依第一項選出之縣（市）長，應於上屆任期屆滿之日宣誓就職。\n中華民國一百十四年十一月二十一日修正之第一項及第二項規定，自一百十五年一月一日施行。","finalWhy":"照國民黨黨團、台灣民眾黨黨團共同再修正動議條文通過。","review":{"note":"照委員牛煦庭〔李彥秀〕等11人及委員許宇甄〔陳超明〕等4人分別所提修正動議保留協商","text":""}},{"no":"第五十七條","current":"鄉（鎮、市）公所置鄉（鎮、市）長一人，對外代表該鄉（鎮、市），綜理鄉（鎮、市）政，由鄉（鎮、市）民依法選舉之，每屆任期四年，連選得連任一屆；其中人口在三十萬人以上之縣轄市，得置副市長一人，襄助市長處理市政，以機要人員方式進用，或以簡任第十職等任用，以機要人員任用之副市長，於市長卸任、辭職、去職或死亡時，隨同離職。\n山地鄉鄉長以山地原住民為限。依第八十二條規定派員代理者，亦同。\n鄉（鎮、市）公所除主計、人事、政風之主管，依專屬人事管理法律任免外，其餘一級單位主管均由鄉（鎮、市）長依法任免之。\n依第一項選出之鄉（鎮、市）長，應於上屆任期屆滿之日宣誓就職。","versions":[{"bill":"202110174440000","text":"鄉（鎮、市）公所置鄉（鎮、市）長一人，對外代表該鄉（鎮、市），綜理鄉（鎮、市）政，由鄉（鎮、市）民依法選舉之，每屆任期四年，連選得連任一屆；其中人口在三十萬人以上之縣轄市，得置副市長一人，襄助市長處理市政，以機要人員方式進用，或以簡任第十職等任用，以機要人員任用之副市長，於市長卸任、辭職、去職或死亡時，隨同離職。\n山地鄉鄉長以山地原住民為限。依第八十二條規定派員代理者，亦同。\n鄉（鎮、市）人口在二萬五千人以上，置主任秘書一人，由縣（市）長依公務人員任用法任免；除主計、人事、政風之主管，依專屬人事管理法律任免外，其餘一級單位主管均由鄉（鎮、市）長依法任免之。\n依第一項選出之鄉（鎮、市）長，應於上屆任期屆滿之日宣誓就職。","note":"現行《行政機關組織準則》第十九條規定，鄉（鎮、市）公所設置主任秘書有人口數（三萬人以上）的門檻限制。未來各地方政府所轄人口將持續下滑。此一趨勢將對現行依人口數設置職務門檻的規定構成重大挑戰，可能危及人口數位於門檻邊緣的鄉（鎮、市）公所之主任秘書員額設置，進而影響地方政務的穩定推動。現有地方行政機關組織準則基於人口門檻限制的法制設計與實際需求之間的落差正不斷擴大。爰提案修正，賦予法源依據。"}],"changed":true,"final":"鄉（鎮、市）公所置鄉（鎮、市）長一人，對外代表該鄉（鎮、市），綜理鄉（鎮、市）政，由鄉（鎮、市）民依法選舉之，每屆任期四年，連選得連任一屆；其中人口在三十萬人以上之縣轄市，得置副市長一人，襄助市長處理市政，以機要人員方式進用，或以簡任第十職等任用，以機要人員任用之副市長，於市長卸任、辭職、去職或死亡時，隨同離職。\n山地鄉鄉長以山地原住民為限。依第八十二條規定派員代理者，亦同。\n鄉（鎮、市）人口在二萬人以上，置主任秘書一人，由鄉（鎮、市）長依公務人員任用法任免；除主計、人事、政風之主管，依專屬人事管理法律任免外，其餘一級單位主管均由鄉（鎮、市）長依法任免之。\n依第一項選出之鄉（鎮、市）長，應於上屆任期屆滿之日宣誓就職。","finalWhy":"照國民黨黨團、台灣民眾黨黨團共同再修正動議條文通過。","review":null},{"no":"第六十一條","current":"直轄市長、縣（市）長、鄉（鎮、市）長，應支給薪給；退職應發給退職金；因公死亡或病故者，應給與遺族撫卹金。\n前項人員之薪給、退職金及撫卹金之支給，以法律定之。\n村（里）長，為無給職，由鄉（鎮、市、區）公所編列村（里）長事務補助費，其補助項目及標準，以法律定之。","versions":[{"bill":"202110038000000","text":"直轄市長、縣（市）長、鄉（鎮、市）長，應支給薪給；退職應發給退職金；因公死亡或病故者，應給與遺族撫卹金。\n前項人員之薪給、退職金及撫卹金之支給，以法律定之。\n村（里）長，為無給職，由鄉（鎮、市、區）公所編列村（里）長事務補助費，因公死亡者應給與遺族撫卹金，其補助項目、標準及撫卹金之支給，以法律定之。","note":"一、村（里）長角色與定位多有討論，目前在法制上認為既非民意代表，也非公務人員，因此因公死亡後其遺屬無法支領撫卹金。\n二、惟，村（里）長的確係依「公職人員選舉罷免法」規定所選出之公職人員，並受鄉鎮市區長之指揮監督，辦理村里公務及交辦事項。\n三、而與同為依照「公職人員選舉罷免法」所選出之公職人員相比，直轄市長、縣（市）長、鄉（鎮、市）長等地方政府首長，卻明文規定因公死亡或病故者應給與遺族撫金。\n四、爰此，現行規定將村（里）長排除撫卹金之適用甚不公平，因此修正第三項村（里）長因公死亡者應給與遺族撫卹金；同時修正第三項，其撫卹金之支給另以法律定之。"}],"changed":true,"final":"直轄市長、縣（市）長、鄉（鎮、市）長，應支給薪給；退職應發給退職金；因公死亡或病故者，應給與遺族撫卹金。\n前項人員之薪給、退職金及撫卹金之支給，以法律定之。\n直轄市長、縣（市）長、鄉（鎮、市）長依第七十八條第一項或公職人員選舉罷免法第一百十七條第一項規定停職期間，不得發給薪給，於其依第七十八條第二項、第四項或公職人員選舉罷免法第一百十七條第二項規定復職後，或於其任期屆滿後，經法院判決無罪確定或因犯罪嫌疑不足經檢察官不起訴處分確定者，予以補發。\n村（里）長，為無給職，由鄉（鎮、市、區）公所編列村（里）長事務補助費，其補助項目及標準，以法律定之。","finalWhy":"一、第一項、第二項未修正。\n二、為貫徹政府肅貪政風，建立廉能政治之決心，並考量民選地方行政首長依公職人員選舉罷免法第一百十七條規定停職是否發給薪給，法無明文，爰增訂第三項，明定民選地方行政首長依第七十八條第一項或公職人員選舉罷免法第一百十七條第一項停職期間，一律停發薪給，並於復職後，或於其該屆任期屆滿後，經法院判決無罪確定或因犯罪嫌疑不足經檢察官不起訴處分確定後，補發薪俸。\n三、原第三項移列至第四項，文字未修正。","review":{"note":"修正通過","text":"直轄市長、縣（市）長、鄉（鎮、市）長，應支給薪給；退職應發給退職金；因公死亡或病故者，應給與遺族撫卹金。\n前項人員之薪給、退職金及撫卹金之支給，以法律定之。\n直轄市長、縣（市）長、鄉（鎮、市）長依第七十八條第一項或公職人員選舉罷免法第一百十七條第一項規定停職期間，不得發給薪給，於其依第七十八條第二項、第四項或公職人員選舉罷免法第一百十七條第二項規定復職後，或於其任期屆滿後，經法院判決無罪確定或因犯罪嫌疑不足經檢察官不起訴處分確定者，予以補發。\n村（里）長，為無給職，由鄉（鎮、市、區）公所編列村（里）長事務補助費，其補助項目及標準，以法律定之。"}},{"no":"第七十八條","current":"直轄市長、縣（市）長、鄉（鎮、市）長、村（里）長，有下列情事之一者，分別由行政院、內政部、縣政府、鄉（鎮、市、區）公所停止其職務，不適用公務員懲戒法第三條之規定：\n一、涉嫌犯內亂、外患、貪污治罪條例或組織犯罪防制條例之罪，經第一審判處有期徒刑以上之刑者。但涉嫌貪污治罪條例上之圖利罪者，須經第二審判處有期徒刑以上之刑者。\n二、涉嫌犯前款以外，法定刑為死刑、無期徒刑或最輕本刑為五年以上有期徒刑之罪，經第一審判處有罪者。\n三、依刑事訴訟程序被羈押或通緝者。\n依前項第一款或第二款停止職務之人員，如經改判無罪時，或依前項第三款停止職務之人員，經撤銷通緝或釋放時，於其任期屆滿前，得准其先行復職。\n依第一項規定予以停止其職務之人員，經依法參選，再度當選原公職並就職者，不再適用該項之規定。\n依第一項規定予以停止其職務之人員，經刑事判決確定，非第七十九條應予解除職務者，於其任期屆滿前，均應准其復職。\n直轄市長、縣（市）長、鄉（鎮、市）長，於本法公布施行前，非因第一項原因被停職者，於其任期屆滿前，應即准其復職。","versions":[{"bill":"202110069950000","text":"直轄市長、縣（市）長、鄉（鎮、市）長、村（里）長，有下列情事之一者，分別由行政院、內政部、縣政府、鄉（鎮、市、區）公所停止其職務及停發俸給，不適用公務員懲戒法第三條及公務人員俸給法第二十一條之規定：\n一、涉嫌犯內亂、外患、貪污治罪條例或組織犯罪防制條例之罪，經第一審判處有期徒刑以上之刑者。但涉嫌貪污治罪條例上之圖利罪者，須經第二審判處有期徒刑以上之刑者。\n二、涉嫌犯前款以外，法定刑為死刑、無期徒刑或最輕本刑為五年以上有期徒刑之罪，經第一審判處有罪者。\n三、依刑事訴訟程序被羈押或通緝者。\n依前項第一款或第二款停止職務之人員，如經改判無罪時，或依前項第三款停止職務之人員，經撤銷通緝或釋放時，於其任期屆滿前，得准其先行復職。\n依第一項規定予以停止其職務之人員，經依法參選，再度當選原公職並就職者，不再適用該項之規定。\n依第一項規定予以停止其職務之人員，經刑事判決確定，非第七十九條應予解除職務者，於其任期屆滿前，均應准其復職。\n直轄市長、縣（市）長、鄉（鎮、市）長，於本法公布施行前，非因第一項原因被停職者，於其任期屆滿前，應即准其復職。","note":"一、為避免縣市政府因衡量標準不一，造成有人發放有人停發的不公平現象。同時，為貫徹政府掃除貪污，建立廉能政治之決心，修正文字，停止職務並同時停發俸給。\n二、因停職規定排除公務人員俸給法第二十一條之規定，日後於任期期滿前獲得復職，亦無補發俸給之適用。"}],"changed":false,"final":"直轄市長、縣（市）長、鄉（鎮、市）長、村（里）長，有下列情事之一者，分別由行政院、內政部、縣政府、鄉（鎮、市、區）公所停止其職務，不適用公務員懲戒法第三條之規定：\n一、涉嫌犯內亂、外患、貪污治罪條例或組織犯罪防制條例之罪，經第一審判處有期徒刑以上之刑者。但涉嫌貪污治罪條例上之圖利罪者，須經第二審判處有期徒刑以上之刑者。\n二、涉嫌犯前款以外，法定刑為死刑、無期徒刑或最輕本刑為五年以上有期徒刑之罪，經第一審判處有罪者。\n三、依刑事訴訟程序被羈押或通緝者。\n依前項第一款或第二款停止職務之人員，如經改判無罪時，或依前項第三款停止職務之人員，經撤銷通緝或釋放時，於其任期屆滿前，得准其先行復職。\n依第一項規定予以停止其職務之人員，經依法參選，再度當選原公職並就職者，不再適用該項之規定。\n依第一項規定予以停止其職務之人員，經刑事判決確定，非第七十九條應予解除職務者，於其任期屆滿前，均應准其復職。\n直轄市長、縣（市）長、鄉（鎮、市）長，於本法公布施行前，非因第一項原因被停職者，於其任期屆滿前，應即准其復職。","finalWhy":null,"review":{"note":"維持現行條文","text":""}},{"no":"第八十三條之三","current":"下列各款為山地原住民區自治事項：\n一、關於組織及行政管理事項如下：\n(一)山地原住民區公職人員選舉、罷免之實施。\n(二)山地原住民區組織之設立及管理。\n(三)山地原住民區新聞行政。\n二、關於財政事項如下：\n(一)山地原住民區財務收支及管理。\n(二)山地原住民區財產之經營及處分。\n三、關於社會服務事項如下：\n(一)山地原住民區社會福利。\n(二)山地原住民區公益慈善事業及社會救助。\n(三)山地原住民區殯葬設施之設置及管理。\n(四)山地原住民區調解業務。\n四、關於教育文化及體育事項如下：\n(一)山地原住民區社會教育之興辦及管理。\n(二)山地原住民區藝文活動。\n(三)山地原住民區體育活動。\n(四)山地原住民區禮儀民俗及文獻。\n(五)山地原住民區社會教育、體育與文化機構之設置、營運及管理。\n五、關於環境衛生事項如下：山地原住民區廢棄物清除及處理。\n六、關於營建、交通及觀光事項如下：\n(一)山地原住民區道路之建設及管理。\n(二)山地原住民區公園綠地之設立及管理。\n(三)山地原住民區交通之規劃、營運及管理。\n(四)山地原住民區觀光事業。\n七、關於公共安全事項如下：\n(一)山地原住民區災害防救之規劃及執行。\n(二)山地原住民區民防之實施。\n八、關於事業之經營及管理事項如下：\n(一)山地原住民區公用及公營事業。\n(二)山地原住民區公共造產事業。\n(三)與其他地方自治團體合辦之事業。\n九、其他依法律賦予之事項。","versions":[{"bill":"202110028230000","text":"下列各款為山地原住民區自治事項：\n一、關於組織及行政管理事項如下：\n(一)山地原住民區公職人員選舉、罷免之實施。\n(二)山地原住民區組織之設立及管理。\n(三)山地原住民區新聞行政。\n二、關於財政事項如下：\n(一)山地原住民區財務收支及管理。\n(二)山地原住民區財產之經營及處分。\n(三)升格前鄉（鎮、市）應分配之稅捐。\n(四)升格前鄉（鎮、市）應分配之公共債。\n三、關於社會服務事項如下：\n(一)山地原住民區社會福利。\n(二)山地原住民區公益慈善事業及社會救助。\n(三)山地原住民區殯葬設施之設置及管理。\n(四)山地原住民區調解業務。\n四、關於教育文化及體育事項如下：\n(一)山地原住民區社會教育之興辦及管理。\n(二)山地原住民區藝文活動。\n(三)山地原住民區體育活動。\n(四)山地原住民區禮儀民俗及文獻。\n(五)山地原住民區社會教育、體育與文化機構之設置、營運及管理。\n五、關於環境衛生事項如下：山地原住民區廢棄物清除及處理。\n六、關於營建、交通及觀光事項如下：\n(一)山地原住民區道路之建設及管理。\n(二)山地原住民區公園綠地之設立及管理。\n(三)山地原住民區交通之規劃、營運及管理。\n(四)山地原住民區觀光事業。\n七、關於公共安全事項如下：\n(一)山地原住民區災害防救之規劃及執行。\n(二)山地原住民區民防之實施。\n八、關於事業之經營及管理事項如下：\n(一)山地原住民區公用及公營事業。\n(二)山地原住民區公共造產事業。\n(三)與其他地方自治團體合辦之事業。\n九、其他依法律賦予之事項。","note":"依財政收支劃分法第八條及第十二條規定，遺產及贈與稅、地價稅、房屋稅、契稅及娛樂稅，起徵鄉鎮市均得獲法定比例之受益，又於公共債務法第五條規定，舉債一年以上公共債務未償餘額預算，佔各該政府總預算及特別預算歲出總額25%以下比例，修正本條，納入升格前鄉（鎮、市）應分配之稅捐及公共債，以保障山地原住民區財政自主，避免山地原住民區因縣市合併造成自治事項不利之影響。"},{"bill":"202110075260000","text":"下列各款為山地原住民區自治事項：\n一、關於組織及行政管理事項如下：\n(一)山地原住民區公職人員選舉、罷免之實施。\n(二)山地原住民區組織之設立及管理。\n(三)山地原住民區新聞行政。\n二、關於財政事項如下：\n(一)山地原住民區財務收支及管理。\n(二)山地原住民區稅捐。\n(三)山地原住民區公共債務。\n(四)山地原住民區財產之經營及處分。\n三、關於社會服務事項如下：\n(一)山地原住民區社會福利。\n(二)山地原住民區公益慈善事業及社會救助。\n(三)山地原住民區殯葬設施之設置及管理。\n(四)山地原住民區調解業務。\n四、關於教育文化及體育事項如下：\n(一)山地原住民區社會教育之興辦及管理。\n(二)山地原住民區藝文活動。\n(三)山地原住民區體育活動。\n(四)山地原住民區禮儀民俗及文獻。\n(五)山地原住民區社會教育、體育與文化機構之設置、營運及管理。\n五、關於環境衛生事項如下：\n山地原住民區廢棄物清除及處理。\n六、關於營建、交通及觀光事項如下：\n(一)山地原住民區道路之建設及管理。\n(二)山地原住民區公園綠地之設立及管理。\n(三)山地原住民區交通之規劃、營運及管理。\n(四)山地原住民區觀光事業。\n七、關於公共安全事項如下：\n(一)山地原住民區災害防救之規劃及執行。\n(二)山地原住民區民防之實施。\n八、關於事業之經營及管理事項如下：\n(一)山地原住民區公用及公營事業。\n(二)山地原住民區公共造產事業。\n(三)與其他地方自治團體合辦之事業。\n九、其他依法律賦予之事項。\n前項第二款財政事項，應參酌合併改制前之方式辦理。","note":"一、民國九十九年《地方制度法》修正時，由於五都直轄市的升格，導致原住民的五個山地鄉，包括新北市的烏來區、台中市的和平區，以及高雄市茂林區、桃源區和那瑪夏區，喪失地方自治與參政的權益。然一百零三年修正重新恢復前開地區之自治地位，惟僅給山地原住民族區自治地位，剝奪「山地原住民區稅捐」以及「山地原住民區公共債務」等財政事項，導致山地原住民區籌措財源的能力不若其他鄉鎮市，常處於經濟拮据的狀況，難以分配專屬的統籌分配稅款，僅僅只能依靠原民會的補助款在生存。\n二、據此，為了保障山地原住民區的財政自主，避免因縣市合併導致對其自治事項產生不利影響，爰修正本條第一項財政事項並新增第二項，恢復山地原住民區原有之「山地原住民區稅捐」以及「山地原住民區公共債務」之財政事項，讓其得與其他鄉鎮市有同等地位的財政能力，進而舒緩山地原住民地區的財政壓力。"},{"bill":"202110080350000","text":"下列各款為山地原住民區自治事項：\n一、關於組織及行政管理事項如下：\n(一)山地原住民區公職人員選舉、罷免之實施。\n(二)山地原住民區組織之設立及管理。\n(三)山地原住民區新聞行政。\n二、關於財政事項如下：\n(一)山地原住民區財務收支及管理。\n(二)山地原住民區財產之經營及處分。\n(三)山地原住民區稅捐。\n(四)山地原住民區公共債務。\n三、關於社會服務事項如下：\n(一)山地原住民區社會福利。\n(二)山地原住民區公益慈善事業及社會救助。\n(三)山地原住民區殯葬設施之設置及管理。\n(四)山地原住民區調解業務。\n四、關於教育文化及體育事項如下：\n(一)山地原住民區社會教育之興辦及管理。\n(二)山地原住民區藝文活動。\n(三)山地原住民區體育活動。\n(四)山地原住民區禮儀民俗及文獻。\n(五)山地原住民區社會教育、體育與文化機構之設置、營運及管理。\n五、關於環境衛生事項如下：\n山地原住民區廢棄物清除及處理。\n六、關於營建、交通及觀光事項如下：\n(一)山地原住民區道路之建設及管理。\n(二)山地原住民區公園綠地之設立及管理。\n(三)山地原住民區交通之規劃、營運及管理。\n(四)山地原住民區觀光事業。\n七、關於公共安全事項如下：\n(一)山地原住民區災害防救之規劃及執行。\n(二)山地原住民區民防之實施。\n八、關於事業之經營及管理事項如下：\n(一)山地原住民區公用及公營事業。\n(二)山地原住民區公共造產事業。\n(三)與其他地方自治團體合辦之事業。\n九、其他依法律賦予之事項。","note":"一、本條新增第二款第三目及第四目。\n二、改制前之山地鄉，其自治事項中原明定其稅捐及公共債務之權利。惟改制後之山地原住民區現行本法針對其稅捐及公共債務之規定付之闕如。有鑑於保障山地原住民區之財政自主權利，應於山地原住民區之自治事項中予以明定。"}],"changed":false,"final":"下列各款為山地原住民區自治事項：\n一、關於組織及行政管理事項如下：\n(一)山地原住民區公職人員選舉、罷免之實施。\n(二)山地原住民區組織之設立及管理。\n(三)山地原住民區新聞行政。\n二、關於財政事項如下：\n(一)山地原住民區財務收支及管理。\n(二)山地原住民區財產之經營及處分。\n三、關於社會服務事項如下：\n(一)山地原住民區社會福利。\n(二)山地原住民區公益慈善事業及社會救助。\n(三)山地原住民區殯葬設施之設置及管理。\n(四)山地原住民區調解業務。\n四、關於教育文化及體育事項如下：\n(一)山地原住民區社會教育之興辦及管理。\n(二)山地原住民區藝文活動。\n(三)山地原住民區體育活動。\n(四)山地原住民區禮儀民俗及文獻。\n(五)山地原住民區社會教育、體育與文化機構之設置、營運及管理。\n五、關於環境衛生事項如下：\n山地原住民區廢棄物清除及處理。\n六、關於營建、交通及觀光事項如下：\n(一)山地原住民區道路之建設及管理。\n(二)山地原住民區公園綠地之設立及管理。\n(三)山地原住民區交通之規劃、營運及管理。\n(四)山地原住民區觀光事業。\n七、關於公共安全事項如下：\n(一)山地原住民區災害防救之規劃及執行。\n(二)山地原住民區民防之實施。\n八、關於事業之經營及管理事項如下：\n(一)山地原住民區公用及公營事業。\n(二)山地原住民區公共造產事業。\n(三)與其他地方自治團體合辦之事業。\n九、其他依法律賦予之事項。","finalWhy":null,"review":{"note":"維持現行條文","text":""}},{"no":"第八十三條之七","current":"山地原住民區實施自治所需財源，由直轄市依下列因素予以設算補助，並維持改制前各該山地鄉統籌分配財源水準：\n一、第八十三條之三所列山地原住民區之自治事項。\n二、直轄市改制前各該山地鄉前三年度稅課收入平均數。\n三、其他相關因素。\n前項補助之項目、程序、方式及其他相關事項，由直轄市洽商山地原住民區定之。","versions":[{"bill":"202110080350000","text":"山地原住民區實施自治所需財源應逐年檢討，由直轄市依下列因素予以設算補助：\n一、第八十三條之三所列山地原住民區之自治事項。\n二、直轄市改制前各該山地鄉前三年度總預算歲出平均數。\n三、不得低於改制前各該山地鄉統籌分配財源水準。\n四、其他相關因素。\n前項補助之項目、程序、方式及其他相關事項，由直轄市洽商山地原住民區定之。","note":"現行條文第一項第二款規定，直轄市按其改制前各該山地鄉前三年度稅課收入平均數予以設算補助。惟改制前，各該山地鄉每一年度之歲入情形即非常困窘，現行規定若僅按其政府歲入中之稅課收入為其平均數，對於直轄市改制後，恢復公法人地位之山地原住民區之財政補助，無實質效益。故修正以直轄市改制前各該山地鄉前三年度總預算歲出平均數為設算標準，始可充分保障山地原住民區未來之各項財政支出，真正維護改制後之區民福利。"}],"changed":true,"final":"山地原住民區實施自治所需財源，由直轄市依下列因素予以設算補助，並應維持改制前各該山地鄉統籌分配財源水準：\n一、第八十三條之三所列山地原住民區之自治事項。\n二、直轄市改制前各該山地鄉前三年度總預算歲出平均數扣除上級政府額外補助之平均數及改制後原各該山地鄉事權移由直轄市辦理之經費。\n三、當年度直轄市之中央普通統籌分配稅款實際分配金額高於通知分配數，直轄市應於次一年度或以後年度按其增加比率酌增對各該山地原住民區之補助。\n四、其他相關因素。\n前項補助之項目、程序、方式及其他相關事項，由直轄市洽商山地原住民區定之。","finalWhy":"","review":{"note":"照委員黃捷〔伍麗華Saidhai Tahovecahe〕等5人所提修正動議及委員高金素梅等5人所提再修正動議保留協商","text":""}},{"no":"第八十三條之九","current":null,"versions":[{"bill":"202110080350000","text":"山地原住民區應分配之國稅，準用財政收支劃分法關於鄉（鎮、市）規定辦理。\n前項應分配之國稅，應直接撥補予山地原住民區，保障其財政自主性；補助之項目、程序、方式及其他相關事項，由財政部洽商行政院主計總處、直轄市及山地原住民區定之。","note":"一、本條新增。\n二、為保障山地原住民區恢復公法人地位後其財政自主權，於本法中明定山地原住民區應分配之國稅，準用財政收支劃分法關於鄉（鎮、市）規定辦理。\n三、山地原住民區應分配之國稅，逕撥補予山地原住民區，其補助方式經財政部洽商山地原住民區定之。"}],"changed":false,"final":null,"finalWhy":null,"review":{"note":"不予增訂","text":""}},{"no":"第八十三條之十","current":null,"versions":[{"bill":"202110080350000","text":"山地原住民區財政之收入及支出，應準用本法及財政收支劃分法關於鄉（鎮、市）規定辦理。\n山地原住民區地方稅之範圍及課徵，準用地方稅法通則關於鄉（鎮、市）之規定。","note":"一、本條新增。\n二、為保障山地原住民區恢復公法人地位後其財政自主權，於本法中明定山地原住民區之財政收支及地方稅之範圍及課徵，準用財政收支劃分法及地方稅法通則關於鄉（鎮、市）規定辦理。"}],"changed":false,"final":null,"finalWhy":null,"review":{"note":"不予增訂","text":""}},{"no":"第八十三條之十一","current":null,"versions":[{"bill":"202110080350000","text":"山地原住民區預算收支之差短，得以借款或移用以前年度歲計賸餘彌平。\n山地原住民區未償餘額比例，準用公共債務法關於鄉（鎮、市）之規定。","note":"一、本條新增。\n二、為保障山地原住民區恢復公法人地位後其財政自主權，於本法中明定山地原住民區之公共債務權利，準用公共債務法關於鄉（鎮、市）規定辦理。"}],"changed":false,"final":null,"finalWhy":null,"review":{"note":"不予增訂","text":""}},{"no":"第八十三條之十二","current":null,"versions":[{"bill":"202110080350000","text":"直轄市山地原住民區公所，置秘書一人，為薦任第八職等至第九職等。","note":"一、本條新增。\n二、原直轄市下所設之區公所，設置主任秘書乙職，為薦任第八職等至第九職等間。原山地鄉因升格改制為原住民區，且於103年12月25日山地原住民區恢復為公法人地位後，該區公所秘書一職僅薦任第八職等。影響原住民優秀公務人才之派任及升遷機會！爰於本次修正時逕於地方制度法中明定山地原住民區之秘書其官（職）等。"}],"changed":false,"final":null,"finalWhy":null,"review":{"note":"不予增訂","text":""}}],"stages":[{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110010220000","gazref":"113卷010期5192號 2-2頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110021370000","gazref":"113卷018期5200號 6-6頁"},{"date":"2024-04-09","stage":"一讀","code":"院會-11-1-8","bill":"202110028230000","gazref":"113卷020期5202號 12-12頁"},{"date":"2024-04-18","code":"聯席會議-11-1-15,36-1","title":"第11屆第1會期內政、司法及法制委員會第1次聯席會議","gazref":"113卷031期5213號 263-337頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024041114/details?meetingDate=113/04/18","full":["https://ivod.ly.gov.tw/Play/Full/1M/15827"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/113/31/LCIDC01_1133101_00017.pdf","p1":263,"p2":338}],"clips":[],"props":["202110010220000","202110021370000","202110069720000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":39,"nmem":25,"ntable":1,"nfold":6},{"date":"2024-04-26","stage":"一讀","code":"院會-11-1-11","bill":"202110038000000","gazref":"113卷031期5213號 15-15頁"},{"date":"2024-10-11","stage":"一讀","code":"院會-11-2-4","bill":"202110069720000","gazref":"113卷078期5260號 2-3頁"},{"date":"2024-10-18","stage":"一讀","code":"院會-11-2-5","bill":"202110069950000","gazref":"113卷081期5263號 12-12頁"},{"date":"2024-11-08","stage":"一讀","code":"院會-11-2-8","bill":"202110076150000","gazref":"113卷091期5273號一冊 17-17頁"},{"date":"2024-11-08","stage":"一讀","code":"院會-11-2-8","bill":"202110075260000","gazref":"113卷091期5273號一冊 24-24頁"},{"date":"2024-11-15","stage":"一讀","code":"院會-11-2-9","bill":"202110077150000","gazref":"113卷095期5277號 9-9頁"},{"date":"2024-11-29","stage":"一讀","code":"院會-11-2-11","bill":"202110080350000","gazref":"113卷102期5284號一冊 7-7頁"},{"date":"2024-11-29","stage":"一讀","code":"院會-11-2-11","bill":"202110080310000","gazref":"113卷102期5284號一冊 7-7頁"},{"date":"2025-01-13","code":"聯席會議-11-2-15,36-1","title":"第11屆第2會期內政、司法及法制委員會第1次聯席會議","gazref":"114卷021期5314號 1-108頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024121388/details?meetingDate=113/12/19","full":["https://ivod.ly.gov.tw/Play/Full/1M/16465"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/21/LCIDC01_1142101_00001.pdf","p1":1,"p2":108}],"clips":[],"props":["202110010220000","202110021370000","202110069720000","202110069950000","202110076150000","202110075260000","202110077150000","202110080350000","202110080310000"],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":40,"nmem":23,"ntable":1,"nfold":7},{"date":"2025-02-25","stage":"一讀","code":"院會-11-3-2","bill":"202110087490000","gazref":"114卷024期5317號一冊 3-3頁"},{"date":"2025-03-04","stage":"一讀","code":"院會-11-3-3","bill":"202110085880000","gazref":"114卷024期5317號二冊 11-11頁"},{"date":"2025-03-07","stage":"一讀","code":"院會-11-3-4","bill":"202110093790000","gazref":"114卷025期5318號 42-42頁"},{"date":"2025-03-21","stage":"一讀","code":"院會-11-3-6","bill":"202110086600000","gazref":"114卷028期5321號 20-20頁"},{"date":"2025-04-18","stage":"一讀","code":"院會-11-3-8","bill":"202110105150000","gazref":"114卷037期5330號一冊 44-44頁"},{"date":"2025-05-09","stage":"一讀","code":"院會-11-3-11","bill":"202110120080000","gazref":"114卷044期5337號一冊 2-2頁"},{"date":"2025-05-19","code":"聯席會議-11-3-15,36-1","title":"第11屆第3會期內政、司法及法制委員會第1次聯席會議","gazref":"114卷050期5343號 255-317頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025051544/details?meetingDate=114/05/19","full":["https://ivod.ly.gov.tw/Play/Full/1M/16684"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/50/LCIDC01_1145001_00013.pdf","p1":255,"p2":318}],"clips":[],"props":["202110010220000","202110021370000","202110069720000","202110069950000","202110076150000","202110075260000","202110077150000","202110080350000","202110080310000","202110085880000","202110086600000","202110087490000","202110093790000","202110105150000","202110120080000","202110174440000"],"tr":"tr/3.json","note":null,"mixed":[],"nspeak":27,"nmem":17,"ntable":0,"nfold":3},{"date":"2025-06-02","code":"聯席會議-11-3-15,36-2","title":"第11屆第3會期內政、司法及法制委員會第2次聯席會議","gazref":"114卷056期5349號 71-71,73-110頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025052823/details?meetingDate=114/06/02","full":["https://ivod.ly.gov.tw/Play/Full/1M/16725"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/56/LCIDC01_1145601_00002.pdf","p1":71,"p2":110}],"clips":[],"props":["202110010220000","202110021370000","202110069720000","202110069950000","202110076150000","202110075260000","202110077150000","202110080350000","202110080310000","202110085880000","202110086600000","202110087490000","202110093790000","202110105150000","202110120080000","202110174440000"],"tr":"tr/4.json","note":null,"mixed":[],"nspeak":21,"nmem":14,"ntable":0,"nfold":0},{"date":"2025-06-13","stage":"一讀","code":"院會-11-3-16","bill":"202110133650000","gazref":"114卷058期5351號一冊 10-10頁"},{"date":"2025-06-27","code":"院會-11-3-18","title":"第11屆第3會期第18次會議","gazref":"114卷062期5355號 24-24頁","stage":"逕付二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025062580/details?meetingDate=114/06/27","full":["https://ivod.ly.gov.tw/Play/Full/1M/16790"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/62/LCIDC01_1146201.pdf","p1":24,"p2":24}],"clips":[],"props":[],"tr":"tr/5.json","note":null,"proc":true,"nspeak":1,"ntable":0},{"date":"2025-07-11","code":"黨團協商-2025070920","title":"立法院朝野黨團協商","gazref":"114卷066期5359號四冊 335-343頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025070920/details?meetingDate=114/07/11","full":["https://ivod.ly.gov.tw/Play/Full/1M/16810"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/66/LCIDC01_1146604.pdf","p1":335,"p2":344}],"clips":[],"props":["202110010220000","202110021370000","202110069720000","202110069950000","202110076150000","202110075260000","202110077150000","202110080350000","202110080310000","202110085880000","202110086600000","202110087490000","202110093790000","202110105150000","202110120080000","202110133650000","202110174440000"],"tr":"tr/6.json","note":null,"mixed":[],"nspeak":11,"nmem":7,"ntable":0,"nfold":0},{"date":"2025-08-05","code":"院會-11-3-23","title":"第11屆第3會期第23次會議","gazref":"114卷068期5361號一冊 111-188頁","stage":"二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025073095/details?meetingDate=114/08/01","full":["https://ivod.ly.gov.tw/Play/Full/1M/16847"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/68/LCIDC01_1146801_00026.pdf","p1":111,"p2":188}],"clips":[],"props":[],"tr":"tr/7.json","note":null,"nspeak":6,"nmem":0,"ntable":2,"nfold":6},{"date":"2025-11-21","stage":"一讀","code":"院會-11-4-10","bill":"202110174440000","gazref":"114卷097期5390號 17-17頁"},{"date":"2025-11-21","code":"黨團協商-2025112176","title":"立法院朝野黨團協商","gazref":"114卷095期5388號 371-385頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025112176/details?meetingDate=114/11/21","full":["https://ivod.ly.gov.tw/Play/Full/1M/17060"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2025-11-21","code":"院會-11-4-10","title":"第11屆第4會期第10次會議","gazref":"114卷097期5390號 120-124頁；114卷097期5390號 124-141頁；114卷097期5390號 141-143頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025111946/details?meetingDate=114/11/21","full":["https://ivod.ly.gov.tw/Play/Full/1M/17059"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/97/LCIDC01_1149701_00008.pdf","p1":120,"p2":144}],"clips":[],"props":[],"tr":"tr/8.json","note":null,"nspeak":7,"nmem":3,"ntable":1,"nfold":1}],"votes":[{"topic":"地方制度法部分條文修正草案 全案表決","code":"院會-11-4-10","type":"記名表決","yes":56,"no":41,"abstain":0,"yesNames":["傅崐萁","羅智強","林沛祥","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","王鴻薇","陳雪生","黃建賓","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["張雅琳","林月琴","陳培瑜","柯建銘","鍾佳濱","伍麗華Saidhai‧Tahovecahe","吳思瑤","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","郭國文","陳俊宇","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","林岱樺","賴惠員","黃捷","林淑芬","王正旭","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"地方制度法第五十七條 國民黨台灣民眾黨黨團再修正動議","code":"院會-11-4-10","type":"記名表決","yes":56,"no":42,"abstain":0,"yesNames":["傅崐萁","羅智強","林沛祥","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","王鴻薇","陳雪生","黃建賓","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["張雅琳","林月琴","陳培瑜","柯建銘","鍾佳濱","伍麗華Saidhai‧Tahovecahe","吳思瑤","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","郭國文","陳俊宇","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","黃捷","林淑芬","王正旭","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"地方制度法第五十六條 國民黨台灣民眾黨黨團再修正動議","code":"院會-11-4-10","type":"記名表決","yes":56,"no":42,"abstain":0,"yesNames":["傅崐萁","羅智強","林沛祥","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","王鴻薇","陳雪生","黃建賓","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["張雅琳","林月琴","陳培瑜","柯建銘","鍾佳濱","伍麗華Saidhai‧Tahovecahe","吳思瑤","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","郭國文","陳俊宇","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","黃捷","林淑芬","王正旭","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"地方制度法第五十五條 國民黨台灣民眾黨黨團再修正動議","code":"院會-11-4-10","type":"記名表決","yes":56,"no":42,"abstain":0,"yesNames":["傅崐萁","羅智強","林沛祥","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","王鴻薇","陳雪生","黃建賓","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["張雅琳","林月琴","陳培瑜","柯建銘","鍾佳濱","伍麗華Saidhai‧Tahovecahe","吳思瑤","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","郭國文","陳俊宇","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","黃捷","林淑芬","王正旭","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]}],"manualVotes":null,"gaps":[],"autoGaps":["1 次黨團協商（11 月 21 日）只有完整影片與公報頁碼，沒有文字版逐字稿。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

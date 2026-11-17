@@ -1,0 +1,395 @@
+{
+ "law": "民法第五編繼承",
+ "version": "04515:2026-07-28-修正",
+ "date": "2026-07-28",
+ "action": "修正",
+ "title": "民法第五編繼承　2026 年修正",
+ "lede": "",
+ "summary": "",
+ "key": "04515_2026-07-28",
+ "props": [],
+ "arts": [
+  {
+   "no": "第一千二百二十三條",
+   "current": null,
+   "versions": [],
+   "changed": true,
+   "final": "繼承人之特留分，依下列各款之規定：\n一、配偶之特留分，為其應繼分二分之一。\n二、直系血親卑親屬之特留分，為其應繼分二分之一。\n三、父母之特留分，為其應繼分二分之一。\n四、祖父母之特留分，為其應繼分三分之一。",
+   "finalWhy": "一、依現行法制用語，將「左」列修正為「下」列。\n二、現代社會兄弟姊妹成年後多各自獨立，經濟依賴度低，為使相關法制與時俱進，保障被繼承人之遺囑自由，刪除第四款兄弟姊妹特留分之規定，並作款次變更，將原第五款調整為第四款。\n三、款次變更。參照民法第一千一百三十八條、第一千一百四十四條繼承權與應繼分規定，使法規前後相對應，原第三款調整為第一款，原第一、第二款調整為第二、第三款。",
+   "review": null
+  }
+ ],
+ "stages": [
+  {
+   "date": "2025-10-28",
+   "stage": "一讀",
+   "code": "院會-11-4-6",
+   "bill": null,
+   "gazref": "114卷083期5376號一冊 9-9頁"
+  },
+  {
+   "date": "2025-10-28",
+   "stage": "一讀",
+   "code": "院會-11-4-6",
+   "bill": null,
+   "gazref": "114卷083期5376號一冊 9-9頁"
+  },
+  {
+   "date": "2025-10-28",
+   "stage": "一讀",
+   "code": "院會-11-4-6",
+   "bill": null,
+   "gazref": "114卷083期5376號一冊 10-10頁"
+  },
+  {
+   "date": "2025-10-31",
+   "stage": "一讀",
+   "code": "院會-11-4-7",
+   "bill": null,
+   "gazref": "114卷087期5380號 14-14頁"
+  },
+  {
+   "date": "2025-10-31",
+   "stage": "一讀",
+   "code": "院會-11-4-7",
+   "bill": null,
+   "gazref": "114卷087期5380號 13-13頁"
+  },
+  {
+   "date": "2025-10-31",
+   "stage": "一讀",
+   "code": "院會-11-4-7",
+   "bill": null,
+   "gazref": "114卷087期5380號 14-14頁"
+  },
+  {
+   "date": "2025-11-07",
+   "stage": "一讀",
+   "code": "院會-11-4-8",
+   "bill": null,
+   "gazref": "114卷091期5384號 3-3頁"
+  },
+  {
+   "date": "2025-11-07",
+   "stage": "一讀",
+   "code": "院會-11-4-8",
+   "bill": null,
+   "gazref": "114卷091期5384號 5-5頁"
+  },
+  {
+   "date": "2025-11-14",
+   "stage": "一讀",
+   "code": "院會-11-4-9",
+   "bill": null,
+   "gazref": "114卷094期5387號 21-21頁"
+  },
+  {
+   "date": "2025-11-14",
+   "stage": "一讀",
+   "code": "院會-11-4-9",
+   "bill": null,
+   "gazref": "114卷094期5387號 26-26頁"
+  },
+  {
+   "date": "2025-11-14",
+   "stage": "一讀",
+   "code": "院會-11-4-9",
+   "bill": null,
+   "gazref": "114卷094期5387號 28-28頁"
+  },
+  {
+   "date": "2025-11-14",
+   "stage": "一讀",
+   "code": "院會-11-4-9",
+   "bill": null,
+   "gazref": "114卷094期5387號 20-20頁"
+  },
+  {
+   "date": "2025-11-14",
+   "stage": "一讀",
+   "code": "院會-11-4-9",
+   "bill": null,
+   "gazref": "114卷094期5387號 20-20頁"
+  },
+  {
+   "date": "2025-11-14",
+   "stage": "一讀",
+   "code": "院會-11-4-9",
+   "bill": null,
+   "gazref": "114卷094期5387號 22-22頁"
+  },
+  {
+   "date": "2025-11-21",
+   "stage": "一讀",
+   "code": "院會-11-4-10",
+   "bill": null,
+   "gazref": "114卷097期5390號 22-22頁"
+  },
+  {
+   "date": "2025-11-28",
+   "stage": "一讀",
+   "code": "院會-11-4-11",
+   "bill": null,
+   "gazref": "114卷100期5393號一冊 3-3頁"
+  },
+  {
+   "date": "2026-01-02",
+   "stage": "一讀",
+   "code": "院會-11-4-16",
+   "bill": null,
+   "gazref": "115卷006期5405號一冊 20-20頁"
+  },
+  {
+   "date": "2026-01-09",
+   "stage": "一讀",
+   "code": "院會-11-4-17",
+   "bill": null,
+   "gazref": "115卷007期5406號 12-12頁"
+  },
+  {
+   "date": "2026-01-16",
+   "stage": "一讀",
+   "code": "院會-11-4-18",
+   "bill": null,
+   "gazref": "115卷009期5408號一冊 18-18頁"
+  },
+  {
+   "date": "2026-03-13",
+   "stage": "一讀",
+   "code": "院會-11-5-3",
+   "bill": null,
+   "gazref": "115卷018期5417號 13-13頁"
+  },
+  {
+   "date": "2026-04-01",
+   "code": "委員會-11-5-36-5",
+   "title": "第11屆第5會期司法及法制委員會第5次全體委員會議",
+   "gazref": "115卷027期5426號 209-288頁",
+   "stage": "委員會審查",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026032669/details?meetingDate=115/04/01",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17322"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null,
+   "mixed": []
+  },
+  {
+   "date": "2026-04-10",
+   "stage": "一讀",
+   "code": "院會-11-5-6",
+   "bill": null,
+   "gazref": "115卷025期5424號一冊 12-12頁"
+  },
+  {
+   "date": "2026-04-10",
+   "stage": "一讀",
+   "code": "院會-11-5-6",
+   "bill": null,
+   "gazref": "115卷025期5424號一冊 9-9頁"
+  },
+  {
+   "date": "2026-04-10",
+   "code": "院會-11-5-6",
+   "title": "第11屆第5會期第6次會議",
+   "gazref": "115卷025期5424號一冊 12-12頁；115卷025期5424號一冊 9-9頁",
+   "stage": "逕付二讀",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026040830/details?meetingDate=115/04/10",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17341"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null
+  },
+  {
+   "date": "2026-04-24",
+   "stage": "一讀",
+   "code": "院會-11-5-8",
+   "bill": null,
+   "gazref": "115卷033期5432號 16-16頁"
+  },
+  {
+   "date": "2026-04-24",
+   "code": "院會-11-5-8",
+   "title": "第11屆第5會期第8次會議",
+   "gazref": "115卷033期5432號 16-16頁",
+   "stage": "逕付二讀",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026042239/details?meetingDate=115/04/24",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17382",
+    "https://ivod.ly.gov.tw/Play/Full/1M/17383"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null
+  },
+  {
+   "date": "2026-06-02",
+   "code": "黨團協商-2026060159",
+   "title": "立法院朝野黨團協商",
+   "gazref": "115卷046期5445號三冊 357-365頁",
+   "stage": "黨團協商",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026060159/details?meetingDate=115/06/02",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17483"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null,
+   "mixed": []
+  },
+  {
+   "date": "2026-06-09",
+   "code": "院會-11-5-13",
+   "title": "第11屆第5會期第13次會議",
+   "gazref": "115卷046期5445號一冊 41-89頁",
+   "stage": "二讀",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026060374/details?meetingDate=115/06/05",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17502"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null
+  },
+  {
+   "date": "2026-06-12",
+   "stage": "一讀",
+   "code": "院會-11-5-14",
+   "bill": null,
+   "gazref": "115卷049期5448號一冊 24-24頁"
+  },
+  {
+   "date": "2026-06-12",
+   "code": "院會-11-5-14",
+   "title": "第11屆第5會期第14次會議",
+   "gazref": "115卷049期5448號一冊 24-24頁",
+   "stage": "逕付二讀",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026061027/details?meetingDate=115/06/12",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17520"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null
+  },
+  {
+   "date": "2026-06-26",
+   "stage": "一讀",
+   "code": "院會-11-5-15",
+   "bill": null,
+   "gazref": "115卷052期5451號一冊 18-18頁"
+  },
+  {
+   "date": "2026-06-26",
+   "code": "院會-11-5-15",
+   "title": "第11屆第5會期第15次會議",
+   "gazref": "115卷052期5451號一冊 18-18頁",
+   "stage": "逕付二讀",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026062405/details?meetingDate=115/06/26",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17550"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null
+  },
+  {
+   "date": "2026-07-09",
+   "code": "黨團協商-2026070782",
+   "title": "立法院朝野黨團協商",
+   "gazref": "115卷056期5455號五冊 429-441頁",
+   "stage": "黨團協商",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026070782/details?meetingDate=115/07/09",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17586"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null,
+   "mixed": []
+  },
+  {
+   "date": "2026-07-14",
+   "stage": "一讀",
+   "code": "院會-11-5-17",
+   "bill": null,
+   "gazref": "115卷057期5456號一冊 25-25頁"
+  },
+  {
+   "date": "2026-07-14",
+   "code": "院會-11-5-17",
+   "title": "第11屆第5會期第17次會議",
+   "gazref": "115卷057期5456號一冊 25-25頁",
+   "stage": "逕付二讀",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026070883/details?meetingDate=115/07/10",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17590"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null
+  },
+  {
+   "date": "2026-07-21",
+   "code": "院會-11-5-18",
+   "title": "第11屆第5會期第18次會議",
+   "gazref": "115卷060期5459號一冊 50-65頁",
+   "stage": "二讀",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026071524/details?meetingDate=115/07/17",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17604"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null
+  },
+  {
+   "date": "2026-07-28",
+   "code": "院會-11-5-19",
+   "title": "第11屆第5會期第19次會議",
+   "gazref": "115卷062期5461號一冊 135-136頁；115卷062期5461號一冊 136-144頁；115卷062期5461號一冊 144-146頁",
+   "stage": "二讀、三讀",
+   "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026072260/details?meetingDate=115/07/24",
+   "full": [
+    "https://ivod.ly.gov.tw/Play/Full/1M/17621"
+   ],
+   "pdf": [],
+   "clips": [],
+   "props": [],
+   "tr": null,
+   "note": null
+  }
+ ],
+ "votes": [],
+ "manualVotes": null,
+ "gaps": [],
+ "autoGaps": [
+  "2 次黨團協商（6 月 2 日、7 月 9 日）只有完整影片與公報頁碼，沒有文字版逐字稿。",
+  "4 月 1 日、4 月 10 日、4 月 24 日、6 月 9 日、6 月 12 日、6 月 26 日、7 月 14 日、7 月 21 日、7 月 28 日的會議沒有取得逐字稿。"
+ ],
+ "reviewed": false,
+ "fetched": "2026-11-16"
+}

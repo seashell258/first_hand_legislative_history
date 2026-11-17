@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>軍人待遇條例修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"軍人待遇條例","version":"01472:2025-06-10-修正","date":"2025-06-10","action":"修正","title":"軍人待遇條例　2025 年修正","lede":"","summary":"","key":"01472_2025-06-10","props":[{"id":"202110076910000","who":"委員翁曉玲等23人","date":"2024-11-15","name":"「軍人待遇條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110076910000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/12/LCEWA01_110312_00617.pdf","proposers":["翁曉玲","蘇清泉","羅廷瑋"],"ncosign":20,"people":[["翁曉玲","國民黨","提案"],["蘇清泉","國民黨","提案"],["羅廷瑋","國民黨","提案"],["顏寬恒","國民黨","連署"],["葛如鈞","國民黨","連署"],["林倩綺","國民黨","連署"],["羅智強","國民黨","連署"],["高金素梅","無黨籍","連署"],["張智倫","國民黨","連署"],["廖先翔","國民黨","連署"],["林德福","國民黨","連署"],["陳雪生","國民黨","連署"],["盧縣一","國民黨","連署"],["邱若華","國民黨","連署"],["黃建賓","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["牛煦庭","國民黨","連署"],["林國成","民眾黨","連署"],["傅崐萁","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["邱鎮軍","國民黨","連署"],["張嘉郡","國民黨","連署"],["陳永康","國民黨","連署"]],"party":[["國民黨",21],["無黨籍",1],["民眾黨",1]],"reason":"本院委員翁曉玲、蘇清泉、羅廷瑋等23人，鑑於義務役軍人之最低月所得僅20,320元（薪額10,130元及專業加給10,190元），遠低於勞工最低基本工資27,470元（民國一一四年一月一日調高為28,590元）。而義務役軍人雖非勞工身分，但其實際承受的勤務壓力、長工時及全天待命狀態，等同於高密集、高工時的勞動付出，且其個人除基本生活消費外，往往亦須維持家庭之生活開支。為確保其服役期間合理之最低所得，維持其個人及家庭生活水平，以利專心投入戰訓本務，參考《最低工資法》第一條及第五條，為確保勞工合理之最低工資，提高勞工及其家庭之生活水準，勞工之工資不得低於最低工資法之規定，於《軍人待遇條例》明定義務役現役軍人薪額月支數額，不得低於最低基本工資，爰擬具「軍人待遇條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110093680000","who":"國民黨黨團","date":"2025-03-07","name":"「軍人待遇條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110093680000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/11/LCEWA01_110311_00666.pdf","proposers":["傅崐萁","王鴻薇","羅智強","徐巧芯"],"ncosign":0,"people":[["傅崐萁","國民黨","提案"],["王鴻薇","國民黨","提案"],["羅智強","國民黨","提案"],["徐巧芯","國民黨","提案"]],"party":[["國民黨",4]],"reason":"本院國民黨黨團，鑒於國軍在面對新型態作戰需求，應增加加給種類及額度，以反映部隊勤務與演訓頻度之遽增，藉大幅度提升加給同時增設調整機制，以提升招募誘因及留住優秀人才，爰擬具「軍人待遇條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110093690000","who":"國民黨黨團","date":"2025-03-07","name":"「軍人待遇條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110093690000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/11/LCEWA01_110311_00668.pdf","proposers":["傅崐萁","王鴻薇","羅智強","徐巧芯"],"ncosign":0,"people":[["傅崐萁","國民黨","提案"],["王鴻薇","國民黨","提案"],["羅智強","國民黨","提案"],["徐巧芯","國民黨","提案"]],"party":[["國民黨",4]],"reason":"本院國民黨黨團，有鑑於近期我國國防情勢嚴峻，同時考慮到我國一年義務役軍人未來將會根據政府目前政策投入到第一線戰鬥部隊，以及加強各類演訓與參加重大演習，並面臨我國物價水準、通膨、及最低基本薪資的持續增長，有必要修正本法第六條提升義務役軍人之待遇，爰擬具「軍人待遇條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110094980000","who":"委員林倩綺等20人","date":"2025-03-14","name":"「軍人待遇條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110094980000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/11/LCEWA01_110311_00667.pdf","proposers":["林倩綺","羅廷瑋","廖偉翔"],"ncosign":17,"people":[["林倩綺","國民黨","提案"],["羅廷瑋","國民黨","提案"],["廖偉翔","國民黨","提案"],["蘇清泉","國民黨","連署"],["陳雪生","國民黨","連署"],["黃建賓","國民黨","連署"],["鄭正鈐","國民黨","連署"],["黃仁","國民黨","連署"],["張智倫","國民黨","連署"],["徐欣瑩","國民黨","連署"],["盧縣一","國民黨","連署"],["廖先翔","國民黨","連署"],["顏寬恒","國民黨","連署"],["翁曉玲","國民黨","連署"],["林沛祥","國民黨","連署"],["林德福","國民黨","連署"],["謝龍介","國民黨","連署"],["陳玉珍","國民黨","連署"],["馬文君","國民黨","連署"],["高金素梅","無黨籍","連署"]],"party":[["國民黨",19],["無黨籍",1]],"reason":"本院委員林倩綺、羅廷瑋、廖偉翔等20人，鑒於志願役士官兵招募成績不理想的情形，尤以戰鬥單位及戰鬥支援單位官士兵招募成效不佳為最，為提高其職業吸引力，改善招募困境，薪資調整應配合整體軍事改革，涵蓋職業發展、生活條件等多方面，才能真正達到吸引與留住人才的長期效果，為確保部隊穩定與國防安全，爰擬具「軍人待遇條例第五條條文修正草案」，加設「戰鬥加給」，以反映該類官士兵所承擔的高風險與辛勞。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110108250000","who":"委員翁曉玲等18人","date":"2025-04-18","name":"「軍人待遇條例第二條及第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110108250000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/12/LCEWA01_110312_00620.pdf","proposers":["翁曉玲"],"ncosign":17,"people":[["翁曉玲","國民黨","提案"],["羅明才","國民黨","連署"],["游顥","國民黨","連署"],["牛煦庭","國民黨","連署"],["謝龍介","國民黨","連署"],["林沛祥","國民黨","連署"],["林思銘","國民黨","連署"],["廖先翔","國民黨","連署"],["林德福","國民黨","連署"],["陳菁徽","國民黨","連署"],["廖偉翔","國民黨","連署"],["許宇甄","國民黨","連署"],["陳永康","國民黨","連署"],["蘇清泉","國民黨","連署"],["黃建賓","國民黨","連署"],["丁學忠","國民黨","連署"],["洪孟楷","國民黨","連署"],["林倩綺","國民黨","連署"]],"party":[["國民黨",18]],"reason":"本院委員翁曉玲等18人，鑒於憲法第一百三十七條所賦予志願役軍人保衛國家安全之職責，而須隨時待命、承擔高風險任務，不僅犧牲個人自由，甚至付出生命，故政府應提供合理待遇照顧軍士官兵，除了是對軍人無私奉獻的尊重與補償外，亦是吸引人才、確保國防戰力的策略。現行《軍人待遇條例》對「加給」的定義未涵蓋志願服役軍人之加給，而是行政院長期以《國軍志願役勤務加給表》作為核給「志願役加給」之依據，此不僅違反法律優位原則及依法行政原則，亦不符「勤務加給」之精神。為解決此問題，應修正《軍人待遇條例》第二條，將「志願服役」類別納入「加給」範圍，並於第五條增列「志願役加給」每月新臺幣三萬元，以利提升國軍招募誘因及留住優秀人才，爰擬具「軍人待遇條例第二條及第五條條文修正草案」。是否有當？敬請公決。","arts":["第二條","第五條"]},{"id":"202110104790000","who":"委員賴士葆等19人","date":"2025-04-18","name":"「軍人待遇條例第四條及第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110104790000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/12/LCEWA01_110312_00616.pdf","proposers":["賴士葆"],"ncosign":18,"people":[["賴士葆","國民黨","提案"],["鄭天財Sra Kacaw","國民黨","連署"],["謝龍介","國民黨","連署"],["許宇甄","國民黨","連署"],["林沛祥","國民黨","連署"],["徐巧芯","國民黨","連署"],["林思銘","國民黨","連署"],["王鴻薇","國民黨","連署"],["王育敏","國民黨","連署"],["邱鎮軍","國民黨","連署"],["陳玉珍","國民黨","連署"],["陳永康","國民黨","連署"],["涂權吉","國民黨","連署"],["陳菁徽","國民黨","連署"],["邱若華","國民黨","連署"],["李彥秀","國民黨","連署"],["廖先翔","國民黨","連署"],["林德福","國民黨","連署"],["林倩綺","國民黨","連署"]],"party":[["國民黨",19]],"reason":"本院委員賴士葆等19人，鑑於少子化及誘因、福利不足等因素衝擊，國軍編現比近5年快速下滑10%至78.6%，總統於114年國安高層會議中曾指示，國防預算應達GDP 3%，並定義對岸為境外敵對勢力，顯示兩岸的緊張態勢有螺旋升高趨勢，為有效招募兵源，考量國軍工作任務與勤務特性不同於「勞動基準法」第三十條規定的每日不得超過八小時工時限制，極需改善官兵待遇，即提高義務役基本待遇，及志願役基本本俸應高於「最低工資法」所定之最低工資，才能穩固部隊人力，以有效因應兩岸地緣政治風險，爰擬具「軍人待遇條例第四條及第六條條文修正草案」。是否有當？敬請公決。","arts":["第四條","第六條"]},{"id":"202110104750000","who":"委員羅廷瑋等16人","date":"2025-04-18","name":"「軍人待遇條例第五條及第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110104750000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/12/LCEWA01_110312_00621.pdf","proposers":["羅廷瑋","蘇清泉","李彥秀"],"ncosign":13,"people":[["羅廷瑋","國民黨","提案"],["蘇清泉","國民黨","提案"],["李彥秀","國民黨","提案"],["呂玉玲","國民黨","連署"],["林德福","國民黨","連署"],["陳玉珍","國民黨","連署"],["徐巧芯","國民黨","連署"],["廖偉翔","國民黨","連署"],["林倩綺","國民黨","連署"],["黃健豪","國民黨","連署"],["廖先翔","國民黨","連署"],["丁學忠","國民黨","連署"],["黃建賓","國民黨","連署"],["林思銘","國民黨","連署"],["翁曉玲","國民黨","連署"],["盧縣一","國民黨","連署"]],"party":[["國民黨",16]],"reason":"本院委員羅廷瑋、蘇清泉、李彥秀等16人，鑑於國軍因應新型態作戰需求，部隊勤務與演訓頻度大幅增加，現行加給制度已難以充分反映官兵負擔，應適時調整加給種類及額度，並建立彈性調整機制，以提升招募誘因並留住優秀人才。為確保國軍戰力，穩定役男士氣，爰擬具「軍人待遇條例第五條及第六條條文修正草案」。是否有當？敬請公決。","arts":["第五條","第六條"]},{"id":"202110127890000","who":"委員葉元之等18人","date":"2025-05-23","name":"「軍人待遇條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110127890000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/13/LCEWA01_110313_00023.pdf","proposers":["葉元之","林沛祥"],"ncosign":16,"people":[["葉元之","國民黨","提案"],["林沛祥","國民黨","提案"],["邱鎮軍","國民黨","連署"],["羅智強","國民黨","連署"],["黃仁","國民黨","連署"],["涂權吉","國民黨","連署"],["盧縣一","國民黨","連署"],["黃健豪","國民黨","連署"],["馬文君","國民黨","連署"],["高金素梅","無黨籍","連署"],["廖先翔","國民黨","連署"],["呂玉玲","國民黨","連署"],["林德福","國民黨","連署"],["張智倫","國民黨","連署"],["陳玉珍","國民黨","連署"],["黃建賓","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["謝龍介","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",1]],"reason":"本院委員葉元之、林沛祥等18人，考量國軍面對新型態作戰需求，部隊勤務與演訓頻率大幅提升，且近年物價、房租、房價之漲幅均為歷年最高，現行加給制度應立即調整，以反映國軍官兵實際負擔。爰擬具「軍人待遇條例第五條條文修正草案」，提升薪給待遇並提高招募吸引力，留任優秀人才，增加加給額度、增列加給種類，確保國軍待遇與時俱進。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110127970000","who":"委員廖偉翔等16人","date":"2025-05-23","name":"「軍人待遇條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110127970000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/13/LCEWA01_110313_00031.pdf","proposers":["廖偉翔"],"ncosign":15,"people":[["廖偉翔","國民黨","提案"],["羅智強","國民黨","連署"],["林沛祥","國民黨","連署"],["徐巧芯","國民黨","連署"],["王育敏","國民黨","連署"],["黃仁","國民黨","連署"],["黃健豪","國民黨","連署"],["許宇甄","國民黨","連署"],["牛煦庭","國民黨","連署"],["葉元之","國民黨","連署"],["盧縣一","國民黨","連署"],["游顥","國民黨","連署"],["王鴻薇","國民黨","連署"],["丁學忠","國民黨","連署"],["林德福","國民黨","連署"],["邱鎮軍","國民黨","連署"]],"party":[["國民黨",16]],"reason":"本院委員廖偉翔等16人，有鑑於國防情勢嚴峻，人員招募缺口不斷擴大。又隨國軍設備迭代，對人員素質要求提高之前提下，卻無法提升待遇以增加招募誘因，爰擬具「軍人待遇條例第五條條文修正草案」透過明訂加給待遇，提升招募誘因與留住優秀人才。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110127980000","who":"委員廖偉翔等16人","date":"2025-05-23","name":"「軍人待遇條例第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110127980000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/13/LCEWA01_110313_00032.pdf","proposers":["廖偉翔","邱鎮軍"],"ncosign":14,"people":[["廖偉翔","國民黨","提案"],["邱鎮軍","國民黨","提案"],["黃仁","國民黨","連署"],["牛煦庭","國民黨","連署"],["游顥","國民黨","連署"],["葉元之","國民黨","連署"],["盧縣一","國民黨","連署"],["王鴻薇","國民黨","連署"],["羅智強","國民黨","連署"],["黃健豪","國民黨","連署"],["林沛祥","國民黨","連署"],["許宇甄","國民黨","連署"],["王育敏","國民黨","連署"],["徐巧芯","國民黨","連署"],["丁學忠","國民黨","連署"],["林德福","國民黨","連署"]],"party":[["國民黨",16]],"reason":"本院委員廖偉翔、邱鎮軍等16人，有鑑於根據我國政府規劃，一年期義務役軍人將會投入到第一線戰鬥部隊，以及加強各類演訓與參加重大演習。近期國防情勢日趨嚴峻，同時考慮義務役服役期間，仍須面臨我國物價水準、通膨及最低基本薪資的持續增長，故應提升義務役軍人之待遇，以振我國軍民士氣，爰擬具「軍人待遇條例第六條條文修正草案」。是否有當？敬請公決。","arts":["第六條"]},{"id":"202110130580000","who":"委員許宇甄等20人","date":"2025-06-03","name":"「軍人待遇條例第四條及第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110130580000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/14/LCEWA01_110314_00221.pdf","proposers":["許宇甄","林沛祥"],"ncosign":11,"people":[["許宇甄","國民黨","提案"],["林沛祥","國民黨","提案"],["賴士葆","國民黨","連署"],["徐欣瑩","國民黨","連署"],["翁曉玲","國民黨","連署"],["高金素梅","無黨籍","連署"],["林思銘","國民黨","連署"],["徐巧芯","國民黨","連署"],["丁學忠","國民黨","連署"],["牛煦庭","國民黨","連署"],["陳玉珍","國民黨","連署"],["邱鎮軍","國民黨","連署"],["黃建賓","國民黨","連署"]],"party":[["國民黨",12],["無黨籍",1]],"reason":"本院委員許宇甄、林沛祥等20人，依據國家發展委員會數據顯示，2025年將超過20%邁向超齡社會，受少子化影響加劇，加上國軍招募誘因與福利制度不足等因素衝擊，導致國軍兵力編現近5年快速下滑10%至78.6%，總統於114年國安高層會議中明確指示，國防預算應提升至GDP 3%，並正式將對岸定義為「境外敵對勢力」，顯示兩岸緊張情勢正在持續升高，地緣風險日益嚴峻；鑑於此，為強化兵力結構與部隊人力，國軍應改善待遇條件，才能有效招募並留住人才，考量國軍勤務性質特殊，長期超時工時、責任制勤務等狀況，難以適用《勞動基準法》第三十條「每日工時不得逾八小時」之一般規定，爰擬具「軍人待遇條例第四條及第六條條文修正草案」。是否有當？敬請公決。","arts":["第四條","第六條"]}],"arts":[{"no":"第二條","current":"本條例用詞，定義如下：\n一、現役軍人：指依兵役法或其他法律服現役之軍官、士官及士兵。\n二、本俸：指志願役現役軍人應領取之基本給與。\n三、薪額：指義務役現役軍人應領取之基本給與。\n四、加給：指本俸（薪額）以外，因所任職務種類、性質及服務地區之不同，而另加之給與。\n五、俸級：指本俸所分之級次。\n六、俸點：指計算本俸折算俸額之基數。","versions":[{"bill":"202110108250000","text":"本條例用詞，定義如下：\n一、現役軍人：指依兵役法或其他法律服現役之軍官、士官及士兵。\n二、本俸：指志願役現役軍人應領取之基本給與。\n三、薪額：指義務役現役軍人應領取之基本給與。\n四、加給：指本俸（薪額）以外，因志願服役或所任職務種類、性質、服務地區之不同，而另加之給與。\n五、俸級：指本俸所分之級次。\n六、俸點：指計算本俸折算俸額之基數。","note":"一、修正本條原條文第四款加給之定義，增列「志願服役」為得予以加給之類別之一，使「志願役加給」制度符合法制規範。\n二、志願役軍人基於職務特性，必須隨時準備投入戰爭或執行高風險任務而承擔更高的風險；其24小時隨時待命，為配合軍事需求隨時調動而犧牲更多個人自由；因此，對志願服役者，政府實應提供更佳的照顧以及更優渥的待遇，而非僅以物價指數等作為調整依據，這不僅是對軍人奉獻的尊重與補償，也是維持國家戰力、確保國防安全的重要策略，更是吸引優秀人才投入軍旅之直接有效方法。\n三、按本法第二條定義「加給」指本俸（薪額）以外，因所任職務種類、性質及服務地區之不同，而另加之給與。又本法第五條第四項規定「勤務加給」，指「對從事危險性或技術性工作者或依其勤務特性加給之。」若依前揭定義及規定，因志願服役而給予加給，顯不符現行條文所稱「因任職務種類、性質及服務地區不同」等加給條件，亦非屬「從事危險性或技術性工作或依其勤務特性」之態樣。行政院長期以來乃以《國軍志願役勤務加給表》作為發給「志願役加給」依據，實為行政便宜措施，顯已不符上揭規定，有違依法行政與法律優位原則。"}],"changed":false,"final":"本條例用詞，定義如下：\n一、現役軍人：指依兵役法或其他法律服現役之軍官、士官及士兵。\n二、本俸：指志願役現役軍人應領取之基本給與。\n三、薪額：指義務役現役軍人應領取之基本給與。\n四、加給：指本俸（薪額）以外，因所任職務種類、性質及服務地區之不同，而另加之給與。\n五、俸級：指本俸所分之級次。\n六、俸點：指計算本俸折算俸額之基數。","finalWhy":null,"review":null},{"no":"第四條","current":"志願役現役軍人之俸級，區分如下：\n一、一級上將本俸為一級。\n二、二級上將本俸為一級。\n三、中將本俸分六級，少將本俸分十級。\n四、上校、中校及少校本俸各分十二級。\n五、上尉本俸分十二級，中尉及少尉本俸各分十級。\n六、一等士官長、二等士官長及三等士官長本俸各分二十級，上士、中士及下士本俸各分十二級。\n七、上等兵本俸分六級，一等兵及二等兵本俸為一級。\n前項各俸級之俸點，依附表之規定，並就所列俸點折算俸額發給。俸點折算俸額之數額，由行政院定之；必要時，得按俸點分段訂定。","versions":[{"bill":"202110104790000","text":"志願役現役軍人之俸級，區分如下：\n一、一級上將本俸為一級。\n二、二級上將本俸為一級。\n三、中將本俸分六級，少將本俸分十級。\n四、上校、中校及少校本俸各分十二級。\n五、上尉本俸分十二級，中尉及少尉本俸各分十級。\n六、一等士官長、二等士官長及三等士官長本俸各分二十級，上士、中士及下士本俸各分十二級。\n七、上等兵本俸分六級，一等兵及二等兵本俸為一級。\n前項各俸級之俸點，依附表之規定，並就所列俸點折算俸額發給。俸點折算俸額之數額，由行政院定之；必要時，得按俸點分段訂定。\n前項俸點折算俸額後之數額應高於最低工資法所定之最低工資。","note":"一、鑑於總統114年國安高層會議中曾指示，國防預算要達到GDP3%，並定義對岸為境外敵對勢力，顯示兩岸的緊張態勢有螺旋升高趨勢，為因應台海當前防衛實際需求，同時要在少子化背景下確保兵員充足，即應提出刺激國人從軍誘因。\n二、國軍兵力編現比連年下滑，自109年的88.6%下滑至113年的78.6%，短短5年減少10%，遠低於一般認為的作戰最低標準85%，考量國軍工作任務與勤務特性不同於「勞動基準法」第三十條規定的每日不得超過八小時工時限制，未來極需改善官兵待遇，即志願役基本本俸應高於「最低工資法」所定之最低工資，才能汲取優秀人才與穩固部隊人力，以有效因應兩岸地緣政治風險，爰提增列本條第三項。"},{"bill":"202110130580000","text":"志願役現役軍人之俸級，區分如下：\n一、一級上將本俸為一級。\n二、二級上將本俸為一級。\n三、中將本俸分六級，少將本俸分十級。\n四、上校、中校及少校本俸各分十二級。\n五、上尉本俸分十二級，中尉及少尉本俸各分十級。\n六、一等士官長、二等士官長及三等士官長本俸各分二十級，上士、中士及下士本俸各分十二級。\n七、上等兵本俸分六級，一等兵及二等兵本俸為一級。\n前項各俸級之俸點，依附表之規定，並就所列俸點折算俸額發給。俸點折算俸額之數額，由行政院定之；必要時，得按俸點分段訂定。\n前項俸點折算俸額後之數額應高於最低工資法所定之最低工資。","note":"一、我國總統於114年國安高層會議中明確指示國防預算應達國內生產毛額（GDP）3%，並將對岸明定為「境外敵對勢力」，顯示當前兩岸局勢趨於緊張並有升高風險。為強化國防應變能力，並因應台海防衛實際需要，在少子化導致我國兵力逐漸縮減的背景下，政府有必要積極提出具體措施，提升國人志願從軍之誘因。\n二、國軍兵力編現比自109年88.6%下滑至113年78.6%，五年間減幅達10%，遠低於一般作戰所需85%的合理基準。鑑於國軍官兵所執行之任務與勤務負荷具有特殊性，難以適用《勞動基準法》第三十條每日八小時工時上限之規定，為確保人力穩定與部隊戰力，亟須改善官兵待遇。爰此，建議將志願役官兵之基本本俸調整至高於《最低工資法》所定最低工資標準，以吸引優秀人力投身軍旅，穩定兵源，強化國防戰力。爰此，增列本條第三項。"}],"changed":true,"final":"志願役現役軍人之俸級，區分如下：\n一、一級上將本俸為一級。\n二、二級上將本俸為一級。\n三、中將本俸分六級，少將本俸分十級。\n四、上校、中校及少校本俸各分十二級。\n五、上尉本俸分十二級，中尉及少尉本俸各分十級。\n六、一等士官長、二等士官長及三等士官長本俸各分二十級，上士、中士及下士本俸各分十二級。\n七、上等兵本俸分六級，一等兵及二等兵本俸為一級。\n前項各俸級之俸點，依附表之規定，並就所列俸點折算俸額發給。俸點折算俸額之數額，由行政院定之；必要時，得按俸點分段訂定。\n[附表：志願役現役軍人俸表]","finalWhy":"一、參照現行陸海空軍軍官士官任官條例第二條附表二之規定，並參考公務人員各職等俸級俸點及軍人各官階俸級俸點，於第一項明定志願役現役軍人俸級之區分。\n二、為期各官階現役軍人俸級處理一致，爰就上將原支薪俸改以俸級、俸點規範，一級及二級上將各訂為一級。\n三、為明確規定各官階（士兵等級）俸級本俸之給與及考量國家財政狀況，爰明定各俸級之俸點依附表之規定，及俸點折算俸額之數額，由行政院定之。","review":null},{"no":"第五條","current":"加給分下列四種：\n一、職務加給：對上將、主官（管）人員或職責繁重者加給之。\n二、專業加給：對中將以下專業人員加給之。\n三、地域加給：對服役偏遠、特殊地區或國外者加給之。\n四、勤務加給：對從事危險性或技術性工作者或依其勤務特性加給之。\n前項各種加給之給與，由行政院定之。","versions":[{"bill":"202110093680000","text":"加給分下列七種：\n一、職務加給：對上將、主官（管）人員或職責繁重者加給之。\n二、專業加給：對中將以下專業人員加給之。\n三、地域加給：對服役偏遠、特殊地區或國外者加給之，不得以役別和階級為分級標準。\n四、勤務加給：對從事危險性或技術性工作者或依其勤務特性加給之。\n五、志願役加給：對志願投入軍旅者每月新臺幣三萬元加給之。\n六、戰鬥部隊加給：對戰鬥部隊或戰鬥支援部隊加給之。\n七、超時加給：對例假有應休而未休者加給之。\n前項第五款外各種加給之給與，由行政院定之。\n第一項所列之加給發放數額，於中央主計機關發布之消費者物價指數累計成長率達百分之三時，應予適度調整。","note":"一、地域加給調整：提案修正現行規定，取消以役別和階級為標準的限制，強調地域加給應依服役地區的偏遠程度與不便性來區分。\n二、志願役加給新增：考量國軍面臨人力短缺，提案新增志願役加給，旨在吸引更多青年參軍並補償軍人辛勞。\n三、戰鬥部隊加給調整：針對台海局勢緊張，戰鬥部隊及其支援部隊工作負擔加重，提案將現有加給數額翻倍，以提升官兵進入戰鬥部隊的誘因。\n四、超時加給新增：由於各部隊未能按時休完法定特休假，提案增設超時加給，未休假日將轉換為補償金。\n五、加給調整機制：隨著物價上漲與勞工基本工資調整，軍人加給未有調整機制，提案新增加給調整機制，保障軍人實質收入不受通脹影響。"},{"bill":"202110094980000","text":"加給分下列四種：\n一、職務加給：對上將、主官（管）人員或職責繁重者加給之。\n二、專業加給：對中將以下專業人員加給之。\n三、地域加給：對服役偏遠、特殊地區或國外者加給之。\n四、勤務加給：對從事危險性或技術性工作者或依其勤務特性加給之。\n五、戰鬥加給：對於戰鬥單位和戰鬥支援單位中服勤者，依其單位性質加給之。\n前項各種加給之給與，由行政院定之。","note":"於第一項增訂第五款，新設「戰鬥加給」，增加於戰鬥單位和戰鬥支援單位中服役之官士兵，除合理反映其辛勞程度以外，也可提高招募誘因，改善此單位志願役士兵招募成績不理想的情形。"},{"bill":"202110108250000","text":"加給分下列五種：\n一、職務加給：對上將、主官（管）人員或職責繁重者加給之。\n二、專業加給：對中將以下專業人員加給之。\n三、地域加給：對服役偏遠、特殊地區或國外者加給之。\n四、勤務加給：對從事危險性或技術性工作者或依其勤務特性加給之。\n五、志願役加給：依志願服役者，每月新臺幣三萬元加給之。\n前項各種加給之給與，除志願役加給外，由行政院定之。\n第一項所列之加給發放數額，於中央主計機關發布之消費者物價指數累計成長率達百分之三時，應即適度調整之。","note":"一、本條增列第一項第五款及第三項，並配合第一項第五款修正，酌修第二項文字，除志願役加給外，其餘各項加給仍由行政院定之。\n二、為提高國軍志願役加給並予法制化，明定志願服役亦屬加給發放項目之一，於本法第五條第一項增列第五款「志願役加給」，並明訂依志願服役者，每月新臺幣三萬元加給之。配合本條條文修正，前揭《國軍志願役勤務加給表》於修正通過後即不再適用。\n三、又為確保加給逐年調整機制之合理性，於本條增列第三項明定軍人加給於中央主計機關發布之消費者物價指數累計成長率達百分之三時，應即適度調整之。"},{"bill":"202110104750000","text":"加給分下列七種：\n一、職務加給：對上將、主官（管）人員或職責繁重者加給之。\n二、專業加給：對中將以下專業人員加給之。\n三、地域加給：對服役偏遠、特殊地區或國外者加給之，不得以役別和階級為分級標準。\n四、勤務加給：對從事危險性或技術性工作者或依其勤務特性加給之。\n五、志願役加給：對志願投入軍旅者每月新臺幣三萬元加給之。\n六、戰鬥部隊加給：對戰鬥部隊或戰鬥支援部隊加給之。\n七、超時加給：對例假有應休而未休者加給之。\n前項第五款外各種加給之給與，由行政院定之。\n第一項所列之加給發放數額，於中央主計機關發布之消費者物價指數累計成長率達百分之三時，應予適度調整。","note":"一、地域加給調整：修正現行規定，取消以役別及階級為標準之限制，改採服役地區之偏遠程度與生活不便性為區分原則，使地域加給更能符合不同地區官兵之實際需求，確保公平合理之補助。\n二、志願役加給新增：考量國軍人力短缺問題，增設志願役加給，藉以提高從軍誘因，吸引更多青年志願服役，並適當補償軍人長期投入軍旅所承受之職業風險及工作負擔，以穩定國軍人力資源。\n三、戰鬥部隊加給調整：鑑於當前台海局勢緊張，戰鬥部隊及其支援部隊負擔日益加重，提案將現行戰鬥部隊加給數額倍增，以反映官兵執行高風險任務之貢獻，並提升從軍意願及部隊戰力。\n四、超時加給新增：由於各部隊未能按時休完法定特休假，提案增設超時加給，未休假日將轉換為補償金。\n五、加給調整機制：現行軍人加給未設有調整機制，隨著物價指數上升及基本工資調整，軍人實質收入恐受影響。爰提案增設加給調整機制，確保軍人薪資待遇得隨經濟變動適時檢討，以維持合理報酬標準，確保軍人生活品質"},{"bill":"202110127890000","text":"加給分下列七種：\n一、職務加給：對上將、主官（管）人員或職責繁重者加給之。\n二、專業加給：對中將以下專業人員加給之。\n三、地域加給：對服役偏遠、特殊地區或國外者加給之，不得以役別和階級為分級標準。\n四、勤務加給：對從事危險性或技術性工作者或依其勤務特性加給之。\n五、志願役加給：對志願投入軍旅者每月新臺幣三萬元加給之。\n六、戰鬥部隊加給：對戰鬥部隊或戰鬥支援部隊加給之。\n七、超時加給：對例假有應休而未休者加給之。\n前項第五款外各種加給之給與，由行政院定之。\n第一項所列之加給發放數額，於中央主計機關發布之消費者物價指數累計成長率達百分之三時，應予適度調整。","note":"一、地域加給調整：取消以役別和階級為標準之限制，強調地域加給應依服役地區之偏遠程度與不便性區分。\n二、增列志願役加給：有鑒於國軍面臨人力短缺，爰擬具新增志願役加給，旨在吸引更多青年參軍並補償軍人辛勞。\n三、戰鬥部隊加給調整：因應台海局勢緊張，戰鬥部隊及其支援部隊工作負擔加重，提案將現有加給數額翻倍，提升官兵進入戰鬥部隊之誘因。\n四、增列超時加給：各部隊常有未能按時休完法定特休假之情況，故提案增列超時加給，未休假日轉換為補償金。\n五、加給調整機制：相較於物價上漲與勞工基本工資調整，軍人加給未有調整機制，故提出加給調整機制，保障軍人實質收入不受通脹影響。"},{"bill":"202110127970000","text":"加給分下列五種：\n一、職務加給：對上將、主官（管）人員或職責繁重者加給之。\n二、專業加給：對中將以下專業人員加給之。\n三、地域加給：對服役偏遠、特殊地區或國外者加給之。\n四、勤務加給：對從事危險性或技術性工作者或依其勤務特性加給之。\n五、志願役加給：對志願投入軍旅者每月二萬元加給之。\n前項各種加給之給與，由行政院定之。","note":"一、新增第一項第五款。\n二、因少子化及社會經濟環境變化，造成之國軍人力招募困難度年年升高。若未提升軍人待遇，恐怕未來更難以與就民間業環境競爭優秀人才。\n三、勤務加給下之國軍志願役勤務加給，本初制定目的主要為鼓勵一般民眾踴躍從軍，並考量軍人服勤之辛勞而訂定之。又國軍人才招募，不能僅靠愛國心與榮譽感，應經理性評估後，提出制度調整。且此項加給對志願役具普遍性，若增加此項加給，即可提升軍人待遇，與民間就業環境相較之下更具誘因與就業優勢。"}],"changed":true,"final":"加給分下列七種：\n一、職務加給：對上將、主官（管）人員或職責繁重者加給之。\n二、專業加給：對中將以下專業人員加給之。\n三、地域加給：對服役偏遠、特殊地區或國外者加給之，不得以役別和階級為分級標準。\n四、勤務加給：對從事危險性或技術性工作者或依其勤務特性加給之。\n五、志願役加給：對志願投入軍旅者每月新臺幣三萬元加給之。\n六、戰鬥部隊加給：對戰鬥部隊或戰鬥支援部隊加給之。\n七、超時加給：對各類休假有應休而未休者加給之。\n前項第五款，自中華民國一百十五年一月一日施行；其餘各款加給之給與，由行政院定之。\n第一項所列之加給發放數額，於中央主計機關發布之消費者物價指數累計成長率達百分之三時，應予適度調整。","finalWhy":"照國民黨黨團再修正動議條文通過。","review":null},{"no":"第六條","current":"義務役現役軍人薪額月支數額，由國防部擬訂，報請行政院核定。","versions":[{"bill":"202110076910000","text":"義務役現役軍人薪額月支數額，由國防部擬訂，報請行政院核定。\n前項薪額月支數額不得低於最低工資法所定之最低工資。","note":"一、本條第二項新增。\n二、鑑於義務役軍人之最低月所得僅20,320元（薪額10,130元及專業加給10,190元），遠低於勞工最低基本工資27,470元（民國一一四年一月一日調高為28,590元）。而義務役軍人雖非勞工身分，但其實際承受的勤務壓力、長工時及全天待命狀態，等同於高密集、高工時的勞動付出，且其個人除基本生活消費外，往往亦須維持家庭之生活開支。為確保其服役期間合理之最低所得，維持其個人及家庭生活水平，以利專心投入戰訓本務，參考《最低工資法》第一條及第五條，為確保勞工合理之最低工資，提高勞工及其家庭之生活水準，勞工之工資不得低於最低工資之規定，於《軍人待遇條例》明定義務役現役軍人薪額月支數額，不得低於最低基本工資。\n三、另《最低工資法》強調透過合理薪資促進勞資和諧，軍隊雖不屬典型的勞資關係，但役男在義務役期間工作性質，本質上亦屬強制性服勞務行為，理應受到合理薪資保障。提升薪資符合《最低工資法》精神，可降低軍人對現行薪資標準偏低的不滿，有助於維持軍中和諧。"},{"bill":"202110093690000","text":"義務役現役軍人薪額月支數額，由國防部擬訂，報請行政院核定。\n前項薪額月支數額不得低於最低工資法所定之最低工資。","note":"一、本條新增第二項。\n二、義務役軍人目前的最低月所得為20,320元，雖然去年有跟隨公教薪資調整4%，但調整後仍低於政府規定的最低工資28,590元。以二等兵為例，調整後薪資為21,350元，雖增加1,030元，仍無法達到最低工資標準。根據行政院主計總處統計，通膨持續上升，而基本工資已經調整至190元，但軍人薪資卻未進行類似調整，軍人實際收入形同逐漸萎縮。義務役軍人雖非勞工，但長時間參與高密度、高工時的戰訓和救災工作，應被視為高強度勞動，爰提案增訂第二項，確保義務役軍人薪資不低於最低工資標準，以保障其基本生活需求。"},{"bill":"202110104790000","text":"義務役現役軍人薪額月支數額，由國防部擬訂，報請行政院核定。\n前項薪額月支數額應高於最低工資法所定之最低工資。","note":"考量義務役役期可以成為年輕人職涯的一部分，年資可與勞退制度銜接，並由國防部負擔雇主提撥的責任。為讓履行國民義務的役男給予更大的支持，應提高合理待遇，爰提增列本條第二項義務役基本待遇應高於「最低工資法」所定之最低工資。"},{"bill":"202110104750000","text":"義務役現役軍人薪額月支數額，由國防部擬訂，報請行政院核定。\n前項薪額月支數額不得低於最低工資法所定之最低工資。","note":"一、本條新增第二項。\n二、現行義務役軍人最低月薪為新臺幣20,320元，雖於前年度依公教薪資調整4%，然調整後二等兵薪資僅達21,350元，仍低於現行最低工資標準28,590元。依行政院主計總處統計，國內通膨持續攀升，基本工資亦已調升至時薪190元，惟軍人薪資未有相應調整，致使其實質收入縮減。義務役軍人雖非勞工，然服役期間長時間參與高強度、高工時之戰備訓練及救災任務，其勞動性質與強度遠高於一般職場勞工，應適用相應保障機制。爰此，提案增訂本條第二項，明定義務役軍人薪資不得低於最低工資標準，以確保其基本經濟權益，維護服役期間之生活品質，並展現國家對軍人貢獻之合理保障。"},{"bill":"202110127980000","text":"義務役現役軍人薪額月支數額，由國防部擬訂，報請行政院核定。\n前項薪額月支數額，應參考並不得低於最低工資法訂定之最低工資。","note":"一、新增第二項。\n二、義務役軍人之最低月所得僅20,320元（薪額10,130元及專業加給10,190元），雖然義務役軍人有於113年跟進公教薪資調整4%，但以二等兵為例，領取薪資原本20,320元，調整後為21,350元（本薪10,550元、加給10,800元）增加1,030元，但還是低於目前政府定義最低工資的28,590元。\n三、根據行政院主計總處統計，114年1月之消費者物價指數年增率為2.66%，連三個月超過通膨警戒線。又114年4月預計電價、水價將再度調升，勢必更加推升通膨與生活成本。\n四、基本工資已連續八年進行調整，時薪自120元提升至今年190元，然而軍人各種加給卻從未有類似調整，在通膨持續上升及演訓勤務加重的現實下，如同義務役軍人實際待遇逐漸萎縮。\n五、義務役軍人雖非勞工身分，但須負擔長時間全天候的各種戰訓本務及救災勤務，可被視為高密集、高工時的勞動付出。由此義務役現役軍人薪領月支數額應參考於今年實施的「最低工資法」第一條及第五條，不得低於最低工資法之規定。"},{"bill":"202110130580000","text":"義務役現役軍人薪額月支數額，由國防部擬訂，報請行政院核定。\n前項薪額月支數額應高於最低工資法所定之最低工資。","note":"鑑於義務役役期可視為年輕人職涯發展的一環，應將服役期間之年資納入勞工退休金制度，並由國防部承擔雇主提繳責任，以強化制度連結與保障役男未來權益。同時，基於對履行國民義務之役男應給予實質尊重與支持，應提升其服役期間之基本待遇，調整為高於《最低工資法》所定之最低工資標準，以展現國家對役男貢獻之肯定，並提高役期制度的合理性。爰此，增列本條第二項明定上述原則。"}],"changed":true,"final":"義務役現役軍人薪額月支數額，由國防部擬訂，報請行政院核定。其待遇總額不得低於最低工資法所定之最低工資。","finalWhy":"照國民黨黨團再修正動議條文通過。","review":null}],"stages":[{"date":"2024-11-15","stage":"一讀","code":"院會-11-2-9","bill":"202110076910000","gazref":"113卷095期5277號 10-10頁"},{"date":"2025-03-07","stage":"一讀","code":"院會-11-3-4","bill":"202110093680000","gazref":"114卷025期5318號 41-41頁"},{"date":"2025-03-07","stage":"一讀","code":"院會-11-3-4","bill":"202110093690000","gazref":"114卷025期5318號 41-41頁"},{"date":"2025-03-14","stage":"一讀","code":"院會-11-3-5","bill":"202110094980000","gazref":"114卷026期5319號 2-2頁"},{"date":"2025-04-18","stage":"一讀","code":"院會-11-3-8","bill":"202110108250000","gazref":"114卷037期5330號一冊 39-39頁"},{"date":"2025-04-18","stage":"一讀","code":"院會-11-3-8","bill":"202110104790000","gazref":"114卷037期5330號一冊 42-42頁"},{"date":"2025-04-18","stage":"一讀","code":"院會-11-3-8","bill":"202110104750000","gazref":"114卷037期5330號一冊 45-45頁"},{"date":"2025-05-15","code":"黨團協商-2025051548","title":"立法院朝野黨團協商","gazref":"114卷047期5340號 377-406頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025051548/details?meetingDate=114/05/15","full":["https://ivod.ly.gov.tw/Play/Full/1M/16679"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2025-05-16","code":"院會-11-3-12","title":"第11屆第3會期第12次會議","gazref":"114卷048期5341號一冊 55-56頁","stage":"逕付二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025051441/details?meetingDate=114/05/16","full":["https://ivod.ly.gov.tw/Play/Full/1M/16680"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/48/LCIDC01_1144801.pdf","p1":55,"p2":56}],"clips":[],"props":[],"tr":"tr/1.json","note":null,"proc":true,"nspeak":1,"ntable":0},{"date":"2025-05-23","stage":"一讀","code":"院會-11-3-13","bill":"202110127890000","gazref":"114卷050期5343號 3-3頁"},{"date":"2025-05-23","stage":"一讀","code":"院會-11-3-13","bill":"202110127970000","gazref":"114卷050期5343號 4-4頁"},{"date":"2025-05-23","stage":"一讀","code":"院會-11-3-13","bill":"202110127980000","gazref":"114卷050期5343號 4-4頁"},{"date":"2025-06-03","stage":"一讀","code":"院會-11-3-14","bill":"202110130580000","gazref":"114卷053期5346號一冊 5-5頁"},{"date":"2025-06-10","code":"院會-11-3-15","title":"第11屆第3會期第15次會議","gazref":"114卷055期5348號一冊 193-217頁；114卷055期5348號一冊 225-246頁；114卷055期5348號一冊 217-223頁；114卷055期5348號一冊 246-249頁；114卷055期5348號一冊 223-225頁；114卷055期5348號一冊 249-250頁；114卷055期5348號一冊 224-225頁","stage":"二讀、三讀、附帶決議","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025060456/details?meetingDate=114/06/06","full":["https://ivod.ly.gov.tw/Play/Full/1M/16740"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/55/LCIDC01_1145501_00005.pdf","p1":193,"p2":225},{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/55/LCIDC01_1145501_00006.pdf","p1":225,"p2":250}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"nspeak":43,"nmem":31,"ntable":19,"nfold":11}],"votes":[{"topic":"軍人待遇條例第六條條文修正草案 全案表決","code":"院會-11-3-15","type":"記名表決","yes":60,"no":49,"abstain":0,"yesNames":["傅崐萁","王鴻薇","羅智強","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["郭昱晴","林月琴","陳培瑜","柯建銘","吳思瑤","伍麗華Saidhai‧Tahovecahe","李柏毅","范雲","林楚茵","王義川","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","莊瑞雄","郭國文","陳俊宇","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"軍人待遇條例第六條 國民黨黨團再修正動議","code":"院會-11-3-15","type":"記名表決","yes":61,"no":49,"abstain":0,"yesNames":["傅崐萁","王鴻薇","羅智強","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","江啟臣","牛煦庭","王育敏","游顥"],"noNames":["郭昱晴","林月琴","陳培瑜","柯建銘","吳思瑤","伍麗華Saidhai‧Tahovecahe","李柏毅","范雲","林楚茵","王義川","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","莊瑞雄","郭國文","陳俊宇","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"軍人待遇條例第五條 台灣民眾黨黨團附帶決議","code":"院會-11-3-15","type":"記名表決","yes":60,"no":49,"abstain":0,"yesNames":["傅崐萁","王鴻薇","羅智強","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["郭昱晴","林月琴","陳培瑜","柯建銘","吳思瑤","伍麗華Saidhai‧Tahovecahe","李柏毅","范雲","林楚茵","王義川","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","蔡易餘","莊瑞雄","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"軍人待遇條例第五條條文修正草案 民進黨黨團提議全案表決","code":"院會-11-3-15","type":"記名表決","yes":60,"no":50,"abstain":0,"yesNames":["傅崐萁","王鴻薇","羅智強","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["郭昱晴","林月琴","陳培瑜","柯建銘","吳思瑤","伍麗華Saidhai‧Tahovecahe","李柏毅","范雲","林楚茵","王義川","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","莊瑞雄","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"重行表決 軍人待遇條例第五條 國民黨黨團再修正動議","code":"院會-11-3-15","type":"記名表決","yes":52,"no":50,"abstain":8,"yesNames":["傅崐萁","王鴻薇","羅智強","謝龍介","涂權吉","馬文君","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","江啟臣","牛煦庭","王育敏","游顥"],"noNames":["郭昱晴","林月琴","陳培瑜","柯建銘","吳思瑤","伍麗華Saidhai‧Tahovecahe","李柏毅","范雲","林楚茵","王義川","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","莊瑞雄","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","王美惠","劉建國","林岱樺","賴惠員","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":["林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷"]},{"topic":"軍人待遇條例第五條 國民黨黨團再修正動議","code":"院會-11-3-15","type":"記名表決","yes":52,"no":49,"abstain":8,"yesNames":["傅崐萁","王鴻薇","羅智強","謝龍介","涂權吉","馬文君","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","江啟臣","牛煦庭","王育敏","游顥"],"noNames":["郭昱晴","林月琴","陳培瑜","柯建銘","吳思瑤","伍麗華Saidhai‧Tahovecahe","李柏毅","范雲","林楚茵","王義川","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","莊瑞雄","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","王美惠","林岱樺","賴惠員","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":["林憶君","麥玉珍","劉書彬","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷"]}],"manualVotes":null,"gaps":[],"autoGaps":["1 次黨團協商（5 月 15 日）只有完整影片與公報頁碼，沒有文字版逐字稿。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

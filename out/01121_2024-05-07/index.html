@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>國籍法修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"國籍法","version":"01121:2024-05-07-修正","date":"2024-05-07","action":"修正","title":"國籍法　2024 年修正","lede":"","summary":"","key":"01121_2024-05-07","props":[{"id":"201110009790000","who":"行政院","date":"2024-03-08","name":"「國籍法部分條文修正草案」案。","url":"https://ppg.ly.gov.tw/ppg/bills/201110009790000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/04/LCEWA01_110104_00044.pdf","proposers":[],"ncosign":0,"people":[],"party":[],"reason":"行政院函請審議「國籍法部分條文修正草案」案。","arts":["第四條","第五條","第六條","第七條","第九條","第二十條"]},{"id":"202110012820000","who":"委員羅美玲等18人","date":"2024-03-15","name":"「國籍法增訂第六條之一條文草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110012820000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00074.pdf","proposers":["羅美玲","莊瑞雄"],"ncosign":16,"people":[["羅美玲","民進黨","提案"],["莊瑞雄","民進黨","提案"],["邱志偉","民進黨","連署"],["許智傑","民進黨","連署"],["李坤城","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳培瑜","民進黨","連署"],["洪申翰","民進黨","連署"],["徐富癸","民進黨","連署"],["吳秉叡","民進黨","連署"],["范雲","民進黨","連署"],["賴惠員","民進黨","連署"],["鍾佳濱","民進黨","連署"],["林月琴","民進黨","連署"],["沈伯洋","民進黨","連署"],["陳俊宇","民進黨","連署"],["陳秀寳","民進黨","連署"],["王美惠","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員羅美玲、莊瑞雄等18人，為強化延攬專業人才歸化我國，提升國家競爭力，爰擬具「國籍法增訂第六條之一條文草案」。是否有當？敬請公決。","arts":["第六條之一"]},{"id":"202110012830000","who":"委員羅美玲等21人","date":"2024-03-15","name":"「國籍法第四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110012830000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00075.pdf","proposers":["羅美玲","莊瑞雄"],"ncosign":19,"people":[["羅美玲","民進黨","提案"],["莊瑞雄","民進黨","提案"],["吳秉叡","民進黨","連署"],["王美惠","民進黨","連署"],["許智傑","民進黨","連署"],["鍾佳濱","民進黨","連署"],["邱志偉","民進黨","連署"],["賴惠員","民進黨","連署"],["林月琴","民進黨","連署"],["李坤城","民進黨","連署"],["洪申翰","民進黨","連署"],["沈伯洋","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳俊宇","民進黨","連署"],["范雲","民進黨","連署"],["徐富癸","民進黨","連署"],["陳培瑜","民進黨","連署"],["蘇巧慧","民進黨","連署"],["黃捷","民進黨","連署"],["陳秀寳","民進黨","連署"],["張雅琳","民進黨","連署"]],"party":[["民進黨",21]],"reason":"本院委員羅美玲、莊瑞雄等21人，為保障非本國籍兒少權益，爰擬具「國籍法第四條條文修正草案」。是否有當？敬請公決。","arts":["第四條"]},{"id":"202110017780000","who":"委員蘇巧慧等18人","date":"2024-03-22","name":"「國籍法第二條及第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110017780000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/06/LCEWA01_110106_00078.pdf","proposers":["蘇巧慧","郭國文","張宏陸"],"ncosign":15,"people":[["蘇巧慧","民進黨","提案"],["郭國文","民進黨","提案"],["張宏陸","民進黨","提案"],["邱議瑩","民進黨","連署"],["王正旭","民進黨","連署"],["陳亭妃","民進黨","連署"],["林月琴","民進黨","連署"],["賴惠員","民進黨","連署"],["林楚茵","民進黨","連署"],["賴瑞隆","民進黨","連署"],["林淑芬","民進黨","連署"],["吳沛憶","民進黨","連署"],["沈伯洋","民進黨","連署"],["張雅琳","民進黨","連署"],["羅美玲","民進黨","連署"],["陳培瑜","民進黨","連署"],["吳思瑤","民進黨","連署"],["王美惠","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員蘇巧慧、郭國文、張宏陸等18人，鑒於我國境內非本國籍無依兒少人數日益增加，依兒童權利公約第七條之精神，應保障其取得國籍之權利；另者，歸化人之未成年子女，若囿於原屬國規定，致不允許放棄原國籍者，應確保其居留權利，並有國民之權利義務，爰擬具「國籍法第二條及第七條條文修正草案」。是否有當？敬請公決。","arts":["第二條","第七條"]},{"id":"202110018710000","who":"委員陳培瑜等18人","date":"2024-03-22","name":"「國籍法增訂第六條之一條文草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110018710000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/06/LCEWA01_110106_00144.pdf","proposers":["陳培瑜","莊瑞雄","許智傑"],"ncosign":15,"people":[["陳培瑜","民進黨","提案"],["莊瑞雄","民進黨","提案"],["許智傑","民進黨","提案"],["吳沛憶","民進黨","連署"],["郭昱晴","民進黨","連署"],["羅美玲","民進黨","連署"],["邱議瑩","民進黨","連署"],["沈發惠","民進黨","連署"],["張雅琳","民進黨","連署"],["王正旭","民進黨","連署"],["林月琴","民進黨","連署"],["洪申翰","民進黨","連署"],["陳秀寳","民進黨","連署"],["賴惠員","民進黨","連署"],["林俊憲","民進黨","連署"],["徐富癸","民進黨","連署"],["黃捷","民進黨","連署"],["陳俊宇","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員陳培瑜、莊瑞雄、許智傑等18人，鑒於近年來國際體育賽事廣納具國籍血統之選手代表出賽已為主流趨勢，為增加我國競技體育之競爭力，擴充我國體育運動代表隊之人才庫與選材可能，爰擬具「國籍法增訂第六條之一條文草案」。是否有當？敬請公決。","arts":["第六條之一"]},{"id":"202110022170000","who":"委員鄭天財Sra Kacaw等19人","date":"2024-03-29","name":"「國籍法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110022170000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00023.pdf","proposers":["鄭天財Sra Kacaw"],"ncosign":18,"people":[["鄭天財Sra Kacaw","國民黨","提案"],["蘇清泉","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["林德福","國民黨","連署"],["王育敏","國民黨","連署"],["羅智強","國民黨","連署"],["萬美玲","國民黨","連署"],["牛煦庭","國民黨","連署"],["吳宗憲","國民黨","連署"],["丁學忠","國民黨","連署"],["徐欣瑩","國民黨","連署"],["鄭正鈐","國民黨","連署"],["林思銘","國民黨","連署"],["洪孟楷","國民黨","連署"],["許宇甄","國民黨","連署"],["馬文君","國民黨","連署"],["高金素梅","無黨籍","連署"],["陳超明","無黨籍","連署"],["黃建賓","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",2]],"reason":"本院委員鄭天財Sra Kacaw等19人，爰擬具「國籍法部分條文修正草案」。是否有當？敬請公決。","arts":["第四條","第五條","第六條","第七條","第九條","第二十條"]},{"id":"202110021360000","who":"委員陳玉珍等18人","date":"2024-03-29","name":"「國籍法第四條及第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110021360000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00051.pdf","proposers":["陳玉珍"],"ncosign":17,"people":[["陳玉珍","國民黨","提案"],["盧縣一","國民黨","連署"],["洪孟楷","國民黨","連署"],["謝龍介","國民黨","連署"],["林倩綺","國民黨","連署"],["顏寬恒","國民黨","連署"],["羅明才","國民黨","連署"],["翁曉玲","國民黨","連署"],["李彥秀","國民黨","連署"],["王鴻薇","國民黨","連署"],["王育敏","國民黨","連署"],["黃仁","國民黨","連署"],["呂玉玲","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["黃珊珊","民眾黨","連署"],["徐巧芯","國民黨","連署"],["萬美玲","國民黨","連署"]],"party":[["國民黨",17],["民眾黨",1]],"reason":"本院委員陳玉珍等18人，有鑑於我國民法成年年齡調降至十八歲，且自民國112年1月1日起施行。為使國籍法能夠配合民法，針對涉及外籍人士相關年齡規範，亦能有一致性之規定，爰擬具「國籍法第四條及第七條條文修正草案」。是否有當？敬請公決。","arts":["第四條","第七條"]},{"id":"202110021490000","who":"委員林宜瑾等21人","date":"2024-03-29","name":"「國籍法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110021490000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00067.pdf","proposers":["林宜瑾"],"ncosign":20,"people":[["林宜瑾","民進黨","提案"],["林楚茵","民進黨","連署"],["李柏毅","民進黨","連署"],["王正旭","民進黨","連署"],["黃捷","民進黨","連署"],["蘇巧慧","民進黨","連署"],["王美惠","民進黨","連署"],["林月琴","民進黨","連署"],["郭昱晴","民進黨","連署"],["吳沛憶","民進黨","連署"],["羅美玲","民進黨","連署"],["陳秀寳","民進黨","連署"],["邱議瑩","民進黨","連署"],["徐富癸","民進黨","連署"],["范雲","民進黨","連署"],["鍾佳濱","民進黨","連署"],["邱志偉","民進黨","連署"],["賴惠員","民進黨","連署"],["何欣純","民進黨","連署"],["陳培瑜","民進黨","連署"],["張雅琳","民進黨","連署"]],"party":[["民進黨",21]],"reason":"本院委員林宜瑾等21人，為遵循《兒童權利公約》第七條所揭示，兒童取得國籍權利之意旨，增訂特定外國人或無國籍者申請歸化我國國籍相關規範。且為加強延攬優秀外國人才，放寬渠等申請歸化居留年限、並對有殊勳於我國者，免徵國籍許可證書規費。同時亦明確化直轄市山地原住民區民代表會代表，及區長具外國國籍並擔任我國公職者，應由直轄市政府解除其公職，爰擬具「國籍法部分條文修正草案」。是否有當？敬請公決。","arts":["第四條","第五條","第六條","第七條","第九條","第二十條"]},{"id":"202110021550000","who":"委員王美惠等19人","date":"2024-03-29","name":"「國籍法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110021550000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00076.pdf","proposers":["王美惠","伍麗華Saidhai‧Tahovecahe"],"ncosign":17,"people":[["王美惠","民進黨","提案"],["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["林俊憲","民進黨","連署"],["李坤城","民進黨","連署"],["徐富癸","民進黨","連署"],["張雅琳","民進黨","連署"],["何欣純","民進黨","連署"],["郭昱晴","民進黨","連署"],["許智傑","民進黨","連署"],["黃捷","民進黨","連署"],["李柏毅","民進黨","連署"],["陳培瑜","民進黨","連署"],["張宏陸","民進黨","連署"],["莊瑞雄","民進黨","連署"],["洪申翰","民進黨","連署"],["陳素月","民進黨","連署"],["吳沛憶","民進黨","連署"],["蔡易餘","民進黨","連署"],["王定宇","民進黨","連署"]],"party":[["民進黨",19]],"reason":"本院委員王美惠、伍麗華Saidhai Tahovecahe等19人，為落實「聯合國兒童權利公約」及「消除對婦女一切形式歧視公約」之精神，臺灣應保障特殊境遇之弱勢移民，健全移民友善環境；另者，為加強延攬外國專業人才，提升臺灣國際競爭力，爰擬具「國籍法部分條文修正草案」。是否有當？敬請公決。","arts":["第四條","第五條","第六條","第七條","第九條"]},{"id":"202110022080000","who":"委員吳沛憶等17人","date":"2024-03-29","name":"「國籍法第四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110022080000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00097.pdf","proposers":["吳沛憶","莊瑞雄"],"ncosign":15,"people":[["吳沛憶","民進黨","提案"],["莊瑞雄","民進黨","提案"],["林俊憲","民進黨","連署"],["陳培瑜","民進黨","連署"],["何欣純","民進黨","連署"],["黃秀芳","民進黨","連署"],["郭昱晴","民進黨","連署"],["張雅琳","民進黨","連署"],["羅美玲","民進黨","連署"],["王美惠","民進黨","連署"],["蔡易餘","民進黨","連署"],["林月琴","民進黨","連署"],["黃捷","民進黨","連署"],["徐富癸","民進黨","連署"],["李柏毅","民進黨","連署"],["陳秀寳","民進黨","連署"],["鍾佳濱","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員吳沛憶、莊瑞雄等17人，為使非本國籍或無國籍之遭遺棄兒童及少年能取得國籍以保障其生存、發展之權利，爰擬具「國籍法第四條條文修正草案」。是否有當？敬請公決。","arts":["第四條"]},{"id":"202110023990000","who":"委員莊瑞雄等17人","date":"2024-03-29","name":"「國籍法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110023990000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00162.pdf","proposers":["莊瑞雄","蔡易餘"],"ncosign":15,"people":[["莊瑞雄","民進黨","提案"],["蔡易餘","民進黨","提案"],["陳秀寳","民進黨","連署"],["張雅琳","民進黨","連署"],["蔡其昌","民進黨","連署"],["王美惠","民進黨","連署"],["洪申翰","民進黨","連署"],["李昆澤","民進黨","連署"],["林月琴","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳培瑜","民進黨","連署"],["沈伯洋","民進黨","連署"],["王正旭","民進黨","連署"],["陳冠廷","民進黨","連署"],["黃捷","民進黨","連署"],["陳俊宇","民進黨","連署"],["李坤城","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員莊瑞雄、蔡易餘等17人，鑒於當今國際皆為促進其各項產業發展，致力延攬各國人才申請歸化，襄助人才之引進，為使我國加強延攬優秀外國人才就其申請歸化放寬居留年限、對有殊勳於我國者申請歸化免徵國籍許可證書規費，並配合民法成年年齡調降，涉及外國人部分定明成年年齡，以資明確，爰擬具「國籍法部分條文修正草案」。是否有當？敬請公決。","arts":["第四條","第五條","第六條","第七條","第九條"]},{"id":"202110024020000","who":"委員鍾佳濱等16人","date":"2024-03-29","name":"「國籍法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110024020000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00163.pdf","proposers":["鍾佳濱","莊瑞雄"],"ncosign":14,"people":[["鍾佳濱","民進黨","提案"],["莊瑞雄","民進黨","提案"],["賴惠員","民進黨","連署"],["林月琴","民進黨","連署"],["王美惠","民進黨","連署"],["張雅琳","民進黨","連署"],["蔡易餘","民進黨","連署"],["沈伯洋","民進黨","連署"],["王正旭","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳俊宇","民進黨","連署"],["羅美玲","民進黨","連署"],["李坤城","民進黨","連署"],["許智傑","民進黨","連署"],["吳沛憶","民進黨","連署"],["劉建國","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員鍾佳濱、莊瑞雄等16人，為落實兒童權利公約保障兒童取得國籍權利、加強延攬外國優秀人才及對有殊勳於我國者申請歸化免徵相關規費。另直轄市山地原住民區民代表會代表及區長具外國國籍並擔任我國公職者，應由直轄市政府解除其公職。爰擬具「國籍法部分條文修正草案」。是否有當？敬請公決。","arts":["第四條","第五條","第六條","第七條","第九條","第二十條"]},{"id":"202110024080000","who":"委員黃捷等20人","date":"2024-03-29","name":"「國籍法第五條及第九條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110024080000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00169.pdf","proposers":["黃捷"],"ncosign":19,"people":[["黃捷","民進黨","提案"],["賴惠員","民進黨","連署"],["范雲","民進黨","連署"],["王正旭","民進黨","連署"],["陳冠廷","民進黨","連署"],["陳培瑜","民進黨","連署"],["郭昱晴","民進黨","連署"],["張雅琳","民進黨","連署"],["沈伯洋","民進黨","連署"],["王美惠","民進黨","連署"],["林月琴","民進黨","連署"],["羅美玲","民進黨","連署"],["蔡易餘","民進黨","連署"],["吳沛憶","民進黨","連署"],["劉建國","民進黨","連署"],["許智傑","民進黨","連署"],["李坤城","民進黨","連署"],["陳俊宇","民進黨","連署"],["陳秀寳","民進黨","連署"],["何欣純","民進黨","連署"]],"party":[["民進黨",20]],"reason":"本院委員黃捷等20人，為提高我國於文化、體育或其他特殊專業領域競爭力，降低專業人才歸化我國之門檻，爰擬具「國籍法第五條及第九條條文修正草案」。是否有當？敬請公決。","arts":["第五條","第九條"]},{"id":"202110027850000","who":"委員王定宇等20人","date":"2024-04-12","name":"「國籍法第二條及第十九條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110027850000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/09/LCEWA01_110109_00008.pdf","proposers":["王定宇"],"ncosign":19,"people":[["王定宇","民進黨","提案"],["黃捷","民進黨","連署"],["王美惠","民進黨","連署"],["李昆澤","民進黨","連署"],["王正旭","民進黨","連署"],["吳秉叡","民進黨","連署"],["陳俊宇","民進黨","連署"],["陳素月","民進黨","連署"],["陳培瑜","民進黨","連署"],["徐富癸","民進黨","連署"],["林月琴","民進黨","連署"],["郭昱晴","民進黨","連署"],["陳秀寳","民進黨","連署"],["羅美玲","民進黨","連署"],["吳思瑤","民進黨","連署"],["陳冠廷","民進黨","連署"],["鍾佳濱","民進黨","連署"],["蔡其昌","民進黨","連署"],["吳琪銘","民進黨","連署"],["賴惠員","民進黨","連署"]],"party":[["民進黨",20]],"reason":"本院委員王定宇等20人，鑒於現行國籍法對於「無國籍人」之認定，涉及個人之權利義務事項宜於法律明定，爰於現行條文第二條增訂相關規定，以符合法律保留原則。另現行條文第十九條第一項規定「除依第九條第一項規定應撤銷其歸化許可外」文字似有未妥，應予以修正以杜爭議。爰擬具「國籍法第二條及第十九條條文修正草案」。是否有當？敬請公決。","arts":["第二條","第十九條"]},{"id":"202110029400000","who":"委員林岱樺等17人","date":"2024-04-12","name":"「國籍法第二條及第六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110029400000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/09/LCEWA01_110109_00043.pdf","proposers":["林岱樺"],"ncosign":16,"people":[["林岱樺","民進黨","提案"],["王美惠","民進黨","連署"],["郭昱晴","民進黨","連署"],["徐富癸","民進黨","連署"],["陳冠廷","民進黨","連署"],["吳沛憶","民進黨","連署"],["黃秀芳","民進黨","連署"],["黃捷","民進黨","連署"],["王世堅","民進黨","連署"],["張雅琳","民進黨","連署"],["陳亭妃","民進黨","連署"],["鍾佳濱","民進黨","連署"],["賴惠員","民進黨","連署"],["蔡易餘","民進黨","連署"],["林俊憲","民進黨","連署"],["陳素月","民進黨","連署"],["羅美玲","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員林岱樺等17人，鑑於現行國籍法對於無國籍之認定及外國人歸化之特殊功勳均無明文規定，僅以細則作為認定，恐有違法律保留原則。爰擬具「國籍法第二條及第六條條文修正草案」，將無國籍人之認定及殊勳之認定明定入法，避免爭議。是否有當？敬請公決。","arts":["第二條","第六條"]},{"id":"202110034810000","who":"台灣民眾黨黨團","date":"2024-04-19","name":"「國籍法第四條及第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110034810000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00172.pdf","proposers":["麥玉珍","黃國昌","黃珊珊","吳春城"],"ncosign":0,"people":[["麥玉珍","民眾黨","提案"],["黃國昌","民眾黨","提案"],["黃珊珊","民眾黨","提案"],["吳春城","民眾黨","提案"]],"party":[["民眾黨",4]],"reason":"本院台灣民眾黨黨團，有鑒於民法成年年齡將修正為十八歲，國籍法第四條第二款之文義將受影響，為遵守法律明確性原則並保障我國十八歲以上未滿二十歲之外國人或無國籍人之歸化資格，應配合修正條文以維護其權益。爰擬具「國籍法第四條及第七條條文修正草案」。是否有當？敬請公決。","arts":["第四條","第七條"]}],"arts":[{"no":"第二條","current":"有下列各款情形之一者，屬中華民國國籍：\n一、出生時父或母為中華民國國民。\n二、出生於父或母死亡後，其父或母死亡時為中華民國國民。\n三、出生於中華民國領域內，父母均無可考，或均無國籍者。\n四、歸化者。\n前項第一款及第二款規定，於本法中華民國八十九年二月九日修正施行時未滿二十歲之人，亦適用之。","versions":[{"bill":"202110017780000","text":"有下列各款情形之一者，屬中華民國國籍：\n一、出生時父或母為中華民國國民。\n二、出生於父或母死亡後，其父或母死亡時為中華民國國民。\n三、出生於中華民國領域內，父母均無可考，或均無國籍者。\n四、歸化者。\n前項第一款及第二款規定，於本法中華民國八十九年二月九日修正施行時未滿二十歲之人，亦適用之。\n出生於中華民國領域內，其母為外國人，但有事實足認其行方不明者，視同無可考。","note":"一、增列第三項。\n二、依聯合國兒童權利公約第二條規定略以，簽約國不因兒童、父母或法定監護人之國籍或其他身分地位之不同而有所歧視；第七條規定略以，兒童於出生後應立即被登記，並自出生起即應有取得姓名及國籍之權利。\n三、移民署統計，累計至111年底，接收國健署非本國籍新生兒通報數為15,555筆，經比對及篩濾產婦資料後，其生母為失聯移工或不實身分者計3,098人，其人數及占比皆有上升趨勢。\n四、本條第三項所稱有事實足認其行方不明者，由中央主管機關認定之。"},{"bill":"202110027850000","text":"有下列各款情形之一者，屬中華民國國籍：\n一、出生時父或母為中華民國國民。\n二、出生於父或母死亡後，其父或母死亡時為中華民國國民。\n三、出生於中華民國領域內，父母均無可考，或均無國籍者。\n四、歸化者。\n前項第一款及第二款規定，於本法中華民國八十九年二月九日修正施行時未滿二十歲之人，亦適用之。\n本法所稱無國籍人，指任何國家依該國法律，認定不屬於該國國民者。\n有下列各款情形之一者，得認定為無國籍人：\n一、持外國政府核發載明無國籍之旅行身分證件。\n二、符合入出國及移民法第十六條第二項至第四項規定之泰國、緬甸、印尼、印度或尼泊爾地區無國籍人民，持有載明無國籍之外僑居留證。\n三、其他經內政部認定。\n前項第三款之認定要件、應備文件、處理程序及其他相關事項之標準，由內政部定之。","note":"一、按本法施行細則第三條規定，本法所稱「無國籍人」，係指任何國家依該國法律，認定不屬於該國國民者。如有「持外國政府核發載明無國籍之旅行身分證件」、「符合入出國及移民法第十六條第二項至第四項規定之泰國、緬甸、印尼、印度或尼泊爾地區無國籍人民，持有載明無國籍之外僑居留證」或「其他經內政部認定」情形，亦得認定為無國籍人。\n二、惟有無國籍事涉個人重要權利義務關係事項，應依循現代法治國原則及民主要求制定法律或有法律明確之授權為依據。如以法律授權主管機關發布命令為補充規定時，其授權亦應符合具體明確之原則。若僅屬執行法律之細節性、技術性事項，始得由主管機關發布命令為必要之規範。而「無國籍人」之認定，既涉個人重要權利義務關係，僅以本法第二十二條作為概括性授權依據之施行細則第三條第二項第三款逕予規定，甚至賦予內政部得逕為認定無國籍人，是否妥適，似不無疑義。蓋本法既無明文復未有明確授權，且自本法第一條立法目的及本法規範體系綜合觀察，亦無從推知可供主管機關自為認定時得以遵循之方針指示或概念框架，僅以本法施行細則予以規範，恐有違反法律保留原則之疑慮。\n三、爰新增第三項、第四項及第五項規定，如修正條文所示。"},{"bill":"202110029400000","text":"有下列各款情形之一者，屬中華民國國籍：\n一、出生時父或母為中華民國國民。\n二、出生於父或母死亡後，其父或母死亡時為中華民國國民。\n三、出生於中華民國領域內，父母均無可考，或均無國籍者。\n四、歸化者。\n前項第一款及第二款規定，於本法中華民國八十九年二月九日修正施行時未滿二十歲之人，亦適用之。\n本法所稱無國籍人，指任何國家依該國法律，認定不屬於該國國民者。\n有下列各款情形之一者，得認定為無國籍人：\n一、持外國政府核發載明無國籍之旅行身分證件。\n二、符合入出國及移民法第十六條第二項至第四項之規定者。","note":"有關無國籍人之認定，事涉個人重要權利義務關係，僅以施行細則作為認定有欠妥當。爰提案增訂第二條第三至四項，以符合法律保留原則。"}],"changed":false,"final":"有下列各款情形之一者，屬中華民國國籍：\n一、出生時父或母為中華民國國民。\n二、出生於父或母死亡後，其父或母死亡時為中華民國國民。\n三、出生於中華民國領域內，父母均無可考，或均無國籍者。\n四、歸化者。\n前項第一款及第二款規定，於本法中華民國八十九年二月九日修正施行時未滿二十歲之人，亦適用之。","finalWhy":null,"review":{"note":"維持現行條文","text":""}},{"no":"第四條","current":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚未成年之外國人或無國籍人，其父、母、養父或養母現為中華民國國民者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化。","versions":[{"bill":"201110009790000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，有下列情形之一者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化：\n一、父、母、養父或養母現為中華民國國民。\n二、現由社會福利主管機關或社會福利機構監護。","note":"一、第二項修正如下：\n(一)配合民法成年年齡調降，為明確計，涉及外國人部分定明成年年齡，爰將「未婚未成年」修正為「未婚且未滿十八歲」。\n(二)為處理出生於我國領域內，生父不詳，生母為外國人且行方不明，或已出境或遭遣返回國後行方不明之非本國籍無依兒童與少年身分認定事宜，內政部業於一百零六年一月九日訂頒「在臺出生非本國籍兒童、少年申請認定為無國籍人一覽表及流程」，如渠等經外交部或內政部移民署協尋生母行蹤未果（國外協尋生母行蹤逾三個月未果或國內協尋生母行蹤逾六個月未果），且洽生母原屬國政府確認渠等無該國國籍或逾三個月無回應，內政部即依國籍法施行細則第三條規定認定渠等為無國籍人，並由國人養父、養母或社政機關監護人代為申請歸化，另渠等社會福利服務、醫療照顧、就學權益等事項依兒童及少年福利與權益保障法第二十二條第二項規定，均應依法予以保障。\n(三)考量上揭兒童及少年最佳利益，落實聯合國兒童權利公約第七條規範意旨，以保障渠等身分權益，避免成為無國籍人，爰將渠等得申請歸化之情形分款規定，現行規定列為序文，並增訂「有下列情形之一者」等文字，現行所定「其父、母、養父或養母現為中華民國國民」移為第一款；另增訂第二款規定未婚且未滿十八歲之外國人或無國籍人，由社會福利主管機關或社會福利機構為其監護人者，得由社會福利主管機關或社會福利機構申請歸化。\n二、第一項未修正。"},{"bill":"202110012830000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚，或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚未成年之外國人或無國籍人，其父、母、養父或養母現為中華民國國民者，或其監護人為法院裁定之社會福利主管機關者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化。","note":"一、移民署統計，累計自96年1月至108年6月底，移民署接收之非本國籍新生兒通報有9,381人，經比對及篩濾產婦資料，其中生母為失聯移工或不實身分者計754人。\n二、依聯合國兒童權利公約第二條規定略以，簽約國不得因為兒童及其父母或法定監護人之國籍或其他身分之不同而有任何差別待遇；第七條規定，兒童於出生後應立即被登記，並自出生起即應有取得姓名及國籍的權利。\n三、目前經社會福利主管機關監護之非本國籍無依兒少經認定為無國籍人，倘未被國人收養，迄滿20歲前，依現行國籍法規定無法申請歸化。自106年內政部函頒相關作業流程後，未滿20歲之是類兒少方能由直轄市、縣（市）社會福利主管機關代當事人向戶政事務所送件申請歸化國籍。\n四、非本國籍兒少若無穩定身分恐影響其身心發展，且我國人口面臨少子化問題，基於渠等權益及我國國家利益，爰提案修正國籍法第四條，其監護人為法院裁定之社會福利主管機關者，得申請歸化我國國籍。"},{"bill":"202110022170000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，有下列情形之一者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化：\n一、父、母、養父或養母現為中華民國國民。\n二、現由社會福利主管機關或社會福利機構監護。","note":"一、修正第二項。\n二、配合《民法》成年年齡調降，並明確外國人適用之成年年齡，將「未婚未成年」修正為「未婚且未滿十八歲」。\n三、為落實《聯合國兒童權利公約》第七條規範意旨，保障兒童身分權益，避免成為無國籍人，爰將得第二項外國人及無國籍人得申請歸化之情形分款規定，並另增訂第二款，明定未婚且未滿十八歲之外國人或無國籍人，由社會福利主管機關或社會福利機構為其監護人者，得由社會福利主管機關或社會福利機構申請歸化。"},{"bill":"202110021360000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，其父、母、養父或養母現為中華民國國民者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化。","note":"配合民法成年定義規定之修正，將本條文中未成年修正為未滿十八歲。"},{"bill":"202110021490000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，有下列情形之一者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化：\n一、父、母、養父或養母現為中華民國國民。\n二、現由社會福利主管機關或社會福利機構監護。","note":"一、配合《民法》成年年齡調降，爰將第二項「未婚未成年」修正為「未婚且未滿十八歲」。\n二、為處置出生於我國領域內，生父不詳，生母為外國人且行方不明，或已出境或遭遣返回國後行方不明之非本國籍無依兒童與少年身分認定，內政部業於一百零六年一月九日訂頒「在臺出生非本國籍兒童、少年申請認定為無國籍人一覽表及流程」，如渠等經外交部或內政部移民署協尋生母行蹤未果（國外協尋生母行蹤逾三個月未果或國內協尋生母行蹤逾六個月未果），且洽生母原屬國政府確認渠等無該國國籍或逾三個月無回應，內政部即依《國籍法》施行細則第三條規定認定渠等為無國籍人，並由國人養父、養母或社政機關監護人代為申請歸化，另渠等社會福利服務、醫療照顧、就學權益等事項依《兒童及少年福利與權益保障法》第二十二條第二項規定，均有所保障。\n三、為照顧上揭兒童及少年最佳利益，並落實聯合國兒童權利公約第七條規範意旨，以保障渠等身分權益，避免其成為無國籍人，爰將渠等得申請歸化之情形分款規定，並增訂第二款，明定未婚且未滿十八歲之外國人或無國籍人，由社會福利主管機關或社會福利機構為其監護人者，得由社會福利主管機關或社會福利機構申請歸化。"},{"bill":"202110021550000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，有下列情形之一者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化：\n一、父、母、養父或養母現為中華民國國民。\n二、現由社會福利主管機關或社會福利機構監護。","note":"一、配合民法已將成年年齡調降，又涉及外國人部分均以年齡規範之體例，爰將「未婚未成年」修正為「未婚且未滿十八歲」，以求法律規範一致性。\n二、新增第二項說明如下：\n(一)依「聯合國兒童權利公約」第七條規定略以，兒童於出生後即應有取得國籍之權利。\n(二)承上，惟我國國籍採「屬人主義」，因此若有「父不詳、生母為外國籍但行方不明」之情形，由於該生母外國籍明確，因此該兒少無法被認定為我國國籍，該兒少極有可能成為無國籍之「非本國籍兒童」。"},{"bill":"202110022080000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚未成年之外國人或無國籍人，有下列情形之一者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化：\n一、父、母、養父或養母現為中華民國國民。\n二、現由社會福利主管機關或社會福利機構監護。","note":"一、查我國現行規範，依據「國籍法施行細則」第三條以及內政部訂定之「在臺出生非本國籍兒少申請認定為無國籍人流程」，當兒童及少年生父不詳，生母為行方不明外國人，由內政部請外交部轉駐外館處協助向該生母之原屬國或請內政部移民署協尋生母，如經協尋無法找到生母且生母原屬國不認該兒少具有該國國籍者，或逾3個月無回應，內政部將依國籍法施行細則第三條規定，認定該名兒少為無國籍人。\n二、然僅止於認定為無國籍人，未能滿足《兒童權利公約》第7條所定「取得國籍之權利」，進而無法透過政府之力量給予權利保障，以滿足《兒童權利公約》第6條所定之「生命權」以及對「生存及發展」之保障。\n三、此類兒少因遭父母遺棄，獨立生存極為艱難，方會交由社福主管機關或社福機構監護。故擬修改本條第二項，使其能取得國籍，使其生存及發展能或法律之保障，並滿足我國應《兒童權利公約》所生之責任。"},{"bill":"202110023990000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，其父、母、養父或養母現為中華民國國民者，或現由社會福利主管機關、社會福利機構監護者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化。","note":"一、配合民法成年年齡調降政策，涉及外國人部分均以年齡規範之體例，爰將第二項本文「未婚未成年」修正為「未婚且未滿十八歲」。\n二、考量部分渠等經外交部或內政部移民署協尋生母行蹤未果，且洽生母原屬國政府確認渠等無該國籍或逾三個月無回應，內政部依法認定渠等為國籍人，並由國人養父、養母或社政機關監護人代為申請歸化之兒童及少年最佳利益，為落實聯合國兒童權利公約第七條規範意旨，以保障渠等身分權益，避免成為無國籍者，增訂未婚且未滿十八歲之外國人或無國籍人，由社會福利主管機關或社會福利機構為其監護人者，得由社會福利主管機關或社會福利機構申請歸化。"},{"bill":"202110024020000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚，或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，有下列情形之一者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化：\n一、父、母、養父或養母現為中華民國國民。\n二、現由社會福利主管機關或社會福利機構監護。","note":"一、第二項修正如下：\n(一)配合民法成年年齡調降，為明確計，涉及外國人部分定明成年年齡，爰將「未婚未成年」修正為「未婚且未滿十八歲」。\n(二)為處理出生於我國領域內，生父不詳生母為外國人且行方不明，或已出境或遭遣返回國後行方不明之非本國籍無依兒童與少年身分認定事宜，內政部業於一百零六年一月九日訂頒「在臺出生非本國籍兒童、少年申請認定為無國籍人一覽表及流程」，如渠等經外交部或內政部移民署協尋生母行蹤未果（國外協尋生母行蹤逾三個月未果或國內協尋生母行蹤逾六個月未果），且洽生母原屬國政府確認渠等無該國國籍或逾三個月無回應，內政部即依國籍法施行細則第三條規定認定渠等為無國籍人，並由國人養父、養母或社政機關監護人代為申請歸化，另渠等社會福利服務、醫療照顧、就學權益等事項依兒童及少年福利與權益保障法第二十二條第二項規定，均應依法予以保障。\n(三)考量上揭兒童及少年最佳利益，落實聯合國兒童權利公約第七條規範意旨以保障渠等身分權益，避免成為無國籍人，爰將渠等得申請歸化之情形分款規定，現行規定列為序文，並增訂「有下列情形之一者」等文字，現行所定「其父、母、養父或養母現為中華民國國民」移為第一款；另增訂第二款規定未婚且未滿十八歲之外國人或無國籍人，由社會福利主管機關或社會福利機構為其監護人者，得由社會福利主管機關或社會福利機構申請歸化。\n二、第一項未修正。"},{"bill":"202110034810000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿二十歲之外國人或無國籍人，其父、母、養父或養母現為中華民國國民者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化。","note":"配合民法成年年齡調降政策，國籍法第二條已配合民法修改法規，調整相關的年齡規範。有關本法涉及外國人歸化年齡部分，為保障十八歲以上未滿二十歲人之歸化權益，將本條文中「未婚未成年」修正為「未婚且未滿二十歲」。"}],"changed":true,"final":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，有下列情形之一者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化：\n一、父、母、養父或養母現為中華民國國民。\n二、現由社會福利主管機關或社會福利機構監護。","finalWhy":"一、第二項修正如下：\n(一)配合民法成年年齡調降，為明確計，涉及外國人部分定明成年年齡，爰將「未婚未成年」修正為「未婚且未滿十八歲」。\n(二)為處理出生於我國領域內，生父不詳，生母為外國人且行方不明，或已出境或遭遣返回國後行方不明之非本國籍無依兒童與少年身分認定事宜，內政部業於一百零六年一月九日訂頒「在臺出生非本國籍兒童、少年申請認定為無國籍人一覽表及流程」，如渠等經外交部或內政部移民署協尋生母行蹤未果（國外協尋生母行蹤逾三個月未果或國內協尋生母行蹤逾六個月未果），且洽生母原屬國政府確認渠等無該國國籍或逾三個月無回應，內政部即依國籍法施行細則第三條規定認定渠等為無國籍人，並由國人養父、養母或社政機關監護人代為申請歸化，另渠等社會福利服務、醫療照顧、就學權益等事項依兒童及少年福利與權益保障法第二十二條第二項規定，均應依法予以保障。\n(三)考量上揭兒童及少年最佳利益，落實聯合國兒童權利公約第七條規範意旨，以保障渠等身分權益，避免成為無國籍人，爰將渠等得申請歸化之情形分款規定，原規定列為序文，並增訂「有下列情形之一者」等文字，原所定「其父、母、養父或養母現為中華民國國民」移為第一款；另增訂第二款規定未婚且未滿十八歲之外國人或無國籍人，由社會福利主管機關或社會福利機構為其監護人者，得由社會福利主管機關或社會福利機構申請歸化。\n二、第一項未修正。","review":{"note":"照行政院提案通過","text":"外國人或無國籍人，現於中華民國領域內有住所，具備前條第一項第二款至第五款要件，於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續三年以上，並有下列各款情形之一者，亦得申請歸化：\n一、為中華民國國民之配偶，不須符合前條第一項第四款。\n二、為中華民國國民配偶，因受家庭暴力離婚且未再婚；或其配偶死亡後未再婚且有事實足認與其亡故配偶之親屬仍有往來，但與其亡故配偶婚姻關係已存續二年以上者，不受與親屬仍有往來之限制。\n三、對無行為能力、或限制行為能力之中華民國國籍子女，有扶養事實、行使負擔權利義務或會面交往。\n四、父或母現為或曾為中華民國國民。\n五、為中華民國國民之養子女。\n六、出生於中華民國領域內。\n七、為中華民國國民之監護人或輔助人。\n未婚且未滿十八歲之外國人或無國籍人，有下列情形之一者，在中華民國領域內合法居留雖未滿三年且未具備前條第一項第二款、第四款及第五款要件，亦得申請歸化：\n一、父、母、養父或養母現為中華民國國民。\n二、現由社會福利主管機關或社會福利機構監護。"}},{"no":"第五條","current":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n第九條第五項　前項第二款所定高級專業人才之認定標準，由內政部定之。","versions":[{"bill":"201110009790000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、由中央目的事業主管機關推薦之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士及相關機關共同審核通過，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n前項第三款所定高級專業人才之認定要件、審核程序、方式及其他相關事項之標準，由內政部定之。","note":"一、現行條文列為第一項。另鑑於國際上專業人才競逐日益激烈，且我國為延攬外國專業人才，持續檢討放寬相關法規，如訂修外國專業人才延攬及僱用法、入出國及移民法等。為吸引優秀外籍人士來臺，增加渠等歸化我國誘因，爰放寬居留年限之規定，惟考量外籍高級專業人才歸化依修正條文第九條第四項第一款規定無須喪失原有國籍，存在忠誠衝突問題，宜使渠等在我國領域內居留一定期間，以瞭解渠等對我國國家安全無危害，爰參酌法國、英國、新加坡、菲律賓等國立法例，縮短渠等之合法居留年限，渠等如持有我國外僑居留證，並合法居留一定期限，經中央目的事業主管機關推薦，並經內政部召開審查會審核通過後，即可申請歸化我國國籍，爰增訂第三款。\n二、現行第九條第五項移列為第二項，並為使授權明確，增訂相關授權事項。"},{"bill":"202110022170000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、由中央目的事業主管機關推薦之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士及相關機關共同審核通過，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n前項第三款所定高級專業人才之認定要件、審核程序、方式及其他相關事項之標準，由內政部定之。","note":"一、增訂第一項第三款及第二項。\n二、為吸引優秀外籍人士來台，增加歸化我國之誘因，爰增訂第一項第三款放寬其居留年限，並明定經中央目的事業主管機關推薦，並經內政部召開審查會審核通過後，即可申請歸化我國國籍。\n三、增訂第二項，授權內政部制定高及專業人才認定及規畫相關子法。"},{"bill":"202110021490000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、由中央目的事業主管機關推薦之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士及相關機關共同審核通過，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n前項第三款所定高級專業人才之認定要件、審核程序、方式及其他相關事項之標準，由內政部定之。","note":"一、現行條文列為第一項。另鑑於國際上專業人才競逐日益激烈，且我國為延攬外國專業人才，持續檢討放寬相關法規，如訂修外國專業人才延攬及僱用法、入出國及移民法等。為吸引優秀外籍人士來臺，增加渠等歸化我國誘因，爰放寬居留年限之規定，惟考量外籍高級專業人才歸化依修正條文第九條第四項第一款規定無須喪失原有國籍，存在忠誠衝突問題，宜使渠等在我國領域內居留一定期間，以瞭解渠等對我國國家安全無危害，爰參酌法國、英國、新加坡、菲律賓等國立法例，縮短渠等之合法居留年限，渠等如持有我國外僑居留證，並合法居留一定期限，經中央目的事業主管機關推薦，並經內政部召開審查會審核通過後，即可申請歸化我國國籍，爰增訂第三款。\n二、現行第九條第五項移列為第二項，並為使授權明確，增訂相關授權事項。"},{"bill":"202110021550000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、由中央目的事業主管機關推薦之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士、相關領域專家學者及相關機關共同審核通過，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n內政部為前項第三款歸化許可，得附加附款。未遵守附加之附款者，得廢止其歸化許可。\n第一項第三款所定高級專業人才之認定要件、審核程序、方式、附款、廢止歸化程序及其他相關事項之辦法，由內政部定之。\n六年內曾具有大陸、香港或澳門戶籍之外國人及無國籍人，不適用第一項第三款之規定。","note":"一、現行條文列為第一項。另鑑於國際上專業人才競逐日益激烈，且我國為延攬外國專業人才，持續檢討放寬相關法規，如訂修外國專業人才延攬及僱用法、入出國及移民法等。為吸引優秀外籍人士來臺，增加渠等歸化我國誘因，爰放寬居留年限之規定，惟考量外籍高級專業人才歸化依修正條文第九條第四項第一款規定無須喪失原有國籍，存在忠誠衝突問題，宜使渠等在我國領域內居留一定期間，以瞭解渠等對我國國家安全無危害，爰參酌法國、英國、新加坡、菲律賓等國立法例，縮短渠等之合法居留年限，渠等如持有我國外僑居留證，並合法居留一定期限，經中央目的事業主管機關推薦，並經內政部召開審查會審核通過後，即可申請歸化我國國籍，爰增訂第三款。\n二、現行第九條第五項移列為第三項，並為使授權明確，增訂相關授權事項。\n三、為避免本條遭具不當目的之人士濫用，另規定不適用本條之情形。"},{"bill":"202110023990000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、由中央目的事業主管機關推薦之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士及相關機關共同審核通過，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n前項第三款所定高級專業人才之認定要件、審核程序、方式及其他相關事項之標準，由內政部定之。","note":"一、鑑於國際上專業人才競逐日趨激烈，我國為延攬外國專業人才，實需持續檢討放寬相關法規。\n二、為吸引優秀外籍人士來臺，增加渠等歸化我國誘因，爰放寬居留年限之規定。\n三、另，現行法規定，因外籍高級專業人才歸化無須喪失原有國籍，存在忠誠衝突問題，爰增訂相關附款使渠等在我國領域內居留一定期間，以瞭解渠等對我國國家安全無危害。然其期限之所訂，同增加延攬優秀外籍人士歸化我國誘因之難度，爰縮短相關合法居留年限，並增訂第三款，渠等如持有我國外僑居留證，並經中央目的事業主管機關推薦，並經內政部召開審查會審核通過後，即可申請歸化我國國籍。\n四、現行法第九條第五款移列為本條第二項，並增訂相關授權事項以使授權明確。"},{"bill":"202110024020000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、由中央目的事業主管機關推薦之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士及相關機關共同審核通過，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n前項第三款所定高級專業人才之認定要件、審核程序、方式及其他相關事項之標準，由內政部定之。","note":"一、現行條文列為第一項。另鑑於國際上專業人才競逐日益激烈，且我國為延攬外國專業人才，持續檢討放寬相關法規，如訂修外國專業人才延攬及僱用法、入出國及移民法等。為吸引優秀外籍人士來臺，增加渠等歸化我國誘因，爰放寬居留年限之規定，惟考量外籍高級專業人才歸化依修正條文第九條第四項第一款規定無須喪失原有國籍，存在忠誠衝突問題，宜使渠等在我國領域內居留一定期間，以瞭解渠等對我國國家安全無危害，爰參酌法國、英國、新加坡、菲律賓等國立法例，縮短渠等之合法居留年限，渠等如持有我國外僑居留證，並合法居留一定期限，經中央目的事業主管機關推薦，並經內政部召開審查會審核通過後，即可申請歸化我國國籍，爰增訂第三款。\n二、現行第九條第五項移列為第二項，並為使授權明確，增訂相關授權事項。"},{"bill":"202110024080000","text":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、具特殊專業技能並經政府機關、企業或立案團體聘任專職，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n前項第三款所定高級專業人才之認定要件、審核程序、方式及其他相關事項之標準，由內政部定之。","note":"一、增訂第一項第三款及第三項。\n二、為增加外國專業人才歸化我國之誘因，並考量專業人才頻繁出國進行競賽、研究或執行公務之需要，放寬其居留年限之規定。"}],"changed":true,"final":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、由中央目的事業主管機關推薦之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士及相關機關共同審核通過，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n前項第三款所定高級專業人才之認定要件、審核程序、方式及其他相關事項之標準，由內政部定之。","finalWhy":"一、原條文列為第一項。另鑑於國際上專業人才競逐日益激烈，且我國為延攬外國專業人才，持續檢討放寬相關法規，如訂修外國專業人才延攬及僱用法、入出國及移民法等。為吸引優秀外籍人士來臺，增加渠等歸化我國誘因，爰放寬居留年限之規定，惟考量外籍高級專業人才歸化依修正條文第九條第四項第一款規定無須喪失原有國籍，存在忠誠衝突問題，宜使渠等在我國領域內居留一定期間，以瞭解渠等對我國國家安全無危害，爰參酌法國、英國、新加坡、菲律賓等國立法例，縮短渠等之合法居留年限，渠等如持有我國外僑居留證，並合法居留一定期限，經中央目的事業主管機關推薦，並經內政部召開審查會審核通過後，即可申請歸化我國國籍，爰增訂第三款。\n二、原第九條第五項移列為第二項，並為使授權明確，增訂相關授權事項。","review":{"note":"照行政院提案通過","text":"外國人或無國籍人，現於中華民國領域內有住所，具備第三條第一項第二款至第五款要件，並具有下列各款情形之一者，亦得申請歸化：\n一、出生於中華民國領域內，其父或母亦出生於中華民國領域內。\n二、曾在中華民國領域內合法居留繼續十年以上。\n三、由中央目的事業主管機關推薦之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士及相關機關共同審核通過，且於中華民國領域內，每年合計有一百八十三日以上合法居留之事實繼續二年以上，或曾在中華民國領域內合法居留繼續五年以上。\n前項第三款所定高級專業人才之認定要件、審核程序、方式及其他相關事項之標準，由內政部定之。"}},{"no":"第六條","current":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。","versions":[{"bill":"201110009790000","text":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。\n依第一項規定申請歸化者，免徵國籍許可證書規費。","note":"一、有殊勳於我國者，均係長期在臺居留，於醫療、社會福利、教育等方面持續付出，協助弱勢民眾、原鄉部落或偏鄉地區自立，所作所為皆為社會大眾所稱揚，為感恩渠等對國家、社會之貢獻，渠等申請歸化我國國籍之許可證書免徵規費。為使該免徵規費有明確法律依據，爰增訂第三項。\n二、第一項及第二項未修正。"},{"bill":"202110022170000","text":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。\n依第一項規定申請歸化者，免徵國籍許可證書規費。","note":"一、增訂第三項。\n二、明定有殊勳於我國之外國人或無國籍人士申請歸化，得免徵國籍許可證書規費，以表彰其貢獻。"},{"bill":"202110021490000","text":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。\n依第一項規定申請歸化者，免徵國籍許可證書規費。","note":"為感激有殊勳於我國者對國家、社會之貢獻，渠等申請歸化我國國籍之許可證書免徵規費。為使該免徵規費有明確法律依據，爰增訂第三項。"},{"bill":"202110021550000","text":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。\n依第一項規定申請歸化者，免徵國籍許可證書規費。\n第一項有殊勳於中華民國之認定原則、應備文件、處理程序及其他相關事項之標準，由內政部定之。","note":"一、有殊勳於我國者，均係長期在臺居留，於醫療、社會福利、教育等方面持續付出，協助弱勢民眾、原鄉部落或偏鄉地區自立，所作所為皆為社會大眾所稱揚，為感恩渠等對國家、社會之貢獻，渠等申請歸化我國國籍之許可證書免徵規費。為使該免徵規費有明確法律依據，爰增訂第三項。\n二、第一項及第二項未修正。"},{"bill":"202110023990000","text":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。依第一項規定申請歸化者，免徵國籍許可證書規費。","note":"考量有殊勳於我國者，均係對中華民國各項領域方面持續付出、或有重大之貢獻者，所作所為皆為國人所稱揚，為感恩渠等對國家、社會之貢獻，爰增訂第三項，渠等申請歸化我國國籍之許可證書免徵規費。"},{"bill":"202110024020000","text":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。\n依第一項規定申請歸化者，免徵國籍許可證書規費。","note":"一、有殊勳於我國者，均係長期在臺居留，於醫療、社會福利、教育等方面持續付出，協助弱勢民眾、原鄉部落或偏鄉地區自立，所作所為皆為社會大眾所稱揚，為感恩渠等對國家、社會之貢獻，渠等申請歸化我國國籍之許可證書免徵規費。為使該免徵規費有明確法律依據爰增訂第三項。\n二、第一項及第二項未修正。"},{"bill":"202110029400000","text":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。\n第一項有殊勳於中華民國之認定原則、應備文件、處理程序及其他相關事項之標準，由內政部定之。","note":"有關第一項「有殊勳於中華民國者」，應有相關法律授權，方符合法律保留原則。爰提案增列第六條第三項。"}],"changed":true,"final":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。\n依第一項規定申請歸化者，免徵國籍許可證書規費。","finalWhy":"一、有殊勳於我國者，均係長期在臺居留，於醫療、社會福利、教育等方面持續付出，協助弱勢民眾、原鄉部落或偏鄉地區自立，所作所為皆為社會大眾所稱揚，為感恩渠等對國家、社會之貢獻，渠等申請歸化我國國籍之許可證書免徵規費。為使該免徵規費有明確法律依據，爰增訂第三項。\n二、第一項及第二項未修正。","review":{"note":"照行政院提案通過","text":"外國人或無國籍人，有殊勳於中華民國者，雖不具備第三條第一項各款要件，亦得申請歸化。\n內政部為前項歸化之許可，應經行政院核准。\n依第一項規定申請歸化者，免徵國籍許可證書規費。"}},{"no":"第六條之一","current":null,"versions":[{"bill":"202110012820000","text":"外國人或無國籍人，具特殊專業技能並經政府機關或民間企業聘任專職，於中華民國領域內，合法連續居留二年以上且平均每年居住一百八十三日以上，或曾在中國民國領域內合法居留繼續五年以上者，亦得申請歸化。\n內政部為前項歸化之許可，應會同各目的事業主管機關開會決議後，經行政院核准。\n六年內曾具有大陸、香港或澳門戶籍之外國人及無國籍人，不適用本條。","note":"一、本條新增。\n二、現行具有特殊專業之外國人或無國籍人如欲歸化我國，除有殊勳於中華民國者得依《國籍法》第六條歸化外，均須依照《國籍法》第四條或第五條申請歸化。\n三、但要有殊勳於中華民國並非易事，而國際情勢變化迅速，部分特殊專業人士有頻繁出國工作、研究、比賽等必要，要於台灣連續五年住滿一百八十三天以上亦不容易。\n四、為強化延攬符合我國需要之專業人士，進而提升國家競爭力，爰增訂本條，於第一項規定有特殊專業技能並經政府機關或民間企業聘任專職，連續在台灣居留兩年且平均每年居住一百八十三日以上，或曾在中國民國領域內合法居留繼續五年以上者，亦可申請歸化。\n五、於第二項規定，歸化之許可由內政部會同各目的事業主管機關決議，並須經行政院核准。\n六、為避免本條遭具不當目的之人士濫用，於第三項規定不適用本條之情形。"},{"bill":"202110018710000","text":"外國人之父母於本法中華民國八十九年二月九日修正施行時已滿二十歲，且其父母之母為中華民國國民，如其符合奧、亞運項目國際體育組織規範，於取得國籍後可直接代表我國參與國際賽事，得經外國人本人同意後，由特定體育團體申請歸化，並免提出喪失原有國籍證明。\n內政部為前項歸化之許可，應與教育部共同會商後，經行政院核准。\n依本條申請歸化通過者，自歸化核定日起五年內受教育部列管，如未依教育部通知之期限、地點配合國家代表隊完成報到、參加集訓或比賽，得撤銷其歸化許可。","note":"一、現行國籍法第二條第二項所定「本法中華民國八十九年二月九日修正施行時未滿二十歲之人，亦適用之。」之設計，係為該次國籍法修正中，調整過去僅中華民國國籍父系子女可取得國籍之條件，改為父母為中華民國國民均可取得國籍。同時，該次亦保留修法時間點未滿二十歲，且母方為中華民國國民之子女者亦回溯適用。\n二、然查現行國際體育賽事之具血緣球員之認定，多可放寬至向上三代內直系血親具該國國籍者，均可不必受是否有一定時間居住事實，或是取得國籍後一定時間方可代表出賽之限制。故如現有選手之父或母為民國六十九年二月九日前出生，且其父或母之母方為中華民國國民，雖該球員依國際體育組織規範可代表我國出賽，但因現有國籍法之規定，反會因其父或母無法取得國籍，進而使我國失去爭取具台灣血統之優秀海外球員效力之可能。\n三、考量近年來國際體育賽事廣納具國籍血統之選手代表出賽已為主流趨勢，且前述條件與單純透過殊勳模式取得國籍之邏輯顯有差異，為擴充我國體育運動代表隊之人才庫與選材可能，增加我國競技體育之競爭力，爰擬具「國籍法第六條之一」條文草案，並援用「國家體育競技代表隊服補充兵役辦法」精神，設定歸化球員列管期限及撤銷歸化許可之但書。"}],"changed":false,"final":null,"finalWhy":null,"review":{"note":"不予增訂","text":""}},{"no":"第七條","current":"歸化人之未婚未成年子女，得申請隨同歸化。","versions":[{"bill":"201110009790000","text":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。","note":"將「未婚未成年」修正為「未婚且未滿十八歲」，理由同修正條文第四條說明一、(一)。"},{"bill":"202110017780000","text":"歸化人之未成年子女，得申請隨同歸化。但未成年子女之原屬國法令不允許放棄國籍或須滿一定年齡以上始得放棄國籍者，得取得我國居留，並享有國民之權利義務。","note":"一、考量部分國家之法令或政策，不允許放棄原屬國國籍，或須滿一定年齡以上始得放棄原屬國籍，為保障歸化人之未成年子女權益，爰增訂但書，始其得取得我國居留，並享有國民之權利義務。\n二、為維持法律體系之一貫性，配合民法成年年齡及男女最低結婚年齡均修正為十八歲，爰刪除「未婚」之文字。"},{"bill":"202110022170000","text":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。","note":"將「未婚未成年之用法」統一修正為「未婚且未滿十八歲」，以配合《民法》成年年齡調降，並將外國人適用之成年年齡明確化。"},{"bill":"202110021360000","text":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。","note":"配合民法成年定義規定之修正，將本條文中未成年修正為未滿十八歲。"},{"bill":"202110021490000","text":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。","note":"配合《民法》成年年齡調降，爰將第二項「未婚未成年」修正為「未婚且未滿十八歲」。"},{"bill":"202110021550000","text":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。","note":"配合民法已將成年年齡調降，又涉及外國人部分均以年齡規範之體例，爰將「未婚未成年」修正為「未婚且未滿十八歲」，以求法律規範一致性。"},{"bill":"202110023990000","text":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。","note":"原條文內容以未成年做申請歸化之規範，因應民法成年年齡調降政策，為國籍法配合民法一致，爰將「未婚未成年」修正為「未婚且未滿十八歲」。"},{"bill":"202110024020000","text":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。","note":"將「未婚未成年」修正為「未婚且未滿十八歲」，理由同修正條文第四條說明一、(一)。"},{"bill":"202110034810000","text":"歸化人之未婚且未滿二十歲子女，得申請隨同歸化。","note":"配合民法成年年齡調降政策，國籍法第二條已配合民法修改法規，調整相關的年齡規範。有關本法涉及外國人歸化年齡部分，為保障十八歲以上未滿二十歲人之歸化權益，將本條文中「未婚未成年」修正為「未婚且未滿二十歲」。"}],"changed":true,"final":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。","finalWhy":"將「未婚未成年」修正為「未婚且未滿十八歲」，理由同修正條文第四條說明一、(一)。","review":{"note":"照行政院提案通過","text":"歸化人之未婚且未滿十八歲子女，得申請隨同歸化。"}},{"no":"第九條","current":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第六條規定申請歸化。\n二、由中央目的事業主管機關推薦科技、經濟、教育、文化、藝術、體育及其他領域之高級專業人才，有助中華民國利益，並經內政部邀請社會公正人士及相關機關共同審核通過。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。\n前項第二款所定高級專業人才之認定標準，由內政部定之。","versions":[{"bill":"201110009790000","text":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第五條第一項第三款規定申請歸化。\n二、依第六條第一項規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。","note":"一、配合修正條文第五條第一項增訂第三款，第四項第二款移列至第一款並修正文字；另第一款移列至第二款，並酌修文字。\n二、第一項至第三項未修正；另第五項移列為修正條文第五條第二項，爰予刪除。"},{"bill":"202110022170000","text":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第五條第一項第三款規定申請歸化。\n二、依第六條第一項規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。","note":"一、修正第四項第一款及第二款，刪除第五項。\n二、配合第五條修正，將現有第四項第二款及第五項移至第五條。"},{"bill":"202110021490000","text":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第五條第一項第三款規定申請歸化。\n二、依第六條第一項規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。","note":"一、配合修正條文第五條第一項增訂第三款，第四項第二款移列至第一款並修正文字；另第一款移列至第二款，並酌修文字。\n二、第一項至第三項未修正；另第五項移列為修正條文第五條第二項，爰予刪除。"},{"bill":"202110021550000","text":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第五條第一項第三款規定申請歸化。\n二、依第六條第一項規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。","note":"第一項至第三項未修正；另第五項移列為修正條文第五條第三項，爰予刪除。"},{"bill":"202110023990000","text":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第五條第一項第三款規定申請歸化。\n二、依第六條第一項規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。","note":"一、配合修正條文第五條第一項增訂第三款，第四項第二款移列至第一款並修正文字；另第一款移列至第二款，並酌修文字。\n二、第一項至第三項未修正；另第五項移列為修正條文第五條第二項，爰予刪除。"},{"bill":"202110024020000","text":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第五條第一項第三款規定申請歸化。\n二、依第六條第一項規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。\n四、上述申請人之配偶及未成年子女，得隨同本人申請；未隨同本人申請者，得於本人申請許可後申請之。本人國籍許可經撤銷或廢止時，原隨同或於其許可後申請配偶及子女之國籍許可，應併同撤銷或廢止之。","note":"一、配合修正條文第五條第一項增訂第三款，第四項第二款移列至第一款並修正文字；另第一款移列至第二款，並酌修文字。\n二、第一項至第三項未修正；另第五項移列為修正條文第五條第二項，爰予刪除。\n三、考量其配偶及未成年子女與其隨同在臺，為使家庭完整，相關權益應涵蓋─國籍隨同本人或於其許可後申請之。惟，因配偶或未成年子女係依附於本人入籍。若於本人國籍經撤銷或廢止時，則應併同撤銷或廢止之，爰增訂本項第四款之規定。"},{"bill":"202110024080000","text":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第六條規定申請歸化。\n二、依第五條第一項第三款規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。","note":"一、增訂第四項第二款。\n二、考量特殊專業人才可能因母國之國籍規定差異，而不能提出國籍喪失證明，免除其提出相關證明之必要性。"}],"changed":true,"final":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第五條第一項第三款規定申請歸化。\n二、依第六條第一項規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。","finalWhy":"一、配合修正條文第五條第一項增訂第三款，第四項第二款移列至第一款並修正文字；另第一款移列至第二款，並酌修文字。\n二、第一項至第三項未修正；另第五項移列為修正條文第五條第二項，爰予刪除。","review":{"note":"照行政院提案通過","text":"外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，一年內提出喪失原有國籍證明。\n屆期未提出者，除經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外，應撤銷其歸化許可。\n未依前二項規定提出喪失原有國籍證明前，應不予許可其定居。\n外國人符合下列情形之一者，免提出喪失原有國籍證明：\n一、依第五條第一項第三款規定申請歸化。\n二、依第六條第一項規定申請歸化。\n三、因非可歸責於當事人之事由，致無法取得喪失原有國籍證明。"}},{"no":"第十九條","current":"歸化、喪失或回復中華民國國籍後，除依第九條第一項規定應撤銷其歸化許可外，內政部知有與本法之規定不合情形之日起二年得予撤銷。但自歸化、喪失或回復中華民國國籍之日起逾五年，不得撤銷。\n經法院確定判決認其係通謀為虛偽結婚或收養而歸化取得中華民國國籍者，不受前項撤銷權行使期間之限制。\n撤銷歸化、喪失或回復國籍處分前，內政部應召開審查會，並給予當事人陳述意見之機會。但有下列情形之一者，撤銷其歸化許可，不在此限：\n一、依第二條規定認定具有中華民國國籍。\n二、經法院確定判決，係通謀為虛偽結婚或收養而歸化取得中華民國國籍。\n前項審查會由內政部遴聘有關機關代表、社會公正人士及學者專家共同組成，其中任一性別不得少於三分之一，且社會公正人士及學者專家之人數不得少於二分之一。\n第三項審查會之組成、審查要件、程序等事宜，由內政部定之。","versions":[{"bill":"202110027850000","text":"歸化、喪失或回復中華民國國籍後，除違反第九條第一項規定應撤銷其歸化許可外，內政部知有與本法之規定不合情形之日起二年得予撤銷。但自歸化、喪失或回復中華民國國籍之日起逾五年，不得撤銷。\n經法院確定判決認其係通謀為虛偽結婚或收養而歸化取得中華民國國籍者，不受前項撤銷權行使期間之限制。\n撤銷歸化、喪失或回復國籍處分前，內政部應召開審查會，並給予當事人陳述意見之機會。但有下列情形之一者，撤銷其歸化許可，不在此限：\n一、依第二條規定認定具有中華民國國籍。\n二、經法院確定判決，係通謀為虛偽結婚或收養而歸化取得中華民國國籍。\n前項審查會由內政部遴聘有關機關代表、社會公正人士及學者專家共同組成，其中任一性別不得少於三分之一，且社會公正人士及學者專家之人數不得少於二分之一。\n第三項審查會之組成、審查要件、程序等事宜，由內政部定之。","note":"一、按現行條文第一項規定，歸化、喪失或回復中華民國國籍後，除依第九條第一項規定應撤銷其歸化許可外，內政部知有與本法之規定不合情形之日起2年得予撤銷。但自歸化、喪失或回復中華民國國籍之日起逾5年，不得撤銷。惟查本法第九條第一項係規定，外國人申請歸化，應於許可歸化之日起，或依原屬國法令須滿一定年齡始得喪失原有國籍者自滿一定年齡之日起，1年內提出喪失原有國籍證明。屆期未提出者，而本法第九條第二項規定，乃違反第一項規定之法律效果及除外規定得展延之情事為：「經外交部查證因原屬國法律或行政程序限制屬實，致使不能於期限內提出喪失國籍證明者，得申請展延時限外」，應撤銷其歸化許可。\n二、因此，現行條文第一項規定「除依第九條第一項規定應撤銷其歸化許可外」，文字似有未妥，爰如修正條文所示。"}],"changed":false,"final":"歸化、喪失或回復中華民國國籍後，除依第九條第一項規定應撤銷其歸化許可外，內政部知有與本法之規定不合情形之日起二年得予撤銷。但自歸化、喪失或回復中華民國國籍之日起逾五年，不得撤銷。\n經法院確定判決認其係通謀為虛偽結婚或收養而歸化取得中華民國國籍者，不受前項撤銷權行使期間之限制。\n撤銷歸化、喪失或回復國籍處分前，內政部應召開審查會，並給予當事人陳述意見之機會。但有下列情形之一者，撤銷其歸化許可，不在此限：\n一、依第二條規定認定具有中華民國國籍。\n二、經法院確定判決，係通謀為虛偽結婚或收養而歸化取得中華民國國籍。\n前項審查會由內政部遴聘有關機關代表、社會公正人士及學者專家共同組成，其中任一性別不得少於三分之一，且社會公正人士及學者專家之人數不得少於二分之一。\n第三項審查會之組成、審查要件、程序等事宜，由內政部定之。","finalWhy":null,"review":{"note":"維持現行條文","text":""}},{"no":"第二十條","current":"中華民國國民取得外國國籍者，不得擔任中華民國公職；其已擔任者，除立法委員由立法院；直轄市、縣（市）、鄉（鎮、市）民選公職人員，分別由行政院、內政部、縣政府；村（里）長由鄉（鎮、市、區）公所解除其公職外，由各該機關免除其公職。但下列各款經該管主管機關核准者，不在此限：\n一、公立大學校長、公立各級學校教師兼任行政主管人員與研究機關（構）首長、副首長、研究人員（含兼任學術研究主管人員）及經各級主管教育行政或文化機關核准設立之社會教育或文化機構首長、副首長、聘任之專業人員（含兼任主管人員）。\n二、公營事業中對經營政策負有主要決策責任以外之人員。\n三、各機關專司技術研究設計工作而以契約定期聘用之非主管職務。\n四、僑務主管機關依組織法遴聘僅供諮詢之無給職委員。\n五、其他法律另有規定者。\n前項第一款至第三款人員，以具有專長或特殊技能而在我國不易覓得之人才且不涉及國家機密之職務者為限。\n第一項之公職，不包括公立各級學校未兼任行政主管之教師、講座、研究人員、專業技術人員。\n中華民國國民兼具外國國籍者，擬任本條所定應受國籍限制之公職時，應於就（到）職前辦理放棄外國國籍，並於就（到）職之日起一年內，完成喪失該國國籍及取得證明文件。但其他法律另有規定者，從其規定。","versions":[{"bill":"201110009790000","text":"中華民國國民取得外國國籍者，不得擔任中華民國公職；其已擔任者，除立法委員由立法院；直轄市、縣（市）、直轄市山地原住民區、鄉（鎮、市）民選公職人員，分別由行政院、內政部、直轄市政府、縣政府；村（里）長由鄉（鎮、市、區）公所解除其公職外，由各該機關免除其公職。但下列各款經該管主管機關核准者，不在此限：\n一、公立大學校長、公立各級學校教師兼任行政主管人員與研究機關（構）首長、副首長、研究人員（含兼任學術研究主管人員）及經各級主管教育行政或文化機關核准設立之社會教育或文化機構首長、副首長、聘任之專業人員（含兼任主管人員）。\n二、公營事業中對經營政策負有主要決策責任以外之人員。\n三、各機關專司技術研究設計工作而以契約定期聘用之非主管職務。\n四、僑務主管機關依組織法遴聘僅供諮詢之無給職委員。\n五、其他法律另有規定者。\n前項第一款至第三款人員，以具有專長或特殊技能而在我國不易覓得之人才且不涉及國家機密之職務者為限。\n第一項之公職，不包括公立各級學校未兼任行政主管之教師、講座、研究人員、專業技術人員。\n中華民國國民兼具外國國籍者，擬任本條所定應受國籍限制之公職時，應於就（到）職前辦理放棄外國國籍，並於就（到）職之日起一年內，完成喪失該國國籍及取得證明文件。但其他法律另有規定者，從其規定。","note":"一、查一百零三年一月二十九日修正公布之地方制度法增訂第八十三條之二規定，直轄市之區由山地鄉改制者，稱直轄市山地原住民區（以下簡稱山地原住民區），為地方自治團體；山地原住民區與直轄市之關係，準用該法關於縣與鄉（鎮、市）關係之規定。另公職人員選舉罷免法第二條第二款規定，直轄市山地原住民區民代表會代表及區長為地方公職人員，為臻明確，爰第一項序文增列山地原住民區民選公職人員具外國國籍並擔任我國公職者，由直轄市政府解除其公職之規定。\n二、第二項至第四項未修正。"},{"bill":"202110022170000","text":"中華民國國民取得外國國籍者，不得擔任中華民國公職；其已擔任者，除立法委員由立法院；直轄市、縣（市）、鄉（鎮、市、區）民選公職人員，分別由行政院、內政部、直轄市政府、縣政府；村（里）長由鄉（鎮、市、區）公所解除其公職外，由各該機關免除其公職。但下列各款經該管主管機關核准者，不在此限：\n一、公立大學校長、公立各級學校教師兼任行政主管人員與研究機關（構）首長、副首長、研究人員（含兼任學術研究主管人員）及經各級主管教育行政或文化機關核准設立之社會教育或文化機構首長、副首長、聘任之專業人員（含兼任主管人員）。\n二、公營事業中對經營政策負有主要決策責任以外之人員。\n三、各機關專司技術研究設計工作而以契約定期聘用之非主管職務。\n四、僑務主管機關依組織法遴聘僅供諮詢之無給職委員。\n五、其他法律另有規定者。\n前項第一款至第三款人員，以具有專長或特殊技能而在我國不易覓得之人才且不涉及國家機密之職務者為限。\n第一項之公職，不包括公立各級學校未兼任行政主管之教師、講座、研究人員、專業技術人員。\n中華民國國民兼具外國國籍者，擬任本條所定應受國籍限制之公職時，應於就（到）職前辦理放棄外國國籍，並於就（到）職之日起一年內，完成喪失該國國籍及取得證明文件。但其他法律另有規定者，從其規定。","note":"一、修正第一項。\n二、按《地方制度法》第八十三條之二規定，直轄市之山地原住民區與直轄市之關係，準用關於縣與鄉（鎮、市）關係之規定。另《公職人員選舉罷免法》第二條第二款規定，直轄市山地原住民區民代表會代表及區長為地方公職人員，準此，爰將直轄市民選之區長納入規範，並得由直轄市政府解除其職務。"},{"bill":"202110021490000","text":"中華民國國民取得外國國籍者，不得擔任中華民國公職；其已擔任者，除立法委員由立法院；直轄市、縣（市）、直轄市山地原住民區、鄉（鎮、市）民選公職人員，分別由行政院、內政部、直轄市政府、縣政府；村（里）長由鄉（鎮、市、區）公所解除其公職外，由各該機關免除其公職。但下列各款經該管主管機關核准者，不在此限：\n一、公立大學校長、公立各級學校教師兼任行政主管人員與研究機關（構）首長、副首長、研究人員（含兼任學術研究主管人員）及經各級主管教育行政或文化機關核准設立之社會教育或文化機構首長、副首長、聘任之專業人員（含兼任主管人員）。\n二、公營事業中對經營政策負有主要決策責任以外之人員。\n三、各機關專司技術研究設計工作而以契約定期聘用之非主管職務。\n四、僑務主管機關依組織法遴聘僅供諮詢之無給職委員。\n五、其他法律另有規定者。\n前項第一款至第三款人員，以具有專長或特殊技能而在我國不易覓得之人才且不涉及國家機密之職務者為限。\n第一項之公職，不包括公立各級學校未兼任行政主管之教師、講座、研究人員、專業技術人員。\n中華民國國民兼具外國國籍者，擬任本條所定應受國籍限制之公職時，應於就（到）職前辦理放棄外國國籍，並於就（到）職之日起一年內，完成喪失該國國籍及取得證明文件。但其他法律另有規定者，從其規定。","note":"一百零三年一月二十九日修正公布之《地方制度法》增訂第八十三條之二規定，直轄市之區由山地鄉改制者，稱直轄市山地原住民區（以下簡稱山地原住民區），為地方自治團體；山地原住民區與直轄市之關係，準用該法關於縣與鄉（鎮、市）關係之規定。另《公職人員選舉罷免法》第二條第二款規定，直轄市山地原住民區民代表會代表及區長為地方公職人員，為臻明確，爰第一項序文增列山地原住民區民選公職人員具外國國籍並擔任我國公職者，由直轄市政府解除其公職之規定。"},{"bill":"202110024020000","text":"中華民國國民取得外國國籍者，不得擔任中華民國公職；其已擔任者，除立法委員由立法院；直轄市、縣（市）、直轄市山地原住民區、鄉（鎮、市）民選公職人員，分別由行政院、內政部、直轄市政府、縣政府；村（里）長由鄉（鎮、市、區）公所解除其公職外，由各該機關免除其公職。但下列各款經該管主管機關核准者，不在此限：\n一、公立大學校長、公立各級學校教師兼任行政主管人員與研究機關（構）首長、副首長、研究人員（含兼任學術研究主管人員）及經各級主管教育行政或文化機關核准設立之社會教育或文化機構首長、副首長、聘任之專業人員（含兼任主管人員）。\n二、公營事業中對經營政策負有主要決策責任以外之人員。\n三、各機關專司技術研究設計工作而以契約定期聘用之非主管職務。\n四、僑務主管機關依組織法遴聘僅供諮詢之無給職委員。\n五、其他法律另有規定者。\n前項第一款至第三款人員，以具有專長或特殊技能而在我國不易覓得之人才且不涉及國家機密之職務者為限。\n第一項之公職，不包括公立各級學校未兼任行政主管之教師、講座、研究人員、專業技術人員。\n中華民國國民兼具外國國籍者，擬任本條所定應受國籍限制之公職時，應於就（到）職前辦理放棄外國國籍，並於就（到）職之日起一年內，完成喪失該國國籍及取得證明文件。但其他法律另有規定者，從其規定。","note":"查一百零三年一月二十九日修正公布之地方制度法增訂第八十三條之二規定，直轄市之區由山地鄉改制者，稱直轄市山地原住民區（以下簡稱山地原住民區），為地方自治團體；山地原住民區與直轄市之關係，準用該法關於縣與鄉（鎮、市）關係之規定。另公職人員選舉罷免法第二條第二款規定，直轄市山地原住民區民代表會代表及區長為地方公職人員，為臻明確，爰第一項序文增列山地原住民區民選公職人員具外國國籍並擔任我國公職者，由直轄市政府解除其公職之規定。"}],"changed":true,"final":"中華民國國民取得外國國籍者，不得擔任中華民國公職；其已擔任者，除立法委員由立法院；直轄市、縣（市）、直轄市山地原住民區、鄉（鎮、市）民選公職人員，分別由行政院、內政部、直轄市政府、縣政府；村（里）長由鄉（鎮、市、區）公所解除其公職外，由各該機關免除其公職。但下列各款經該管主管機關核准者，不在此限：\n一、公立大學校長、公立各級學校教師兼任行政主管人員與研究機關（構）首長、副首長、研究人員（含兼任學術研究主管人員）及經各級主管教育行政或文化機關核准設立之社會教育或文化機構首長、副首長、聘任之專業人員（含兼任主管人員）。\n二、公營事業中對經營政策負有主要決策責任以外之人員。\n三、各機關專司技術研究設計工作而以契約定期聘用之非主管職務。\n四、僑務主管機關依組織法遴聘僅供諮詢之無給職委員。\n五、其他法律另有規定者。\n前項第一款至第三款人員，以具有專長或特殊技能而在我國不易覓得之人才且不涉及國家機密之職務者為限。\n第一項之公職，不包括公立各級學校未兼任行政主管之教師、講座、研究人員、專業技術人員。\n中華民國國民兼具外國國籍者，擬任本條所定應受國籍限制之公職時，應於就（到）職前辦理放棄外國國籍，並於就（到）職之日起一年內，完成喪失該國國籍及取得證明文件。但其他法律另有規定者，從其規定。","finalWhy":"一、查一百零三年一月二十九日修正公布之地方制度法增訂第八十三條之二規定，直轄市之區由山地鄉改制者，稱直轄市山地原住民區（以下簡稱山地原住民區），為地方自治團體；山地原住民區與直轄市之關係，準用該法關於縣與鄉（鎮、市）關係之規定。另公職人員選舉罷免法第二條第二款規定，直轄市山地原住民區民代表會代表及區長為地方公職人員，為臻明確，爰第一項序文增列山地原住民區民選公職人員具外國國籍並擔任我國公職者，由直轄市政府解除其公職之規定。\n二、第二項至第四項未修正。","review":{"note":"照行政院提案通過","text":"中華民國國民取得外國國籍者，不得擔任中華民國公職；其已擔任者，除立法委員由立法院；直轄市、縣（市）、直轄市山地原住民區、鄉（鎮、市）民選公職人員，分別由行政院、內政部、直轄市政府、縣政府；村（里）長由鄉（鎮、市、區）公所解除其公職外，由各該機關免除其公職。但下列各款經該管主管機關核准者，不在此限：\n一、公立大學校長、公立各級學校教師兼任行政主管人員與研究機關（構）首長、副首長、研究人員（含兼任學術研究主管人員）及經各級主管教育行政或文化機關核准設立之社會教育或文化機構首長、副首長、聘任之專業人員（含兼任主管人員）。\n二、公營事業中對經營政策負有主要決策責任以外之人員。\n三、各機關專司技術研究設計工作而以契約定期聘用之非主管職務。\n四、僑務主管機關依組織法遴聘僅供諮詢之無給職委員。\n五、其他法律另有規定者。\n前項第一款至第三款人員，以具有專長或特殊技能而在我國不易覓得之人才且不涉及國家機密之職務者為限。\n第一項之公職，不包括公立各級學校未兼任行政主管之教師、講座、研究人員、專業技術人員。\n中華民國國民兼具外國國籍者，擬任本條所定應受國籍限制之公職時，應於就（到）職前辦理放棄外國國籍，並於就（到）職之日起一年內，完成喪失該國國籍及取得證明文件。但其他法律另有規定者，從其規定。"}}],"stages":[{"date":"2024-03-08","stage":"一讀","code":"院會-11-1-4","bill":"201110009790000","gazref":"113卷006期5188號 5-5頁"},{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110012820000","gazref":"113卷010期5192號 8-8頁"},{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110012830000","gazref":"113卷010期5192號 8-8頁"},{"date":"2024-03-22","stage":"一讀","code":"院會-11-1-6","bill":"202110017780000","gazref":"113卷014期5196號 8-8頁"},{"date":"2024-03-22","stage":"一讀","code":"院會-11-1-6","bill":"202110018710000","gazref":"113卷014期5196號 14-15頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110022170000","gazref":"113卷018期5200號 3-3頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110021360000","gazref":"113卷018期5200號 6-6頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110021490000","gazref":"113卷018期5200號 7-7頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110021550000","gazref":"113卷018期5200號 8-8頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110022080000","gazref":"113卷018期5200號 10-10頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110023990000","gazref":"113卷018期5200號 16-16頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110024020000","gazref":"113卷018期5200號 16-16頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110024080000","gazref":"113卷018期5200號 17-17頁"},{"date":"2024-04-12","stage":"一讀","code":"院會-11-1-9","bill":"202110027850000","gazref":"113卷025期5207號 1-1頁"},{"date":"2024-04-12","stage":"一讀","code":"院會-11-1-9","bill":"202110029400000","gazref":"113卷025期5207號 5-5頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110034810000","gazref":"113卷028期5210號 19-19頁"},{"date":"2024-04-24","code":"委員會-11-1-15-14","title":"第11屆第1會期內政委員會第14次全體委員會議","gazref":"113卷033期5215號 1-4,6-113頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024041991/details?meetingDate=113/04/24","full":["https://ivod.ly.gov.tw/Play/Full/1M/15843"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/113/33/LCIDC01_1133301_00001.pdf","p1":1,"p2":114}],"clips":[{"n":"莊瑞雄","t":"09:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151713"},{"n":"羅美玲","t":"09:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151706"},{"n":"陳玉珍","t":"09:17","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151707"},{"n":"黃捷","t":"09:19","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151708"},{"n":"陳培瑜","t":"09:21","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151709"},{"n":"蘇巧慧","t":"09:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151710"},{"n":"麥玉珍","t":"09:26","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151711"},{"n":"吳沛憶","t":"09:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151712"},{"n":"蘇巧慧","t":"09:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151604"},{"n":"王美惠","t":"09:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151703"},{"n":"牛煦庭","t":"09:59","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151613"},{"n":"麥玉珍","t":"10:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151625"},{"n":"張智倫","t":"10:19","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151626"},{"n":"張宏陸","t":"10:28","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151629"},{"n":"黃捷","t":"10:35","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151634"},{"n":"黃建賓","t":"10:41","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151639"},{"n":"李柏毅","t":"10:48","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151644"},{"n":"許宇甄","t":"10:54","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151704"},{"n":"徐欣瑩","t":"11:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151705"},{"n":"丁學忠","t":"11:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151653"},{"n":"黃國昌","t":"11:19","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151659"},{"n":"黃珊珊","t":"11:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151660"},{"n":"鄭天財Sra Kacaw","t":"11:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151665"},{"n":"羅美玲","t":"11:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151671"},{"n":"莊瑞雄","t":"12:00","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151684"},{"n":"陳菁徽","t":"12:10","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151686"},{"n":"陳培瑜","t":"12:17","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151691"},{"n":"陳冠廷","t":"12:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151693"},{"n":"吳琪銘","t":"12:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151696"}],"props":["201110009790000","202110012820000","202110012830000","202110017780000","202110018710000","202110021360000","202110021490000","202110021550000","202110022080000","202110023990000","202110024020000","202110024080000","202110027850000","202110029400000","202110034810000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":38,"nmem":22,"ntable":0,"mixedOther":["宣讀上次會議議事錄","處理113年度中央政府總預算案有關內政部主管預算凍結書面報告案計24案"],"nfold":1},{"date":"2024-05-07","code":"院會-11-1-12","title":"第11屆第1會期第12次會議","gazref":"113卷035期5217號 100-172頁；113卷035期5217號 172-174頁；113卷035期5217號 174-176頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024050179/details?meetingDate=113/05/03","full":["https://ivod.ly.gov.tw/Play/Full/1M/15885"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/113/35/LCIDC01_1133501_00010.pdf","p1":100,"p2":176}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"nspeak":7,"nmem":4,"ntable":1,"nfold":3}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["4 月 24 日的委員會同時處理「宣讀上次會議議事錄」「處理113年度中央政府總預算案有關內政部主管預算凍結書面報告案計24案」，詢答合併進行，逐字稿裡有那部分的問答。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

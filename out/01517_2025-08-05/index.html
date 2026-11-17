@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>貨物稅條例修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"貨物稅條例","version":"01517:2025-08-05-修正","date":"2025-08-05","action":"修正","title":"貨物稅條例　2025 年修正","lede":"","summary":"","key":"01517_2025-08-05","props":[{"id":"202110026620000","who":"委員廖先翔等16人","date":"2024-04-09","name":"「貨物稅條例刪除第八條條文草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110026620000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/08/LCEWA01_110108_00051.pdf","proposers":["廖先翔"],"ncosign":15,"people":[["廖先翔","國民黨","提案"],["黃健豪","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["林德福","國民黨","連署"],["廖偉翔","國民黨","連署"],["翁曉玲","國民黨","連署"],["許宇甄","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["林沛祥","國民黨","連署"],["林思銘","國民黨","連署"],["盧縣一","國民黨","連署"],["牛煦庭","國民黨","連署"],["陳超明","無黨籍","連署"],["游顥","國民黨","連署"],["張嘉郡","國民黨","連署"],["涂權吉","國民黨","連署"]],"party":[["國民黨",15],["無黨籍",1]],"reason":"本院委員廖先翔等16人，有鑑於現行貨物稅條例，對飲料品等非屬奢侈品與高汙染之傳統民生工業用品，強予課徵稅賦，有違租稅中性原則。又政府於民國79年間已取消化妝品（奢侈品）之貨物稅，相對於低廉的包裝飲料，卻仍列為課稅範圍，凸顯我國稅法之失當與失衡。爰擬具「貨物稅條例刪除第八條條文草案」。是否有當？敬請公決。","arts":["第八條"]},{"id":"202110079610000","who":"委員邱若華等20人","date":"2024-11-29","name":"「貨物稅條例第十一條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110079610000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/11/LCEWA01_110211_00017.pdf","proposers":["邱若華","王鴻薇","蘇清泉","黃健豪","林沛祥"],"ncosign":15,"people":[["邱若華","國民黨","提案"],["王鴻薇","國民黨","提案"],["蘇清泉","國民黨","提案"],["黃健豪","國民黨","提案"],["林沛祥","國民黨","提案"],["林德福","國民黨","連署"],["黃仁","國民黨","連署"],["林倩綺","國民黨","連署"],["張智倫","國民黨","連署"],["黃建賓","國民黨","連署"],["許宇甄","國民黨","連署"],["盧縣一","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["洪孟楷","國民黨","連署"],["牛煦庭","國民黨","連署"],["魯明哲","國民黨","連署"],["李彥秀","國民黨","連署"],["陳玉珍","國民黨","連署"],["羅明才","國民黨","連署"],["陳雪生","國民黨","連署"]],"party":[["國民黨",20]],"reason":"本院委員邱若華、王鴻薇、蘇清泉、黃健豪、林沛祥等20人，鑒於我國生活及經濟進步，對於冷氣、冰箱等家電，皆為一般家庭生活必需品，惟貨物稅條例仍然持續對於上開產品課稅，稅制未與時俱進，實有調整之必要，且最近我國對於老舊家電，例如：冷氣機、電冰箱補助換新機獎勵，但為了鼓勵民眾汰換老舊的之電冰箱及冷氣，不直接降價折低上開物品之貨物稅，反另請民眾採用申請補助的方式向政府領取回饋，除增加民眾與廠商之行政負擔外、亦增加政府公務員的工作量，此制度恐有制度疊床架屋之虞，爰擬具「貨物稅條例第十一條條文修正草案」。是否有當？敬請公決。","arts":["第十一條"]},{"id":"202110126760000","who":"委員鍾佳濱等23人","date":"2025-05-23","name":"「貨物稅條例第八條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110126760000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/13/LCEWA01_110313_00006.pdf","proposers":["鍾佳濱","陳培瑜"],"ncosign":21,"people":[["鍾佳濱","民進黨","提案"],["陳培瑜","民進黨","提案"],["邱議瑩","民進黨","連署"],["林楚茵","民進黨","連署"],["黃捷","民進黨","連署"],["羅美玲","民進黨","連署"],["郭國文","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["吳沛憶","民進黨","連署"],["林俊憲","民進黨","連署"],["吳琪銘","民進黨","連署"],["王定宇","民進黨","連署"],["沈伯洋","民進黨","連署"],["李昆澤","民進黨","連署"],["陳俊宇","民進黨","連署"],["蔡其昌","民進黨","連署"],["黃秀芳","民進黨","連署"],["許智傑","民進黨","連署"],["王正旭","民進黨","連署"],["林淑芬","民進黨","連署"],["吳秉叡","民進黨","連署"],["林岱樺","民進黨","連署"],["陳素月","民進黨","連署"]],"party":[["民進黨",23]],"reason":"本院委員鍾佳濱、陳培瑜等23人，鑑於我國肥胖、代謝症候群及心血管疾病的上升趨勢明顯。另據調查台灣40歲以下的年輕族群，每天喝一杯含糖飲料的比率接近25%，長期追蹤發現含糖飲料量與心血管疾病死亡風險有很強的連結，同時具有致癌風險。綜上，科學實證已充分指出「糖」對健康的危害，為使國人減少糖份攝取以增進健康，爰擬具「貨物稅條例第八條條文修正草案」。是否有當？敬請公決。","arts":["第八條"]},{"id":"202110130840000","who":"委員陳菁徽等16人","date":"2025-06-06","name":"「貨物稅條例第八條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110130840000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/15/LCEWA01_110315_00017.pdf","proposers":["陳菁徽","張智倫"],"ncosign":14,"people":[["陳菁徽","國民黨","提案"],["張智倫","國民黨","提案"],["蘇清泉","國民黨","連署"],["徐巧芯","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["盧縣一","國民黨","連署"],["陳超明","無黨籍","連署"],["葉元之","國民黨","連署"],["廖偉翔","國民黨","連署"],["林思銘","國民黨","連署"],["鄭正鈐","國民黨","連署"],["葛如鈞","國民黨","連署"],["邱鎮軍","國民黨","連署"],["涂權吉","國民黨","連署"],["牛煦庭","國民黨","連署"],["謝龍介","國民黨","連署"]],"party":[["國民黨",15],["無黨籍",1]],"reason":"","arts":[]},{"id":"202110133700000","who":"台灣民眾黨黨團","date":"2025-06-13","name":"「貨物稅條例第十一條及第三十七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110133700000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/16/LCEWA01_110316_00211.pdf","proposers":[],"ncosign":0,"people":[],"party":[],"reason":"本院台灣民眾黨黨團，有鑑於91年行政院財政改革委員會之貨物稅檢討報告指出，由於科技進步，產品日新月異，功能愈趨複雜導致是否為應稅產品界定不易，常產生爭議，造成不公平之競爭。並且目前課徵貨物稅之電器類貨物已較屬一般家庭之民生必需品，電器類貨物可取消貨物稅。持續課徵電器類貨物稅不僅不合時宜，更因為替代性產品日新月異，導致稅收每況愈下，持續課徵貨物稅之正當性降低，應立即廢除課稅項目。爰僅保留部分高耗能電器，待貨物稅併同整合綠色稅制時，一併檢討處理，爰擬具「貨物稅條例第十一條及第三十七條條文修正草案」。是否有當？敬請公決。","arts":["第十一條","第三十七條"]}],"arts":[{"no":"第八條","current":"飲料品：凡設廠機製之清涼飲料品均屬之。其稅率如左：\n一、稀釋天然果蔬汁從價徵收百分之八。\n二、其他飲料品從價徵收百分之十五。\n前項飲料品合於國家標準之純天然果汁、果漿、濃糖果漿、濃縮果汁及純天然蔬菜汁免稅。\n第一項所稱設廠機製，指左列情形之一：\n一、設有固定製造場所，使用電動或非電動之機具製造裝瓶（盒、罐、桶）固封者。\n二、設有固定製造場所，使用電動或非電動機具製造飲料品之原料或半成品裝入自動混合販賣機製造銷售者。\n國內產製之飲料品，應減除容器成本計算其出廠價格。","versions":[{"bill":"202110026620000","text":"（刪除）","note":"一、本條文刪除。\n二、目前國內飲料產品早已屬於民生必需品而非奢侈品，政府對容器包裝之飲料產品課徵8%及15%貨物稅；而市面上各式各樣、琳瑯滿目的手搖飲料、杯裝飲料卻不用課徵相關稅額，相較之下顯已違反租稅公平原則。\n三、經查政府於民國79年間已取消化妝品（奢侈品）之貨物稅，相對於低廉的包裝飲料，卻仍列為課稅範圍，凸顯我國稅法之失當與失衡。\n四、租稅性質分類中，貨物稅類屬「特種銷售稅」，以世界各國普遍稅制而言，其應只針對奢侈品、高汙染品、高耗能品、有礙國民健康之物品等，對社會具負面外部效應之特殊商品進行課稅，以有效控管其商品所造成之外部成本。反之，若對於民生必需品及工業生產原材料，於加值型營業稅外，再重複課徵特種銷售稅，不但將嚴重打壓相關民生工業之發展，亦將大幅加重中低收入戶之經濟負擔，形成所得之逆分配，有違租稅中性原則與租稅正義原則。"},{"bill":"202110126760000","text":"飲料品：凡設廠機製之清涼飲料品均屬之。其稅率如下：\n一、稀釋天然果蔬汁從價徵收百分之八。\n二、其他飲料品從價徵收百分之十五。\n前項飲料品合於國家標準之純天然果汁、果漿、濃糖果漿、濃縮果汁及純天然蔬菜汁免稅。\n第一項飲料品合於國家標準之無添加糖飲料免稅；添加糖飲料品依其添加糖量從價徵收之差別稅率及相關規定，由財政部定之。\n第一項所稱設廠機製，指下列情形之一：\n一、設有固定製造場所，使用電動或非電動之機具製造裝瓶（盒、罐、桶）固封者。\n二、設有固定製造場所，使用電動或非電動機具製造飲料品之原料或半成品裝入自動混合販賣機製造銷售者。\n國內產製之飲料品，應減除容器成本計算其出廠價格。","note":"一、含糖飲料不僅會增加心血管疾病風險，還可能引發一系列健康問題，藉由無添加糖飲料免稅，使國民有購買之意願，進而達到增進國人健康的目的，爰增訂本條第三項。\n二、添加糖係指添加經加工糖，本條第一項所列若符合增訂本條第三項之免稅條件，應予以免貨物稅。"}],"changed":true,"final":"飲料品：凡設廠機製之清涼飲料品均屬之。其稅率如下：\n一、稀釋天然果蔬汁從價徵收百分之八。\n二、其他飲料品從價徵收百分之十五。\n前項飲料品無添加糖者，及合於國家標準之純天然果汁、果漿、濃糖果漿、濃縮果汁、純天然蔬菜汁者，免稅。\n第一項所稱設廠機製，指下列情形之一：\n一、設有固定製造場所，使用電動或非電動之機具製造裝瓶（盒、罐、桶）固封者。\n二、設有固定製造場所，使用電動或非電動機具製造飲料品之原料或半成品裝入自動混合販賣機製造銷售者。\n國內產製之飲料品，應減除容器成本計算其出廠價格。","finalWhy":"一、第一項及第三項序文配合法制體例，酌作文字修正。\n二、第二項增訂無添加糖飲料品（無論是否符合國家標準）免徵貨物稅，以誘導消費，兼顧國人健康。\n三、第四項未修正。","review":{"note":"照委員吳秉叡等5人修正動議修正通過","text":"飲料品：凡設廠機製之清涼飲料品均屬之。其稅率如下：\n一、稀釋天然果蔬汁從價徵收百分之八。\n二、其他飲料品從價徵收百分之十五。\n前項飲料品無添加糖者，及合於國家標準之純天然果汁、果漿、濃糖果漿、濃縮果汁、純天然蔬菜汁者，免稅。\n第一項所稱設廠機製，指下列情形之一：\n一、設有固定製造場所，使用電動或非電動之機具製造裝瓶(盒、罐、桶)固封者。\n二、設有固定製造場所，使用電動或非電動機具製造飲料品之原料或半成品裝入自動混合販賣機製造銷售者。\n國內產製之飲料品，應減除容器成本計算其出廠價格。"}},{"no":"第十一條","current":"電器類之課稅項目及稅率如左：\n一、電冰箱：從價徵收百分之十三。\n二、彩色電視機：從價徵收百分之十三。\n三、冷暖氣機：凡用電力調節氣溫之各種冷氣機、熱氣機等均屬之，從價徵收百分之二十；其由主機、空調箱、送風機等組成之中央系統型冷暖氣機，從價徵收百分之十五。\n四、除濕機：凡用電力調節室內空氣濕度之機具均屬之，從價徵收百分之十五。但工廠使用之濕度調節器免稅。\n五、錄影機：凡用電力錄、放影像音響之機具，如電視磁性錄影錄音機、電視磁性影音重放機等均屬之，從價徵收百分之十三。\n六、電唱機：凡用電力播放唱片或錄音帶等之音響機具均屬之，從價徵收百分之十。但手提三十二公分以下電唱機免稅。\n七、錄音機：凡以電力錄放音響之各型錄放音機具均屬之，從價徵收百分之十。\n八、音響組合：分離式音響組件，包括唱盤、調諧器、收音擴大器、錄音座、擴大器、揚聲器等及其組合體均屬之，從價徵收百分之十。\n九、電烤箱：凡以電熱或微波烤炙食物之器具均屬之，從價徵收百分之十五。\n前項各款之貨物，如有與非應稅貨物組合製成之貨物者，或其組合之貨物適用之稅率不同者，應就該貨物全部之完稅價格按最高稅率徵收。\n第一項第三款冷暖氣機，得就其主要機件，由財政部訂定辦法折算課徵。","versions":[{"bill":"202110079610000","text":"電器類之課稅項目及稅率如左：\n一、電冰箱：從價徵收百分之五。\n二、彩色電視機：從價徵收百分之十三。\n三、冷暖氣機：凡用電力調節氣溫之各種冷氣機、熱氣機等均屬之，從價徵收百分之五；其由主機、空調箱、送風機等組成之中央系統型冷暖氣機，從價徵收百分之五。\n四、除濕機：凡用電力調節室內空氣濕度之機具均屬之，從價徵收百分之十五。但工廠使用之濕度調節器免稅。\n五、錄影機：凡用電力錄、放影像音響之機具，如電視磁性錄影錄音機、電視磁性影音重放機等均屬之，從價徵收百分之十三。\n六、電唱機：凡用電力播放唱片或錄音帶等之音響機具均屬之，從價徵收百分之十。但手提三十二公分以下電唱機免稅。\n七、錄音機：凡以電力錄放音響之各型錄放音機具均屬之，從價徵收百分之十。\n八、音響組合：分離式音響組件，包括唱盤、調諧器、收音擴大器、錄音座、擴大器、揚聲器等及其組合體均屬之，從價徵收百分之十。\n九、電烤箱：凡以電熱或微波烤炙食物之器具均屬之，從價徵收百分之十五。\n前項各款之貨物，如有與非應稅貨物組合製成之貨物者，或其組合之貨物適用之稅率不同者，應就該貨物全部之完稅價格按最高稅率徵收。\n第一項第三款冷暖氣機，得就其主要機件，由財政部訂定辦法折算課徵。","note":"一、以住宅節能113年元旦新制，購買一級能效節能冷氣或電冰箱，經濟部「住宅家電汰舊換新節能補助」，冷氣跟冰箱每台補助3,000元，同時可向財政部申請退還減徵貨物稅，最高退稅可達2,000元。其政策目的在於鼓勵民眾汰換老舊家電，進而解決能源問題，因為時空背景因素，電冰箱、除濕機、冷氣機等，以目前的生活環境及氣候而言，是家庭必需品而非奢侈品，而正確的汰換老舊家電，除了可以節省能源外，亦便利民眾生活。且經濟部與財政部對於本政策的補助金額，若轉換為直接反應在貨物稅減免，除了可以免除民眾申請時之時間等成本，並且還予民眾合理之上開電器稅額。\n二、根據大法官釋字第698號闡釋：鑑於彩色電視機相關產品日新月異，主管機關宜考量貨物稅性質及消費大眾對於單一或組合之相關產品於出廠時主要功能之認知等，訂定較為明確之課徵貨物稅認定標準，以利遵行，在貨物稅制定時之時空背景，電視機已經為一般家電，而非奢侈品，宜考量該家電之普及性，重新思考貨物稅稅率。"},{"bill":"202110133700000","text":"電器類之課稅項目及稅率如下：\n一、電冰箱：從價徵收百分之十三。\n二、冷暖氣機：凡用電力調節氣溫之各種冷氣機、熱氣機等均屬之，從價徵收百分之二十；其由主機、空調箱、送風機等組成之中央系統型冷暖氣機，從價徵收百分十五。\n三、除濕機：凡用電力調節室內空氣濕度之機具均屬之，從價徵收百分之十五。但工廠使用之濕度調節器免稅。\n前項各款之貨物，如有與非應稅貨物組合製成之貨物者，或其組合之貨物適用之稅率不同者，應就該貨物全部之完稅價格按最高稅率徵收。\n第一項第二款冷暖氣機，得就其主要機件，由財政部訂定辦法折算課徵。\n因○年○月○日修正前項課稅項目所造成中央統籌分配稅款收入之實質損失，因財政收支劃分法已完成修正擴大統籌分配稅款規模，因此不適用財政收支劃分法第三十八條之一規定有關替代性財源規定，不須由中央政府補足。","note":"一、電器類貨物稅課徵項目包含電冰箱、電視機、冷暖氣機及除濕機等電器產品。91年行政院財政改革委員會之貨物稅檢討報告指出，由於科技進步，產品日新月異，功能已趨向多媒體，其中亦具有部分一般電器類貨物之用途，造成電器類產品與電子資訊產品之界定不易，常產生爭議，惟電腦產品無需課徵貨物稅，而一般電器類貨物卻需課徵貨物稅，造成不公平之競爭，且目前課徵貨物稅之電器類貨物已較屬一般家庭之民生必需品，電器類貨物可取消貨物稅。\n二、經查，因科技發展與國人生活習慣變遷，對智慧型手機的依賴，明顯改變民眾視聽方式，電視機、錄影機及音響組合完稅量近年均呈減勢，其中電視機103年國內出廠27萬台，逐年遞減至112年僅剩6萬台，錄影機完稅量亦從103年27萬台減少至112年不足萬台，幾近停產。海關代徵之進口視聽電器貨物稅亦呈縮減或停滯之勢。\n三、進一步，行政院曾於95年10月18日召開跨部會「能源稅條例草案」研商會議，決議裁示為配合能源稅的開徵，將貨物稅部分併入能源稅，並取消油氣類貨物稅與非油氣類（電器、飲料、平板玻璃和橡膠輪胎）等4項貨物稅。\n四、有鑑於能源稅制定之進程稍緩，然而原先被視作奢侈品消費之部分電器商品已多屬民生必需品，持續課徵不僅不合時宜，更因為替代性產品日新月異，導致稅收每況愈下，持續課徵貨物稅之正當性、公平性降低，應立即取消課稅項目。爰僅保留高耗能電器，待貨物稅併同整合綠色稅制時，一併檢討處理。\n五、以113年度貨物稅實徵淨額為例，電器類合計徵收71.67億元貨物稅，本次取消之課稅項目，電視機實徵0.6億元、錄影機實徵0.19億元、電唱機實徵0.02億元、錄音機實徵0.33億元、音響組合實徵6.41億元、電烤箱實徵3.68億元，合計約11.23億元；但免除貨物稅帶動之交易可促進經濟活絡，亦可創造營業稅、營利事業所得稅、所得稅等稅收收入。\n六、有鑑於財政收支劃分法已於113年12月20日三讀通過，已大幅擴增統籌分配稅款規模，因此中央政府不需再補足本次稅制改革所可能造成之財源收入損失，爰為第四項之規定。"}],"changed":true,"final":"電器類之課稅項目及稅率如下：\n一、電冰箱：從價徵收百分之十三。\n二、冷暖氣機：凡用電力調節氣溫之各種冷氣機、熱氣機等均屬之，從價徵收百分之二十；其由主機、空調箱、送風機等組成之中央系統型冷暖氣機，從價徵收百分之十五。\n三、除濕機：凡用電力調節室內空氣濕度之機具均屬之，從價徵收百分之十五。但工廠使用之濕度調節器免稅。\n四、音響組合：分離式音響組件，包括唱盤、調諧器、收音擴大器、錄音座、擴大器、揚聲器等及其組合體均屬之，從價徵收百分之十。\n五、電烤箱：凡以電熱或微波烤炙食物之器具均屬之，從價徵收百分之十五。\n前項各款之貨物，如有與非應稅貨物組合製成之貨物者，或其組合之貨物適用之稅率不同者，應就該貨物全部之完稅價格按最高稅率徵收。\n第一項第二款冷暖氣機，得就其主要機件，由財政部訂定辦法折算課徵。","finalWhy":"一、第一項修正如下：\n(一)配合法制體例，序文酌作文字修正。\n(二)原第二款、第五款至第七款規定之彩色電視機、錄影機、電唱機及錄音機等四項電器已由早期高額消費貨物轉變為一般民生必需品，且隨著科技進步，民眾消費方式及偏好改變，部分電器產品已過時，對其課稅不合時宜，且相關產品設計漸朝單機一體多功能化發展，衍生諸多貨物稅徵免認定爭議及行政爭訟，爰刪除各該款電器貨物稅。\n(三)第一款規定之電冰箱與原第三款、第四款、第八款及第九款規定之冷暖氣機、除濕機、音響組合及電烤箱屬電力消耗較大之電器產品，基於節能減碳目標，宜維持課稅，原第三款、第四款、第八款及第九款並配合原第二款、第五款至第七款之刪除移列為第二款至第五款。\n二、第二項未修正。\n三、第三項配合第一項款次調整，酌作文字修正。","review":{"note":"照委員鍾佳濱等5人修正動議修正通過","text":"電器類之課稅項目及稅率如下：\n一、電冰箱：從價徵收百分之十三。\n二、冷暖氣機：凡用電力調節氣溫之各種冷氣機、熱氣機等均屬之，從價徵收百分之二十；其由主機、空調箱、送風機等組成之中央系統型冷暖氣機，從價徵收百分之十五。\n三、除濕機：凡用電力調節室內空氣濕度之機具均屬之，從價徵收百分之十五。但工廠使用之濕度調節器免稅。\n四、音響組合：分離式音響組件，包括唱盤、調諧器、收音擴大器、錄音座、擴大器、揚聲器等及其組合體均屬之，從價徵收百分之十。\n五、電烤箱：凡以電熱或微波烤炙食物之器具均屬之，從價徵收百分之十五。\n前項各款之貨物，如有與非應稅貨物組合製成之貨物者，或其組合之貨物適用之稅率不同者，應就該貨物全部之完稅價格按最高稅率徵收。\n第一項第二款冷暖氣機，得就其主要機件，由財政部訂定辦法折算課徵。"}},{"no":"第三十七條","current":"本條例自公布日施行。但中華民國八十六年五月七日修正公布之第三條、第五條、第十三條至第十五條、第十七條、第十八條、第三十二條及九十年十月三十一日修正公布之第十二條之施行日期，由行政院定之。","versions":[{"bill":"202110133700000","text":"本條例自公布日施行。但中華民國八十六年五月七日修正公布之第三條、第五條、第十三條至第十五條、第十七條、第十八條、第三十二條、九十年十月三十一日修正公布之第十二條及○年○月○日修正公布之第十一條之施行日期，由行政院定之。","note":"一、明定本條例之施行日期。\n二、由於稅制改革牽涉廣泛，爰將電器類貨物稅移除部分課徵項目之施行日期授權行政院定之。"}],"changed":true,"final":"本條例自公布日施行。但中華民國八十六年五月七日修正公布之第三條、第五條、第十三條至第十五條、第十七條、第十八條、第三十二條、九十年十月三十一日修正公布之第十二條及一百十四年八月五日修正之條文施行日期，由行政院定之。","finalWhy":"照委員修正動議修正通過。,,","review":{"note":"照委員吳秉叡等5人修正動議修正通過","text":"本條例自公布日施行。但中華民國八十六年五月七日修正公布之第三條、第五條、第十三條至第十五條、第十七條、第十八條、第三十二條、九十年十月三十一日修正公布之第十二條及○年○月○日修正之條文施行日期，由行政院定之。"}}],"stages":[{"date":"2024-04-09","stage":"一讀","code":"院會-11-1-8","bill":"202110026620000","gazref":"113卷020期5202號 5-5頁"},{"date":"2024-11-29","stage":"一讀","code":"院會-11-2-11","bill":"202110079610000","gazref":"113卷102期5284號一冊 3-3頁"},{"date":"2025-04-23","code":"委員會-11-3-20-9","title":"第11屆第3會期財政委員會第9次全體委員會議","gazref":"114卷040期5333號 333-444頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025041807/details?meetingDate=114/04/23","full":["https://ivod.ly.gov.tw/Play/Full/1M/16609"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/40/LCIDC01_1144001_00007.pdf","p1":333,"p2":444}],"clips":[{"n":"黃珊珊","t":"09:13","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160455"},{"n":"賴士葆","t":"09:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160456"},{"n":"林思銘","t":"09:17","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160457"},{"n":"陳玉珍","t":"09:20","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160458"},{"n":"王世堅","t":"09:23","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160459"},{"n":"葉元之","t":"09:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160460"},{"n":"羅廷瑋","t":"09:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160461"},{"n":"徐欣瑩","t":"09:31","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160462"},{"n":"王鴻薇","t":"09:33","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160463"},{"n":"廖偉翔","t":"09:35","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160464"},{"n":"黃建賓","t":"09:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160465"},{"n":"林德福","t":"09:47","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160482"},{"n":"吳秉叡","t":"10:00","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160483"},{"n":"賴士葆","t":"10:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160484"},{"n":"郭國文","t":"10:25","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160502"},{"n":"李彥秀","t":"10:36","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160503"},{"n":"鍾佳濱","t":"10:53","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160514"},{"n":"賴惠員","t":"11:06","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160515"},{"n":"李坤城","t":"11:17","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160531"},{"n":"顏寬恒","t":"11:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160532"},{"n":"林思銘","t":"11:36","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160533"},{"n":"王世堅","t":"11:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160534"},{"n":"陳玉珍","t":"11:57","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160541"},{"n":"羅明才","t":"12:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160557"},{"n":"黃珊珊","t":"12:20","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160562"},{"n":"張啓楷","t":"12:31","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160566"},{"n":"楊瓊瓔","t":"12:40","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160569"}],"props":["202110026620000","202110079610000","202110133700000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":28,"nmem":22,"ntable":0,"nfold":0},{"date":"2025-05-07","code":"委員會-11-3-20-11","title":"第11屆第3會期財政委員會第11次全體委員會議","gazref":"114卷047期5340號 257-258,260-286頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025050177/details?meetingDate=114/05/07","full":["https://ivod.ly.gov.tw/Play/Full/1M/16648"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/47/LCIDC01_1144701_00005.pdf","p1":257,"p2":286}],"clips":[],"props":["202110026620000","202110079610000","202110130840000","202110133700000"],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":15,"nmem":9,"ntable":1,"nfold":0},{"date":"2025-05-23","stage":"一讀","code":"院會-11-3-13","bill":"202110126760000","gazref":"114卷050期5343號 1-1頁"},{"date":"2025-06-06","stage":"一讀","code":"院會-11-3-15","bill":"202110130840000","gazref":"114卷055期5348號一冊 2-2頁"},{"date":"2025-06-13","stage":"一讀","code":"院會-11-3-16","bill":"202110133700000","gazref":"114卷058期5351號一冊 11-11頁"},{"date":"2025-06-18","code":"委員會-11-3-20-18","title":"第11屆第3會期財政委員會第18次全體委員會議","gazref":"114卷061期5354號 161-161,163-195頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025061330/details?meetingDate=114/06/18","full":["https://ivod.ly.gov.tw/Play/Full/1M/16761"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/61/LCIDC01_1146101_00004.pdf","p1":161,"p2":196}],"clips":[],"props":["202110026620000","202110079610000","202110126760000","202110130840000","202110133700000"],"tr":"tr/3.json","note":null,"mixed":[],"nspeak":17,"nmem":9,"ntable":0,"nfold":0},{"date":"2025-08-05","code":"院會-11-3-23","title":"第11屆第3會期第23次會議","gazref":"114卷068期5361號一冊 190-212頁；114卷068期5361號一冊 212-213頁；114卷068期5361號一冊 213-214頁；114卷068期5361號一冊 213-213頁","stage":"二讀、三讀、附帶決議","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025073095/details?meetingDate=114/08/01","full":["https://ivod.ly.gov.tw/Play/Full/1M/16847"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/68/LCIDC01_1146801_00032.pdf","p1":190,"p2":214}],"clips":[],"props":[],"tr":"tr/4.json","note":null,"nspeak":2,"nmem":1,"ntable":0,"nfold":1}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["5 月 7 日、6 月 18 日的委員會沒有委員個別發言的影片片段，只有完整影片。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

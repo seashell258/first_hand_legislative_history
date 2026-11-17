@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>社會秩序維護法修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"社會秩序維護法","version":"01183:2025-05-27-修正","date":"2025-05-27","action":"修正","title":"社會秩序維護法　2025 年修正","lede":"","summary":"","key":"01183_2025-05-27","props":[{"id":"202110037610000","who":"委員羅廷瑋等16人","date":"2024-04-26","name":"「社會秩序維護法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110037610000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/11/LCEWA01_110111_00129.pdf","proposers":["羅廷瑋"],"ncosign":15,"people":[["羅廷瑋","國民黨","提案"],["徐欣瑩","國民黨","連署"],["廖先翔","國民黨","連署"],["牛煦庭","國民黨","連署"],["林思銘","國民黨","連署"],["顏寬恒","國民黨","連署"],["張智倫","國民黨","連署"],["馬文君","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["高金素梅","無黨籍","連署"],["邱鎮軍","國民黨","連署"],["陳菁徽","國民黨","連署"],["游顥","國民黨","連署"],["徐巧芯","國民黨","連署"],["謝龍介","國民黨","連署"],["丁學忠","國民黨","連署"]],"party":[["國民黨",15],["無黨籍",1]],"reason":"本院委員羅廷瑋等16人，鑑於黃牛亂象充斥各個產業，嚴重影響交易秩序及消費者權益。依據現行規定，黃牛要有既定出售票券之事實，達到轉售圖利既遂之行為，才會被處罰，若只是意圖轉售圖利，票券尚未賣出，轉售圖利未遂時，依現行法無法處罰，爰修正相關規定將兜售階段黃牛納入取締範圍，除擴大管理藝文票券、運動票券、醫療票券、餐旅食宿票券、各式休閒及商品票券等相關社會參與活動，並增加「意圖轉售營利者」，在未遂及既遂階段皆可規範及處罰，爰擬具「社會秩序維護法第六十四條條文修正草案」。是否有當？敬請公決。","arts":["第六十四條"]},{"id":"202110038930000","who":"委員高金素梅等21人","date":"2024-05-03","name":"「社會秩序維護法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110038930000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/12/LCEWA01_110112_00025.pdf","proposers":["高金素梅","牛煦庭","羅廷瑋","王鴻薇","羅智強"],"ncosign":16,"people":[["高金素梅","無黨籍","提案"],["牛煦庭","國民黨","提案"],["羅廷瑋","國民黨","提案"],["王鴻薇","國民黨","提案"],["羅智強","國民黨","提案"],["馬文君","國民黨","連署"],["顏寬恒","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["張智倫","國民黨","連署"],["林思銘","國民黨","連署"],["邱鎮軍","國民黨","連署"],["游顥","國民黨","連署"],["徐巧芯","國民黨","連署"],["謝龍介","國民黨","連署"],["徐欣瑩","國民黨","連署"],["廖先翔","國民黨","連署"],["丁學忠","國民黨","連署"],["林德福","國民黨","連署"],["林沛祥","國民黨","連署"],["陳永康","國民黨","連署"],["林倩綺","國民黨","連署"]],"party":[["國民黨",20],["無黨籍",1]],"reason":"本院委員高金素梅、牛煦庭、羅廷瑋、王鴻薇、羅智強等21人，有鑑於黃牛亂象充斥各個產業，嚴重影響交易秩序及消費者權益。爰此，修訂《社會秩序維護法》第六十四條第二項規定，明定運輸票、遊樂票券、藝文票券、運動票券、醫療票券、餐旅食宿票券、各式休閒及商品票券。另查現行條文僅針對「轉售圖利者」作處罰，是無法有效遏阻黃牛橫行，故增加「意圖轉售營利者」，只要有加價轉售的想法並上架陳列，即可加以規範且處罰，爰擬具「社會秩序維護法第六十四條條文修正草案」。是否有當？敬請公決。","arts":["第六十四條"]},{"id":"202110040780000","who":"委員王鴻薇等24人","date":"2024-05-10","name":"「社會秩序維護法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110040780000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/13/LCEWA01_110113_00009.pdf","proposers":["王鴻薇","羅廷瑋","張智倫","洪孟楷","林思銘","林沛祥","牛煦庭"],"ncosign":17,"people":[["王鴻薇","國民黨","提案"],["羅廷瑋","國民黨","提案"],["張智倫","國民黨","提案"],["洪孟楷","國民黨","提案"],["林思銘","國民黨","提案"],["林沛祥","國民黨","提案"],["牛煦庭","國民黨","提案"],["鄭正鈐","國民黨","連署"],["丁學忠","國民黨","連署"],["萬美玲","國民黨","連署"],["黃仁","國民黨","連署"],["蘇清泉","國民黨","連署"],["魯明哲","國民黨","連署"],["邱若華","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["馬文君","國民黨","連署"],["陳永康","國民黨","連署"],["林德福","國民黨","連署"],["林思銘","國民黨","連署"],["邱鎮軍","國民黨","連署"],["游顥","國民黨","連署"],["陳菁徽","國民黨","連署"],["謝龍介","國民黨","連署"],["黃健豪","國民黨","連署"]],"party":[["國民黨",24]],"reason":"本院委員王鴻薇、羅廷瑋、張智倫、洪孟楷、林思銘、林沛祥、牛煦庭等24人，有鑑於「黃牛票」違法行為伴隨科技應用與社會發展日益猖獗，新增「藝文票券、運動票券、醫療票券、餐旅食宿票券、各式休閒及商品票券」納本款對於票券使用之規範，遏止意圖轉售營利者及轉售圖利者，以期落實公共秩序之維護，爰擬具「社會秩序維護法第六十四條條文修正草案」。是否有當？敬請公決。","arts":["第六十四條"]},{"id":"202110047400000","who":"委員林思銘等22人","date":"2024-05-17","name":"「社會秩序維護法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110047400000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/14/LCEWA01_110114_00065.pdf","proposers":["林思銘","蘇清泉","徐巧芯","羅廷瑋","顏寬恒"],"ncosign":17,"people":[["林思銘","國民黨","提案"],["蘇清泉","國民黨","提案"],["徐巧芯","國民黨","提案"],["羅廷瑋","國民黨","提案"],["顏寬恒","國民黨","提案"],["馬文君","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["王鴻薇","國民黨","連署"],["黃建賓","國民黨","連署"],["盧縣一","國民黨","連署"],["黃健豪","國民黨","連署"],["陳超明","無黨籍","連署"],["游顥","國民黨","連署"],["林倩綺","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["牛煦庭","國民黨","連署"],["高金素梅","無黨籍","連署"],["洪孟楷","國民黨","連署"],["鄭正鈐","國民黨","連署"],["邱鎮軍","國民黨","連署"],["林沛祥","國民黨","連署"],["謝龍介","國民黨","連署"]],"party":[["國民黨",20],["無黨籍",2]],"reason":"本院委員林思銘、蘇清泉、徐巧芯、羅廷瑋、顏寬恒等22人，鑑於黃牛銷售事件仍層出不窮，被用以營利之商品內容亦日趨多樣，或與其他不同類之商品搭售獲利，以逃避單獨轉售黃牛商品之懲處。故除需包含更多可能被用以不法圖利之商品內容外，亦需將不同之販售獲利方式列入，爰擬具「社會秩序維護法第六十四條條文修正草案」。是否有當？敬請公決。","arts":["第六十四條"]},{"id":"202110047330000","who":"委員魯明哲等17人","date":"2024-05-24","name":"「社會秩序維護法第八十九條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110047330000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/15/LCEWA01_110115_00021.pdf","proposers":["魯明哲"],"ncosign":16,"people":[["魯明哲","國民黨","提案"],["邱若華","國民黨","連署"],["涂權吉","國民黨","連署"],["林沛祥","國民黨","連署"],["王鴻薇","國民黨","連署"],["鄭正鈐","國民黨","連署"],["蘇清泉","國民黨","連署"],["張智倫","國民黨","連署"],["陳玉珍","國民黨","連署"],["黃健豪","國民黨","連署"],["盧縣一","國民黨","連署"],["翁曉玲","國民黨","連署"],["黃仁","國民黨","連署"],["黃建賓","國民黨","連署"],["牛煦庭","國民黨","連署"],["萬美玲","國民黨","連署"],["謝龍介","國民黨","連署"]],"party":[["國民黨",17]],"reason":"本院委員魯明哲等17人，鑒於近年來源於跟蹤及騷擾所滋之惡害事件日益增多，惟礙於目前社會秩序維護法第八十九條裁處之罰責過低，致該法恐無法有效遏止憾事重演。為彰顯上開法條維護社會秩序之旨，爰擬具「社會秩序維護法第八十九條條文修正草案」，將本條罰責提高，藉以提高婦幼安全之保障。是否有當？敬請公決。","arts":["第八十九條"]},{"id":"202110056060000","who":"台灣民眾黨黨團","date":"2024-06-14","name":"「社會秩序維護法第六十四條及第七十二條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110056060000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/18/LCEWA01_110118_00034.pdf","proposers":["林憶君","黃國昌","黃珊珊","吳春城"],"ncosign":0,"people":[["林憶君","民眾黨","提案"],["黃國昌","民眾黨","提案"],["黃珊珊","民眾黨","提案"],["吳春城","民眾黨","提案"]],"party":[["民眾黨",4]],"reason":"本院台灣民眾黨黨團，鑒於當下社會型態：超高齡化社會即將來臨，民眾自我健康意識亦大為提高，對於身體不適仍會選擇前往醫院檢查的比例偏高、另外都市化現象，導致民眾集中於都會區，其人口密集、住商混合之情況，以及交通工具密集性高，導致民眾生活中醫療掛號票券之黃牛票、與生活噪音問題氾濫。以黃牛票為例，我國雖於2023年通過「文化創意產業發展法」第十條之一規範藝文活動票券之販售之運作、「運動產業發展條例」第二十四條之一，使民眾均有平等參與運動賽事或活動的機會，希冀透過上開法律抑制黃牛票之情況，「醫療掛號之票券」黃牛條款漏未規定。另因目前民眾生活常見之居家環境的噪音污染，除「噪音管制法」所規範的噪音範圍外，寵物啼叫、喧嘩吵鬧、唱歌、洗衣機運轉、腳步聲等，此類不定時又短暫之生活聲音，為易造成民眾困擾，關於本類噪音在「噪音管制法」第六條規定：「製造不具持續性或不易量測而足以妨害他人生活安寧之聲音者，由警察機關依有關法規處理之。」、若居家屬「公寓大廈管理條例」所規定之公寓大廈，則亦可使用「公寓大廈管理條例」規範之，惟對於非屬公寓大廈管理條例規範範圍內之噪音，則需要社會秩序維護法規範，現代民眾多半居住於大樓密集區、或住商混合區，容易產生噪音相互干擾，其引發社會諸多負面影響、影響民眾作息與生活品質，為有效解決上開兩種常見之社會問題，爰擬具「社會秩序維護法第六十四條及第七十二條條文修正草案」。是否有當？敬請公決。","arts":["第六十四條","第七十二條"]},{"id":"202110058870000","who":"委員邱若華等19人","date":"2024-06-28","name":"「社會秩序維護法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110058870000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/20/LCEWA01_110120_00037.pdf","proposers":["邱若華","蘇清泉","羅廷瑋"],"ncosign":16,"people":[["邱若華","國民黨","提案"],["蘇清泉","國民黨","提案"],["羅廷瑋","國民黨","提案"],["洪孟楷","國民黨","連署"],["王鴻薇","國民黨","連署"],["廖偉翔","國民黨","連署"],["牛煦庭","國民黨","連署"],["陳超明","無黨籍","連署"],["邱鎮軍","國民黨","連署"],["許宇甄","國民黨","連署"],["黃健豪","國民黨","連署"],["廖先翔","國民黨","連署"],["鄭正鈐","國民黨","連署"],["黃建賓","國民黨","連署"],["林倩綺","國民黨","連署"],["張智倫","國民黨","連署"],["黃仁","國民黨","連署"],["李彥秀","國民黨","連署"],["呂玉玲","國民黨","連署"]],"party":[["國民黨",18],["無黨籍",1]],"reason":"本院委員邱若華、蘇清泉、羅廷瑋等19人，有鑑於民眾對健康的自我意識顯著提升，許多人在感到身體不適時，傾向於前往醫療院所進行檢查。然而，隨著人口密集地區的醫療需求增加，醫療掛號的黃牛票問題也日益嚴重。雖然我國於2023年通過的「文化創意產業發展法」和「運動產業發展條例」已對票券販賣進行規範，保障公眾公平參與文化活動和運動賽事的權利，但醫療掛號的票券卻未被納入相關法律的規範範圍內，導致黃牛現象在此領域仍然存在，已讓需要就診病人無法掛號看診，甚至影響到就診者健康，爰擬具「社會秩序維護法第六十四條條文修正草案」。是否有當？敬請公決。","arts":["第六十四條"]},{"id":"202110058860000","who":"委員邱若華等19人","date":"2024-06-28","name":"「社會秩序維護法第七十二條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110058860000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/20/LCEWA01_110120_00038.pdf","proposers":["邱若華","許宇甄","羅廷瑋","黃健豪"],"ncosign":15,"people":[["邱若華","國民黨","提案"],["許宇甄","國民黨","提案"],["羅廷瑋","國民黨","提案"],["黃健豪","國民黨","提案"],["洪孟楷","國民黨","連署"],["牛煦庭","國民黨","連署"],["陳超明","無黨籍","連署"],["廖先翔","國民黨","連署"],["王鴻薇","國民黨","連署"],["邱鎮軍","國民黨","連署"],["黃仁","國民黨","連署"],["張智倫","國民黨","連署"],["廖偉翔","國民黨","連署"],["鄭正鈐","國民黨","連署"],["黃建賓","國民黨","連署"],["呂玉玲","國民黨","連署"],["蘇清泉","國民黨","連署"],["李彥秀","國民黨","連署"],["林倩綺","國民黨","連署"]],"party":[["國民黨",18],["無黨籍",1]],"reason":"本院委員邱若華、許宇甄、羅廷瑋、黃健豪等19人，有鑑於都市化的推進，使得人口越來越多聚集在都會區，致住商混合區域內噪音問題的加劇。家庭生活中常見的噪音包括寵物的叫聲、鄰里間的喧嘩、唱歌、洗衣機運轉聲及腳步聲等，這些偶發而短暫的聲音頻繁打擾居民的日常生活；目前，「噪音管制法」第六條規定了對持續性或可量測噪音的處理，但對於這些非持續性的生活噪音，若發生在公寓大廈等範圍內，可依據「公寓大廈管理條例」進行管理。然而，對於不屬於公寓大廈管理範圍的噪音，則需要通過「社會秩序維護法」來進行更加細致的調整和處理，爰擬具「社會秩序維護法第七十二條條文修正草案」。是否有當？敬請公決。","arts":["第七十二條"]},{"id":"202110068460000","who":"委員顏寬恒等16人","date":"2024-10-04","name":"「社會秩序維護法第九條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110068460000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/03/LCEWA01_110203_00032.pdf","proposers":["顏寬恒","林沛祥","盧縣一"],"ncosign":13,"people":[["顏寬恒","國民黨","提案"],["林沛祥","國民黨","提案"],["盧縣一","國民黨","提案"],["鄭正鈐","國民黨","連署"],["陳菁徽","國民黨","連署"],["洪孟楷","國民黨","連署"],["邱若華","國民黨","連署"],["陳超明","無黨籍","連署"],["葛如鈞","國民黨","連署"],["張嘉郡","國民黨","連署"],["黃仁","國民黨","連署"],["魯明哲","國民黨","連署"],["林倩綺","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["王育敏","國民黨","連署"],["牛煦庭","國民黨","連署"]],"party":[["國民黨",15],["無黨籍",1]],"reason":"本院委員顏寬恒、林沛祥、盧縣一等16人，鑑於聯合國在2006年通過了「身心障礙權利公約」，以此消除對於身心障礙人士的歧視。我國亦於2014年通過「身心障礙者權利公約施行法」保障身心障礙人士在日常生活的一切權利有受到完整保障。身心障礙權利公約宗旨在於維護身心障礙者權益，保障其平等參與社會、政治、經濟、文化等之機會，促進其自立及發展。然而現行社會秩序維護法仍使用「瘖啞人」之歧視文字，顯不符合身心障礙者權利保障法及身心障礙權利公約所欲達成之平等精神，爰擬具「社會秩序維護法第九條條文修正草案」。是否有當？敬請公決。","arts":["第九條"]},{"id":"202110068470000","who":"委員顏寬恒等16人","date":"2024-10-04","name":"「社會秩序維護法第八十九條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110068470000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/03/LCEWA01_110203_00033.pdf","proposers":["顏寬恒","蘇清泉"],"ncosign":14,"people":[["顏寬恒","國民黨","提案"],["蘇清泉","國民黨","提案"],["萬美玲","國民黨","連署"],["林德福","國民黨","連署"],["魯明哲","國民黨","連署"],["羅智強","國民黨","連署"],["張智倫","國民黨","連署"],["鄭正鈐","國民黨","連署"],["邱若華","國民黨","連署"],["黃仁","國民黨","連署"],["林倩綺","國民黨","連署"],["涂權吉","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["呂玉玲","國民黨","連署"],["洪孟楷","國民黨","連署"],["盧縣一","國民黨","連署"]],"party":[["國民黨",16]],"reason":"本院委員顏寬恒、蘇清泉等16人，有鑑於近年來跟蹤及騷擾事件層出不窮，不僅使許多民眾對於「單獨」出門感到極度不安與恐懼，甚至進一步導致許多受害者在日常生活中面臨巨大的困擾，並承受著精神上的極大痛苦。惟現行「社會秩序維護法」對於跟蹤騷擾之文義不清以及罰鍰過低，實難嚇阻跟蹤騷擾行為。為保障民眾免於被跟蹤或騷擾之權益，爰擬具「社會秩序維護法第八十九條條文修正草案」，除將跟蹤騷擾行為法文定義明確，若是對未成年人有跟蹤騷擾行為，加重處罰。是否有當？敬請公決。","arts":["第八十九條"]},{"id":"202110082090000","who":"委員魯明哲等18人","date":"2024-12-13","name":"「社會秩序維護法第八十九條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110082090000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/13/LCEWA01_110213_00016.pdf","proposers":["魯明哲","羅廷瑋","游顥","黃健豪","許宇甄","林沛祥"],"ncosign":12,"people":[["魯明哲","國民黨","提案"],["羅廷瑋","國民黨","提案"],["游顥","國民黨","提案"],["黃健豪","國民黨","提案"],["許宇甄","國民黨","提案"],["林沛祥","國民黨","提案"],["邱鎮軍","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["洪孟楷","國民黨","連署"],["陳雪生","國民黨","連署"],["陳超明","無黨籍","連署"],["羅明才","國民黨","連署"],["丁學忠","國民黨","連署"],["張智倫","國民黨","連署"],["廖先翔","國民黨","連署"],["呂玉玲","國民黨","連署"],["賴士葆","國民黨","連署"],["邱若華","國民黨","連署"]],"party":[["國民黨",17],["無黨籍",1]],"reason":"本院委員魯明哲、羅廷瑋、游顥、黃健豪、許宇甄、林沛祥等18人，鑒於近年來源於跟蹤及騷擾所滋之惡害事件日益增多，惟礙於目前社會秩序維護法第八十三條裁處之罰責過低，致該法恐無法有效遏止憾事重演。為彰顯上開法條維護社會秩序之旨，爰擬具「社會秩序維護法第八十九條條文修正草案」，將本條罰責提高，藉以提高婦幼安全之保障。是否有當？敬請公決。","arts":["第八十九條"]}],"arts":[{"no":"第九條","current":"左列各款之人之行為，得減輕處罰：\n一、十四歲以上未滿十八歲人。\n二、滿七十歲人。\n三、精神耗弱或瘖啞人。\n前項第一款之人，於處罰執行完畢後，得責由其法定代理人或其他相當之人加以管教。\n第一項第三款之人，於處罰執行完畢後，得責由其監護人加以監護；無人監護或不能監護時，得送交療養處所監護或治療。","versions":[{"bill":"202110068460000","text":"下列各款之人之行為，得減輕處罰：\n一、十四歲以上未滿十八歲人。\n二、滿七十歲人。\n三、精神耗弱或聽覺、語言障礙者。\n前項第一款之人，於處罰執行完畢後，得責由其法定代理人或其他相當之人加以管教。\n第一項第三款之人，於處罰執行完畢後，得責由其監護人加以監護；無人監護或不能監護時，得送交療養處所監護或治療。","note":"一、聯合國在2006年通過了「身心障礙權利公約」，以此消除對於身心障礙人士的歧視。我國亦於2014年通過「身心障礙者權利公約施行法」保障身心障礙人士在日常生活的一切權利有受到完整保障。\n二、身心障礙權利公約宗旨在於維護身心障礙者權益，保障其平等參與社會、政治、經濟、文化等之機會，促進其自立及發展。然而現行社會秩序維護法仍使用「瘖啞人」之歧視文字，顯不符合身心障礙者權利保障法及身心障礙權利公約所欲達成之平等精神。\n三、為貫徹對身心障礙者權益之保障及人格權之維護，參照身心障礙者權益保障法第五條、法院組織法第九十八條後段、民事訴訟法第二百零七條、刑事訴訟法第九十九條、公證法第七十四條、軍事審判法第四十五條之規定，擬具社會秩序維護法第九條修正草案。"}],"changed":true,"final":"下列各款之人之行為，得減輕處罰：\n一、十四歲以上未滿十八歲人。\n二、滿七十歲人。\n三、精神耗弱或未滿七歲即有聽覺且語言障礙者。\n前項第一款之人，於處罰執行完畢後，得責由其法定代理人或其他相當之人加以管教。\n第一項第三款之人，於處罰執行完畢後，得責由其監護人加以監護；無人監護或不能監護時，得送交療養處所監護或治療。","finalWhy":"一、瘖啞人之行為得減輕責任及其處罰，考其立法理由（與刑法第二十條相同）應係：瘖啞有生而瘖啞者，有因疾病或受傷而瘖啞者，生而瘖啞，乃自來痼疾，不能承受教育，能力薄弱，故各國等諸幼年之列。若因疾病或受傷而瘖啞者，不過肢體不具，其精神知識與普通無異，則不能適用此例。參照司法院院字第一七○○號解釋（瘖啞人係指出生及自幼瘖啞者，瘖而不啞，或啞而不瘖，均非屬之），以及司法院（七十三）廳刑一字第七二七號函法律問題研討結論（自幼係指未滿七歲者）。\n二、為維持及符合上開減輕責任（處罰）之立法精神及規範目的，並避免涉有歧視意涵，以貫徹身心障礙者權益之保障及人格權之維護，爰將「瘖啞人」修正為「未滿七歲即有聽覺且語言障礙者」。","review":{"note":"修正通過","text":"下列各款之人之行為，得減輕處罰：\n一、十四歲以上未滿十八歲人。\n二、滿七十歲人。\n三、精神耗弱或未滿七歲即有聽覺且語言障礙者。\n前項第一款之人，於處罰執行完畢後，得責由其法定代理人或其他相當之人加以管教。\n第一項第三款之人，於處罰執行完畢後，得責由其監護人加以監護；無人監護或不能監護時，得送交療養處所監護或治療。"}},{"no":"第六十四條","current":"有左列各款行為之一者，處三日以下拘留或新臺幣一萬八千元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用，購買運輸、遊樂票券而轉售圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。","versions":[{"bill":"202110037610000","text":"有左列各款行為之一者，處三日以下拘留或新臺幣一萬八千元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用，購買運輸票、遊樂票券、藝文票券、運動票券、醫療票券、餐旅食宿票券、各式休閒及商品票券而意圖轉售營利者及轉售圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。","note":"一、酌作文字修正。\n二、查現行條文「轉售圖利者」是指有既遂的行為才能加以處罰，若為意圖轉售，在「轉售圖利」尚未既遂前的未遂階段，則無任何約束力。\n三、為有效遏止黃牛亂象，應在有「意圖高價轉售牟取暴利或營利」之實，即可規範，俾使未遂及既遂階段皆可受到相關處罰。\n四、爰修正本條文字，將兜售階段黃牛納入取締範圍，擴大管理藝文票券、運動票券、醫療票券、餐旅食宿票券、各式休閒及商品票券等相關社會參與活動，並增加「意圖轉售營利者」，在未遂及既遂階段皆可規範及處罰。"},{"bill":"202110038930000","text":"有下列各款行為之一者，處三日以下拘留或新臺幣一萬八千元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用，購買運輸票、遊樂票券、藝文票券、運動票券、醫療票券、餐旅食宿票券、各式休閒及商品票券而意圖轉售營利者及轉售圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。","note":"一、酌作文字修正。\n二、明定第六十四第二項規定之票券種類，並增加「意圖轉售營利者」。\n三、查現行條文「轉售圖利者」是指有既遂的行為才能加以處罰，若為意圖轉售，在「轉售圖利」尚未既遂前的未遂階段，則無任何約束力。\n四、為有效遏止黃牛亂象，應在有「意圖高價轉售牟取暴利或營利」之實，即可規範，俾使未遂及既遂階段皆可受到相關處罰。"},{"bill":"202110040780000","text":"有左列各款行為之一者，處三日以下拘留或新臺幣三萬八千元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用，購買運輸、遊樂票券、藝文票券、運動票券、醫療票券、餐旅食宿票券、各式休閒及商品票券而意圖轉售營利者及轉售圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。","note":"一、修正社會秩序維護法第六十四條第一項第二款內容，自原規範非供自用，購買運輸、遊樂票券而轉售圖利中，再新增「藝文票券、運動票券、醫療票券、餐旅食宿票券、各式休閒及商品票券」納本款對於票券使用之規範。\n二、社會秩序維護法八十年制定至今，第六十四條所定之違反行為罰鍰未有任何修正調整，恐因此失去立法維繫社會秩序之作用原意，是以修正提高至處新臺幣三萬八千元以下罰鍰。"},{"bill":"202110047400000","text":"有下列各款行為之一者，處三日以下拘留或新臺幣三萬八千元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用或非經相關主辦單位授權，購買運輸票、遊樂票券、藝文票券、運動競賽票券、醫療票券、餐旅食宿票券、其他娛樂休閒票券或商品折扣票券，並以轉售或搭售方式圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。","note":"一、黃牛銷售事件仍層出不窮，被用以營利之商品內容亦日趨多樣，或與其他不同類之商品搭售獲利，以逃避單獨轉售黃牛商品之懲處。故除需包含更多可能被用以不法圖利之商品內容外，亦需將不同之販售獲利方式列入，並提高最低罰鍰。另亦須考量由相關主辦單位所授權之合法販售。\n二、爰提案修正本條文第一項及第一項第二款相關文字。\n三、本條第一項第一款、第三款、第四款及第五款未修正。"},{"bill":"202110056060000","text":"有下列各款行為之一者，處三日以下拘留或新臺幣三萬元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用，購買運輸、遊樂票券、醫療掛號之票券而意圖轉售營利者及而轉售圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。","note":"一、我國超高齡化社會即將來臨，民眾自我健康意識亦大為提高，對於身體不適仍會選擇前往醫院檢查的比例偏高，民眾對於醫療掛號之票券需求高，導致醫院搶掛號的醫療黃牛橫行。以台灣大學附設醫院為例，其婦產科醫師施景中就發現其門診在網路上幾乎都額滿，即便加開名額也無法解決病患掛號問題，惟實際上就診患者與掛號不一致，同樣的情況在不少醫院都有相同的情況，讓醫師們呼籲，「請把機會留給真正需要的人」，顯見醫療掛號之票券黃牛問題之嚴重。\n二、為有效保障使用民眾醫療之公平近用權、與國民身體健康權，除明文規定醫療掛號之票券禁止黃牛條款外，亦提高相關行為的罰鍰天花板，對於不法投機份子以示警惕，藉此保障民眾生活便利與相關權利。"},{"bill":"202110058870000","text":"有下列各款行為之一者，處三日以下拘留或新臺幣三萬元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用，購買運輸、遊樂票券、醫療掛號之票券而意圖轉售營利者及圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。","note":"一、我國民眾自我健康意識亦大為提高，對於身體不適仍會選擇前往醫院就診的比例偏高，民眾對於醫療掛號需求高，導致醫院搶掛號的醫療黃牛橫行。以臺灣大學附設醫院為例，其婦產科醫師施景中就發現其門診在網路上幾乎都額滿，即便加開名額也無法解決病患掛號問題，惟實際上就診患者與掛號不一致，同樣的情況在不少醫院都有相同的情況，讓醫師們呼籲，「請把機會留給真正需要的人」，可見醫療掛號黃牛問題之嚴重。\n二、為遏止醫療掛號黃牛增添一般民眾掛號看診困難與不公平，與影響國民身體健康權，除明文規定醫療掛號之票券禁止黃牛條款外，亦提高相關行為的罰鍰天花板，對於投機牟利份子以示警惕，藉此保障民眾生活便利與相關權利。"}],"changed":true,"final":"有下列各款行為之一者，處三日以下拘留或新臺幣三萬元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用，購買運輸、遊樂票券而轉售圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。","finalWhy":"為提高懲罰嚇阻效果，爰將罰鍰修正為新臺幣三萬元以下。","review":{"note":"修正通過","text":"有下列各款行為之一者，處三日以下拘留或新臺幣三萬元以下罰鍰：\n一、意圖滋事，於公園、車站、輪埠、航空站或其他公共場所，任意聚眾，有妨害公共秩序之虞，已受該管公務員解散命令，而不解散者。\n二、非供自用，購買運輸、遊樂票券而轉售圖利者。\n三、車、船、旅店服務人員或搬運工人或其他接待人員，糾纏旅客或強行攬載者。\n四、交通運輸從業人員，於約定報酬後，強索增加，或中途刁難或雖未約定，事後故意訛索，超出慣例者。\n五、主持、操縱或參加不良組織有危害社會秩序者。"}},{"no":"第七十二條","current":"有左列各款行為之一者，處新臺幣六千元以下罰鍰：\n一、於公共場所或公眾得出入之場所，酗酒滋事、謾罵喧鬧，不聽禁止者。\n二、無正當理由，擅吹警笛或擅發其他警號者。\n三、製造噪音或深夜喧嘩，妨害公眾安寧者。","versions":[{"bill":"202110056060000","text":"有下列各款行為之一者，處新臺幣一萬八千元以下罰鍰：\n一、於公共場所或公眾得出入之場所，酗酒滋事、謾罵喧鬧，不聽禁止者。\n二、無正當理由，擅吹警笛或擅發其他警號者。\n三、製造噪音或深夜喧嘩，妨害公眾安寧者。","note":"一、般民眾引發之噪音造成諸多負面影響，然現今噪音糾紛案件警方只得依「社會秩序維護法」處罰，而「社會秩序維護法」噪音事件之罰則僅處新臺幣六千元以下罰鍰。\n二、惟該罰鍰能產生之遏阻成效不彰，實有檢討之必要。爰此，爰參考噪音管制法第二十三條對於噪音事件的相關規定，提高罰鍰上限至一萬元，以強化警惕之效。"},{"bill":"202110058860000","text":"有下列各款行為之一者，處新臺幣一萬元以下罰鍰：\n一、於公共場所或公眾得出入之場所，酗酒滋事、謾罵喧鬧，不聽禁止者。\n二、無正當理由，擅吹警笛或擅發其他警號者。\n三、製造噪音或深夜喧嘩，妨害公眾安寧者。","note":"一、一般民眾引發之噪音造成諸多負面影響，然現今噪音糾紛案件，警方只得依「社會秩序維護法」處罰，而「社會秩序維護法」噪音事件之罰則僅處新臺幣六千元以下罰鍰。\n二、為能產生遏阻成效，以維護附近居民或民眾的生活安寧，實有檢討之必要。爰此，參考噪音管制法第二十三條對於噪音事件的相關規定，提高罰鍰上限至一萬元，以強化警惕之效。"}],"changed":true,"final":"有下列各款行為之一者，處新臺幣一萬元以下罰鍰：\n一、於公共場所或公眾得出入之場所，酗酒滋事、謾罵喧鬧，不聽禁止者。\n二、製造噪音或深夜喧嘩，妨害公眾安寧，不聽禁止者。\n三、無正當理由，擅吹警笛或擅發其他警號者。","finalWhy":"一、將原第二款規定移列至第三款，並將原第三款規定移列至第二款。\n二、為提高懲罰嚇阻效果，爰將罰鍰修正為新臺幣一萬元以下。\n三、本法係普通法之性質，依中央法規標準法第十六條規定，其他特別法律定有關於噪（聲）音之處置或處罰規定，例如：公寓大廈管理條例、噪音管制法，應優先適用之，不再適用本法規定。","review":{"note":"修正通過","text":"有下列各款行為之一者，處新臺幣一萬元以下罰鍰：\n一、於公共場所或公眾得出入之場所，酗酒滋事、謾罵喧鬧，不聽禁止者。\n二、製造噪音或深夜喧嘩，妨害公眾安寧，不聽禁止者。\n三、無正當理由，擅吹警笛或擅發其他警號者。"}},{"no":"第八十九條","current":"有左列各款行為之一者，處新臺幣三千元以下罰鍰或申誡：\n一、無正當理由，為人施催眠術或施以藥物者。\n二、無正當理由，跟追他人，經勸阻不聽者。","versions":[{"bill":"202110047330000","text":"有下列各款行為之一者，處三日以下拘留或新臺幣三萬元以下罰鍰：\n一、無正當理由，為人施催眠術或施以藥物者。\n二、無正當理由，跟蹤或騷擾他人，經勸阻不聽者。","note":"一、鑒於近年來源於跟蹤及騷擾所滋之惡害事件日益增多，然目前社會秩序維護法第八十九條裁處之罰責過低，致該法恐無法有效嚇阻類似案件發生；此外，本條之規定，僅限於無正當理由之跟追，然騷擾亦為眾多惡害案件之前置階段行為，政府機關若未對此類行為加以箝制，恐無法有效遏止後續之惡害事件發生。\n二、為彰顯上開法條維護社會秩序之旨，爰擬具「社會秩序維護法第八十九條條文修正草案」，將本條罰鍰提高，藉以提高婦幼安全之保障。"},{"bill":"202110068470000","text":"有下列各款行為之一者，處新臺幣十萬元以下罰鍰：\n一、無正當理由，為人施催眠術或施以藥物者。\n二、無正當理由，騷擾或跟蹤他人，經勸阻不聽者。\n對未成年人有前二項行為者，加重處罰至二分之一。","note":"一、112年6月至113年5月警察機關受理跟騷法案件2,895件，其中一般跟騷案件1,792件（占61.9%），家暴跟騷案件1,103件（占38.1%）。受理案件之跟騷行為計7,337次，其中以「通訊騷擾」1,743次（占23.8%）最多，「盯梢尾隨」1,597次（占21.8%）次之，「監視觀察」1,344次（占18.3%）再次之。\n二、跟蹤及騷擾事件層出不窮，不僅使許多民眾對於「單獨」出門感到極度不安與恐懼，反覆持續的跟蹤、騷擾，不只是造成被害人心理上莫大的恐懼而心生畏怖、影響日常生活或社會活動之外，一些不幸的性別暴力、甚至是更危險的情殺案件，也是以跟蹤騷擾開始。\n三、惟現行「社會秩序維護法」對於跟蹤騷擾之文義不清以及罰鍰過低，實難嚇阻跟蹤騷擾行為。為保障民眾免於被跟蹤或騷擾之權益，爰提出「社會秩序維護法」第八十九條條文修正草案，除將跟蹤騷擾行為法文定義明確，若是對未成年人有跟蹤騷擾行為，加重處罰。"},{"bill":"202110082090000","text":"有左列各款行為之一者，處三日以下拘留或新臺幣三萬元以下罰鍰：\n一、無正當理由，為人施催眠術或施以藥物者。\n二、無正當理由，跟蹤或騷擾他人，經勸阻不聽者。","note":"一、鑒於近年來源於跟蹤及騷擾所滋之惡害事件日益增多，然目前社會秩序維護法第八十九條裁處之罰責過低，致該法恐無法有效嚇阻類似案件發生；此外，本條之規定，僅限於無正當理由之跟追，然騷擾亦為眾多惡害案件之前置階段行為，政府機關若未對此類行為加以箝制，恐無法有效遏止後續之惡害事件發生。\n二、為彰顯上開法條維護社會秩序之旨，爰擬具「社會秩序維護法第八十九條條文修正草案」，將本條罰鍰提高，藉以提高婦幼安全之保障。"}],"changed":true,"final":"有下列各款行為之一者，處新臺幣三萬元以下罰鍰或申誡：\n一、無正當理由，為人施催眠術或施以藥物者。\n二、無正當理由，跟追他人，經勸阻不聽者。","finalWhy":"為提高懲罰嚇阻效果，爰將罰鍰修正為新臺幣三萬元以下。","review":{"note":"修正通過","text":"有下列各款行為之一者，處新臺幣三萬元以下罰鍰或申誡：\n一、無正當理由，為人施催眠術或施以藥物者。\n二、無正當理由，跟追他人，經勸阻不聽者。"}}],"stages":[{"date":"2024-04-26","stage":"一讀","code":"院會-11-1-11","bill":"202110037610000","gazref":"113卷031期5213號 14-14頁"},{"date":"2024-05-03","stage":"一讀","code":"院會-11-1-12","bill":"202110038930000","gazref":"113卷035期5217號 3-3頁"},{"date":"2024-05-10","stage":"一讀","code":"院會-11-1-13","bill":"202110040780000","gazref":"113卷040期5222號一冊 1-1頁"},{"date":"2024-05-17","stage":"一讀","code":"院會-11-1-14","bill":"202110047400000","gazref":"113卷044期5226號 10-10頁"},{"date":"2024-05-31","stage":"一讀","code":"院會-11-1-16","bill":"202110047330000","gazref":"113卷051期5233號一冊 14-14頁"},{"date":"2024-06-14","stage":"一讀","code":"院會-11-1-18","bill":"202110056060000","gazref":"113卷057期5239號 5-5頁"},{"date":"2024-06-28","stage":"一讀","code":"院會-11-1-20","bill":"202110058870000","gazref":"113卷064期5246號 4-4頁"},{"date":"2024-06-28","stage":"一讀","code":"院會-11-1-20","bill":"202110058860000","gazref":"113卷064期5246號 4-5頁"},{"date":"2024-10-04","stage":"一讀","code":"院會-11-2-3","bill":"202110068460000","gazref":"113卷077期5259號 13-13頁"},{"date":"2024-10-04","stage":"一讀","code":"院會-11-2-3","bill":"202110068470000","gazref":"113卷077期5259號 13-13頁"},{"date":"2024-12-13","stage":"一讀","code":"院會-11-2-13","bill":"202110082090000","gazref":"114卷001期5294號一冊 2-2頁"},{"date":"2025-04-23","code":"委員會-11-3-15-13","title":"第11屆第3會期內政委員會第13次全體委員會議","gazref":"114卷041期5334號 81-81,83-179頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025041819/details?meetingDate=114/04/23","full":["https://ivod.ly.gov.tw/Play/Full/1M/16613"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/41/LCIDC01_1144101_00002.pdf","p1":81,"p2":180}],"clips":[{"n":"高金素梅","t":"09:09","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160444"},{"n":"王鴻薇","t":"09:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160445"},{"n":"羅廷瑋","t":"09:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160446"},{"n":"麥玉珍","t":"09:17","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160447"},{"n":"蘇巧慧","t":"09:26","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160493"},{"n":"張智倫","t":"09:35","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160494"},{"n":"麥玉珍","t":"09:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160495"},{"n":"王美惠","t":"09:56","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160496"},{"n":"張宏陸","t":"10:06","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160497"},{"n":"黃捷","t":"10:15","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160498"},{"n":"許宇甄","t":"10:22","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160499"},{"n":"黃建賓","t":"10:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160500"},{"n":"高金素梅","t":"10:35","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160501"},{"n":"牛煦庭","t":"10:54","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160544"},{"n":"李柏毅","t":"11:04","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160545"},{"n":"徐欣瑩","t":"11:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160546"},{"n":"吳琪銘","t":"11:23","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160547"},{"n":"羅廷瑋","t":"11:30","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160548"},{"n":"楊瓊瓔","t":"11:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160549"},{"n":"張啓楷","t":"11:49","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160550"},{"n":"邱志偉","t":"12:07","u":"https://ivod.ly.gov.tw/Play/Clip/1M/160551"}],"props":["202110037610000","202110038930000","202110040780000","202110047400000","202110047330000","202110056060000","202110058870000","202110058860000","202110068460000","202110068470000","202110082090000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":40,"nmem":19,"ntable":0,"nfold":8},{"date":"2025-05-05","code":"委員會-11-3-15-16","title":"第11屆第3會期內政委員會第16次全體委員會議","gazref":"114卷046期5339號 1-1,3-22頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025050173/details?meetingDate=114/05/05","full":["https://ivod.ly.gov.tw/Play/Full/1M/16643"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/46/LCIDC01_1144601_00001.pdf","p1":1,"p2":22}],"clips":[],"props":["202110037610000","202110038930000","202110040780000","202110047400000","202110047330000","202110056060000","202110058870000","202110058860000","202110068460000","202110068470000","202110082090000"],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":15,"nmem":8,"ntable":0,"nfold":0},{"date":"2025-05-27","code":"院會-11-3-13","title":"第11屆第3會期第13次會議","gazref":"114卷050期5343號 85-124頁；114卷050期5343號 124-125頁；114卷050期5343號 125-126頁；114卷050期5343號 125-125頁","stage":"二讀、三讀、附帶決議","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025052177/details?meetingDate=114/05/23","full":["https://ivod.ly.gov.tw/Play/Full/1M/16708"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/50/LCIDC01_1145001_00005.pdf","p1":85,"p2":126}],"clips":[],"props":[],"tr":"tr/3.json","note":null,"nspeak":10,"nmem":2,"ntable":0,"nfold":8}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["5 月 5 日的委員會沒有委員個別發言的影片片段，只有完整影片。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>野生動物保育法修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"野生動物保育法","version":"03118:2025-01-21-修正","date":"2025-01-21","action":"修正","title":"野生動物保育法　2025 年修正","lede":"","summary":"","key":"03118_2025-01-21","props":[{"id":"202110006020000","who":"委員鄭天財Sra Kacaw等21人","date":"2024-02-23","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110006020000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/02/LCEWA01_110102_00024.pdf","proposers":["鄭天財Sra Kacaw","盧縣一","黃仁","林倩綺","高金素梅"],"ncosign":16,"people":[["鄭天財Sra Kacaw","國民黨","提案"],["盧縣一","國民黨","提案"],["黃仁","國民黨","提案"],["林倩綺","國民黨","提案"],["高金素梅","無黨籍","提案"],["陳玉珍","國民黨","連署"],["翁曉玲","國民黨","連署"],["柯志恩","國民黨","連署"],["呂玉玲","國民黨","連署"],["王育敏","國民黨","連署"],["陳超明","無黨籍","連署"],["謝衣鳯","國民黨","連署"],["蘇清泉","國民黨","連署"],["林思銘","國民黨","連署"],["萬美玲","國民黨","連署"],["黃建賓","國民黨","連署"],["魯明哲","國民黨","連署"],["徐欣瑩","國民黨","連署"],["游顥","國民黨","連署"],["賴士葆","國民黨","連署"],["李彥秀","國民黨","連署"]],"party":[["國民黨",19],["無黨籍",2]],"reason":"本院委員鄭天財Sra Kacaw、盧縣一、黃仁、林倩綺、高金素梅等21人，有鑑於現行《野生動物保育法》已多年未進行修正，為配合國內社會情勢變遷，落實《原住民族基本法》第十九條及司法院大法官第803號解釋之意旨，使《野生動物保育法》符合憲法價值衡平原則，尊重及維護原住民族狩獵之傳統文化權利，並因應社會需要，爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第二條","第十九條","第二十一條","第二十一條之一","第三十七條","第五十條之一","第五十一條","第五十一條之一","第五十二條"]},{"id":"201110005110000","who":"行政院","date":"2024-02-23","name":"「野生動物保育法部分條文修正草案」案。","url":"https://ppg.ly.gov.tw/ppg/bills/201110005110000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/02/LCEWA01_110102_00032.pdf","proposers":[],"ncosign":0,"people":[],"party":[],"reason":"行政院函請審議「野生動物保育法部分條文修正草案」案。","arts":["第二條","第十九條","第二十一條","第二十一條之一","第三十七條","第五十條之一","第五十一條","第五十一條之一","第五十二條"]},{"id":"202110006280000","who":"委員賴瑞隆等16人","date":"2024-03-01","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110006280000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/03/LCEWA01_110103_00029.pdf","proposers":["賴瑞隆","邱志偉"],"ncosign":14,"people":[["賴瑞隆","民進黨","提案"],["邱志偉","民進黨","提案"],["林岱樺","民進黨","連署"],["李昆澤","民進黨","連署"],["王正旭","民進黨","連署"],["王世堅","民進黨","連署"],["陳冠廷","民進黨","連署"],["林月琴","民進黨","連署"],["王美惠","民進黨","連署"],["何欣純","民進黨","連署"],["林宜瑾","民進黨","連署"],["郭昱晴","民進黨","連署"],["徐富癸","民進黨","連署"],["許智傑","民進黨","連署"],["張雅琳","民進黨","連署"],["黃捷","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員賴瑞隆、邱志偉等16人，鑒於野生動物保育法雖逐步禁止獸鋏之使用，惟此類高殺傷力無差別陷阱屢屢誤造成目標以外動物死亡或傷殘，甚至造成保育類野生動物之棲地危害，應予全面禁用。又司法院大法官釋字803號解釋進一步闡述有關原住民族傳統文化保障亦應包含基於非營利自用目的獵捕、宰殺或利用野生動物之權利，應配套修法解套，並允其事後報備。爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第十九條","第二十一條","第二十一條之一","第五十一條之一","第五十二條"]},{"id":"202110006930000","who":"委員黃捷等22人","date":"2024-03-01","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110006930000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/03/LCEWA01_110103_00078.pdf","proposers":["黃捷"],"ncosign":21,"people":[["黃捷","民進黨","提案"],["吳秉叡","民進黨","連署"],["王定宇","民進黨","連署"],["王美惠","民進黨","連署"],["蔡易餘","民進黨","連署"],["范雲","民進黨","連署"],["邱議瑩","民進黨","連署"],["何欣純","民進黨","連署"],["徐富癸","民進黨","連署"],["陳培瑜","民進黨","連署"],["陳秀寳","民進黨","連署"],["李柏毅","民進黨","連署"],["吳沛憶","民進黨","連署"],["沈伯洋","民進黨","連署"],["張雅琳","民進黨","連署"],["王正旭","民進黨","連署"],["李坤城","民進黨","連署"],["林月琴","民進黨","連署"],["賴惠員","民進黨","連署"],["羅美玲","民進黨","連署"],["蔡其昌","民進黨","連署"],["陳俊宇","民進黨","連署"]],"party":[["民進黨",22]],"reason":"本院委員黃捷等22人，有鑑於獸鋏與金屬套索高殺傷力、無差別傷害之特性，時常誤傷目標動物以外之野生動物導致傷殘、死亡，嚴重危害野生動物已然嚴峻之生存條件，實有全面禁用之必要。復依據根據大法官釋字803號解釋，原住民族基於傳統文化下非營利性自用而獵捕、宰殺或利用野生動物之行為，應予以尊重。爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第十九條"]},{"id":"202110010670000","who":"委員伍麗華Saidhai Tahovecahe等16人","date":"2024-03-08","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110010670000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/04/LCEWA01_110104_00039.pdf","proposers":["伍麗華Saidhai‧Tahovecahe"],"ncosign":15,"people":[["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["王美惠","民進黨","連署"],["吳琪銘","民進黨","連署"],["鍾佳濱","民進黨","連署"],["黃捷","民進黨","連署"],["賴惠員","民進黨","連署"],["陳素月","民進黨","連署"],["林宜瑾","民進黨","連署"],["李昆澤","民進黨","連署"],["楊曜","民進黨","連署"],["蔡易餘","民進黨","連署"],["陳亭妃","民進黨","連署"],["郭昱晴","民進黨","連署"],["何欣純","民進黨","連署"],["沈伯洋","民進黨","連署"],["陳秀寳","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員伍麗華Saidhai Tahovecahe等16人，為落實司法院大法官釋字第803號解釋關於原住民狩獵案之意旨，及關於112年3月六福村動物園狒狒逃脫、圍捕而後狒狒中槍死亡事件，應完善保育類野生動物逸失通報及圍捕等處理機制，爰擬具「野生動物保育法」部分條文修正草案。是否有當？敬請公決。","arts":["第二條","第十九條","第二十一條","第二十一條之一","第三十七條","第五十條之一","第五十一條","第五十一條之一","第五十二條"]},{"id":"202110010890000","who":"委員郭昱晴等16人","date":"2024-03-15","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110010890000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00020.pdf","proposers":["郭昱晴"],"ncosign":15,"people":[["郭昱晴","民進黨","提案"],["許智傑","民進黨","連署"],["吳秉叡","民進黨","連署"],["張雅琳","民進黨","連署"],["陳秀寳","民進黨","連署"],["林月琴","民進黨","連署"],["郭國文","民進黨","連署"],["陳亭妃","民進黨","連署"],["林宜瑾","民進黨","連署"],["王美惠","民進黨","連署"],["徐富癸","民進黨","連署"],["黃秀芳","民進黨","連署"],["蔡易餘","民進黨","連署"],["洪申翰","民進黨","連署"],["陳培瑜","民進黨","連署"],["邱議瑩","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員郭昱晴等16人，鑑於使用獸鋏、金屬吊索、炸藥、毒物等方式進行之獵捕行為，其高殺傷力、無差別傷害特性已嚴重危害一般野生動物及保育類野生動物生存安全，應予全面禁止。另依司法院釋字第八○三號解釋，於臺灣原住民族傳統文化保障設有相應修法配套，爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第四條","第十九條","第二十一條","第二十一條之一","第五十一條之一","第五十二條"]},{"id":"202110014230000","who":"委員呂玉玲等17人","date":"2024-03-15","name":"「野生動物保育法第十九條、第二十一條及第二十一條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110014230000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/05/LCEWA01_110105_00127.pdf","proposers":["呂玉玲"],"ncosign":16,"people":[["呂玉玲","國民黨","提案"],["張嘉郡","國民黨","連署"],["丁學忠","國民黨","連署"],["陳雪生","國民黨","連署"],["鄭正鈐","國民黨","連署"],["葛如鈞","國民黨","連署"],["羅明才","國民黨","連署"],["牛煦庭","國民黨","連署"],["魯明哲","國民黨","連署"],["羅廷瑋","國民黨","連署"],["王鴻薇","國民黨","連署"],["陳超明","無黨籍","連署"],["陳菁徽","國民黨","連署"],["黃健豪","國民黨","連署"],["廖先翔","國民黨","連署"],["顏寬恒","國民黨","連署"],["楊瓊瓔","國民黨","連署"]],"party":[["國民黨",16],["無黨籍",1]],"reason":"本院委員呂玉玲等17人，有鑑於金屬材質之套索陷阱對於野生動物傷害極大，亦常造成動物肢體永久傷害或不幸身亡之情事，故以強化野生動物保育為原則，應杜絕殘忍獵具之使用，並於特殊緊急情況、原住民狩獵傳統文化中取得平衡，以促進尊重動物生命之觀念，彰顯人道精神。爰擬具「野生動物保育法第十九條、第二十一條及第二十一條之一條文修正草案」。是否有當？敬請公決。","arts":["第十九條","第二十一條","第二十一條之一"]},{"id":"202110022260000","who":"委員張雅琳等18人","date":"2024-03-29","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110022260000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00112.pdf","proposers":["張雅琳"],"ncosign":17,"people":[["張雅琳","民進黨","提案"],["王正旭","民進黨","連署"],["沈發惠","民進黨","連署"],["何欣純","民進黨","連署"],["郭昱晴","民進黨","連署"],["王美惠","民進黨","連署"],["徐富癸","民進黨","連署"],["沈伯洋","民進黨","連署"],["李柏毅","民進黨","連署"],["鍾佳濱","民進黨","連署"],["陳亭妃","民進黨","連署"],["陳素月","民進黨","連署"],["郭國文","民進黨","連署"],["蔡易餘","民進黨","連署"],["張宏陸","民進黨","連署"],["黃秀芳","民進黨","連署"],["陳俊宇","民進黨","連署"],["黃捷","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員張雅琳等18人，鑒於野生動物保育法已近十年未曾修法，法規並未與時俱進之狀況下，如：原住民族基於傳統文化、祭儀必須獵捕、宰殺或利用野生動物之必要使用獸鋏卻違反本法之規範，現應依司法院釋字八○三號解釋，有必要配合修正。又先前因保育類野生動物逸失，引發社會大眾恐慌，飼育者又未通報主管機關，嚴重者甚至影響民眾生命財產，有必要加強相關之規範，確保民眾生命財產之安全。綜上，爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第二條","第十九條","第二十一條","第二十一條之一","第三十一條","第三十七條","第五十條之一","第五十一條","第五十一條之一","第五十二條"]},{"id":"202110029160000","who":"委員盧縣一等16人","date":"2024-04-12","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110029160000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/22/LCEWA01_110122_00542.pdf","proposers":["盧縣一"],"ncosign":15,"people":[["盧縣一","國民黨","提案"],["邱鎮軍","國民黨","連署"],["賴士葆","國民黨","連署"],["羅智強","國民黨","連署"],["廖偉翔","國民黨","連署"],["王育敏","國民黨","連署"],["涂權吉","國民黨","連署"],["林倩綺","國民黨","連署"],["陳菁徽","國民黨","連署"],["蘇清泉","國民黨","連署"],["林思銘","國民黨","連署"],["林沛祥","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["牛煦庭","國民黨","連署"],["呂玉玲","國民黨","連署"],["陳玉珍","國民黨","連署"]],"party":[["國民黨",16]],"reason":"本院委員盧縣一等16人，有鑑於原住民狩獵問題長年造成原住民遭遇司法訴追，影響原住民傳統文化及狩獵慣俗權益甚鉅，爰為保障原住民狩獵之基本人權，並依據2007年聯合國大會通過之《聯合國原住民族權利宣言》、原住民族基本法之相關規定及立法精神。修正原住民基於傳統文化、祭儀而有獵捕野生動物之必要者，其所使用之傳統獵具不受野生動物保育法第十九條第一項各款規定之限制。並明定傳統獵具之認定，須經中央主管機關會商中央原住民族主管機關討論後認定之。其次，原住民族基本法第十九條明文規定原住民得在原住民族地區依法從事非營利之獵捕野生動物，然本法卻規定獵捕行為應經農業部核准，且相關獵捕辦法亦規定由農業部會同原民會定之，顯已違反原住民族基本法的立法精神與意旨。鑒於非營利自用部分，原住民傳統慣俗中，並非僅於祭儀期間才會進行相關狩獵或宰殺野生動物之行為，非營利自用部分亦係體現原住民族生活傳統的重要元素之一。故於本條文第二項增訂，原住民於原住民族地區基於非營利目的而少量自用者得排除該辦法之適用，且可採備查程序以及部落自主管理之方式予以辦理，以尊重原住民族傳統文化。再者，依野生動物保育法第四條第一項規定，第二十一條之一第一項及第二項所定野生動物，包括「一般類」及「保育類」野生動物，惟現行規定僅對原住民族違反第二十一條之一第二項規定，未經主管機關許可，獵捕、宰殺或利用「一般類野生動物」處以行政罰。爰為平衡對原住民族傳統文化、祭儀之尊重及野生動物之保育，此次特將「保育類野生動物」納入規範，爰修正序文，明定其適用於「野生動物」。且為符處罰明確性原則，配合修正同法條文第二十一條之一第二項規定，於序文明定處罰構成要件，並審酌保育類與一般類野生動物在管理上之差異及違法獵捕、宰殺或利用行為之責難程度不同，分列二款，分別定其罰則。但屬保育類動物，原住民首次違反獵捕、宰殺或利用行為者，不罰。爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第十九條","第二十一條","第二十一條之一","第五十一條之一"]},{"id":"202110030620000","who":"委員伍麗華Saidhai Tahovecahe等17人","date":"2024-04-12","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110030620000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/22/LCEWA01_110122_00543.pdf","proposers":["伍麗華Saidhai‧Tahovecahe"],"ncosign":16,"people":[["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["陳秀寳","民進黨","連署"],["王美惠","民進黨","連署"],["徐富癸","民進黨","連署"],["陳瑩","民進黨","連署"],["林俊憲","民進黨","連署"],["何欣純","民進黨","連署"],["沈伯洋","民進黨","連署"],["黃捷","民進黨","連署"],["羅美玲","民進黨","連署"],["李柏毅","民進黨","連署"],["黃秀芳","民進黨","連署"],["賴瑞隆","民進黨","連署"],["劉建國","民進黨","連署"],["鍾佳濱","民進黨","連署"],["林宜瑾","民進黨","連署"],["陳培瑜","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員伍麗華Saidhai Tahovecahe等17人，為落實司法院大法官釋字第803號解釋關於原住民狩獵案之意旨，及關於112年3月六福村動物園狒狒逃脫、圍捕而後狒狒中槍死亡事件，應完善保育類野生動物逸失通報及圍捕等處理機制，爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第二條","第十九條","第二十一條","第二十一條之一","第三十七條","第五十條之一","第五十一條","第五十一條之一","第五十二條"]},{"id":"202110030460000","who":"委員陳素月等18人","date":"2024-04-12","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110030460000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/22/LCEWA01_110122_00544.pdf","proposers":["陳素月","蔡易餘","陳秀寳"],"ncosign":15,"people":[["陳素月","民進黨","提案"],["蔡易餘","民進黨","提案"],["陳秀寳","民進黨","提案"],["林月琴","民進黨","連署"],["邱志偉","民進黨","連署"],["李坤城","民進黨","連署"],["鍾佳濱","民進黨","連署"],["何欣純","民進黨","連署"],["黃捷","民進黨","連署"],["徐富癸","民進黨","連署"],["王美惠","民進黨","連署"],["李柏毅","民進黨","連署"],["邱議瑩","民進黨","連署"],["林楚茵","民進黨","連署"],["陳亭妃","民進黨","連署"],["陳俊宇","民進黨","連署"],["陳培瑜","民進黨","連署"],["林岱樺","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員陳素月、蔡易餘、陳秀寳等18人，鑒於獸鋏及金屬製吊索（俗稱山豬吊）等無差別式獵具的設置，致使野生流浪犬、貓斷肢的案例屢見不鮮，甚至連石虎、水鹿及食蟹獴等保育類動物也深受其害，不利於我國野生動物保育形象之維護，應予全面禁用。又基於原住民族傳統文化保障，配合修正有關原住民獵捕、宰殺或利用野生動物之規定，爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第二條","第四條","第十九條","第二十一條","第二十一條之一","第三十七條","第五十條之一","第五十一條","第五十一條之一"]},{"id":"202110037690000","who":"台灣民眾黨黨團","date":"2024-04-26","name":"「野生動物保育法第五十一條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110037690000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/22/LCEWA01_110122_00541.pdf","proposers":["張啓楷","黃國昌","黃珊珊","吳春城"],"ncosign":0,"people":[["張啓楷","民眾黨","提案"],["黃國昌","民眾黨","提案"],["黃珊珊","民眾黨","提案"],["吳春城","民眾黨","提案"]],"party":[["民眾黨",4]],"reason":"本院台灣民眾黨黨團，鑒於現行野生動物保育法對於一般類野生動物之騷擾、虐待、宰殺之規定尚不完備，為避免一般類野生動物遭不當對待，爰擬具「野生動物保育法第五十一條條文修正草案」。是否有當？敬請公決。","arts":["第五十一條"]},{"id":"202110053830000","who":"委員羅廷瑋等16人","date":"2024-06-07","name":"「野生動物保育法第十九條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110053830000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/22/LCEWA01_110122_00545.pdf","proposers":["羅廷瑋"],"ncosign":15,"people":[["羅廷瑋","國民黨","提案"],["蘇清泉","國民黨","連署"],["盧縣一","國民黨","連署"],["張智倫","國民黨","連署"],["邱鎮軍","國民黨","連署"],["廖偉翔","國民黨","連署"],["林思銘","國民黨","連署"],["陳玉珍","國民黨","連署"],["賴士葆","國民黨","連署"],["林德福","國民黨","連署"],["呂玉玲","國民黨","連署"],["張嘉郡","國民黨","連署"],["林倩綺","國民黨","連署"],["涂權吉","國民黨","連署"],["王育敏","國民黨","連署"],["許宇甄","國民黨","連署"]],"party":[["國民黨",16]],"reason":"本院委員羅廷瑋等16人，鑑於為落實維護人道對待動物之普世價值，與釋字第803號尊重原住民族自然資源利用權利的前提下，本法有修正之必要，爰擬具「野生動物保育法第十九條條文修正草案」。是否有當？敬請公決。","arts":["第十九條"]},{"id":"202110072950000","who":"委員洪孟楷等18人","date":"2024-10-25","name":"「野生動物保育法部分條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110072950000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/15/LCEWA01_110215_00174.pdf","proposers":["洪孟楷","楊瓊瓔","謝龍介"],"ncosign":15,"people":[["洪孟楷","國民黨","提案"],["楊瓊瓔","國民黨","提案"],["謝龍介","國民黨","提案"],["廖先翔","國民黨","連署"],["黃仁","國民黨","連署"],["陳雪生","國民黨","連署"],["涂權吉","國民黨","連署"],["賴士葆","國民黨","連署"],["陳玉珍","國民黨","連署"],["葛如鈞","國民黨","連署"],["林倩綺","國民黨","連署"],["林沛祥","國民黨","連署"],["顏寬恒","國民黨","連署"],["林思銘","國民黨","連署"],["羅廷瑋","國民黨","連署"],["羅智強","國民黨","連署"],["廖偉翔","國民黨","連署"],["邱鎮軍","國民黨","連署"]],"party":[["國民黨",18]],"reason":"本院委員洪孟楷、楊瓊瓔、謝龍介等18人，有鑑於生態保育相關研究日新月異，野生動物保育議題日益複雜難解，惟本法未隨時代更迭而與時俱進，實有通盤檢討之必要。又我國近年發生動物逃脫之圍捕事件，引發社會關注及責任歸屬等問題，圍捕過程亦可能造成民眾恐慌、影響他人生命財產安全。為維護物種多樣性與自然生態之平衡，杜絕使用不當之獵捕工具致野生動物傷殘，落實人道對待動物之普世價值；並完善保育類野生動物逸失通報及圍捕等處理機制，爰擬具「野生動物保育法部分條文修正草案」。是否有當？敬請公決。","arts":["第二條","第十九條","第二十一條","第二十一條之一","第二十五條","第三十七條","第五十條之一"]}],"arts":[{"no":"第二條","current":"本法所稱主管機關：在中央為行政院農業委員會；在直轄市為直轄市政府；在縣（市）為縣（市）政府。","versions":[{"bill":"202110006020000","text":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。","note":"一、修正本條之主管機關並增訂但書。\n二、行政院農業委員會已於112年8月1日改制為農業部，爰配合修正中央主管機關名稱。\n三、鑒於海洋委員會業於107年4月28日成立，本法有關海洋野生動物保育，中央業已改由海洋委員會為管轄機關，爰增訂但書，以明確本法事權。"},{"bill":"201110005110000","text":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。","note":"一、農業部組織法業於一百十二年八月一日施行，行政院農業委員會已改制為農業部，爰修正中央主管機關名稱。\n二、鑒於一百零七年四月二十八日海洋委員會成立，本法有關海洋野生動物保育之中央主管機關掌理事項，業已改由海洋委員會管轄，爰增訂但書規定，以明事權。"},{"bill":"202110010670000","text":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。","note":"一、農業部組織法業於一百十二年八月一日施行，行政院農業委員會已改制為農業部，爰修正中央主管機關名稱。\n二、鑒於一百零七年四月二十八日海洋委員會成立，本法有關海洋野生動物保育之中央主管機關掌理事項，業已改由海洋委員會管轄，爰增訂但書規定，以明事權。"},{"bill":"202110022260000","text":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。","note":"一、農業部組織法業於一百十二年八月一日施行，行政院農業委員會已改制為農業部，爰修正中央主管機關名稱。\n二、鑒於一百零七年四月二十八日海洋委員會成立，本法有關海洋野生動物保育之中央主管機關掌理事項，業已改由海洋委員會管轄，爰增訂但書規定，以明事權。"},{"bill":"202110030620000","text":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。","note":"一、農業部組織法業於一百十二年八月一日施行，行政院農業委員會已改制為農業部，爰修正中央主管機關名稱。\n二、鑒於一百零七年四月二十八日海洋委員會成立，本法有關海洋野生動物保育之中央主管機關掌理事項，業已改由海洋委員會管轄，爰增訂但書規定，以明事權。"},{"bill":"202110030460000","text":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。","note":"一、農業部組織法業於一百十二年八月一日施行，行政院農業委員會已改制為農業部，爰修正中央主管機關名稱。\n二、鑒於一百零七年四月二十八日海洋委員會成立，本法有關海洋野生動物保育之中央主管機關掌理事項，已改由海洋委員會管轄，爰增訂但書規定，以明事權。"},{"bill":"202110072950000","text":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。","note":"一、農業部組織法業於一百十二年八月一日施行，行政院農業委員會已改制為農業部，爰修正中央主管機關名稱。\n二、鑒於一百零七年四月二十八日海洋委員會成立，本法有關海洋野生動物保育之中央主管機關掌理事項，業已改由海洋委員會管轄，爰增訂但書規定，以明事權。"}],"changed":true,"final":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。","finalWhy":"一、農業部組織法業於一百十二年八月一日施行，行政院農業委員會已改制為農業部，爰修正中央主管機關名稱。\n二、鑒於一百零七年四月二十八日海洋委員會成立，本法有關海洋野生動物保育之中央主管機關掌理事項，業已改由海洋委員會管轄，爰增訂但書規定，以明事權。","review":{"note":"照行政院提案通過","text":"本法所稱主管機關：在中央為農業部；在直轄市為直轄市政府；在縣（市）為縣（市）政府。但海域野生動物保育之中央主管機關為海洋委員會。"}},{"no":"第四條","current":"野生動物區分為下列二類：\n一、保育類：指瀕臨絕種、珍貴稀有及其他應予保育之野生動物。\n二、一般類：指保育類以外之野生動物。\n前項第一款保育類野生動物，由野生動物保育諮詢委員會評估分類，中央主管機關指定公告，並製作名錄。","versions":[{"bill":"202110010890000","text":"野生動物區分為下列二類：\n一、保育類：指瀕臨絕種、珍貴稀有及其他應予保育之野生動物。\n二、一般類：指保育類以外之野生動物。\n前項第一款保育類野生動物，由野生動物保育諮詢委員會評估分類，中央主管機關指定公告，製作名錄，並每年更新一次。","note":"野生動物保育工作應隨環境變遷不斷調整，名錄與保育等級每年重新審視更新，更加有利於物種族群存續。"},{"bill":"202110030460000","text":"野生動物區分為下列二類：\n一、保育類：指瀕臨絕種、珍貴稀有及其他應予保育之野生動物。\n二、一般類：指保育類以外之野生動物。\n前項第一款保育類野生動物，由野生動物保育諮詢委員會評估分類，中央主管機關指定公告，製作名錄，並每年更新一次。","note":"保育野生動物的腳步刻不容緩，因應環境快速變遷，未定期更新名錄恐致名錄與現實生態情況有所差距，應定期更新保育類動物名錄，以利野生動物族群存續。"}],"changed":false,"final":"野生動物區分為下列二類：\n一、保育類：指瀕臨絕種、珍貴稀有及其他應予保育之野生動物。\n二、一般類：指保育類以外之野生動物。\n前項第一款保育類野生動物，由野生動物保育諮詢委員會評估分類，中央主管機關指定公告，並製作名錄。","finalWhy":null,"review":{"note":"不予通過，維持現行法條文","text":""}},{"no":"第十九條","current":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱、獸鋏或特殊獵捕工具。\n七、其他經主管機關公告禁止之方法。\n未經許可擅自設置網具、陷阱、獸鋏或其他獵具，主管機關得逕予拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","versions":[{"bill":"202110006020000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏。\n八、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、修正第一項第六款，增訂第七款；修正第二項。\n二、為杜絕野生動物因獸鋏使用不當致斷腿傷殘等情形發生，應全面禁止使用獸鋏，其使用應與陷阱、特殊獵捕工具之規範不同，爰將第一項第六款不得使用獸鋏之規定，移列第七款單獨規範，現行第七款「其他經主管機關公告禁止之方法」遞移至第八款，均全面禁止使用；第二項亦配合修正，並增訂主管機關得逕予排除之規定。\n三、《動物保護法》施行細則第二條之一條規定，獸鋏係指具強力彈簧之頜顎型或齒夾型結構，並以夾鉗方式捕捉動物之鋏狀器械。至於原住民族所用傳統獵具，與前開定義之型式不同者，非屬獸鋏範圍，併予敘明。"},{"bill":"201110005110000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏。\n八、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、為杜絕野生動物因獸鋏使用不當致斷腿傷殘等情形發生，全面禁止使用獸鋏，其使用應與陷阱、特殊獵捕工具之規範不同，爰將第一項第六款不得使用獸鋏之規定，移列第七款單獨規範，現行第七款「其他經主管機關公告禁止之方法」遞移至第八款，均全面禁止使用；第二項亦配合修正，並增訂主管機關得逕予排除之規定。\n二、依動物保護法施行細則第二條之一規定，獸鋏係指具強力彈簧之頜顎型或齒夾型結構，並以夾鉗方式捕捉動物之鋏狀器械。至於原住民族所用傳統獵具，與前開定義之型式不同者，非屬獸鋏範圍，併予敘明。"},{"bill":"202110006280000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏、金屬套索等易造成目標以外野生動物永久傷殘、死亡之工具。\n八、其他經主管機關公告禁止之方法。\n使用或設置前項各款之物品、網具、陷阱、獸鋏或其他獵具者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、獸鋏禁用之爭議由來已久，其使用之主要爭議在於強大殺傷力及因無差別性導致高誤殺傷率。如在僅需要驅趕野生動物情況下使用獸鋏，易造成動物不必要的死亡或傷殘，如使用在獵捕特定動物，又容易造成誤殺傷目標以外動物之情況，甚至常有保育類野生動物受害情形。\n二、除獸鋏外，與其具有相同爭議之狩獵工具如俗稱山豬吊的含金屬材質套索，皆屬於無差別高殺傷力陷阱，此類工具應全面禁止使用，爰授權主管機關以行政命令補充。\n三、參考動物保護法第十四條之一第二項規定，增訂主管機關得逕予排除之規定。"},{"bill":"202110006930000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏。\n八、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"為徹底杜絕野生動物因獸鋏使用不當致傷殘、死亡等情形，全面禁止使用獸鋏，其使用應與其他獵捕規範不同，爰將第一項第六款不得使用獸鋏之規定，移列第七款單獨規範，現行第七款「其他經主管機關公告禁止之方法」遞移至第八款，均全面禁止使用；第二項則配合修正，增訂主管機關得逕予排除之規定。"},{"bill":"202110010670000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱、獸鋏或特殊獵捕工具。\n七、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"明定使用法不容許方法獵捕野生動物者，主管機關得逕以排除或拆除並銷毀。"},{"bill":"202110010890000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏、金屬製吊索等易致目標以外動物死亡、受傷之無差別式獵具。\n八、其他經主管機關公告禁止之方法。\n使用或設置前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、獸鋏與金屬製吊索等獵具，其高殺傷力與無差別傷害之特性，已對野生動物生存造成極大威脅，應全面禁止。\n二、將獸鋏等獵具，由第六款獨立移列至第七款，以配合第二十一條例外之修訂。\n三、原第七款「其他經主管機關公告禁止之方法」移至第八款。\n四、參考動物保護法第十四條之一第二項規定，並增訂主關機關得逕予排除之規定。"},{"bill":"202110014230000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱、獸鋏或特殊獵捕工具。\n七、設置金屬材質之套索陷阱。\n八、其他經主管機關公告禁止之方法。\n未經許可擅自設置網具、陷阱、獸鋏、金屬材質之套索陷阱或其他獵具，主管機關得逕予拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"俗稱山豬吊的金屬套索，是以彈簧裝置束綁之陷阱，當動物無端觸碰，恐遭致肢體傷害，當動物基於生存本能嘗試掙扎逃脫，時常發生肢體受傷、殘缺案例，因身陷陷阱而遭活活餓死、渴死亦屢見不鮮，所受痛苦往往難以癒合，實在有違尊重生命及人道捕獵之國際趨勢。"},{"bill":"202110022260000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏。\n八、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、過去新聞報載時有發生因獸鋏使用不當導致造成野生動物斷腿傷殘等情形發生，但因情況不同。常有爭議產生。因此，現行規範全面禁止使用獸鋏，其使用應與陷阱、特殊獵捕工具之規範不同，爰將第一項第六款不得使用獸鋏之規定，以第七款單獨規範進行表列，現行第七款則遞移至第八款，均全面禁止使用。\n二、參考動物保護法第十四條之一第二項規定，增訂主管機關得逕予排除之規定。"},{"bill":"202110029160000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。但排除原住民族所用傳統獵具，如腳踏索、陷落器或中央主管機關會商中央原住民族主管機關認定之傳統獵具。\n七、使用獸鋏、鋼製吊索。\n八、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、為杜絕野生動物因獸鋏使用不當致斷腿傷殘等情形發生，全面禁止使用獸鋏，其使用應與陷阱、特殊獵捕工具之規範不同，爰將第一項第六款不得使用獸鋏之規定，移列第七款單獨規範，現行第七款「其他經主管機關公告禁止之方法」遞移至第八款，均全面禁止使用。\n二、依動物保護法施行細則第二條之一規定，獸鋏係指具強力彈簧之頜顎型或齒夾型結構，並以夾鉗方式捕捉動物之鋏狀器械。至於原住民族所用傳統獵具，與前開定義之型式不同者，非屬獸鋏範圍，併予敘明。\n三、原住民基於傳統文化、祭儀而有獵捕野生動物之必要者，其所使用之傳統獵具不受第十九第一項各款規定之限制。並明定傳統獵具之認定，須經中央主管機關會商中央原住民族主管機關討論後認定之。"},{"bill":"202110030620000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏。\n八、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"明定使用法不容許方法獵捕野生動物者，主管機關得逕以排除或拆除並銷毀。"},{"bill":"202110030460000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏、金屬製吊索等易致目標以外動物死亡、受傷之無差別式獵具。\n八、其他經主管機關公告禁止之方法。\n使用或設置前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、因獸鋏使用不當而造成的無差別性以及強大殺傷力已造成野生動物斷腿傷殘等情形頻繁發生，除獸鋏之外，與其有相同爭議之金屬製吊索（俗稱山豬吊）等無差別式獵具也應全面禁止，故修訂第七款之規定。\n二、原第七款「其他經主管機關公告禁止之方法」移至第八款。\n三、參考動物保護法第十四條之一第二項規定，酌作文字之修訂，並增訂主關機關得逕予排除之規定。"},{"bill":"202110053830000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏。\n八、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、本法雖有原則上不得使用獸鋏以獵捕野生動物之規定，但於危及公共安全或人類性命之虞等情形或原住民族基於其傳統文化、祭儀，而有獵捕、宰殺或利用野生動物之必要者，允許例外得使用獸鋏。惟近來因獸鋏使用不當致野生動物斷腿傷殘等案件時有所聞，廣受關注，為澈底防杜獸鋏之不當傷害，爰將現行獸鋏管理強度提高至全面禁止使用，爰將第一項第六款不得使用獸鋏之規定，以第七款單獨規範進行表列，現行第七款則遞移至第八款，均全面禁止使用，以杜絕使用不當致野生動物傷殘，維護人道對待動物之普世價值。\n二、爰參照《動物保護法》第十四條之一第二項之規定，增訂主管機關得逕予排除之規定。"},{"bill":"202110072950000","text":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用腐蝕性物質。\n六、使用獵槍以外之其他種類槍械。\n七、使用陷阱或特殊獵捕工具。\n八、使用獸鋏、金屬製吊索等易致目標以外動物死亡、受傷之無差別式獵具。\n九、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","note":"一、為落實杜絕使用不當之獵捕工具致野生動物傷殘，維護人道對待動物之普世價值，並避免本法與動物保護法規定之適用爭議及落實處罰明確性原則，爰參酌動物保護法第十四條之一第一項規定，將腐蝕性物質列入本法第一項各款之禁用範圍，其餘款次依序移列。\n二、為杜絕野生動物因獸鋏使用不當致斷腿傷殘等情形發生，全面禁止使用獸鋏，其使用應與陷阱、特殊獵捕工具之規範不同，爰將第一項第六款不得使用獸鋏之規定，並增訂金屬製吊索等導致動物傷亡之無差別獵具等文字，共同移列第八款單獨規範。\n三、第二項配合修正，增訂主管機關得逕予排除之規定。"}],"changed":true,"final":"獵捕野生動物，不得以下列方法為之：\n一、使用炸藥或其他爆裂物。\n二、使用毒物。\n三、使用電氣、麻醉物或麻痺之方法。\n四、架設網具。\n五、使用獵槍以外之其他種類槍械。\n六、使用陷阱或特殊獵捕工具。\n七、使用獸鋏。\n八、其他經主管機關公告禁止之方法。\n使用前項各款所定方法獵捕野生動物者，主管機關得逕予排除或拆除並銷毀之。土地所有人、使用人或管理人不得規避、拒絕或妨礙。","finalWhy":"一、為杜絕野生動物因獸鋏使用不當致斷腿傷殘等情形發生，全面禁止使用獸鋏，其使用應與陷阱、特殊獵捕工具之規範不同，爰將第一項第六款不得使用獸鋏之規定，移列第七款單獨規範，原第七款「其他經主管機關公告禁止之方法」遞移至第八款，均全面禁止使用；第二項亦配合修正，並增訂主管機關得逕予排除之規定。\n二、依動物保護法施行細則第二條之一規定，獸鋏係指具強力彈簧之頜顎型或齒夾型結構，並以夾鉗方式捕捉動物之鋏狀器械。至於原住民族所用傳統獵具，與前開定義之型式不同者，非屬獸鋏範圍，併予敘明。","review":{"note":"所有提案及修正動議2案均保留，送院會處理","text":""}},{"no":"第二十一條","current":"野生動物有下列情形之一，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項各款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞者。\n二、危害農林作物、家禽、家畜或水產養殖者。\n三、傳播疾病或病蟲害者。\n四、有妨礙航空安全之虞者。\n五、（刪除）。\n六、其他經主管機關核准者。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","versions":[{"bill":"202110006020000","text":"野生動物有下列情形之一者，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞。\n二、危害農林作物、家禽、家畜或水產養殖。\n三、傳播疾病或病蟲害。\n四、有妨礙航空安全之虞。\n五、其他經主管機關核准之情形。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"一、修正第一項。\n二、因獸鋏使用不當傷害野生動物案件嚴重影響我國動物保護形象，為防杜獸鋏不當傷害野生動物案件，有將現行獸鋏管理強度提高至全面禁止使用之必要，爰將現行得使用獸鋏之例外規定予以刪除。又配合修正條文第十九條第一項第八款及第二項已明文禁止以其他經主管機關公告禁止之方法獵捕野生動物，即不宜有例外得使用之情形，爰修正第一項序文；另酌作文字修正，各款並配合刪除「者」字。\n三、現行第一項第五款業於93年2月4日修正刪除，無保留款次必要，爰予刪除，另配合將第六款款次移列為第五款。"},{"bill":"201110005110000","text":"野生動物有下列情形之一者，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞。\n二、危害農林作物、家禽、家畜或水產養殖。\n三、傳播疾病或病蟲害。\n四、有妨礙航空安全之虞。\n五、其他經主管機關核准之情形。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"一、因獸鋏使用不當傷害野生動物案件嚴重影響我國動物保護形象，為澈底防杜獸鋏不當傷害野生動物案件，有將現行獸鋏管理強度提高至全面禁止使用之必要，現行得使用獸鋏之例外規定宜予刪除；又配合修正條文第十九條第一項第八款及第二項已明文禁止以其他經主管機關公告禁止之方法獵捕野生動物，即不宜有例外得使用之情形，爰修正第一項序文；另酌作文字修正，各款並配合刪除「者」字。\n二、現行第一項第五款業於九十三年二月四日修正刪除，無保留款次必要，爰予刪除，另配合將第六款款次移列為第五款。\n三、第二項未修正。"},{"bill":"202110006280000","text":"野生動物有下列情形之一，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞者。\n二、危害農林作物、家禽、家畜或水產養殖者。\n三、傳播疾病或病蟲害者。\n四、有妨礙航空安全之虞者。\n五、其他經主管機關核准者。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"一、為避免誤傷保育類野生動物、減少因不人道獵捕行為致目標以外野生動物死亡傷殘等案件影響民眾觀感及我國形象，全面禁用使用獸鋏有其必要，同理，其他具有強大殺傷力及高誤傷率之工具亦應全面禁止，爰修正本條，第十九條第一項第七款不得為例外使用。\n二、現行第一項第五款已於2004年修正刪除，無保留之必要，爰將第六款移列至第五款。"},{"bill":"202110010670000","text":"野生動物有下列情形之一者，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項各款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞者。\n二、危害農林作物、家禽、家畜或水產養殖者。\n三、傳播疾病或病蟲害者。\n四、有妨礙航空安全之虞者。\n五、其他經主管機關核准之情形。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"第一項酌作文字及項次的調整。"},{"bill":"202110010890000","text":"野生動物有下列情形之一，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第三款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞者。\n二、危害農林作物、家禽、家畜或水產養殖者。\n三、傳播疾病或病蟲害者。\n四、有妨礙航空安全之虞者。\n五、其他經主管機關核准者。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"一、炸藥與爆裂物、毒物、獸鋏、金屬製吊索等，皆為高殺傷力無差別傷害之獵補方式，手段目的顯不符比例原則，與其他主管機關已公告禁止之方法皆不應成為例外。\n二、現行第一項第五款已修正刪除，無保留款次必要，並配合將第六款款次移列為第五款。"},{"bill":"202110014230000","text":"野生動物有下列情形之一，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第三款至第五款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞者。\n二、危害農林作物、家禽、家畜或水產養殖者。\n三、傳播疾病或病蟲害者。\n四、有妨礙航空安全之虞者。\n五、（刪除）。\n六、其他經主管機關核准者。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"野生動物有危害農漁牧業發展及人類生命之虞，在維護自然生態之權衡下，允許人道方式捕獵，惟針對野生動物防治，採取模式應避免過激手段，故將緊急情況下捕獵野生動物方式，限制在現行第十九條第一項第三款至第五款較具人道精神之獵捕規定。"},{"bill":"202110022260000","text":"野生動物有下列情形之一者，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞。\n二、危害農林作物、家禽、家畜或水產養殖。\n三、傳播疾病或病蟲害。\n四、有妨礙航空安全之虞。\n五、其他經主管機關核准之情形。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"一、因獸鋏使用不當導致傷害野生動物案件嚴重影響我國動物保護形象，為澈底防杜獸鋏不當傷害野生動物案件，有將現行獸鋏管理強度提高至全面禁止使用之必要，現行得使用獸鋏之例外規定宜予刪除\n二、配合修正條文，調整款項次。"},{"bill":"202110029160000","text":"野生動物有下列情形之一，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞者。\n二、危害農林作物、家禽、家畜或水產養殖者。\n三、傳播疾病或病蟲害者。\n四、有妨礙航空安全之虞者。\n五、其他經主管機關核准者。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"一、因獸鋏使用不當傷害野生動物案件嚴重影響我國動物保護形象，為澈底防杜獸鋏不當傷害野生動物案件，有將現行獸鋏管理強度提高至全面禁止使用之必要，現行得使用獸鋏之例外規定宜予刪除；又配合修正條文第十九條第一項第八款及第二項已明文禁止以其他經主管機關公告禁止之方法獵捕野生動物，即不宜有例外得使用之情形，爰修正第一項序文。\n二、現行第一項第五款業於九十三年二月四日修正刪除，無保留款次必要，爰予刪除，另配合將第六款款次移列為第五款。"},{"bill":"202110030620000","text":"野生動物有下列情形之一者，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞者。\n二、危害農林作物、家禽、家畜或水產養殖者。\n三、傳播疾病或病蟲害者。\n四、有妨礙航空安全之虞者。\n五、其他經主管機關核准之情形。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"第一項酌作文字及項次的調整。"},{"bill":"202110030460000","text":"野生動物有下列情形之一，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞者。\n二、危害農林作物、家禽、家畜或水產養殖者。\n三、傳播疾病或病蟲害者。\n四、有妨礙航空安全之虞者。\n五、其他經主管機關核准者。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"一、使用獸鋏等無差別獵具致動物死傷案件已經嚴重影響我國動物保護形象，為澈底杜絕獸鋏不當傷害野生動物案件，應全面禁止獸鋏等無差別獵具之使用，且對於業經主管機關公告禁止之方法，亦不得成為例外。\n二、現行第一項第五款業於九十三年二月四日修正刪除，無保留款次必要，爰予刪除，另配合將第六款款次移列為第五款。"},{"bill":"202110072950000","text":"野生動物有下列情形之一者，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第七款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞。\n二、危害農林作物、家禽、家畜或水產養殖。\n三、傳播疾病或病蟲害。\n四、有妨礙航空安全之虞。\n五、其他經主管機關核准之情形。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","note":"一、因獸鋏使用不當傷害野生動物案件嚴重影響我國動物保護形象，為澈底防杜獸鋏不當傷害野生動物案件，有將現行獸鋏管理強度提高至全面禁止使用之必要，現行得使用獸鋏之例外規定宜予刪除；又配合修正條文第十九條第一項第九款及第二項已明文禁止以其他經主管機關公告禁止之方法獵捕野生動物，即不宜有例外得使用之情形，爰修正第一項序文；另酌作文字修正，各款並配合刪除「者」字。\n二、現行第一項第五款業於九十三年二月四日修正刪除，無保留款次必要，爰予刪除，另配合將第六款款次移列為第五款。\n三、第二項未修正。"}],"changed":true,"final":"野生動物有下列情形之一者，得予以獵捕或宰殺，不受第十七條第一項、第十八條第一項及第十九條第一項第二款至第六款規定之限制。但保育類野生動物除情況緊急外，應先報請主管機關處理：\n一、有危及公共安全或人類性命之虞。\n二、危害農林作物、家禽、家畜或水產養殖。\n三、傳播疾病或病蟲害。\n四、有妨礙航空安全之虞。\n五、其他經主管機關核准之情形。\n保育類野生動物有危害農林作物、家禽、家畜或水產養殖，在緊急情況下，未及報請主管機關處理者，得以主管機關核定之人道方式予以獵捕或宰殺以防治危害。","finalWhy":"一、因第十九條第一項第一款所定炸藥或其他爆裂物及第七款所定獸鋏等使用不當傷害野生動物案件嚴重影響我國動物保護形象，為澈底防杜使用殺傷力強大之方法，傷害野生動物案件一再發生，有將原炸藥、爆裂物及獸鋏等管理強度，提高至全面禁止使用之必要性，原得例外使用炸藥或其他爆裂物及獸鋏之規定宜予刪除；又配合修正條文第十九條第一項第八款及第二項已明文禁止以其他經主管機關公告禁止之方法獵捕野生動物，即不宜有例外得使用之情形，爰修正第一項序文；另酌作文字修正，各款並配合刪除「者」字。\n二、原第一項第五款業於九十三年二月四日修正刪除，無保留款次必要，爰予刪除，另配合將第六款款次移列為第五款。\n三、第二項未修正。","review":{"note":"所有提案及修正動議1案均保留，送院會處理","text":""}},{"no":"第二十一條之一","current":"台灣原住民族基於其傳統文化、祭儀，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項各款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准，其申請程序、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域及其他應遵循事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","versions":[{"bill":"202110006020000","text":"臺灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關備查，其得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵行事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、修正第一項及第二項。\n二、按司法院大法官釋字第803號解釋，第一項所稱「傳統文化」，應包含原住民依其所屬部落族群所傳承之飲食與生活文化，而以自行獵獲之野生動物供自己、家人或部落親友食用或作為工具器物之非營利性自用之情形；立法者對原住民基於傳統文化下非營利性自用而獵捕、宰殺或利用野生動物之行為予以規範，或授權主管機關訂定管制規範時，除有特殊例外，其得獵捕、宰殺或利用之野生動物，應不包括保育類野生動物；第二項前段規定所採之事前申請核准之管制手段，尚不違反憲法比例原則，惟主管機關就第二項授權辦法有關原住民非定期性獵捕活動提出之狩獵申請，應依該解釋意旨就具體個案情形為多元彈性措施。\n三、次按《原住民族基本法》第十九條第一項第一款、第三項規定，原住民得在原住民族地區及經中央原住民族主管機關公告之海域依法從事非營利之獵捕野生動物行為，並以傳統文化、祭儀或自用為限。因此，修正第一項，將「非營利自用」，增列為原住民族獵捕、宰殺或利用野生動物合法、必要行為之要件。\n四、原住民族之傳統文化、祭儀依法應受保護與尊重，惟獸鋏及其他經主管機關公告禁止之方法，其使用易對野生動物造成極大傷害，且獵捕野生動物仍可使用其他傳統獵具及方法，因此，禁用獸鋏及其他經主管機關公告禁止之方法，應無礙原住民族傳統狩獵文化之傳承。為符合原住民族基本法之規定，平衡對原住民族傳統文化之尊重與人道對待動物之普世價值，爰修正第一項不受相關規定限制之範圍，使修正條文第十九條第一項第七款及第八款所定獸鋏及其他經主管機關公告禁止之方法，均不得例外使用。\n五、為落實前揭大法官解釋意旨，修正第二項刪除現行之事前申請核准制，以免牴觸原住民族傳統狩獵禁忌及實務面窒礙難行之處，並將第二項前段修正採「備查」制，並將得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件及管理等應遵行事項，納入第二項後段授權訂定辦法之項目，以符前揭司法院解釋意旨及法律授權明確性原則。"},{"bill":"201110005110000","text":"臺灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查；其申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵行事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、依司法院釋字第八○三號解釋，第一項所稱「傳統文化」，應包含原住民依其所屬部落族群所傳承之飲食與生活文化，而以自行獵獲之野生動物供自己、家人或部落親友食用或作為工具器物之非營利性自用之情形；立法者對原住民基於傳統文化下非營利性自用而獵捕、宰殺或利用野生動物之行為予以規範，或授權主管機關訂定管制規範時，除有特殊例外，其得獵捕、宰殺或利用之野生動物，應不包括保育類野生動物；第二項前段規定所採之事前申請核准之管制手段，尚不違反憲法比例原則，惟主管機關就第二項授權辦法有關原住民非定期性獵捕活動提出之狩獵申請，應依該解釋意旨就具體個案情形為多元彈性措施。\n二、依原住民族基本法第十九條第一項第一款、第三項規定，原住民得在原住民族地區及經中央原住民族主管機關公告之海域依法從事非營利之獵捕野生動物行為，並以傳統文化、祭儀或自用為限；又原住民族委員會與前行政院農業委員會於一百零六年六月八日會銜核釋本條第一項所定「臺灣原住民族基於其傳統文化、祭儀，而有獵捕、宰殺或利用野生動物之必要者」，包括依原住民族基本法第十九條規定之「非營利自用」行為，爰修正第一項，增列「非營利自用」之要件，納入原住民族非營利自用而獵捕、宰殺或利用野生動物之行為，並酌作文字修正。\n三、原住民族之傳統文化、祭儀依法應受保護與尊重，惟獸鋏及其他經主管機關公告禁止之方法，其使用易對野生動物造成極大傷害，且獵捕野生動物仍可使用其他傳統獵具及方法，因此，禁用獸鋏及其他經主管機關公告禁止之方法，應無礙原住民族傳統狩獵文化之傳承。為符合原住民族基本法之規定，平衡對原住民族傳統文化之尊重與人道對待動物之普世價值，爰修正第一項不受相關規定限制之範圍，使修正條文第十九條第一項第七款及第八款所定獸鋏及其他經主管機關公告禁止之方法，均不得例外使用。\n四、為因應司法院釋字第八○三號解釋意旨，並考量現行第二項規定一律採事前申請核准，除與原住民族傳統狩獵禁忌牴觸外，部分情形在實務上亦窒礙難行，例如除喪儀式，因喪期無法預知，從而無法事先申請核准，爰於第二項前段增列「或備查」之規定，並將申請核准或備查之情形，納入後段授權訂定辦法之事項，以符實際。另前揭司法院解釋理由書略以原住民因非營利自用之需而申請獵捕、宰殺或利用保育類野生動物，應採特別嚴格之管制手段，僅於特殊例外始得予許可，爰將得獵捕、宰殺或利用保育類野生動物之必要情形及應檢附文件等，亦納入第二項後段授權訂定辦法之事項，以符法律授權明確性原則。"},{"bill":"202110006280000","text":"台灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查，其申請或備查之應檢附文件、程序，及其獵捕方式、傳統獵具、獵捕動物之種類、數量、獵捕期間、區域及其他應遵循事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、根據司法院大法官釋字第803號解釋意旨，對原住民族之傳統文化保障，應包括部落族群所傳承之飲食與生活習慣，應允許原住民自行獵捕「非保育類」野生動物供自己、家人或部落親友食用或做為工具器物之非營利性自用情形，爰增訂非營利自用獵捕、宰殺或利用或利用野生動物之情形。\n二、為進一步鬆綁對原住民之獵捕、宰殺或利用野生動物之限制，除原本規定之事前申請主管機關核准之許可制外，增訂開放事後報備之備查制。\n三、原住民族使用傳統獵具應不在第十九條規範範圍內，其傳統獵具之定義、種類，應授權由主管機關與原住民族主管機關會商定之。"},{"bill":"202110010670000","text":"台灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項各款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查，其申請或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、程序、應檢附文件、獵捕方式、原住民族傳統獵具（含獸鋏）、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵循事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、為原住民族基本法第十九條第一項第一款、第三項規定，原住民得在原住民族地區及經中央原住民族主管機關公告之海域依法從事非營利之獵捕野生動物行為，並以傳統文化、祭儀或自用為限，爰修正第一項，增列「非營利自用」之要件，納入原住民族非營利自用而獵捕、宰殺或利用野生動物之行為，並酌作文字修正。\n二、為因應司法院釋字第八○三號解釋意旨，並考量現行第二項規定一律採事前申請核准，除與原住民族傳統狩獵禁忌牴觸外，部分情形在實務上亦窒礙難行，例如除喪儀式，因喪期無法預知，從而無法事先申請核准，爰於第二項前段增列「或備查」之規定，並將申請核准或備查之情形，納入後段授權訂定辦法之事項，以符實際。另前揭司法院解釋理由書略以原住民因非營利自用之需而申請獵捕、宰殺或利用保育類野生動物，應採特別嚴格之管制手段，僅於特殊例外始得予許可，爰將得獵捕、宰殺或利用保育類野生動物之必要情形及應檢附文件等，亦納入第二項後段授權訂定辦法之事項，以符法律授權明確性原則。"},{"bill":"202110010890000","text":"臺灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第三款至第六款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查；其申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵行事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、為符合原住民族基本法第十九條之規範，且據司法院釋字第八○三號解釋，修正第一項，增列要件「非營利自用」。\n二、無差別式傷害之獵具與獵捕方式與其他經主管機關公告禁止之方法，易造成目標之外動物嚴重傷害。原住民族傳統文化依法受保護尊重，惟傳統獵具及方法並不在禁止之列，故應無阻礙原住民族文化傳承之虞。\n三、現行第二項規定一律採事前申請核准，實務上窒礙難行。增列「或備查」之規定，以符司法院釋字精神與實際情形。"},{"bill":"202110014230000","text":"台灣原住民族基於其傳統文化、祭儀，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第三款至第五款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准，其申請程序、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域及其他應遵循事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"基於尊重原住民傳統狩獵文化，林務局根據本法訂定「原住民族基於傳統文化及祭儀需要獵捕宰殺利用野生動物管理辦法」，惟應避免非人道之行徑，故將捕獵方式限制在現行第十九條第一項第三款至第五款，以兼顧原住民族文化傳承與對生命之敬重。"},{"bill":"202110022260000","text":"臺灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查；其申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵行事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、依司法院釋字第八○三號解釋，第一項所稱「傳統文化」，應包含原住民依其所屬部落族群所傳承之飲食與生活文化，而以自行獵獲之野生動物供自己、家人或部落親友食用或作為工具器物之非營利性自用之情形；立法者對原住民基於傳統文化下非營利性自用而獵捕、宰殺或利用野生動物之行為予以規範，或授權主管機關訂定管制規範時，除有特殊例外，其得獵捕、宰殺或利用之野生動物，應不包括保育類野生動物；第二項前段規定所採之事前申請核准之管制手段，尚不違反憲法比例原則，惟主管機關就第二項授權辦法有關原住民非定期性獵捕活動提出之狩獵申請，應依該解釋意旨就具體個案情形為多元彈性措施。\n二、依原住民族基本法第十九條第一項第一款、第三項規定，原住民得在原住民族地區及經中央原住民族主管機關公告之海域依法從事非營利之獵捕野生動物行為，並以傳統文化、祭儀或自用為限；又原住民族委員會與前行政院農業委員會於一百零六年六月八日會銜核釋本條第一項所定「臺灣原住民族基於其傳統文化、祭儀，而有獵捕、宰殺或利用野生動物之必要者」，包括依原住民族基本法第十九條規定之「非營利自用」行為，爰修正第一項，增列「非營利自用」之要件，納入原住民族非營利自用而獵捕、宰殺或利用野生動物之行為，並酌作文字修正。\n三、原住民族之傳統文化、祭儀依法應受保護與尊重，惟獸鋏及其他經主管機關公告禁止之方法，其使用易對野生動物造成極大傷害，且獵捕野生動物仍可使用其他傳統獵具及方法，因此，禁用獸鋏及其他經主管機關公告禁止之方法，應無礙原住民族傳統狩獵文化之傳承。為符合原住民族基本法之規定，平衡對原住民族傳統文化之尊重與人道對待動物之普世價值，爰修正第一項不受相關規定限制之範圍，使修正條文第十九條第一項第七款及第八款所定獸鋏及其他經主管機關公告禁止之方法，均不得例外使用。\n四、為因應司法院釋字第八○三號解釋意旨，並考量現行第二項規定一律採事前申請核准，除與原住民族傳統狩獵禁忌牴觸外，部分情形在實務上亦窒礙難行，例如除喪儀式，因喪期無法預知，從而無法事先申請核准，爰於第二項前段增列「或備查」之規定，並將申請核准或備查之情形，納入後段授權訂定辦法之事項，以符實際。另前揭司法院解釋理由書略以原住民因非營利自用之需而申請獵捕、宰殺或利用保育類野生動物，應採特別嚴格之管制手段，僅於特殊例外始得予許可，爰將得獵捕、宰殺或利用保育類野生動物之必要情形及應檢附文件等，亦納入第二項後段授權訂定辦法之事項，以符法律授權明確性原則。"},{"bill":"202110029160000","text":"台灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項各款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查，其申請核准或備查之情形、部落自主管理之方式、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、應備文件及其他應遵循事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、查原住民族獵捕、宰殺或利用野生動物之行為並不單純以傳統文化、祭儀為主，其中還包含為自己或族人狩獵自用之文化習慣，且原住民族基本法第十九條第二項亦規定，獵捕野生動物以傳統文化、祭儀或自用為限。爰於第一項增列「非營利自用」文字，以符法制並合乎實際民情。\n二、原住民族基本法第十九條明文規定原住民得在原住民族地區依法從事非營利之獵捕野生動物，然本法卻規定獵捕行為應經農業部核准，且相關獵捕辦法亦規定由農業部會同原民會定之，顯已違反原住民族基本法的立法精神與意旨。有鑒於非營利自用部分，原住民傳統慣俗中，並非僅於祭儀期間才會進行相關狩獵或宰殺野生動物之行為，自用部分亦係體現原住民族生活傳統的重要元素之一。故於本條文第二項增定，原住民於原住民族地區基於非營利目的而少量自用者得排除該辦法之適用，且可採備查程序，以及部落自主管理之方式予以辦理，以尊重原住民族傳統文化。"},{"bill":"202110030620000","text":"臺灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查；其申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵行事項之辦法，由中央主管機關會同中央原住民族主管機關定之。\n因第一項情形而使用獸鋏，於本法中華民國○年○月○日修正後二年內向中央主管機關自動報繳，免受其處罰，其期間必要時得延長一次，不得超過一年，中央主管機關應輔導其取得所需之改良式獵具。","note":"一、為原住民族基本法第十九條第一項第一款、第三項規定，原住民得在原住民族地區及經中央原住民族主管機關公告之海域依法從事非營利之獵捕野生動物行為，並以傳統文化、祭儀或自用為限，爰修正第一項，增列「非營利自用」之要件，納入原住民族非營利自用而獵捕、宰殺或利用野生動物之行為，並酌作文字修正。\n二、為因應司法院釋字第八○三號解釋意旨，並考量現行第二項規定一律採事前申請核准，除與原住民族傳統狩獵禁忌牴觸外，部分情形在實務上亦窒礙難行，例如除喪儀式，因喪期無法預知，從而無法事先申請核准，爰於第二項前段增列「或備查」之規定，並將申請核准或備查之情形，納入後段授權訂定辦法之事項，以符實際。另前揭司法院解釋理由書略以原住民因非營利自用之需而申請獵捕、宰殺或利用保育類野生動物，應採特別嚴格之管制手段，僅於特殊例外始得予許可，爰將得獵捕、宰殺或利用保育類野生動物之必要情形及應檢附文件等，亦納入第二項後段授權訂定辦法之事項，以符法律授權明確性原則。"},{"bill":"202110030460000","text":"臺灣原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第六款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查；其申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵行事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、依司法院釋字第八○三號解釋，第一項所稱「傳統文化」包含非營利自用，但狩獵對象基於野生動物保育與自然生態平衡的考量，除非有特殊例外，應不包括保育類野生動物。爰修正第一項，增列「非營利自用」之要件，納入原住民族非營利自用而獵捕、宰殺或利用野生動物之行為，並酌作文字修正。\n二、原住民族之傳統文化、祭儀依法應受保護與尊重，惟獸鋏、無差別式獵具及其他經主管機關公告禁止之方法，易造成目標之外動物斷肢、死亡等極大之傷害，且獵捕野生動物仍可使用其他傳統獵具及方法，因此，禁用獸鋏、無差別式獵具及其他經主管機關公告禁止之方法，應無礙原住民族傳統狩獵文化之傳承。\n三、為因應司法院釋字第八○三號解釋意旨，並考量現行第二項規定一律採事前申請核准，除與原住民族傳統狩獵禁忌牴觸外，部分情形在實務上亦窒礙難行，例如除喪儀式，因喪期無法預知，從而無法事先申請核准，爰於前段增列「或備查」之規定，並將申請核准或備查之情形，納入後段授權訂定辦法之事項，以符實際。"},{"bill":"202110072950000","text":"臺灣原住民族基於其傳統文化、祭儀或自用之非營利目的，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第一款至第七款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查；其申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵行事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","note":"一、依原住民族基本法第十九條第一項及第三項規定，不論傳統文化、祭儀或自用均應限於非營利目的，並非僅將自用限於非營利，爰於第一項前段用語明定為「傳統文化、祭儀或自用之非營利目的」。\n二、依司法院釋字第八○三號解釋，對原住民基於傳統文化下非營利性自用而獵捕、宰殺或利用野生動物之行為予以規範，或授權主管機關訂定管制規範時，除有特殊例外，其得獵捕、宰殺或利用之野生動物，應不包括保育類野生動物；第二項前段規定所採之事前申請核准之管制手段，尚不違反憲法比例原則。\n三、原住民族之傳統文化、祭儀依法應受保護與尊重，惟獸鋏及其他經主管機關公告禁止之方法，其使用易對野生動物造成極大傷害，且獵捕野生動物仍可使用其他傳統獵具及方法，因此，禁用獸鋏及其他經主管機關公告禁止之方法，應無礙原住民族傳統狩獵文化之傳承。為符合原住民族基本法之規定，平衡對原住民族傳統文化之尊重與人道對待動物之普世價值，爰修正第一項，使修正條文第十九條第一項第八款及第九款所定獸鋏、金屬製吊索及其他經主管機關公告禁止之方法，均不得例外使用。\n四、考量現行第二項規定一律採事前申請核准，除與原住民族傳統狩獵禁忌牴觸外，部分情形在實務上亦窒礙難行，例如除喪儀式，因喪期無法預知，從而無法事先申請核准，爰於第二項前段增列「或備查」之規定，並將申請核准或備查之情形，納入後段授權訂定辦法之事項，以符實際。另司法院釋字第八○三號解釋理由書略以原住民因非營利自用之需而申請獵捕、宰殺或利用保育類野生動物，應採特別嚴格之管制手段，僅於特殊例外始得予許可，爰將得獵捕、宰殺或利用保育類野生動物之必要情形及應檢附文件等，亦納入第二項後段授權訂定辦法之事項，以符法律授權明確性原則。"}],"changed":true,"final":"原住民族基於其傳統文化、祭儀或非營利自用，而有獵捕、宰殺或利用野生動物之必要者，不受第十七條第一項、第十八條第一項及第十九條第一項第二款至第六款規定之限制。\n前項獵捕、宰殺或利用野生動物之行為應經主管機關核准或備查；其申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、申請程序、應檢附文件、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域、管理及其他應遵行事項之辦法，由中央主管機關會同中央原住民族主管機關定之。","finalWhy":"","review":{"note":"所有提案及修正動議1案均保留，送院會處理","text":""}},{"no":"第二十五條","current":"學術研究機構、大專校院、公立或政府立案之私立動物園、博物館或展示野生動物者，輸入或輸出保育類野生動物或其產製品，應經中央主管機關同意。","versions":[{"bill":"202110072950000","text":"學術研究機構、大專校院、公立或政府立案之私立動物園、博物館或展示野生動物者，輸入或輸出保育類野生動物或其產製品，應具環境教育機構之資格，並經中央主管機關同意。","note":"一、1992年世界各國在里約地球高峰會議簽署「生物多樣性公約」（Convention on Biological Diversity, CBD）所揚櫫的「保育生物多樣性」、「永續利用其組成」及「公平合理的分享利用生物多樣性遺傳資源所產生的利益」三大目標，促使我國致力於國內及全球生物多樣性保育工作。\n二、另根據世界動物園暨水族館協會（WAZA）在《為保育而做的社會變革：世界動物園暨水族館教育方略》提及動物園和水族館等機構設立之目的應帶來轉變，例如建立民眾對物種、自然的知識和理解；鼓勵支持親環境行為及行動；促進對物種、自然的敬畏及啟發等有關推動全民保育教育之使命。\n三、參考國際保育發展之趨勢，爰修正本條所規範之展示野生動物者，輸入或輸出保育類野生動物或其產製品，應具備環境教育機構之資格。"}],"changed":false,"final":"學術研究機構、大專校院、公立或政府立案之私立動物園、博物館或展示野生動物者，輸入或輸出保育類野生動物或其產製品，應經中央主管機關同意。","finalWhy":null,"review":null},{"no":"第三十一條","current":"於中央主管機關指定公告前，飼養或繁殖保育類及有害生態環境、人畜安全之虞之原非我國原生種野生動物或持有中央主管機關指定公告之保育類野生動物產製品，其所有人或占有人應填具資料卡，於規定期限內，報請當地直轄市、縣（市）主管機關登記備查；變更時，亦同。\n於中央主管機關指定公告後，因核准輸入、轉讓或其他合法方式取得前項所列之野生動物或產製品者，所有人或占有人應於規定期限內，持證明文件向直轄市、縣（市）主管機關登記備查；變更時，亦同。\n依前二項之規定辦理者，始得繼續飼養或持有，非基於教育或學術研究目的，並經主管機關同意，不得再行繁殖。\n本法修正公布施行前已飼養或繁殖之第一項所列之野生動物，主管機關應於本法修正公布施行之日起三年內輔導業者停止飼養及轉業，並得視情況予以收購。\n前項收購之野生動物，主管機關應為妥善之安置及管理，並得分送國內外教育、學術機構及動物園或委託主管機關評鑑合格之管理單位代為收容、暫養。\n主管機關認為必要時，得自行或委託有關機關、團體對第一項、第二項所列之野生動物或產製品實施註記；並得定期或不定期查核，所有人或占有人不得規避、拒絕或妨礙。\n前項需註記之野生動物及產製品之種類，由中央主管機關公告之。","versions":[{"bill":"202110022260000","text":"於中央主管機關指定公告前，飼養或繁殖保育類及有害生態環境、人畜安全之虞之原非我國原生種野生動物或持有中央主管機關指定公告之保育類野生動物產製品，其所有人或占有人應填具資料卡，於規定期限內，報請當地直轄市、縣（市）主管機關登記備查或審查；變更時，亦同。\n於中央主管機關指定公告後，因核准輸入、轉讓或其他合法方式取得前項所列之野生動物或產製品者，所有人或占有人應於規定期限內，持證明文件向直轄市、縣（市）主管機關登記備查或審查；變更時，亦同。\n依前二項之規定辦理者，始得繼續飼養或持有，非基於教育或學術研究目的，並經主管機關同意，不得再行繁殖。\n中央主管機關針對第一項、第二項登記備查或審查之野生動物及其製品，應公告相關程序、種類及其他應遵行辦理事項。\n依第一項、第二項之規定辦理者，始得繼續飼養或持有，非基於教育或學術研究目的，並經主管機關同意，不得再行繁殖。\n本法修正公布施行前已飼養或繁殖之第一項所列之野生動物，主管機關應於本法修正公布施行之日起三年內輔導業者停止飼養及轉業，並得視情況予以收購。\n前項收購之野生動物，主管機關應為妥善之安置及管理，並得分送國內外教育、學術機構及動物園或委託主管機關評鑑合格之管理單位代為收容、暫養。\n主管機關認為必要時，得自行或委託有關機關、團體對第一項、第二項所列之野生動物或產製品實施註記；並得定期或不定期查核，所有人或占有人不得規避、拒絕或妨礙。\n前項需註記之野生動物及產製品之種類，由中央主管機關公告之。","note":"一、新增第四項，原第四項遞移並作文字修正。\n二、第一項及第二項酌修文字。鑒於目前市面上所可飼養或繁殖之野生動物物種繁多，其危險性各有不同，若機關或飼育者欲飼養較危險之物種，現行只有向主管機關登記備查，恐有管理過於寬鬆之虞。故增訂部分物種應向主管機關備齊相關計畫提出審查之規範。\n三、另鑒於大型或肉食性野生動物逸失後可能造成嚴重災損，故主管機關應優先以相關類型之野生動物物種制定為危險野生動物名錄。同時機關或飼育者提出申請時應提供動物逸失圍捕計畫及管理方式等資料以供審查。故增訂第四項之規範。"}],"changed":false,"final":"於中央主管機關指定公告前，飼養或繁殖保育類及有害生態環境、人畜安全之虞之原非我國原生種野生動物或持有中央主管機關指定公告之保育類野生動物產製品，其所有人或占有人應填具資料卡，於規定期限內，報請當地直轄市、縣（市）主管機關登記備查；變更時，亦同。\n於中央主管機關指定公告後，因核准輸入、轉讓或其他合法方式取得前項所列之野生動物或產製品者，所有人或占有人應於規定期限內，持證明文件向直轄市、縣（市）主管機關登記備查；變更時，亦同。\n依前二項之規定辦理者，始得繼續飼養或持有，非基於教育或學術研究目的，並經主管機關同意，不得再行繁殖。\n本法修正公布施行前已飼養或繁殖之第一項所列之野生動物，主管機關應於本法修正公布施行之日起三年內輔導業者停止飼養及轉業，並得視情況予以收購。\n前項收購之野生動物，主管機關應為妥善之安置及管理，並得分送國內外教育、學術機構及動物園或委託主管機關評鑑合格之管理單位代為收容、暫養。\n主管機關認為必要時，得自行或委託有關機關、團體對第一項、第二項所列之野生動物或產製品實施註記；並得定期或不定期查核，所有人或占有人不得規避、拒絕或妨礙。\n前項需註記之野生動物及產製品之種類，由中央主管機關公告之。","finalWhy":null,"review":{"note":"不予通過，維持現行法條文","text":""}},{"no":"第三十七條","current":"瀕臨絕種及珍貴稀有野生動物於飼養繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應自行或報請當地主管機關協助圍捕。","versions":[{"bill":"202110006020000","text":"保育類野生動物於飼養或繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行積極圍捕；並得報請該直轄市、縣（市）主管機關協助圍捕，協助圍捕所需相關費用，由所有人或占有人負擔。\n逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，得由所有人或占有人負擔。","note":"一、修正第一項並增訂第二項。\n二、本法將野生動物區分為一般類及保育類野生動物，以規範不同之管理密度。保育類野生動物因其於棲息環境之族群量降低，生存已面臨危機，需加強保護，爰除本法或其他法令另有規定外，不得飼養或繁殖保育類野生動物，針對例外飼養或繁殖保育類野生動物之所有人或占有人，有加強其管理義務之必要，且保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚至影響他人生命財產安全，有必要加重其所有人或占有人通報及積極圍捕之義務。至野生之脊椎動物如受人為飼養或管領，亦屬動物保護法所稱動物，其飼主之飼養管理義務，適用動物保護法相關規範，例如應提供妥善照護、不得棄養等。\n三、依第四條第一項第一款規定，保育類野生動物指瀕臨絕種、珍貴稀有及其他應予保育之野生動物，惟現行條文僅規範瀕臨絕種及珍貴稀有野生動物，未及於其他應予保育之野生動物，爰將其他應予保育之野生動物納入規範，以符合上述保育類野生動物範圍及其飼養繁殖管理之一致性。\n四、倘所有人或占有人無法自行圍捕時，亦得報請直轄市、縣（市）主管機關協助圍捕；鑒於協助圍捕可能造成國家社會資源之耗費，基於使用者付費原則，爰於後段增訂協助圍捕所需相關費用，由所有人或占有人負擔。\n五、增訂第二項，明定直轄市、縣（市）主管機關必要時亦得主動圍捕逸失之保育類野生動物，以維護民眾生命財產安全；另在查明其所有人或占有人前，需將該等動物進行暫時安置、收容，除圍捕所需相關費用外，收容及暫養所需相關費用，亦得由所有人或占有人負擔。"},{"bill":"201110005110000","text":"保育類野生動物於飼養或繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行積極圍捕；並得報請該直轄市、縣（市）主管機關協助圍捕，協助圍捕所需相關費用，由所有人或占有人負擔。\n逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，得由所有人或占有人負擔。","note":"一、現行條文列為第一項，並修正如下：\n(一)本法將野生動物區分為一般類及保育類野生動物，以規範不同之管理密度。保育類野生動物因其於棲息環境之族群量降低，生存已面臨危機，需加強保護，爰除本法或其他法令另有規定外，不得飼養或繁殖保育類野生動物，針對例外飼養或繁殖保育類野生動物之所有人或占有人，有加強其管理義務之必要，且保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚至影響他人生命財產安全，有必要加重其所有人或占有人通報及積極圍捕之義務。至野生之脊椎動物如受人為飼養或管領，亦屬動物保護法所稱動物，其飼主之飼養管理義務，適用動物保護法相關規範，例如應提供妥善照護、不得棄養等，併予敘明。\n(二)依第四條第一項第一款規定，保育類野生動物指瀕臨絕種、珍貴稀有及其他應予保育之野生動物，惟現行條文僅規範瀕臨絕種及珍貴稀有野生動物，未及於其他應予保育之野生動物，爰將其他應予保育之野生動物納入規範，以符合上述保育類野生動物範圍及其飼養繁殖管理之一致性。\n(三)又所有人或占有人倘無法自行圍捕，亦得報請直轄市、縣（市）主管機關協助圍捕；鑒於協助圍捕可能造成國家社會資源之耗費，基於使用者付費原則，爰於後段增訂協助圍捕所需相關費用，由所有人或占有人負擔。\n二、直轄市、縣（市）主管機關必要時亦得主動圍捕逸失之保育類野生動物，以維護民眾生命財產安全；另在查明其所有人或占有人前，需將該等動物進行暫時安置、收容，除圍捕所需相關費用外，收容及暫養所需相關費用，亦得由所有人或占有人負擔，爰增訂第二項規定。"},{"bill":"202110010670000","text":"保育類野生動物於飼養或繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行積極圍捕；並得報請該直轄市機關協助圍捕，協助圍捕所需相關費用，由所有人或占有人負擔。\n逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，應由所有人或占有人負擔。","note":"一、現行條文列為第一項，配合本法第四條第一項第一款對於所謂保育類野生動物指瀕臨絕種、珍貴稀有及其他應予保育之野生動物，爰將其他應予保育之野生動物納入規範，以符合上述保育類野生動物範圍及其飼養繁殖管理之一致性。\n二、又，保育類野生動所有人或占有應妥為管理，如有逸失而所有人或占有人倘無法自行圍捕，亦得報請直轄市、縣（市）主管機關協助圍捕，基於使用者付費原則，爰於第一項後段增訂協助圍捕所需相關費用，由所有人或占有人負擔。\n三、為維護民眾生命財產安全，直轄市、縣（市）主管機關必要時亦得主動圍捕逸失之保育類野生動物，並在查明其所有人或占有人前，將該等動物進行暫時安置、收容，其圍捕或收容及暫養所需相關費用亦應由所有人或占有人負擔，爰增訂第二項規定。"},{"bill":"202110022260000","text":"保育類野生動物於飼養或繁殖瀕臨絕種及珍貴稀有野生動物中依本法第三十一條規定辦理登記審查，應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行邀集專業人士協助圍捕；並得報請該直轄市、縣（市）主管機關協助圍捕，協助圍捕所需相關費用，由所有人或占有人負擔。\n中央主管機關應公告圍捕執行流程供直轄市、縣（市）主管機關遵行。逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，得由所有人或占有人負擔。","note":"一、修正本條文並新增第二項。\n二、遇危險野生動物逸失時，所有人應盡積極圍捕之責任，為確保民眾及動物安全，應委請專業人員協助圍捕。倘若所有人或占有人無法自行圍捕，亦得報請直轄市、縣（市）主管機關協助圍捕；鑒於協助圍捕可能造成國家社會資源浪費，基於使用者付費原則，於後段增訂協助圍捕所需相關費用，由所有人或占有人負擔。\n三、動物逸失後，圍捕時應確保人員及動物之安全，就執行流程應有詳盡之細部規範，參酌海洋保育類野生動物救援通報案件處理流程明訂相關圍捕執行流程並請直轄市、縣（市）主管機關遵行。並且應協助蒐集並提供專業人士名錄供未來使用。"},{"bill":"202110030620000","text":"保育類野生動物於飼養或繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行積極圍捕；並得報請該直轄市機關協助圍捕，協助圍捕所需相關費用，由所有人或占有人負擔。\n逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，應由所有人或占有人負擔。","note":"一、現行條文列為第一項，配合本法第四條第一項第一款對於所謂保育類野生動物指瀕臨絕種、珍貴稀有及其他應予保育之野生動物，爰將其他應予保育之野生動物納入規範，以符合上述保育類野生動物範圍及其飼養繁殖管理之一致性。\n二、又，保育類野生動所有人或占有應妥為管理，如有逸失而所有人或占有人倘無法自行圍捕，亦得報請直轄市、縣（市）主管機關協助圍捕，基於使用者付費原則，爰於第一項後段增訂協助圍捕所需相關費用，由所有人或占有人負擔。\n三、為維護民眾生命財產安全，直轄市、縣（市）主管機關必要時亦得主動圍捕逸失之保育類野生動物，並在查明其所有人或占有人前，將該等動物進行暫時安置、收容，其圍捕或收容及暫養所需相關費用亦應由所有人或占有人負擔，爰增訂第二項規定。"},{"bill":"202110030460000","text":"保育類野生動物於飼養或繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行積極圍捕；並得報請該直轄市、縣（市）主管機關協助圍捕，協助圍捕所需相關費用，由所有人或占有人負擔。\n逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，得由所有人或占有人負擔。","note":"一、現行條文列為第一項，並修正如下：\n(一)本法將野生動物區分為一般類及保育類野生動物，以規範不同之管理密度。保育類野生動物因其於棲息環境之族群量降低，生存已面臨危機，需加強保護，爰除本法或其他法令另有規定外，不得飼養或繁殖保育類野生動物，針對例外飼養或繁殖保育類野生動物之所有人或占有人，有加強其管理義務之必要，且保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚至影響他人生命財產安全，有必要加重其所有人或占有人通報及積極圍捕之義務。\n(二)日前發生某樂園狒狒逃跑後遭槍殺之情事，以至野生脊椎動物如受人為飼養或管領，類推適用動物保護法所稱動物之定義，其飼主應負飼養管理義務，類推適用動物保護法相關規範，例如應提供妥善照護、不得棄養等，併予敘明。\n(三)依第四條第一項第一款規定，保育類野生動物指瀕臨絕種、珍貴稀有及其他應予保育之野生動物，惟現行條文僅規範瀕臨絕種及珍貴稀有野生動物，未及於其他應予保育之野生動物，爰將其他應予保育之野生動物納入規範，以符合上述保育類野生動物範圍及其飼養繁殖管理之一致性。\n(四)又所有人或占有人倘無法自行圍捕，亦得報請直轄市、縣（市）主管機關協助圍捕；鑒於協助圍捕可能造成國家社會資源之耗費，基於使用者付費原則，爰於後段增訂協助圍捕所需相關費用，由所有人或占有人負擔。\n二、直轄市、縣（市）主管機關必要時亦得主動圍捕逸失之保育類野生動物，以維護民眾生命財產安全；另在查明其所有人或占有人前，需將該等動物進行暫時安置、收容，除圍捕所需相關費用外，收容及暫養所需相關費用，亦得由所有人或占有人負擔，爰增訂第二項規定。"},{"bill":"202110072950000","text":"保育類野生動物於飼養或繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行會同專業人士協助圍捕；或得報請該直轄市、縣（市）主管機關協助圍捕。協助圍捕所需相關費用，由所有人或占有人負擔。\n前項圍捕作業應注意事項、各級政府之分工指引及作業流程，應由中央主管機關會同本法第五條所設之野生動物保育諮詢委員會共同訂定並公告之。\n逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，得由所有人或占有人負擔。","note":"一、保育類野生動物因其於棲息環境之族群量降低，生存已面臨危機，需加強保護。針對例外飼養或繁殖保育類野生動物之所有人或占有人，有加強其管理義務之必要，且保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚至影響他人生命財產安全，有必要加重其所有人或占有人通報及積極會同專業人士協助圍捕之義務。\n二、又所有人或占有人倘無法自行圍捕，亦得報請直轄市、縣（市）主管機關協助圍捕；鑒於協助圍捕可能造成國家社會資源之耗費，基於使用者付費原則，爰於後段增訂協助圍捕所需相關費用，由所有人或占有人負擔。\n三、我國於2023年所發生之「東非狒狒脫逃事件」，凸顯中央及地方主管機關在共同進行圍捕作業時，因欠缺明確之圍捕作業應注意事項、各級政府之分工指引及作業流程等，進而造成行政量能虛耗、引發社會紛擾，以及不當圍捕之爭議等，爰增訂第二項。\n四、直轄市、縣（市）主管機關必要時亦得主動圍捕逸失之保育類野生動物，以維護民眾生命財產安全；另在查明其所有人或占有人前，需將該等動物進行暫時安置、收容，除圍捕所需相關費用外，收容及暫養所需相關費用，亦得由所有人或占有人負擔，爰增訂第三項規定。"}],"changed":true,"final":"保育類野生動物於飼養或繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行積極圍捕；並得報請該直轄市、縣（市）主管機關協助圍捕，協助圍捕所需相關費用，由所有人或占有人負擔。\n逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，得由所有人或占有人負擔。","finalWhy":"一、原條文列為第一項，並修正如下：\n(一)本法將野生動物區分為一般類及保育類野生動物，以規範不同之管理密度。保育類野生動物因其於棲息環境之族群量降低，生存已面臨危機，需加強保護，爰除本法或其他法令另有規定外，不得飼養或繁殖保育類野生動物，針對例外飼養或繁殖保育類野生動物之所有人或占有人，有加強其管理義務之必要，且保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚至影響他人生命財產安全，有必要加重其所有人或占有人通報及積極圍捕之義務。至野生之脊椎動物如受人為飼養或管領，亦屬動物保護法所稱動物，其飼主之飼養管理義務，適用動物保護法相關規範，例如應提供妥善照護、不得棄養等，併予敘明。\n(二)依第四條第一項第一款規定，保育類野生動物指瀕臨絕種、珍貴稀有及其他應予保育之野生動物，惟原條文僅規範瀕臨絕種及珍貴稀有野生動物，未及於其他應予保育之野生動物，爰將其他應予保育之野生動物納入規範，以符合上述保育類野生動物範圍及其飼養繁殖管理之一致性。\n(三)又所有人或占有人倘無法自行圍捕，亦得報請直轄市、縣（市）主管機關協助圍捕；鑒於協助圍捕可能造成國家社會資源之耗費，基於使用者付費原則，爰於後段增訂協助圍捕所需相關費用，由所有人或占有人負擔。\n二、直轄市、縣（市）主管機關必要時亦得主動圍捕逸失之保育類野生動物，以維護民眾生命財產安全；另在查明其所有人或占有人前，需將該等動物進行暫時安置、收容，除圍捕所需相關費用外，收容及暫養所需相關費用，亦得由所有人或占有人負擔，爰增訂第二項規定。","review":{"note":"照行政院提案通過","text":"保育類野生動物於飼養或繁殖中應妥為管理，不得逸失。如有逸失時，所有人或占有人應通報當地直轄市、縣（市）主管機關及自行積極圍捕；並得報請該直轄市、縣（市）主管機關協助圍捕，協助圍捕所需相關費用，由所有人或占有人負擔。\n逸失之保育類野生動物，直轄市、縣（市）主管機關必要時得主動圍捕，其圍捕、收容及暫養所需相關費用，得由所有人或占有人負擔。"}},{"no":"第五十條之一","current":null,"versions":[{"bill":"202110006020000","text":"保育類野生動物之所有人或占有人違反第三十七條第一項規定，於保育類野生動物逸失時，未通報當地直轄市、縣（市）主管機關，或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。","note":"一、本條新增。\n二、保育類野生動物之逸失，可能引發民眾不安及恐慌，甚至影響他人生命財產安全，修正條文第三十七條課以其所有人或占有人通報及積極圍捕之義務，現行第五十一條第八款所定違反第三十七條規定之罰鍰額度顯有不足，爰增訂本條罰則。"},{"bill":"201110005110000","text":"保育類野生動物之所有人或占有人違反第三十七條第一項規定，於保育類野生動物逸失時，未通報當地直轄市、縣（市）主管機關，或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。","note":"一、本條新增。\n二、保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚至影響他人生命財產安全，修正條文第三十七條課以其所有人或占有人通報及積極圍捕之義務，現行第五十一條第八款所定違反第三十七條規定之罰鍰額度已有不足，爰增訂本條罰則，以遏止類案一再發生。"},{"bill":"202110010670000","text":"保育類野生動物之所有人或占有人違反第三十七第一項規定，於保育類野生動物逸失時，未通報當地直轄市、縣（市）主管機關，或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。","note":"一、本條新增。\n二、保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚或危及他人生命財產安全，特修正第三十七條課以其所有人或占有人通報及積極圍捕之義務，並增訂本條罰則，以遏止類案一再發生。"},{"bill":"202110022260000","text":"保育類野生動物之所有人或占有人違反第三十七條第一項規定，於保育類野生動物逸失時，未通報當地直轄市、縣（市）主管機關，或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。","note":"一、本條新增。\n二、保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚至影響他人生命財產安全，修正條文第三十七條課以其所有人或占有人通報及積極圍捕之義務，現行第五十一條第八款所定違反第三十七條規定之罰鍰額度已有不足，爰增訂本條罰則，以遏止類案一再發生。"},{"bill":"202110030620000","text":"保育類野生動物之所有人或占有人違反第三十七第一項規定，於保育類野生動物逸失時，未通報當地直轄市、縣（市）主管機關，或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。","note":"一、本條新增。\n二、保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚或危及他人生命財產安全，特修正第三十七條課以其所有人或占有人通報及積極圍捕之義務，並增訂本條罰則，以遏止類案一再發生。"},{"bill":"202110030460000","text":"保育類野生動物之所有人或占有人違反第三十七條第一項規定，於保育類野生動物逸失時，未通報當地直轄市、縣（市）主管機關，或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。","note":"一、本條新增。\n二、保育類野生動物逸失時，可能引發社會及民眾之不安、恐慌，甚至影響他人生命財產安全，修正條文第三十七條課以其所有人或占有人通報及積極圍捕之義務，現行第五十一條第八款所定違反第三十七條規定之罰鍰額度已有不足，爰增訂本條罰則，以遏止類案一再發生。"},{"bill":"202110072950000","text":"保育類野生動物之所有人或占有人違反第三十七條第一項規定，於保育類野生動物逸失時，未通報或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。","note":"一、本條新增。\n二、有鑑於修正條文第三十七條課以所有人或占有人通報及積極圍捕之義務，爰增訂本條罰則，以遏止保育類野生動物逸失之情事發生，亦避免影響社會安定及人民安全。"}],"changed":true,"final":"保育類野生動物之所有人或占有人違反第三十七條第一項規定，於保育類野生動物逸失時，未通報當地直轄市、縣（市）主管機關，或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。","finalWhy":"","review":{"note":"照行政院提案通過","text":"保育類野生動物之所有人或占有人違反第三十七條第一項規定，於保育類野生動物逸失時，未通報當地直轄市、縣（市）主管機關，或未積極圍捕者，處新臺幣三萬元以上十五萬元以下罰鍰。"}},{"no":"第五十一條","current":"有下列情形之一，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施者。\n二、違反第二十條第一項規定者。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物者。\n四、（刪除）。\n五、違反第二十八條規定者。\n六、違反第三十一條第一項、第二項、第三項或第六項規定者。\n七、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物、瀕臨絕種或珍貴稀有野生動物產製品者。\n八、違反第三十七條規定者。\n九、違反第三十八條規定者。\n十、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體者。","versions":[{"bill":"202110006020000","text":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施。\n二、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n四、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n五、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n六、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n八、違反第三十一條第六項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n九、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物或其產製品。\n十、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十一、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體。","note":"一、序文酌作文字修正，各款並配合刪除「者」之文字。\n二、為符合處罰明確性原則，爰修正第二款及第三款文字，明定其處罰構成要件。\n三、現行第四款業於96年7月11日修正刪除，已無保留款次必要，爰予刪除。\n四、第五款移列第四款，並明定其處罰構成要件。\n五、第六款分別移列第五款至第八款，並明定其處罰構成要件。\n六、第七款移列第九款，並酌作文字修正。\n七、違反第三十七條規定之罰則已明定於修正條文第五十條之一，爰刪除第八款之規定。\n八、第九款移列第十款，並明定其處罰構成要件。\n九、第十款移列第十一款，並酌作文字修正。"},{"bill":"201110005110000","text":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施。\n二、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n四、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n五、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n六、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n八、違反第三十一條第六項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n九、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物或其產製品。\n十、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十一、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體。","note":"一、序文酌作文字修正，各款並配合刪除「者」字。\n二、為符合處罰明確性原則，爰修正第二款及第三款文字，明定其處罰構成要件。\n三、現行第四款業於九十六年七月十一日修正刪除，已無保留款次必要，爰予刪除。\n四、第五款移列為第四款，並明定其處罰構成要件。\n五、第六款分別移列為第五款至第八款，並明定其處罰構成要件。\n六、第七款移列為第九款，並酌作文字修正。\n七、違反第三十七條規定之罰則已明定於修正條文第五十條之一，爰刪除第八款規定。\n八、第九款移列為第十款，並明定其處罰構成要件。\n九、第十款移列為第十一款，並酌作文字修正。"},{"bill":"202110010670000","text":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施者。\n二、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n四、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n五、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n六、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n八、違反第三十一條第六項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n九、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物、瀕臨絕種或珍貴稀有野生動物產製品者。\n十、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十一、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體者。","note":"一、序文酌作文字修正，各款並配合刪除「者」字。\n二、為符合處罰明確性原則，爰修正第二款及第三款文字，明定其處罰構成要件。\n三、現行第四款業於九十六年七月十一日修正刪除，已無保留款次必要，爰予刪除。\n四、第五款移列為第四款，並明定其處罰構成要件。\n五、第六款分別移列為第五款至第八款，並明定其處罰構成要件。\n六、第七款移列為第九款，並酌作文字修正。\n七、違反第三十七條規定之罰則已明定於修正條文第五十條之一，爰刪除第八款規定。\n八、第九款移列為第十款，並明定其處罰構成要件。\n九、第十款移列為第十一款，並酌作文字修正。"},{"bill":"202110022260000","text":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施。\n二、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n四、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n五、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n六、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n八、違反第三十一條第八項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n九、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物或其產製品。\n十、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十一、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體。","note":"一、序文酌作文字修正，各款並配合刪除「者」字。\n二、為符合處罰明確性原則，爰修正第二款及第三款文字，明定其處罰構成要件。\n三、現行第四款業於九十六年七月十一日修正刪除，已無保留款次必要，爰予刪除。\n四、第五款移列為第四款，並明定其處罰構成要件。\n五、第六款分別移列為第五款至第八款，並明定其處罰構成要件。\n六、第七款移列為第九款，並酌作文字修正。\n七、違反第三十七條規定之罰則已明定於修正條文第五十條之一，爰刪除第八款規定。\n八、第九款移列為第十款，並明定其處罰構成要件。\n九、第十款移列為第十一款，並酌作文字修正。"},{"bill":"202110030620000","text":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施者。\n二、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n四、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n五、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n六、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n八、違反第三十一條第六項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n九、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物、瀕臨絕種或珍貴稀有野生動物產製品者。\n十、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十一、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體者。","note":"一、序文酌作文字修正，各款並配合刪除「者」字。\n二、為符合處罰明確性原則，爰修正第二款及第三款文字，明定其處罰構成要件。\n三、現行第四款業於九十六年七月十一日修正刪除，已無保留款次必要，爰予刪除。\n四、第五款移列為第四款，並明定其處罰構成要件。\n五、第六款分別移列為第五款至第八款，並明定其處罰構成要件。\n六、第七款移列為第九款，並酌作文字修正。\n七、違反第三十七條規定之罰則已明定於修正條文第五十條之一，爰刪除第八款規定。\n八、第九款移列為第十款，並明定其處罰構成要件。\n九、第十款移列為第十一款，並酌作文字修正。"},{"bill":"202110030460000","text":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施。\n二、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n四、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n五、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n六、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n八、違反第三十一條第六項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n九、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物或其產製品。\n十、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十一、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體。","note":"一、序文酌作文字修正，各款並配合刪除「者」字。\n二、為符合處罰明確性原則，爰修正第二款及第三款文字，明定其處罰構成要件。\n三、現行第四款業於九十六年七月十一日修正刪除，已無保留款次必要，爰予刪除。\n四、第五款移列為第四款，並明定其處罰構成要件。\n五、第六款分別移列為第五款至第八款，並明定其處罰構成要件。\n六、第七款移列為第九款，並酌作文字修正。\n七、違反第三十七條規定之罰則已明定於修正條文第五十條之一，爰刪除第八款規定。\n八、第九款移列為第十款，並明定其處罰構成要件。\n九、第十款移列為第十一款，並酌作文字修正。"},{"bill":"202110037690000","text":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施。\n二、在第十條第一項野生動物保護區或第十七條第一項地方主管機關劃定區域之外區域，騷擾、虐待、獵捕、宰殺一般類野生動物。\n三、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n四、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n五、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n六、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n八、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n九、違反第三十一條第六項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n十、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物或其產製品。\n十一、非屬第三十六條第一項經營野生動物之飼養、繁殖、買賣、加工、進口或出口業者，逕自飼養、繁殖、買賣、陳列、展示、加工、進口、出口一般類野生動物或其產製品。\n十二、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十三、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體。","note":"一、現行條文對於一般類野生動物之騷擾、虐待、宰殺之規定並不完備，故新增第二款以避免一般類野生動物遭不當對待。\n二、新增第十一款以避免一般類野生動物及其產製品遭不當飼養、繁殖、買賣、陳列、展示、加工、進口、出口。"}],"changed":true,"final":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施。\n二、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n四、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n五、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n六、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n八、違反第三十一條第六項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n九、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物或其產製品。\n十、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十一、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體。","finalWhy":"一、序文酌作文字修正，各款並配合刪除「者」字。\n二、為符合處罰明確性原則，爰修正第二款及第三款文字，明定其處罰構成要件。\n三、原第四款業於九十六年七月十一日修正刪除，已無保留款次必要，爰予刪除。\n四、第五款移列為第四款，並明定其處罰構成要件。\n五、第六款分別移列為第五款至第八款，並明定其處罰構成要件。\n六、第七款移列為第九款，並酌作文字修正。\n七、違反第三十七條規定之罰則已明定於修正條文第五十條之一，爰刪除第八款規定。\n八、第九款移列為第十款，並明定其處罰構成要件。\n九、第十款移列為第十一款，並酌作文字修正。","review":{"note":"照行政院提案通過","text":"有下列情形之一者，處新臺幣一萬元以上五萬元以下罰鍰：\n一、違反第十二條第一項規定，無正當理由規避、拒絕或妨礙野生動物資源調查或保育計畫實施。\n二、違反第二十條第一項規定，未經登記，進入第十七條劃定區獵捕一般類野生動物或主管機關劃定之垂釣區，或離開時，未報明獲取野生動物之種類、數量。\n三、違反第二十四條第一項規定，未經中央主管機關之同意，輸入或輸出一般類野生動物之活體。\n四、違反第二十八條規定，未於輸入、輸出保育類野生動物或其產製品之日起一年內，向中央主管機關提出相關報告，或提出之報告內容不實。\n五、違反第三十一條第一項規定，於中央主管機關指定公告前，飼養、繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或持有保育類野生動物產製品，其所有人或占有人未依限報請當地直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n六、違反第三十一條第二項規定，於中央主管機關指定公告後，輸入、轉讓、取得保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物，或保育類野生動物產製品，其所有人或占有人未依限向直轄市、縣（市）主管機關登記備查，或登記備查之內容不實。\n七、違反第三十一條第三項規定，未經主管機關同意，繁殖保育類或有害生態環境、人畜安全之虞之原非我國原生種野生動物。\n八、違反第三十一條第六項規定，無正當理由規避、拒絕或妨礙主管機關或其委託之機關、團體實施註記或查核。\n九、違反第三十五條第一項規定，非意圖販賣而未經主管機關之同意，在公共場所陳列或展示保育類野生動物或其產製品。\n十、違反第三十八條規定，於瀕臨絕種或珍貴稀有野生動物死亡時，所有人或占有人未依限將死亡解剖書或死亡證明書送交直轄市、縣（市）主管機關備查。\n十一、所有人或占有人拒絕依第三十九條規定出售野生動物之屍體。"}},{"no":"第五十一條之一","current":"原住民族違反第二十一條之一第二項規定，未經主管機關許可，獵捕、宰殺或利用一般類野生動物，供傳統文化、祭儀之用或非為買賣者，處新臺幣一千元以上一萬元以下罰鍰，但首次違反者，不罰。","versions":[{"bill":"202110006020000","text":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，違反依第二十一條之一第二項所定辦法中有關申請備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，處新臺幣一千元以上一萬元以下罰鍰，但首次違反者，不罰。","note":"依本法第四條第一項規定，第二十一條之一第一項及第二項所定野生動物，包括「一般類」及「保育類」野生動物。惟現行規定僅對原住民族違反第二十一條之一第二項規定，未經主管機關許可，獵捕、宰殺或利用「一般類野生動物」處以行政罰，為平衡對原住民族傳統文化、祭儀之尊重及野生動物之保育，特將「保育類野生動物」納入規範，爰修正明定其適用於「野生動物」。"},{"bill":"201110005110000","text":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，違反依第二十一條之一第二項所定辦法中有關申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，依下列規定處罰：\n一、屬保育類野生動物，處新臺幣二萬元以上十萬元以下罰鍰。\n二、屬一般類野生動物，處新臺幣一千元以上一萬元以下罰鍰。","note":"一、依本法第四條第一項規定，第二十一條之一第一項及第二項所定野生動物，包括「一般類」及「保育類」野生動物，惟現行規定僅對原住民族違反第二十一條之一第二項規定，未經主管機關許可，獵捕、宰殺或利用「一般類野生動物」處以行政罰，為平衡對原住民族傳統文化、祭儀之尊重及野生動物之保育，將「保育類野生動物」納入規範，爰修正序文，明定其適用於「野生動物」。\n二、為符處罰明確性原則，配合修正條文第二十一條之一第二項規定，於序文明定處罰構成要件，並審酌保育類與一般類野生動物在管理上之差異及違法獵捕、宰殺或利用行為之責難程度不同，分列二款，分別定其罰責。\n三、有關得減輕或免除行政罰之情形，宜回歸適用行政罰法之規定。另因本法已施行多年，原住民族可透過各種媒體及資訊管道知悉本法規定，已無首次違反不罰之必要，爰刪除現行但書規定。\n四、又原住民族倘為營利目的而獵捕、宰殺或利用保育類野生動物，並非修正條文第二十一條之一規定範圍，應依本法第四十一條規定論處，併予敘明。"},{"bill":"202110006280000","text":"原住民族違反第二十一條之一第二項規定，獵捕、宰殺或利用野生動物，違反依第二十一條之一第二項所定辦法中有關申請核准或備查之應檢附文件、程序，及其獵捕方式、傳統獵具、獵捕動物之種類、數量、獵捕期間、區域及其他應遵循事項之規定者，依下列規定處罰：\n一、屬保育類野生動物，處新臺幣二萬元以上十萬元以下罰鍰。\n二、屬一般類野生動物，處新臺幣一千元以上一萬元以下罰鍰。","note":"一、本法第四條明確將野生動物之保育，區分出「一般類」與「保育類」，並就此二類做出不同程度之保護規定，合先敘明。\n二、現行條文僅對原住民族違反第二十一條之一就原住民族未經許可獵捕、宰殺或利用「一般類野生動物」之行為處理行政罰，為平衡保育野生動物、尊重原住民族傳統文化、祭儀，爰將「保育類野生動物」納入規範，並就其行為之可責難性程度不同，分二款予以不同處罰。\n三、行政罰法已有減輕或免除之規定。"},{"bill":"202110010670000","text":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，有違反第二十一條之一第二項所定辦法中有關申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，處新臺幣一千元以上一萬元以下罰鍰，但首次違反者，不罰。","note":"為符處罰明確性原則，配合修正條文第二十一條之一第二項規定，明定處罰構成要件。"},{"bill":"202110010890000","text":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，違反依第二十一條之一第二項所定辦法中有關申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，依下列規定處罰：\n一、屬保育類野生動物，處新臺幣二萬元以上十萬元以下罰鍰。\n二、屬一般類野生動物，處新臺幣一千元以上一萬元以下罰鍰。","note":"一、本法第四條第一項所定野生動物，包括「一般類」及「保育類」野生動物。現行規定僅對原住民族違反第二十一條之一第二項規定，未經主管機關許可，獵捕、宰殺或利用「一般類野生動物」處以行政罰，實為邏輯瑕疵，應將「保育類野生動物」也納入規範。\n二、為符處罰明確性原則，並審酌保育類與一般類野生動物管理上之差異及違法獵捕、宰殺或利用行為之責難程度不同，分列二款，分別定其罰責。\n三、有關得減輕或免除行政罰之情形，宜回歸適用行政罰法之規定，爰刪除現行但書規定。"},{"bill":"202110022260000","text":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，違反依第二十一條之一第二項所定辦法中有關申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，依下列規定處罰：\n一、屬保育類野生動物，處新臺幣二萬元以上十萬元以下罰鍰。\n二、屬一般類野生動物，處新臺幣一千元以上一萬元以下罰鍰。","note":"一、依本法第四條第一項規定，第二十一條之一第一項及第二項所定野生動物，包括「一般類」及「保育類」野生動物，惟現行規定僅對原住民族違反第二十一條之一第二項規定，未經主管機關許可，獵捕、宰殺或利用「一般類野生動物」處以行政罰，為平衡對原住民族傳統文化、祭儀之尊重及野生動物之保育，將「保育類野生動物」納入規範，爰修正序文，明定其適用於「野生動物」。\n二、為符處罰明確性原則，配合修正條文第二十一條之一第二項規定，於序文明定處罰構成要件，並審酌保育類與一般類野生動物在管理上之差異及違法獵捕、宰殺或利用行為之責難程度不同，分列二款，分別定其罰責。\n三、有關得減輕或免除行政罰之情形，宜回歸適用行政罰法之規定。另因本法已施行多年，原住民族可透過各種媒體及資訊管道知悉本法規定，已無首次違反不罰之必要，爰刪除現行但書規定。\n四、又原住民族倘為營利目的而獵捕、宰殺或利用保育類野生動物，並非修正條文第二十一條之一規定範圍，應依本法第四十一條規定論處，併予敘明。"},{"bill":"202110029160000","text":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，違反依第二十一條之一第二項所定辦法中有關申請核准或備查之情形、部落自主管理之方式、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，依下列規定處罰：\n一、屬保育類野生動物，處新臺幣二萬元以上十萬元以下罰鍰。但首次違反者，不罰。\n二、屬一般類野生動物，處新臺幣一千元以上一萬元以下罰鍰。","note":"一、依本法第四條第一項規定，第二十一條之一第一項及第二項所定野生動物，包括「一般類」及「保育類」野生動物，惟現行規定僅對原住民族違反第二十一條之一第二項規定，未經主管機關許可，獵捕、宰殺或利用「一般類野生動物」處以行政罰，為平衡對原住民族傳統文化、祭儀之尊重及野生動物之保育，將「保育類野生動物」納入規範，爰修正序文，明定其適用於「野生動物」。\n二、為符處罰明確性原則，配合修正條文第二十一條之一第二項規定，於序文明定處罰構成要件，並審酌保育類與一般類野生動物在管理上之差異及違法獵捕、宰殺或利用行為之責難程度不同，分列二款，分別定其罰則。但屬保育類動物，原住民首次違反獵捕、宰殺或利用行為者，不罰。\n三、又原住民族倘為營利目的而獵捕、宰殺或利用保育類野生動物，並非修正條文第二十一條之一規定範圍，應依本法第四十一條規定論處，併予敘明。"},{"bill":"202110030620000","text":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，有違反第二十一條之一第二項所定辦法中有關申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，處新臺幣一千元以上一萬元以下罰鍰，但首次違反者，不罰。","note":"為符處罰明確性原則，配合修正條文第二十一條之一第二項規定，明定處罰構成要件。"},{"bill":"202110030460000","text":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，違反依第二十一條之一第二項所定辦法中有關申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，依下列規定處罰：\n一、屬保育類野生動物，處新臺幣二萬元以上十萬元以下罰鍰。\n二、屬一般類野生動物，處新臺幣一千元以上一萬元以下罰鍰。","note":"一、依本法第四條第一項所定野生動物，包括「一般類」及「保育類」野生動物，惟現行規定僅對原住民族違反第二十一條之一第二項規定，未經主管機關許可，獵捕、宰殺或利用「一般類野生動物」，處以行政罰，為平衡對原住民族傳統文化、祭儀之尊重及野生動物之保育，將「保育類野生動物」納入規範，爰修正序文，明定其適用於「野生動物」。\n二、為符處罰明確性原則，並審酌保育類與一般類野生動物在管理上之差異及違法獵捕、宰殺或利用行為之責難程度不同，分列二款，分別定其罰責。\n三、有關得減輕或免除行政罰之情形，宜回歸適用行政罰法之規定，爰刪除現行但書規定。"}],"changed":true,"final":"原住民族基於其傳統文化、祭儀或非營利自用獵捕、宰殺或利用野生動物，使用第十九條第一項第一款、第七款或第八款所定禁止之方式，或違反第二十一條之一第二項所定辦法中有關申請核准或備查之情形、得獵捕、宰殺或利用保育類野生動物之必要情形、獵捕方式、獵捕動物之種類、數量、獵捕期間、區域或管理之規定者，依下列規定處罰。但首次違反者，不罰：\n一、屬保育類野生動物，處新臺幣二萬元以上十萬元以下罰鍰，不適用第四十一條規定。\n二、屬一般類野生動物，處新臺幣一千元以上一萬元以下罰鍰，不適用第四十九條第一項第二款規定。","finalWhy":"","review":{"note":"所有提案及修正動議1案均保留，送院會處理","text":""}},{"no":"第五十二條","current":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物得沒收之；查獲之保育類野生動物產製品及供犯罪所用之獵具、藥品、器具，沒收之。\n違反本法之規定，除前項規定者外，查獲之保育類野生動物與其產製品及供違規所用之獵具、藥品、器具得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝單位，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","versions":[{"bill":"202110006020000","text":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於犯罪行為人與否，得沒收之。\n違反本法之規定，除前項規定者外，查獲之野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝機關，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","note":"一、修正本條第一項、第二項及第四項。\n二、依《中華民國刑法施行法》第十條之三第二項規定，105年7月1日前施行之其他法律關於沒收之規定，不再適用，其立法意旨在回歸刑法一體適用；惟經檢視仍應為特別規定者，依《刑法》第十一條但書規定特別法優先於普通法之原則，仍宜定明。\n三、查實務上犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪所用之物，不限於獵具、藥品、器具，尚包括工作物、施工材料及機具等，應予增訂列為得沒收之物之範疇，並考量前開供犯罪所用之物之沒收，如回歸適用105年7月1日施行之《刑法》第三十八條第三項規定，其如屬第三人所有者，沒收時尚須確認是否有無正當理由提供或取得之情形，增加檢調機關、法院偵審時之舉證、認定程序之困難，有礙野生動物保育案件之查察，並易導致犯罪行為人之僥倖心理，爰修正第一項，並保留實務執行之審酌空間，規範查獲之保育類野生動物與其產製品及供犯罪所用之獵具等，不問屬於犯罪行為人與否，得沒收之，以為《刑法》第三十八條之特別規定。\n四、依《行政罰法》第二十一條規定，沒入之物，除該法或其他法律另有規定者外，以屬於受處罰者為限。野生動物為全民共有、共享之資源，對於違反本法規定而得沒入之範圍，不應僅限於保育類野生動物，實應包含一般類野生動物與其產製品；另違規行為人使用之工作物、施工材料及機具，亦應納入沒入範疇，且為利查察及避免違規行為人之僥倖心理，不問屬於何人所有，均得沒入之，爰修正第二項，以為《行政罰法》第二十一條之特別規定。\n五、第四項酌為文字修正。"},{"bill":"201110005110000","text":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於犯罪行為人與否，得沒收之。\n違反本法之規定，除前項規定者外，查獲之野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝機關，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","note":"一、依中華民國刑法施行法第十條之三第二項規定，一百零五年七月一日前施行之其他法律關於沒收之規定，不再適用，其立法意旨在回歸刑法一體適用；惟經檢視仍應為特別規定者，依刑法第十一條但書規定特別法優先於普通法之原則，仍宜定明。\n二、實務上犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪所用之物，不限於獵具、藥品、器具，尚包括工作物、施工材料及機具等，應予增訂列為得沒收之物之範疇，並考量前開供犯罪所用之物之沒收，如回歸適用一百零五年七月一日施行之刑法第三十八條第三項規定，其如屬第三人所有者，沒收時尚須確認是否有無正當理由提供或取得之情形，增加檢調機關、法院偵審時之舉證、認定程序，有礙野生動物保育案件之查察，並易導致犯罪行為人之僥倖心理，爰修正第一項，並保留實務執行之審酌空間，規範查獲之保育類野生動物與其產製品及供犯罪所用之獵具等，不問屬於犯罪行為人與否，得沒收之，以為刑法第三十八條之特別規定。\n三、依行政罰法第二十一條規定，沒入之物，除該法或其他法律另有規定者外，以屬於受處罰者為限。野生動物為全民共有、共享之資源，對於違反本法規定而得沒入之範圍，不應僅限於保育類野生動物，實應包含一般類野生動物與其產製品；另違規行為人使用之工作物、施工材料及機具，亦應納入沒入範疇，且為利查察及避免違規行為人之僥倖心理，不問屬於何人所有，均得沒入之，爰修正第二項，以為行政罰法第二十一條之特別規定。\n四、第三項未修正；第四項酌作文字修正。"},{"bill":"202110006280000","text":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物得沒收之；查獲之保育類野生動物與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之器械工具，不問屬於何人所有，得沒收之。\n違反本法之規定，除前項規定者外，查獲之保育類野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之器械工具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝單位，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","note":"一、根據中華民國刑法第十一條規定，刑法總則有關沒收之規定，於其他法律亦適用之，「但其他法律有特別規定者，不在此限。」亦即特別法優先原則，本法得為沒收之特別規定。\n二、現行實務上違反第四十條至第四十二條、第四十三條第三項之罪，行為人所使用之物不限於獵具、藥品、器具，還包括工作物、施工材料、器械工具等，應納入得沒收之物範圍。此外，實務上常有行為人透過租借方式取得犯罪工具，倘若屬於第三人所有，且在明知或可得而知為幫助犯罪的情況下，仍租借給當事人使用者，亦應承擔沒收之則，惟具體仍應依個案情況判斷，爰修正為「得」沒收。\n三、同前項說明，對查獲保育類野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之器械工具之行政罰沒入，比照沒收規定修正。"},{"bill":"202110010670000","text":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物，與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於犯罪行為人與否，沒收之。\n違反本法之規定，除前項規定者外，查獲之保育類野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝機關，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","note":"一、修正第一項、第二項規定：\n(一)配合中華民國刑法施行法第十條之三第二項及刑法第十一條但書、第三十八條、行政罰法第二十一條之規定，爰修正第一項、第二項以為沒收制度之特別規定。\n(二)於實務上犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪所用之物，不限於獵具、藥品、器具，爰修正第一項、第二項，將工作物、施工材料及機具等，應予增訂列為得沒收之物之範疇。\n二、第三項未修正。\n三、第四項酌作文字修正。"},{"bill":"202110010890000","text":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於犯罪行為人與否，得沒收之。\n違反本法之規定，除前項規定者外，查獲之野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝機關，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","note":"一、實務上相關犯罪所用之物不限於獵具、藥品、器具，尚包括工作物、施工材料及機具等，應增訂列為得沒收之物。\n二、為避免舉證、認定程序之困難，有礙野生動物保育案件之查察，以及增加第三人租借與他人機具負擔被沒收風險，犯罪器具不問是否屬犯罪行為人所有，得沒收之。\n三、違法被沒入之物，不應限於保育類野生動物，應包含一般類野生動物與其產製品。違規行為人使用工作物、施工材料及機具，亦應納入沒入範疇，阻絕僥倖心理。"},{"bill":"202110022260000","text":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於犯罪行為人與否，得沒收之。\n違反本法之規定，除前項規定者外，查獲之野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝機關，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","note":"一、依中華民國刑法施行法第十條之三第二項規定，一百零五年七月一日前施行之其他法律關於沒收之規定，不再適用，其立法意旨在回歸刑法一體適用；惟經檢視仍應為特別規定者，依刑法第十一條但書規定特別法優先於普通法之原則，仍宜定明。\n二、實務上犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪所用之物，不限於獵具、藥品、器具，尚包括工作物、施工材料及機具等，應予增訂列為得沒收之物之範疇，並考量前開供犯罪所用之物之沒收，如回歸適用一百零五年七月一日施行之刑法第三十八條第三項規定，其如屬第三人所有者，沒收時尚須確認是否有無正當理由提供或取得之情形，增加檢調機關、法院偵審時之舉證、認定程序，有礙野生動物保育案件之查察，並易導致犯罪行為人之僥倖心理，爰修正第一項，並保留實務執行之審酌空間，規範查獲之保育類野生動物與其產製品及供犯罪所用之獵具等，不問屬於犯罪行為人與否，得沒收之，以為刑法第三十八條之特別規定。\n三、依行政罰法第二十一條規定，沒入之物，除該法或其他法律另有規定者外，以屬於受處罰者為限。野生動物為全民共有、共享之資源，對於違反本法規定而得沒入之範圍，不應僅限於保育類野生動物，實應包含一般類野生動物與其產製品；另違規行為人使用之工作物、施工材料及機具，亦應納入沒入範疇，且為利查察及避免違規行為人之僥倖心理，不問屬於何人所有，均得沒入之，爰修正第二項，以為行政罰法第二十一條之特別規定。\n四、第三項未修正；第四項酌作文字修正。"},{"bill":"202110030620000","text":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物，與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於犯罪行為人與否，沒收之。\n違反本法之規定，除前項規定者外，查獲之保育類野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝機關，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","note":"一、修正第一項、第二項規定：\n(一)配合中華民國刑法施行法第十條之三第二項及刑法第十一條但書、第三十八條、行政罰法第二十一條之規定，爰修正第一項、第二項以為沒收制度之特別規定。\n(二)於實務上犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪所用之物，不限於獵具、藥品、器具，爰修正第一項、第二項，將工作物、施工材料及機具等，應予增訂列為得沒收之物之範疇。\n二、第三項未修正。\n三、第四項酌作文字修正。"}],"changed":true,"final":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於犯罪行為人與否，得沒收之。\n違反本法之規定，除前項規定者外，查獲之野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝機關，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。","finalWhy":"一、依中華民國刑法施行法第十條之三第二項規定，一百零五年七月一日前施行之其他法律關於沒收之規定，不再適用，其立法意旨在回歸刑法一體適用；惟經檢視仍應為特別規定者，依刑法第十一條但書規定特別法優先於普通法之原則，仍宜定明。\n二、實務上犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪所用之物，不限於獵具、藥品、器具，尚包括工作物、施工材料及機具等，應予增訂列為得沒收之物之範疇，並考量前開供犯罪所用之物之沒收，如回歸適用一百零五年七月一日施行之刑法第三十八條第三項規定，其如屬第三人所有者，沒收時尚須確認是否有無正當理由提供或取得之情形，增加檢調機關、法院偵審時之舉證、認定程序，有礙野生動物保育案件之查察，並易導致犯罪行為人之僥倖心理，爰修正第一項，並保留實務執行之審酌空間，規範查獲之保育類野生動物與其產製品及供犯罪所用之獵具等，不問屬於犯罪行為人與否，得沒收之，以為刑法第三十八條之特別規定。\n三、依行政罰法第二十一條規定，沒入之物，除該法或其他法律另有規定者外，以屬於受處罰者為限。野生動物為全民共有、共享之資源，對於違反本法規定而得沒入之範圍，不應僅限於保育類野生動物，實應包含一般類野生動物與其產製品；另違規行為人使用之工作物、施工材料及機具，亦應納入沒入範疇，且為利查察及避免違規行為人之僥倖心理，不問屬於何人所有，均得沒入之，爰修正第二項，以為行政罰法第二十一條之特別規定。\n四、第三項未修正；第四項酌作文字修正。","review":{"note":"照行政院提案通過","text":"犯第四十條、第四十一條、第四十二條或第四十三條第三項之罪，查獲之保育類野生動物與其產製品及供犯罪所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於犯罪行為人與否，得沒收之。\n違反本法之規定，除前項規定者外，查獲之野生動物與其產製品及供違規所用之獵具、藥品、器具、工作物、施工材料及所使用之機具，不問屬於何人所有，得沒入之。\n前項經沒入之物，必要時，主管機關得公開放生、遣返、典藏或銷毀之。其所需費用，得向違規之行為人收取。\n海關或其他查緝機關，對於依法沒入或處理之保育類野生動物及其產製品，得委由主管機關依前項規定處理。"}}],"stages":[{"date":"2024-02-23","stage":"一讀","code":"院會-11-1-2","bill":"202110006020000","gazref":"113卷004期5186號 266-266頁"},{"date":"2024-02-23","stage":"一讀","code":"院會-11-1-2","bill":"201110005110000","gazref":"113卷004期5186號 266-267頁"},{"date":"2024-03-01","stage":"一讀","code":"院會-11-1-3","bill":"202110006280000","gazref":"113卷005期5187號 4-4頁"},{"date":"2024-03-01","stage":"一讀","code":"院會-11-1-3","bill":"202110006930000","gazref":"113卷005期5187號 9-9頁"},{"date":"2024-03-08","stage":"一讀","code":"院會-11-1-4","bill":"202110010670000","gazref":"113卷006期5188號 5-5頁"},{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110010890000","gazref":"113卷010期5192號 2-3頁"},{"date":"2024-03-15","stage":"一讀","code":"院會-11-1-5","bill":"202110014230000","gazref":"113卷010期5192號 13-13頁"},{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110022260000","gazref":"113卷018期5200號 12-12頁"},{"date":"2024-04-11","code":"委員會-11-1-19-7","title":"第11屆第1會期經濟委員會第7次全體委員會議","gazref":"113卷026期5208號 359-455頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024040121/details?meetingDate=113/04/10","full":["https://ivod.ly.gov.tw/Play/Full/1M/15801"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/113/26/LCIDC01_1132601_00005.pdf","p1":359,"p2":456}],"clips":[{"n":"邱鎮軍","t":"09:03","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151069"},{"n":"楊瓊瓔","t":"09:06","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151070"},{"n":"黃捷","t":"09:09","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151021"},{"n":"伍麗華Saidhai Tahovecahe","t":"09:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151022"},{"n":"呂玉玲","t":"09:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151023"},{"n":"張雅琳","t":"09:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151024"},{"n":"林岱樺","t":"09:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151028"},{"n":"邱議瑩","t":"09:41","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151029"},{"n":"張啓楷","t":"09:49","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151030"},{"n":"呂玉玲","t":"09:57","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151031"},{"n":"楊瓊瓔","t":"10:06","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151034"},{"n":"鄭正鈐","t":"10:15","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151035"},{"n":"陳亭妃","t":"10:23","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151037"},{"n":"鄭天財Sra Kacaw","t":"10:30","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151039"},{"n":"張嘉郡","t":"10:38","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151042"},{"n":"謝衣鳯","t":"10:46","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151043"},{"n":"陳超明","t":"10:56","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151045"},{"n":"賴瑞隆","t":"11:07","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151046"},{"n":"邱志偉","t":"11:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151048"},{"n":"黃國昌","t":"11:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151051"},{"n":"高金素梅","t":"11:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151052"},{"n":"郭昱晴","t":"11:47","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151054"},{"n":"張雅琳","t":"11:53","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151056"},{"n":"蔡易餘","t":"11:59","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151058"},{"n":"伍麗華Saidhai Tahovecahe","t":"12:06","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151060"},{"n":"洪申翰","t":"12:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151063"},{"n":"黃捷","t":"12:22","u":"https://ivod.ly.gov.tw/Play/Clip/1M/151065"}],"props":["201110005110000","202110006280000","202110006930000","202110010890000","202110014230000","202110022260000"],"tr":"tr/1.json","note":null,"mixed":["遠洋漁業條例"],"nspeak":32,"nmem":21,"ntable":0,"nfold":1},{"date":"2024-04-12","stage":"一讀","code":"院會-11-1-9","bill":"202110029160000","gazref":"113卷025期5207號 2-2頁"},{"date":"2024-04-12","stage":"一讀","code":"院會-11-1-9","bill":"202110030620000","gazref":"113卷025期5207號 7-7頁"},{"date":"2024-04-12","stage":"一讀","code":"院會-11-1-9","bill":"202110030460000","gazref":"113卷025期5207號 7-7頁"},{"date":"2024-04-26","stage":"一讀","code":"院會-11-1-11","bill":"202110037690000","gazref":"113卷031期5213號 17-17頁"},{"date":"2024-04-26","code":"院會-11-1-11","title":"第11屆第1會期第11次會議","gazref":"113卷031期5213號 40-41,44-45頁","stage":"逕付二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024042405/details?meetingDate=113/04/26","full":["https://ivod.ly.gov.tw/Play/Full/1M/15851"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/113/31/LCIDC01_1133101.pdf","p1":17,"p2":17}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"proc":true,"nspeak":2,"ntable":0},{"date":"2024-06-07","stage":"一讀","code":"院會-11-1-17","bill":"202110053830000","gazref":"113卷054期5236號 3-3頁"},{"date":"2024-07-12","code":"黨團協商-2024070878","title":"立法院朝野黨團協商","gazref":"113卷074期5256號 273-273頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024070878/details?meetingDate=113/07/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/16100"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2024-07-12","code":"院會-11-1-22","title":"第11屆第1會期第22次會議","gazref":"113卷071期5253號一冊 79-79頁","stage":"逕付二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024071092/details?meetingDate=113/07/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/16097"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/113/71/LCIDC01_1137101.pdf","p1":79,"p2":79}],"clips":[],"props":[],"tr":"tr/3.json","note":null,"proc":true,"nspeak":1,"ntable":0},{"date":"2024-07-15","code":"院會-11-1-22","title":"第11屆第1會期第22次會議","gazref":"113卷071期5253號十三冊 1-118頁","stage":"二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024071092/details?meetingDate=113/07/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/16102"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/113/71/LCIDC01_1137113_00001.pdf","p1":1,"p2":118}],"clips":[],"props":[],"tr":"tr/4.json","note":null,"nspeak":3,"nmem":0,"ntable":5,"nfold":3},{"date":"2024-07-16","code":"院會-11-1-22","title":"第11屆第1會期第22次會議","gazref":"113卷071期5253號十五冊 104-104頁","stage":"二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024071092/details?meetingDate=113/07/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/16104"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/113/71/LCIDC01_1137115_00008.pdf","p1":104,"p2":104}],"clips":[],"props":[],"tr":"tr/5.json","note":null,"nspeak":36,"nmem":28,"ntable":7,"nfold":1},{"date":"2024-10-25","stage":"一讀","code":"院會-11-2-6","bill":"202110072950000","gazref":"113卷084期5266號 15-15頁"},{"date":"2024-12-04","code":"黨團協商-2024112925","title":"立法院朝野黨團協商","gazref":"113卷111期5293號二冊 369-378頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024112925/details?meetingDate=113/12/04","full":["https://ivod.ly.gov.tw/Play/Full/1M/16341"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2024-12-31","code":"院會-11-2-15","title":"第11屆第2會期第15次會議","gazref":"114卷007期5300號四冊 159-166頁","stage":"二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024122541/details?meetingDate=113/12/27","full":["https://ivod.ly.gov.tw/Play/Full/1M/16435"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/07/LCIDC01_1140704_00003.pdf","p1":159,"p2":166}],"clips":[],"props":[],"tr":"tr/6.json","note":null,"nspeak":2,"nmem":0,"ntable":1,"nfold":1},{"date":"2025-01-06","code":"黨團協商-2025010385","title":"立法院朝野黨團協商","gazref":"114卷011期5304號二冊 327-387頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025010385/details?meetingDate=114/01/06","full":["https://ivod.ly.gov.tw/Play/Full/1M/16450"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2025-01-07","code":"院會-11-2-16","title":"第11屆第2會期第16次會議","gazref":"114卷010期5303號一冊 173-174頁","stage":"二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024123171/details?meetingDate=114/01/03","full":["https://ivod.ly.gov.tw/Play/Full/1M/16451"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/10/LCIDC01_1141001_00027.pdf","p1":173,"p2":174}],"clips":[],"props":[],"tr":"tr/7.json","note":null,"nspeak":1,"nmem":0,"ntable":0,"nfold":0},{"date":"2025-01-14","code":"院會-11-2-17","title":"第11屆第2會期第17次會議","gazref":"114卷015期5308號二冊 1-2頁","stage":"二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025010807/details?meetingDate=114/01/10","full":["https://ivod.ly.gov.tw/Play/Full/1M/16467"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/15/LCIDC01_1141502_00001.pdf","p1":1,"p2":2}],"clips":[],"props":[],"tr":"tr/8.json","note":null,"nspeak":1,"nmem":0,"ntable":0,"nfold":0},{"date":"2025-01-15","code":"黨團協商-2025011543","title":"立法院朝野黨團協商","gazref":"114卷017期5310號四冊 479-500頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025011543/details?meetingDate=114/01/15","full":["https://ivod.ly.gov.tw/Play/Full/1M/16475"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2025-01-16","code":"黨團協商-2025011645","title":"立法院朝野黨團協商","gazref":"114卷018期5311號二冊 403-420頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025011645/details?meetingDate=114/01/16","full":["https://ivod.ly.gov.tw/Play/Full/1M/16477"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2025-01-21","code":"院會-11-2-18","title":"第11屆第2會期第18次會議","gazref":"114卷019期5312號二十四冊 140-149頁；114卷019期5312號二十四冊 149-152頁；114卷019期5312號二十四冊 152-155頁；114卷019期5312號二十四冊 152-152頁","stage":"二讀、三讀、附帶決議","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025011544/details?meetingDate=114/01/17","full":["https://ivod.ly.gov.tw/Play/Full/1M/16481"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/19/LCIDC01_1141924_00002.pdf","p1":140,"p2":155}],"clips":[],"props":[],"tr":"tr/9.json","note":null,"nspeak":6,"nmem":5,"ntable":0,"nfold":0}],"votes":[{"topic":"野生動物保育法　民進黨黨團對第1會期 第16次會議報告事項所提復議案","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":51,"no":59,"abstain":0,"yesNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"noNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"abstainNames":[]},{"topic":"野生動物保育法　重付表決 民進黨黨團對第1會期 第16次會議報告事項所提復議案","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":51,"no":58,"abstain":0,"yesNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"noNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","張啓楷","高金素梅","邱若華","鄭正鈐","鄭天財Sra Kacaw","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"abstainNames":[]},{"topic":"野生動物保育法　民進黨黨團對第1會期 第18次會議報告事項所提復議案","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":51,"no":58,"abstain":0,"yesNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"noNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭正鈐","鄭天財Sra Kacaw","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"abstainNames":[]},{"topic":"野生動物保育法　重付表決 民進黨黨團對第1會期 第18次會議報告事項所提復議案","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":51,"no":59,"abstain":0,"yesNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"noNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"abstainNames":[]},{"topic":"野生動物保育法　國家通訊傳播委員會組織法第四條 國民黨黨團再修正動議","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":51,"no":50,"abstain":0,"yesNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","江啟臣","牛煦庭","王育敏","游顥"],"noNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"野生動物保育法　重付表決國家通訊傳播委員會組織法 第四條 國民黨黨團再修正動議","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":52,"no":51,"abstain":0,"yesNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","江啟臣","牛煦庭","王育敏","游顥"],"noNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","楊曜","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"野生動物保育法　國民黨黨團台灣民眾黨黨團修正動議","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":59,"no":48,"abstain":0,"yesNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"野生動物保育法　重付表決 討論事項第46案 國民黨黨團台灣民眾黨黨團修正動議","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":60,"no":48,"abstain":0,"yesNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","吳秉叡","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"野生動物保育法　國民黨黨團修正動議","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":59,"no":50,"abstain":0,"yesNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"野生動物保育法　重付表決 討論事項第47案 國民黨黨團修正動議","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":59,"no":50,"abstain":0,"yesNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"野生動物保育法　台灣民眾黨黨團再修正動議","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":59,"no":50,"abstain":0,"yesNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"野生動物保育法　重付表決 討論事項第48案 台灣民眾黨黨團再修正動議","code":"院會-11-1-22","type":"記名表決","src":"公報逐字稿","yes":59,"no":50,"abstain":0,"yesNames":["傅崐萁","洪孟楷","林思銘","謝龍介","涂權吉","馬文君","林憶君","麥玉珍","吳春城","林國成","陳昭姿","黃國昌","黃珊珊","張啓楷","高金素梅","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","羅智強","張嘉郡","王鴻薇","林沛祥","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","廖偉翔","蘇清泉","黃仁","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","陳玉珍","林德福","楊瓊瓔","丁學忠","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","許宇甄","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["陳秀寳","賴惠員","莊瑞雄","柯建銘","吳思瑤","伍麗華Saidhai Tahovecahe","李柏毅","范雲","林楚茵","洪申翰","邱志偉","黃秀芳","何欣純","張雅琳","林俊憲","李坤城","郭昱晴","徐富癸","王世堅","羅美玲","陳培瑜","蔡易餘","郭國文","陳俊宇","吳沛憶","賴瑞隆","陳素月","張宏陸","陳瑩","陳冠廷","陳亭妃","林月琴","劉建國","林岱樺","王美惠","黃捷","林淑芬","王正旭","沈伯洋","王定宇","吳琪銘","許智傑","鍾佳濱","吳秉叡","李昆澤","蔡其昌","邱議瑩","林宜瑾","蘇巧慧","沈發惠"],"abstainNames":[]}],"manualVotes":null,"gaps":[],"autoGaps":["5 次黨團協商（7 月 12 日、12 月 4 日、1 月 6 日、1 月 15 日、1 月 16 日）只有完整影片與公報頁碼，沒有文字版逐字稿。","4 月 11 日的委員會同時審查遠洋漁業條例，逐字稿包含那些法案的討論，沒有切開。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

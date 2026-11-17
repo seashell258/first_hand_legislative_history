@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>中華民國刑法修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"中華民國刑法","version":"04536:2026-03-13-修正","date":"2026-03-13","action":"修正","title":"中華民國刑法　2026 年修正","lede":"","summary":"","key":"04536_2026-03-13","props":[{"id":"201110177770000","who":"行政院、司法院","date":"2025-12-12","name":"「中華民國刑法部分條文修正草案」及「中華民國刑法施行法第七條之二、第七條之三及第七條之四條文修正草案」案。","url":"https://ppg.ly.gov.tw/ppg/bills/201110177770000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/03/LCEWA01_110503_00162.pdf","proposers":[],"ncosign":0,"people":[],"party":[],"reason":"行政院、司法院函請審議「中華民國刑法部分條文修正草案」及「中華民國刑法施行法第七條之二、第七條之三及第七條之四條文修正草案」案。","arts":["第六十三條之一","第七十七條","第七十八條之一","第七十八條之二","第七十九條之一","第七條之二","第七條之三","第七條之四"]},{"id":"202110196280000","who":"委員沈伯洋等18人","date":"2026-03-13","name":"「中華民國刑法第七十八條之一、第七十八條之二及第七十九條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110196280000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/03/LCEWA01_110503_00175.pdf","proposers":["沈伯洋","莊瑞雄"],"ncosign":16,"people":[["沈伯洋","民進黨","提案"],["莊瑞雄","民進黨","提案"],["陳培瑜","民進黨","連署"],["林淑芬","民進黨","連署"],["范雲","民進黨","連署"],["王正旭","民進黨","連署"],["王美惠","民進黨","連署"],["楊曜","民進黨","連署"],["郭昱晴","民進黨","連署"],["林月琴","民進黨","連署"],["陳瑩","民進黨","連署"],["黃捷","民進黨","連署"],["徐富癸","民進黨","連署"],["陳俊宇","民進黨","連署"],["陳秀寳","民進黨","連署"],["賴惠員","民進黨","連署"],["陳冠廷","民進黨","連署"],["蔡易餘","民進黨","連署"]],"party":[["民進黨",18]],"reason":"本院委員沈伯洋、莊瑞雄等18人，鑑於無期徒刑受刑人假釋期間經撤銷假釋後之殘刑規定不符比例原則，爰擬具「中華民國刑法第七十八條之一、第七十八條之二及第七十九條之一條文修正草案」。是否有當？敬請公決。","arts":["第七十八條之一","第七十八條之二","第七十九條之一"]}],"arts":[{"no":"第七條之二","current":"於中華民國八十六年十一月二十六日刑法修正公布後，九十四年一月七日刑法修正施行前犯罪者，其假釋適用八十六年十一月二十六日修正公布之刑法第七十七條規定。但其行為終了或犯罪結果之發生在九十四年一月七日刑法修正施行後者，其假釋適用九十四年一月七日修正施行之刑法第七十七條規定。\n因撤銷假釋執行殘餘刑期，其撤銷之原因事實發生在八十六年十一月二十六日刑法修正公布後，九十四年一月七日刑法修正施行前者，依八十六年十一月二十六日修正公布之刑法第七十九條之一規定合併計算其殘餘刑期與他刑應執行之期間。但其原因事實行為終了或犯罪結果之發生在九十四年一月七日刑法修正施行後者，依九十四年一月七日修正施行之刑法第七十九條之一規定合併計算其殘餘刑期與他刑應執行之期間。","versions":[{"bill":"201110177770000","text":"於中華民國八十六年十一月二十六日刑法修正公布後，九十四年一月七日刑法修正施行前犯罪者，其假釋適用八十六年十一月二十六日修正公布之刑法第七十七條規定。但其行為終了或犯罪結果之發生在九十四年一月七日刑法修正施行後，○年○月○日刑法修正之條文施行前者，其假釋適用九十四年一月七日修正施行之刑法第七十七條規定。\n因撤銷假釋執行殘餘刑期，其撤銷之原因事實發生在八十六年十一月二十六日刑法修正公布後，九十四年一月七日刑法修正施行前者，依八十六年十一月二十六日修正公布之刑法第七十九條之一規定合併計算其殘餘刑期與他刑應執行之期間。但其原因事實行為終了或犯罪結果之發生在九十四年一月七日刑法修正施行後，○年○月○日刑法修正之條文施行前者，依九十四年一月七日修正施行之刑法第七十九條之一規定合併計算其殘餘刑期與他刑應執行之期間。","note":"配合刑法有關假釋規定之修正，修正本條規定。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第七條之三","current":null,"versions":[{"bill":"201110177770000","text":"於中華民國九十四年一月七日刑法修正施行後，○年○月○日刑法修正之條文施行前犯罪者，其假釋適用九十四年一月七日修正施行之刑法第七十七條規定。但其行為終了或犯罪結果之發生在○年○月○日刑法修正之條文施行後者，其假釋適用○年○月○日修正之刑法第七十七條規定。\n於中華民國○年○月○日刑法第七十七條第三項修正施行前故意殺人或殺人未遂後，經判處死刑確定，再經撤銷判處無期徒刑或有期徒刑逾十年者，其假釋適用○年○月○日刑法修正後之規定，不適用前二條第一項及前項規定。\n因撤銷假釋執行殘餘刑期，其撤銷之原因事實發生在中華民國○年○月○日刑法修正之條文施行前者，除有下列情形之一者外，依○年○月○日修正之刑法第七十八條之一、第七十八條之二、第七十九條之一規定計算殘餘刑期及最低應執行之期間，不適用前條之規定：\n一、無期徒刑受刑人於假釋期間更犯罪，經撤銷假釋且受無期徒刑宣告確定。\n二、無期徒刑受刑人執行殘餘刑期，已達其撤銷假釋之原因事實發生時之刑法第七十九條之一第五項所定二十年或二十五年期間。\n依中華民國○年○月○日修正之刑法第七十八條之一、第七十八條之二規定撤銷假釋執行之殘餘刑期短於已執行之殘餘刑期者，以實際執行殘餘刑期末日視為殘餘刑期執行完畢之日，不得就已執行之殘餘刑期，聲請刑事補償、國家賠償或折抵他刑。","note":"一、本條新增。\n二、配合刑法第七十七條修正假釋要件之規定，為使目前在監服刑之受刑人及於本次刑法第七十七條修正施行前已經犯罪者，原則上仍得適用修正前之規定，爰參酌並配合第七條之一第一項、第七條之二第一項之規定，為第一項規定，以求衡平。\n三、依憲法法庭一百十三年憲判字第八號判決意旨，經判處死刑之確定終局判決所認定之個案犯罪情節如非屬最嚴重情形，或未符合憲法最嚴密之正當法律程序要求而判處死刑者，應適用非常上訴制度以資救濟。惟考量該等業已判處死刑確定之行為人，前經法院歷次審判，認其求生而不可得，有永久與社會隔離之必要，始判處死刑定讞，且經再審、非常上訴等救濟程序後，均仍維持死刑判決，此等故意剝奪生命法益之犯罪，其犯罪行為之惡性、情節及危害性，究與其他經法院判處無期徒刑或有期徒刑逾十年情形者迥然不同。又衡酌此類案件中被害人生命遭受剝奪，該等犯罪行為造成法益無法回復之結果，更造成被害人家屬無可彌補之傷痛。若此等案件經非常上訴撤銷原確定判決後，改判無期徒刑或有期徒刑逾十年，而適用修正前假釋之規定，對於被害人家屬而言將承受二度傷害，顯然不符國民法律感情，且戕害社會安全網絡。是以，對於此類情形應有適用較嚴格假釋規定之必要。考量假釋並非刑罰，而係基於刑事政策考量，暫時停止自由刑之執行措施，並非人民當然享有之權利，亦無刑法第二條第一項之適用。爰於第二項明定於本次刑法第七十七條第三項修正施行前犯故意殺人或殺人未遂者，不論於修正施行前或修正施行後，曾經審判機關判處死刑確定，再經依憲法法庭上揭判決意旨或適用其他法律規定而撤銷原確定死刑判決，並改判無期徒刑或有期徒刑逾十年者，其假釋應例外適用裁判時之法律，以發揮刑罰抗衡犯罪嚴厲性之功能，捍衛社會正義，並符人民期待。\n四、本次刑法修正無期徒刑及有期徒刑受刑人撤銷假釋後有關殘餘刑期、最低應執行之期間等規定，原則上均較有利於行為人，宜適用從新原則，爰為第三項規定。惟對於撤銷假釋之原因事實發生在本次刑法修正施行前之無期徒刑受刑人，若其於假釋期間更犯罪，經撤銷假釋且受無期徒刑宣告，或執行殘餘刑期已達其撤銷假釋之原因事實發生時之刑法第七十九條之一第五項所定二十年或二十五年期間，前者因依刑法修正條文第七十八條之一規定，本無假釋規定之適用，後者因適用刑法修正條文第七十八條之一規定結果，所執行之殘餘刑期期間較八十六年十一月二十六日修正公布之刑法第七十九條之一第五項、九十四年一月七日刑法修正施行之第七十九條之一第五項所規定之二十年、二十五年更長，因均未有利於行為人，故於第三項第一款及第二款明定，於此情形即應適用第七條之二第二項，回歸適用撤銷假釋之原因事實發生時之刑法第七十九條之一有關合併計算其殘餘刑期與他刑應執行之期間等規定。\n五、依憲法法庭一百十三年憲判字第二號判決主文第六項之意旨，若本次刑法修法後所核算之殘餘刑期短於受刑人業已執行之殘餘刑期時，應以實際執行殘餘刑期末日視為殘餘刑期執行完畢之日，不得就已執行之殘餘刑期，聲請刑事補償、國家賠償或折抵他刑，爰為第四項規定。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第七條之四","current":null,"versions":[{"bill":"201110177770000","text":"於中華民國○年○月○日修正之刑法第七十七條第四項施行前犯罪者，其裁判確定前之羈押日數算入刑法第七十七條第一項已執行之期間，不適用前三條第一項規定。","note":"一、本條新增。\n二、配合刑法修正條文第七十七條第四項關於裁判確定前羈押日數均算入已執行期間內之修正，並避免修正後適用之疑義，爰增訂本條規定，使目前在監服刑之受刑人及於刑法第七十七條第四項修正施行前犯罪者，均適用修正後有關計算第七十七條第一項已執行期間之規定。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第六十三條之一","current":null,"versions":[{"bill":"201110177770000","text":"行為時有第十九條第二項之情形，或審判時因精神障礙或其他心智缺陷，致訴訟上自我辯護能力明顯不足者，不得處死刑。","note":"一、本條新增。\n二、鑑於憲法法庭一百十三年憲判字第八號判決宣告被告於行為時有刑法第十九條第二項之情形，及法院對於審判時有精神障礙或其他心智缺陷，致訴訟上自我辯護能力明顯不足之被告，均不得科處死刑，爰新增本條規定。\n三、所謂「訴訟上自我辯護能力明顯不足」，依照前揭憲法法庭判決理由，係指該等被告「如經臨床診斷並鑑定為有精神障礙或其他心智缺陷情形，即使表面上看似仍能理解訴訟行為之意義，並能於審判時回答問題，然其理解、整合及處理資訊、理解他人反應並與之有效溝通、從錯誤及經驗中學習改進等邏輯推理、理性思考及判斷能力，如已明顯減低而不如一般人，自難以期待此等被告能完整理解死刑之課責意涵及刑事訴訟實際運作對其等之影響，更遑論能為其自己有效辯護。又此等被告中亦有欠缺病識感，甚或因故意或過失而有不正確之供述，致增加審判結果出現錯誤冤抑之風險。於此情形，對此等被告所進行刑事程序之整體公正性及可信賴度，亦難免有所減損。」反之，若其審判中之精神障礙或其他心智缺陷，並未導致其訴訟上自我辯護能力明顯不足者，則屬審判機關量刑審酌事項，非本條適用範圍。\n四、所謂「精神障礙或其他心智缺陷」雖與刑事訴訟法第二百九十四條第一項規定「精神或其他心智障礙」用語不盡相同，惟二者含意似無不同。然而，於審判時被告有精神障礙或其他心智缺陷之情形，且致其訴訟上自我辯護能力明顯不足時（例如時好時壞，或屬輕度或中度之精神障礙或其他心智缺陷者等），各級法院未必會依刑事訴訟法第二百九十四條規定停止審判。故為保障人民生命權、訴訟上防禦權及正當法律程序原則，爰為本條規定。於各級法院審判時，如被告經鑑定後確認有精神障礙或其他心智缺陷之情形，致其在訴訟上進行有效自我辯護之能力明顯不足者，例如被告明顯欠缺為自己辯護、與其辯護人商議訴訟策略或相關溝通討論之能力者，如法院認被告不符刑事訴訟法第二百九十四條所定停止審判之要件而仍繼續審判，於個案量刑時，就此等被告亦不應科處死刑，以符合前揭憲法法庭判決意旨。"}],"changed":false,"final":null,"finalWhy":null,"review":null},{"no":"第七十七條","current":"受徒刑之執行而有悛悔實據者，無期徒刑逾二十五年，有期徒刑逾二分之一、累犯逾三分之二，由監獄報請法務部，得許假釋出獄。\n前項關於有期徒刑假釋之規定，於下列情形，不適用之：\n一、有期徒刑執行未滿六個月者。\n二、犯最輕本刑五年以上有期徒刑之罪之累犯，於假釋期間，受徒刑之執行完畢，或一部之執行而赦免後，五年以內故意再犯最輕本刑為五年以上有期徒刑之罪者。\n三、犯第九十一條之一所列之罪，於徒刑執行期間接受輔導或治療後，經鑑定、評估其再犯危險未顯著降低者。\n無期徒刑裁判確定前逾一年部分之羈押日數算入第一項已執行之期間內。","versions":[{"bill":"201110177770000","text":"受徒刑之執行而有悛悔實據者，無期徒刑逾二十五年，有期徒刑逾二分之一、累犯逾三分之二，由監獄報請法務部，得許假釋出獄。\n前項關於有期徒刑假釋之規定，於下列情形，不適用之：\n一、有期徒刑執行未滿六個月者。\n二、犯最輕本刑五年以上有期徒刑之罪之累犯，於假釋期間，受徒刑之執行完畢，或一部之執行而赦免後，五年以內故意再犯最輕本刑為五年以上有期徒刑之罪者。\n三、犯第九十一條之一所列之罪，於徒刑執行期間接受輔導或治療後，經評估其再犯危險未顯著降低者。\n故意殺人、殺人未遂或犯第二百八十六條第六項或第七項之罪，經判處無期徒刑或有期徒刑逾十年者，不適用第一項假釋之規定。\n裁判確定前之羈押日數算入第一項已執行之期間內。","note":"一、依現行矯正機關針對強制治療實務運作模式，係徒刑執行期滿前，於接受輔導或治療後，由監獄內之治療評估小組或輔導評估小組會議評估有再犯之危險，即送請該案犯罪事實最後裁判之檢察署檢察官，向法院聲請強制治療。故現行第二項第三款規範之「鑑定」，實係指判決確定後強制治療之受處分人於徒刑執行期滿前，由矯正機關內之評估小組評估有無再犯之風險，與現行刑事訴訟法規定之「鑑定」為法定調查證據方法，二者內容與執行方式均不同，性質迥異，為避免混淆，爰刪除現行第二項第三款「鑑定」用語，以符實需。\n二、假釋制度係基於整體刑事政策考量，為救濟自由刑之流弊，透過法律創設而使受刑人於符合一定條件下提早離開監獄，此制度固已為大多數刑事立法例所採行，惟對於受刑人應服刑多久或應否一概賦予假釋資格，各國規定不一。美國聯邦法自一九八四年量刑改革法案（Sentencing Reform Act）以來，無期徒刑受刑人除有赦免等特殊情形者外，原則上應予終身監禁；英國乃假釋制度發軔之地，於經判處無期徒刑之案件，法官有權併依二○二○年量刑法（Sentencing Act）宣告終身監禁命令（whole life order）。\n三、我國現行對於無期徒刑受刑人，於服刑滿二十五年且有悛悔實據者，不區分所犯罪名、所侵害之法益及情節輕重，一律均有獲得假釋之機會，並未考量特殊重大暴力犯罪類型之重刑犯，對其矯正已有不易；另依民法第十三條第一項之規定，未滿七歲之未成年人，無行為能力，若對其施以凌虐或以他法足以妨害其身心之健全或發育，因而致其於死或致重傷者，此種侵害無行為能力者之生命或身體法益之行為，實屬社會大眾所無法容忍，惡性極為重大。上開情形若給予與其他受刑人相同假釋機會，假釋出監後可能對於社會仍具潛在侵害性與危害性，亦未考量現行無期徒刑可能因假釋及撤銷假釋制度而質變為較長期有期徒刑，故基於刑事政策考量，容有修正、調整特定犯罪類型受刑人假釋制度之必要。爰參考前揭美國、英國對於無期徒刑受刑人非一律賦予報請假釋或類似假釋資格之立法例，並兼顧刑罰衡平及比例原則，增訂第三項，定明於故意殺人、殺人未遂或犯第二百八十六條第六項或第七項之罪，經判處無期徒刑或有期徒刑逾十年者，不適用第一項假釋之規定，以達社會防衛功能。\n四、第三項所謂「故意殺人、殺人未遂」，不以第二百七十一條第一項、第二項之罪為限，其他例如：本法第二百二十六條之一、第二百七十二條、第二百七十二條之一第一項至第三項、第三百三十二條第一項或第三百四十八條第一項之罪，或兒童及少年性剝削防制條例第三十七條第一項之罪，涉及殺害直系血親尊親屬或故意殺害被害人者，均屬之。於殺人未遂情形，雖未發生被害人死亡之結果，惟行為人意在剝奪他人生命法益之本質並未改變。例如故意殺害執法人員或持槍掃射多名被害人，被害人經救治而倖存，雖屬未遂，然行為人惡性非輕，若經判處無期徒刑或有期徒刑逾十年者，亦有對是類案件行為人區別而不適用假釋之必要。另無論犯罪行為人係基於第十三條第一項之直接故意，或同條第二項之間接故意而殺人者，均屬前揭「故意殺人」範疇。又於行為人以一行為涉犯「第二百八十六條第六項或第七項之罪」及其他罪名，而發生法規競合或想像競合之情形，亦有本項適用，附此敘明。\n五、至於故意殺人，如經判處最低刑度十年，或有自首、情堪憫恕等減刑事由，經量處十年以下有期徒刑之個案，其犯罪情節及法益侵害程度自與經判處無期徒刑或逾十年有期徒刑之個案有別，而有適用假釋之機會。為免爭議，爰一併指明，以資明確。\n六、依照司法院釋字第八○一號解釋宣告八十六年十一月二十六日修正公布之本法第七十七條第二項規定（嗣九十四年二月二日修正公布時已移列為同條第三項），關於「裁判確定前未逾一年之羈押日數不算入無期徒刑假釋之已執行期間」違反憲法第七條平等原則，自該解釋公布之日起失其效力之意旨，並配合新增第三項，爰將現行第三項移列為第四項，刪除原定「無期徒刑」、「逾一年部分」之文字，使無期徒刑及有期徒刑裁判確定前之羈押日數，均算入第一項已執行之期間內，以維平等原則。\n七、第一項未修正。\n司法院加註意見：\n就行政院函請本院會銜第七十七條修正草案，仍有如下建議：\n一、禁止酷刑及其他殘忍不人道或有辱人格之待遇或處罰公約第1條第1項、已內國法化之公民與政治權利國際公約第7條，分別揭櫫「酷刑」之定義及「任何人不得施以酷刑，或予以殘忍、不人道或侮辱之處遇或懲罰」之旨，且歐洲人權公約第3條亦為相同趣旨；又歐洲人權法院大法庭於2013年7月9日Vinter and Others v.the United Kingdom案及2016年4月26日Murray v. the Netherlands案判決中，宣示「若終身監禁且不得假釋時，違反歐洲人權公約第3條之禁止酷刑原則」。本條草案關於不得假釋之修正內容，是否屬於上開公約所稱「酷刑」或類似之處遇或懲罰，暨有無違反上開公約所揭櫫之禁止酷刑原則，建請於立法理由中說明釐清。\n二、以本條草案所揭不得假釋罪名之刑法第271條第1項之殺人既遂犯為例，其大部分所獲刑度均落在「無期徒刑或有期徒刑逾10年」之範圍內（以民國104年至114年9月間之統計資料為例，最高法院刑事上訴案件依刑法第271條第1項判決有罪者，總計696罪次，其中判處無期徒刑者為178罪次，約占25.6%，而判處有期徒刑逾10年者為439罪次，約占63%，合計約占88.6%），倘一律不許假釋，在獄政管理或矯正上有無窒礙，建請預為評估。\n三、刑法第77條第2項第3款「鑑定」用語於本次修正刪除，則相關連條文刑法第91條之1之「鑑定」用語是否一併修正刪除，建請斟酌。"}],"changed":false,"final":"受徒刑之執行而有悛悔實據者，無期徒刑逾二十五年，有期徒刑逾二分之一、累犯逾三分之二，由監獄報請法務部，得許假釋出獄。\n前項關於有期徒刑假釋之規定，於下列情形，不適用之：\n一、有期徒刑執行未滿六個月者。\n二、犯最輕本刑五年以上有期徒刑之罪之累犯，於假釋期間，受徒刑之執行完畢，或一部之執行而赦免後，五年以內故意再犯最輕本刑為五年以上有期徒刑之罪者。\n三、犯第九十一條之一所列之罪，於徒刑執行期間接受輔導或治療後，經鑑定、評估其再犯危險未顯著降低者。\n無期徒刑裁判確定前逾一年部分之羈押日數算入第一項已執行之期間內。","finalWhy":null,"review":null},{"no":"第七十八條之一","current":null,"versions":[{"bill":"201110177770000","text":"無期徒刑受刑人經撤銷假釋者，應執行原無期徒刑。如假釋期間有更犯之罪，併執行之。\n前項應執行之原無期徒刑，除假釋期間更犯之罪經宣告無期徒刑確定者外，其有悛悔實據者，於執行滿下列期間後，由監獄報請法務部，得再許假釋出獄：\n一、依其他法律規定撤銷假釋，或因假釋期間故意更犯罪而受未滿五年有期徒刑之宣告確定者，十年。\n二、假釋期間故意更犯罪，受五年以上未滿十年有期徒刑之宣告確定者，十五年。\n三、假釋期間故意更犯罪，受十年以上有期徒刑之宣告確定者，二十年。\n無期徒刑受刑人有前項數款之情形者，得再許假釋之期間，以最長之期間計算之。\n適用前二項得再次報請假釋之期間，短於其因更犯罪應執行刑之期間者，以應執行刑之期間為無期徒刑殘餘刑期得再許假釋之期間。","note":"一、本條新增。\n二、鑑於憲法法庭一百十三年憲判字第二號判決宣告第七十九條之一第五項有關無期徒刑假釋經撤銷者，一律執行固定二十年或二十五年殘餘刑期之規定不符比例原則，違反憲法第八條保障人身自由之意旨，並考量假釋制度係在一定條件下暫時停止自由刑之執行，兼具社會防衛與社會復歸功能，對無期徒刑經撤銷假釋入監執行殘餘刑期之受刑人，如具悛悔實據，宜仍有條件賦予復歸社會機會，且基於憲法保障人身自由之意旨，受無期徒刑執行者，經撤銷假釋後，其殘餘刑期之執行仍應符合比例原則，不得使人身自由遭受過度剝奪，爰新增本條有關經撤銷假釋無期徒刑受刑人，於執行原無期徒刑一定期間得報請假釋之規定，以勵自新。\n三、假釋之意義在於刑罰要求機構性處遇之行刑模式下，觀察受刑人於監所內執行一定期間後之改善程度（包括高度復歸意願及相當復歸能力），而得認為不必繼續為機構性處遇之行刑模式。故若客觀情狀顯示受假釋人於假釋期間有再為一定之行為，而認先前對受刑人矯正成效仍有不足者，本得依法撤銷假釋並回復入監執行之矯治模式，將不適合回歸社會之受假釋人回復至監獄之機構處遇，實現國家刑罰權。於無期徒刑受刑人假釋期間更犯罪而經撤銷假釋之情形，應回復使其再入監執行原無期徒刑，併應執行其假釋期間更犯之罪，爰為第一項規定，以資明確。至於其假釋期間更犯之罪，應依第七十七條或其他法律之規定決定該更犯之罪得許假釋之最低應執行之期間，再依第七十九條之一規定，合併計算原無期徒刑與更犯罪之最低應執行之期間，自不待言。\n四、由於撤銷假釋原因輕重有別，撤銷假釋係因受刑人更犯罪，抑或因違反保護管束應遵守事項，其情節嚴重程度未必能相提並論，故對於原無期徒刑撤銷假釋之最低應執行期間，應依撤銷假釋事由之情節輕重規範，爰於第二項規定十年、十五年、二十年層級化再許假釋門檻，不再適用第七十七條第一項有關最低應執行期間規定；另基於刑事政策考量，對於無期徒刑受刑人假釋期間更犯罪再受無期徒刑宣告，惡性重大，顯然缺乏對刑罰之反應力，故定明不適用假釋規定。至於經撤銷假釋後，原無期徒刑（即殘刑）與更犯之罪（即他刑）間之執行順序，因考量此時殘刑乃不定期限自由刑，除依法得經許假釋出獄者外，本質上並無執行終結日，倘先執行原無期徒刑再接續執行他刑，將無從決定他刑之執行起始日。故於此情形，宜先執行他刑（包括徒刑、拘役等自由刑），再接續執行原無期徒刑。\n五、對於無期徒刑受刑人，於假釋期間經依保安處分執行法等其他法律之規定撤銷假釋後，其先前假釋期間更犯罪而經判處之罪刑宣告始確定者，或對於假釋期間更犯數罪，於輕罪確定後，重罪始告確定者，或假釋期間更犯數罪，分別經宣告輕罪及重罪確定，而同時該當第二項數款情形者，應認已影響對其更生可能性及再犯危險性之評價，爰於第三項明定無期徒刑受刑人同時構成第二項數款之情形者，得再許假釋期間應以各款中最長之期間計算，以符合比例原則。\n六、對於假釋期間更犯數罪並經合併定執行刑確定之受刑人，固應依其所受個別刑之宣告適用第二項各款規定決定得再許假釋條件，惟若假釋期間更犯數有期徒刑之罪，且經合併定應執行刑之期間較第二項各款所定期間更長者，無論其更犯罪係故意或過失犯罪，均顯見社區處遇未能達其成效，惡性非輕，自應以應執行刑之期間作為無期徒刑殘刑得適用再許假釋之期間，爰為第四項規定，俾兼顧受刑人社會復歸、保護公眾安全及社會防護之需求。例如無期徒刑受刑人於假釋期間更犯一百件竊盜罪，分經宣告二月有期徒刑，共一百罪，應執行十五年確定者，若依第二項第一款規定，最低應執行期間為十年，短於其更犯之罪應執行刑十五年，此時應依第四項規定，使原無期徒刑再許假釋之期間定為十五年，至於更犯之罪經定執行刑為有期徒刑十五年部分，依第一項規定應併執行，並依第七十七條決定該更犯之罪得許假釋之最低應執行之期間。\n七、依司法院釋字第八○一號解釋意旨，若無期徒刑受刑人於假釋期間更犯罪，其更犯之罪裁判確定前之羈押日數，仍應適用修正條文第七十七條第四項規定算入該更犯之罪已執行之期間內，附此敘明。"},{"bill":"202110196280000","text":"無期徒刑受刑人經撤銷假釋者，應執行原無期徒刑。如假釋期間有更犯之罪，併執行之。\n前項應執行之原無期徒刑，其有悛悔實據者，於執行滿下列期間後，由監獄報請法務部，得再許假釋出獄：\n一、依其他法律規定撤銷假釋，或因假釋期間故意更犯罪而受未滿五年有期徒刑之宣告確定者，十年。\n二、假釋期間故意更犯罪，受五年以上未滿十年有期徒刑之宣告確定者，十五年。\n三、假釋期間故意更犯罪，受十年以上有期徒刑之宣告確定者，二十年。\n四、假釋期間故意更犯罪，受無期徒刑之宣告確定者，二十五年。\n無期徒刑受刑人有前項數款之情形者，得再許假釋之期間，以最長之期間計算之。\n適用前二項得再次報請假釋之期間，短於其因更犯罪應執行刑之期間者，以應執行刑之期間為無期徒刑殘餘刑期得再許假釋之期間。","note":"一、本條新增。\n二、鑑於憲法法庭一百十三年憲判字第二號判決宣告第七十九條之一第五項有關無期徒刑假釋經撤銷者，一律執行固定二十年或二十五年殘餘刑期之規定不符比例原則，違反憲法第八條保障人身自由之意旨，並考量假釋制度係在一定條件下暫時停止自由刑之執行，兼具社會防衛與社會復歸功能，對無期徒刑經撤銷假釋入監執行殘餘刑期之受刑人，如具悛悔實據，宜仍有條件賦予復歸社會機會，且基於憲法保障人身自由之意旨，受無期徒刑執行者，經撤銷假釋後，其殘餘刑期之執行仍應符合比例原則，不得使人身自由遭受過度剝奪，爰新增本條有關經撤銷假釋無期徒刑受刑人，於執行原無期徒刑一定期間得報請假釋之規定，以勵自新。\n三、假釋之意義在於刑罰要求機構性處遇之行刑模式下，觀察受刑人於監所內執行一定期間後之改善程度（包括高度復歸意願及相當復歸能力），而得認為不必繼續為機構性處遇之行刑模式。故若客觀情狀顯示受假釋人於假釋期間有再為一定之行為，而認先前對受刑人矯正成效仍有不足者，本得依法撤銷假釋並回復入監執行之矯治模式，將不適合回歸社會之受假釋人回復至監獄之機構處遇，實現國家刑罰權。於無期徒刑受刑人假釋期間更犯罪而經撤銷假釋之情形，應回復使其再入監執行原無期徒刑，併應執行其假釋期間更犯之罪，爰為第一項規定，以資明確。至於其假釋期間更犯之罪，應依第七十七條第一項或其他法律之規定決定該更犯之罪得許假釋之最低應執行之期間，再依第七十九條之一規定，合併計算原無期徒刑與更犯罪之最低應執行之期間，自不待言。\n四、由於撤銷假釋原因輕重有別，撤銷假釋係因受刑人更犯罪，抑或因違反保護管束應遵守事項，其情節嚴重程度未必能相提並論，故對於原無期徒刑撤銷假釋之最低應執行期間，應依撤銷假釋事由之情節輕重規範，爰於第二項規定十年、十五年、二十年、二十五年層級化再許假釋門檻，不再適用第七十七條第一項有關最低應執行期間規定。至於經撤銷假釋後，原無期徒刑（即殘刑）與更犯之罪（即他刑）間之執行順序，因考量此時殘刑乃不定期限自由刑，除依法得經許假釋出獄者外，本質上並無執行終結日，倘先執行原無期徒刑再接續執行他刑，將無從決定他刑之執行起始日。故於此情形，宜先執行他刑（包括徒刑、拘役等自由刑），再接續執行原無期徒刑。\n五、對於無期徒刑受刑人，於假釋期間經依保安處分執行法等其他法律之規定撤銷假釋後，其先前假釋期間更犯罪而經判處之罪刑宣告始確定者，或對於假釋期間更犯數罪，於輕罪確定後，重罪始告確定者，或假釋期間更犯數罪，分別經宣告輕罪及重罪確定，而同時該當第二項數款情形者，應認已影響對其更生可能性及再犯危險性之評價，爰於第三項明定無期徒刑受刑人同時構成第二項數款之情形者，得再許假釋期間應以各款中最長之期間計算，以符合比例原則。\n六、對於假釋期間更犯數罪並經合併定執行刑確定之受刑人，固應依其所受個別刑之宣告適用第二項各款規定決定得再許假釋條件，惟若假釋期間更犯數有期徒刑之罪，且經合併定應執行刑之期間較第二項各款所定期間更長者，無論其更犯罪係故意或過失犯罪，均顯見社區處遇未能達其成效，惡性非輕，自應以應執行刑之期間作為無期徒刑殘刑得適用再許假釋之期間，爰為第四項規定，俾兼顧受刑人社會復歸、保護公眾安全及社會防護之需求。例如無期徒刑受刑人於假釋期間更犯一百件竊盜罪，分經宣告二月有期徒刑，共一百罪，應執行十五年確定者，若依第二項第一款規定，最低應執行期間為十年，短於其更犯之罪應執行刑十五年，此時應依第四項規定，使原無期徒刑再許假釋之期間定為十五年，至於更犯之罪經定執行刑為有期徒刑十五年部分，依第一項規定應併執行，並依第七十七條第一項決定該更犯之罪得許假釋之最低應執行之期間。"}],"changed":true,"final":"無期徒刑受刑人經撤銷假釋者，應執行原無期徒刑。如假釋期間有更犯之罪，併執行之。\n前項應執行之原無期徒刑，除假釋期間更犯之罪經宣告無期徒刑確定者外，其有悛悔實據者，於執行滿下列期間後，由監獄報請法務部，得再許假釋出獄：\n一、依其他法律規定撤銷假釋，或因假釋期間故意更犯罪而受未滿一年有期徒刑之宣告確定者，十年。\n二、假釋期間故意更犯罪，受一年以上未滿五年有期徒刑之宣告確定者，十五年。\n三、假釋期間故意更犯罪，受五年以上有期徒刑之宣告確定者，二十五年。\n無期徒刑受刑人有前項數款之情形者，得再許假釋之期間，以最長之期間計算之。\n適用前二項得再次報請假釋之期間，短於其因更犯罪應執行刑之期間者，以應執行刑之期間為無期徒刑殘餘刑期得再許假釋之期間。","finalWhy":"","review":null},{"no":"第七十八條之二","current":null,"versions":[{"bill":"201110177770000","text":"有期徒刑經撤銷假釋，殘餘刑期十年以下者，於全部執行完畢後，再接續執行他刑，不適用第七十九條之一第一項有關合併計算執行期間之規定。\n有期徒刑經撤銷假釋，殘餘刑期逾十年者，於執行滿十年後，所餘刑期之執行，適用第七十七條第一項規定。\n前項情形，如有更犯之罪並受刑之宣告確定者，所餘刑期之執行，適用第七十七條第一項規定計算後，併同更犯之罪應執行之刑，適用第七十九條之一第一項有關合併計算最低應執行期間之規定。","note":"一、本條新增。\n二、有關無期徒刑受刑人經撤銷假釋後應入監再執行之刑期規定，已配合憲法法庭一百十三年憲判字第二號判決意旨於修正條文第七十八條之一規範，就無期徒刑部分回歸不定期限自由刑之本質，並給予適切之最低應執行之期間。本諸相同原則，為避免產生有期徒刑受刑人經撤銷假釋後，其所應入監再執行之殘餘刑期較無期徒刑受刑人更長之不公平現象，而有違反比例原則疑慮，爰新增本條規定，以資衡平。\n三、依修正條文第七十八條之一規定，無期徒刑受刑人經撤銷假釋入監者，對於所執行原無期徒刑，允依撤銷假釋原因事實之情節輕重，區分不同假釋條件，最低門檻為十年。基於衡平性考量，有期徒刑受刑人經撤銷假釋入監者，如殘餘刑期十年以下者，應全部執行完畢再接續執行他刑，爰為第一項規定。另如殘餘刑期逾十年，已執行殘餘刑期滿十年者，同樣應賦予其在特定條件下之假釋機會，否則恐生有期徒刑之殘餘刑期反較無期徒刑最低應執行期間更長之疑慮，爰於第二項及第三項明定有期徒刑受刑人在執行殘餘刑期滿十年後，所餘刑期及更犯罪應執行之刑期，二者各自判斷得否假釋及其最低應執行期間，再依修正條文第七十九條之一第一項規定合併計算最低應執行期間。例如：假釋期間更犯罪經判處有期徒刑六年確定，且其原犯有期徒刑尚有殘餘刑期十年四月待執行之受刑人，依第二項及第三項規定，應執行有期徒刑十年後，所餘刑期（有期徒刑四月）及更犯之罪（有期徒刑六年），二者各自適用關於假釋之規定，再依修正條文第七十九條之一第一項規定合併計算假釋門檻，若該受刑人原犯及更犯之罪均得假釋且非累犯，則其應於執行滿十三年二月後，由監獄報請法務部，得許假釋。\n四、至於因違反保護管束情節重大而經裁量撤銷假釋之有期徒刑受刑人，若無更犯之罪而受徒刑之宣告確定，如原有期徒刑殘餘刑期逾十年，依第二項規定，應於執行原有期徒刑之殘餘刑期滿十年後，所餘刑期之執行，適用第七十七條第一項之規定；若殘餘刑期為十年以下，於全部執行完畢後，自無接續執行他刑之必要，依第一項規定，僅執行其全部殘餘刑期，均併此指明。\n五、依司法院釋字第八○一號解釋意旨，若有期徒刑受刑人於假釋期間更犯罪，其更犯之罪裁判確定前之羈押日數，仍應適用修正條文第七十七條第四項規定算入該更犯之罪已執行之期間內，附此敘明。"},{"bill":"202110196280000","text":"有期徒刑經撤銷假釋，殘餘刑期十年以下者，於全部執行完畢後，再接續執行他刑，不適用第七十九條之一第一項有關合併計算執行期間之規定。\n有期徒刑經撤銷假釋，殘餘刑期逾十年者，於執行滿十年後，所餘刑期之執行，適用第七十七條第一項規定。\n前項情形，如有更犯之罪並受刑之宣告確定者，所餘刑期之執行，適用第七十七條第一項規定計算後，併同更犯之罪應執行之刑，適用第七十九條之一第一項有關合併計算最低應執行期間之規定。","note":"一、本條新增。\n二、有關無期徒刑受刑人經撤銷假釋後應入監再執行之刑期規定，已配合憲法法庭一百十三年憲判字第二號判決意旨於修正條文第七十八條之一規範，就無期徒刑部分回歸不定期限自由刑之本質，並給予適切之最低應執行之期間。本諸相同原則，為避免產生有期徒刑受刑人經撤銷假釋後，其所應入監再執行之殘餘刑期較無期徒刑受刑人更長之不公平現象，而有違反比例原則疑慮，爰新增本條規定，以資衡平。\n三、依修正條文第七十八條之一規定，無期徒刑受刑人經撤銷假釋入監者，對於所執行原無期徒刑，允依撤銷假釋原因事實之情節輕重，區分不同假釋條件，最低門檻為十年。基於衡平性考量，有期徒刑受刑人經撤銷假釋入監者，如殘餘刑期十年以下者，應全部執行完畢再接續執行他刑，爰為第一項規定。另如殘餘刑期逾十年，已執行殘餘刑期滿十年者，同樣應賦予其在特定條件下之假釋機會，否則恐生有期徒刑之殘餘刑期反較無期徒刑最低應執行期間更長之疑慮，爰於第二項及第三項明定有期徒刑受刑人在執行殘餘刑期滿十年後，所餘刑期及更犯罪應執行之刑期，二者各自判斷得否假釋及其最低應執行期間，再依修正條文第七十九條之一第一項規定合併計算最低應執行期間。例如：假釋期間更犯罪經判處有期徒刑六年確定，且其原犯有期徒刑尚有殘餘刑期十年四月待執行之受刑人，依第二項及第三項規定，應執行有期徒刑十年後，所餘刑期（有期徒刑四月）及更犯之罪（有期徒刑六年），二者各自適用關於假釋之規定，再依修正條文第七十九條之一第一項規定合併計算假釋門檻，若該受刑人原犯及更犯之罪均得假釋且非累犯，則其應於執行滿十三年二月後，由監獄報請法務部，得許假釋。\n四、至於因違反保護管束情節重大而經裁量撤銷假釋之有期徒刑受刑人，若無更犯之罪而受徒刑之宣告確定，如原有期徒刑殘餘刑期逾十年，依第二項規定，應於執行原有期徒刑之殘餘刑期滿十年後，所餘刑期之執行，適用第七十七條第一項之規定；若殘餘刑期為十年以下，於全部執行完畢後，自無接續執行他刑之必要，依第一項規定，僅執行其全部殘餘刑期，均併此指明。"}],"changed":true,"final":"有期徒刑經撤銷假釋，殘餘刑期十年以下者，於全部執行完畢後，再接續執行他刑，不適用第七十九條之一第一項有關合併計算執行期間之規定。\n有期徒刑經撤銷假釋，殘餘刑期逾十年者，於執行滿十年後，所餘刑期之執行，適用第七十七條第一項規定。\n前項情形，如有更犯之罪並受刑之宣告確定者，所餘刑期之執行，適用第七十七條第一項規定計算後，併同更犯之罪應執行之刑，適用第七十九條之一第一項有關合併計算最低應執行期間之規定。","finalWhy":"","review":null},{"no":"第七十九條之一","current":"二以上徒刑併執行者，第七十七條所定最低應執行之期間，合併計算之。\n前項情形，併執行無期徒刑者，適用無期徒刑假釋之規定；二以上有期徒刑合併刑期逾四十年，而接續執行逾二十年者，亦得許假釋。但有第七十七條第二項第二款之情形者，不在此限。\n依第一項規定合併計算執行期間而假釋者，前條第一項規定之期間，亦合併計算之。\n前項合併計算後之期間逾二十年者，準用前條第一項無期徒刑假釋之規定。\n經撤銷假釋執行殘餘刑期者，無期徒刑於執行滿二十五年，有期徒刑於全部執行完畢後，再接續執行他刑，第一項有關合併計算執行期間之規定不適用之。","versions":[{"bill":"201110177770000","text":"二以上徒刑併執行者，第七十七條及第七十八條之一所定最低應執行之期間，合併計算之。\n前項情形，併執行無期徒刑者，適用無期徒刑假釋之規定；二以上有期徒刑合併刑期逾四十年，而接續執行逾二十年者，亦得許假釋。但有第七十七條第二項第二款、第三項、第七十八條之一、第七十八條之二之情形者，不在此限。\n依第一項規定合併計算執行期間而假釋者，前條第一項規定之期間，亦合併計算之。\n前項合併計算後之期間逾二十年者，準用前條第一項無期徒刑假釋之規定。","note":"一、對於經撤銷假釋執行原無期徒刑之受刑人，應將原犯及再犯之罪各自所適用之最低應執行之期間合併計算，以定其得再行報請假釋之期間，爰修正第一項規定。至於無期徒刑受刑人於假釋期間更犯罪經判處無期徒刑確定者，依修正條文第七十八條之一第二項規定已排除適用假釋規定，故無合併計算最低應執行期間可言；而撤銷假釋須執行殘餘刑期十年以上之有期徒刑受刑人，如有更犯之罪並受刑之宣告確定者，依修正條文第七十八條之二第三項規定亦適用本條第一項規定合併計算最低應執行之期間，均併予指明。\n二、考量對於經撤銷假釋入監之受刑人，修正條文第七十八條之一及第七十八條之二已放寬假釋門檻，執行殘餘刑期期間仍有可能獲得報請假釋之機會，該等受刑人自不宜再享有第二項待遇，以避免過度寬鬆，爰於第二項但書一併增列該二條之情形，使該等受刑人適用第一項合併計算其假釋門檻，排除第二項有關(一)併執行無期徒刑者，逕適用無期徒刑假釋規定，及(二)二以上有期徒刑合併刑期逾四十年者，於接續執行逾二十年即取得報請假釋資格之規定。另配合本法修正增訂第七十七條第三項有關不適用假釋之規定，一併於第二項但書增列該項情形，以資明確。\n三、為符合憲法法庭一百十三年憲判字第二號判決意旨，並配合本法修正增訂第七十八條之一、第七十八條之二有關撤銷假釋後之刑期執行規定，爰刪除現行第五項規定。\n四、第三項及第四項未修正。"},{"bill":"202110196280000","text":"二以上徒刑併執行者，第七十七條及第七十八條之一所定最低應執行之期間，合併計算之。\n前項情形，併執行無期徒刑者，適用無期徒刑假釋之規定；二以上有期徒刑合併刑期逾四十年，而接續執行逾二十年者，亦得許假釋。但有第七十七條第二項第二款、第七十八條之一、第七十八條之二之情形者，不在此限。\n依第一項規定合併計算執行期間而假釋者，前條第一項規定之期間，亦合併計算之。\n前項合併計算後之期間逾二十年者，準用前條第一項無期徒刑假釋之規定。","note":"一、對於經撤銷假釋執行原無期徒刑之受刑人，應將原犯及再犯之罪各自所適用之最低應執行之期間合併計算，以定其得再行報請假釋之期間，爰修正第一項規定。又撤銷假釋須執行殘餘刑期十年以上之有期徒刑受刑人，如有更犯之罪並受刑之宣告確定者，依修正條文第七十八條之二第三項規定亦適用本條第一項規定合併計算最低應執行之期間，併予指明。\n二、考量對於經撤銷假釋入監之受刑人，修正條文第七十八條之一及第七十八條之二已放寬假釋門檻，執行殘餘刑期期間仍有可能獲得報請假釋之機會，該等受刑人自不宜再享有第二項待遇，以避免過度寬鬆，爰於第二項但書一併增列該二條之情形，使該等受刑人適用第一項合併計算其假釋門檻，排除第二項有關(一)併執行無期徒刑者，逕適用無期徒刑假釋規定，及(二)二以上有期徒刑合併刑期逾四十年者，於接續執行逾二十年即取得報請假釋資格之規定。\n三、為符合憲法法庭一百十三年憲判字第二號判決意旨，並配合本法修正增訂第七十八條之一、第七十八條之二有關撤銷假釋後之刑期執行規定，爰刪除現行第五項規定。\n四、第三項及第四項未修正。"}],"changed":true,"final":"二以上徒刑併執行者，第七十七條及第七十八條之一所定最低應執行之期間，合併計算之。\n前項情形，併執行無期徒刑者，適用無期徒刑假釋之規定；二以上有期徒刑合併刑期逾四十年，而接續執行逾二十年者，亦得許假釋。但有第七十七條第二項第二款、第七十八條之一、第七十八條之二之情形者，不在此限。\n依第一項規定合併計算執行期間而假釋者，前條第一項規定之期間，亦合併計算之。\n前項合併計算後之期間逾二十年者，準用前條第一項無期徒刑假釋之規定。","finalWhy":"","review":null}],"stages":[{"date":"2025-12-12","stage":"一讀","code":"院會-11-4-13","bill":"201110177770000","gazref":"114卷104期5397號一冊 26-26頁"},{"date":"2026-03-06","code":"院會-11-5-2","title":"第11屆第5會期第2次會議","gazref":"115卷017期5416號 20-21頁","stage":"逕付二讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026030456/details?meetingDate=115/03/06","full":["https://ivod.ly.gov.tw/Play/Full/1M/17254"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/17/LCIDC01_1151701.pdf","p1":20,"p2":21}],"clips":[],"props":[],"tr":"tr/1.json","note":null,"proc":true,"nspeak":1,"ntable":0},{"date":"2026-03-11","code":"黨團協商-2026030961","title":"立法院朝野黨團協商","gazref":"115卷017期5416號 185-205頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026030961/details?meetingDate=115/03/11","full":["https://ivod.ly.gov.tw/Play/Full/1M/17265"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/17/LCIDC01_1151701.pdf","p1":185,"p2":206}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":16,"nmem":11,"ntable":0,"nfold":0},{"date":"2026-03-13","stage":"一讀","code":"院會-11-5-3","bill":"202110196280000","gazref":"115卷018期5417號 12-12頁"},{"date":"2026-03-13","code":"院會-11-5-3","title":"第11屆第5會期第3次會議","gazref":"115卷018期5417號 12-12頁；115卷018期5417號 30-37頁；115卷018期5417號 37-54頁；115卷018期5417號 54-54頁","stage":"逕付二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026031170/details?meetingDate=115/03/13","full":["https://ivod.ly.gov.tw/Play/Full/1M/17268"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/18/LCIDC01_1151801_00003.pdf","p1":30,"p2":54},{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/18/LCIDC01_1151801_00004.pdf","p1":54,"p2":65}],"clips":[],"props":[],"tr":"tr/3.json","note":null,"nspeak":1,"nmem":0,"ntable":0,"nfold":0}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":[],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

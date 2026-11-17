@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>花蓮馬太鞍溪堰塞湖災後重建特別條例制定歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"花蓮馬太鞍溪堰塞湖災後重建特別條例","version":"07343:2025-10-31-制定","date":"2025-10-31","action":"制定","title":"花蓮馬太鞍溪堰塞湖災後重建特別條例　2025 年制定","lede":"這是一部新制定的法。2025 年 9 月 23 日花蓮馬太鞍溪堰塞湖溢流潰壩，光復鄉、鳳林鎮受災。國民黨黨團和委員鄭天財等 16 人各提一案，草案名稱是「樺加沙風災暨花蓮馬太鞍溪堰塞湖潰壩災後重建特別條例」。兩案都逕付二讀，沒有經過委員會。10 月 30 日院長召集協商，名稱和十二條條文全部達成共識，名稱改為現在的名稱。10 月 31 日院會逐條照協商條文通過，沒有表決。","summary":"為 2025 年 9 月花蓮馬太鞍溪堰塞湖潰壩的災後重建制定專法，經費上限 300 億元，施行到 2027 年 3 月底。","key":"07343_2025-10-31","props":[{"id":"202110163940000","who":"國民黨黨團","date":"2025-10-14","name":"「樺加沙風災暨花蓮馬太鞍溪堰塞湖潰壩災後重建特別條例草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110163940000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/07/LCEWA01_110407_00157.pdf","proposers":["傅崐萁","羅智強","林沛祥"],"ncosign":0,"people":[["傅崐萁","國民黨","提案"],["羅智強","國民黨","提案"],["林沛祥","國民黨","提案"]],"party":[["國民黨",3]],"reason":"本院國民黨黨團，有鑑於114年9月樺加沙颱風外圍環流風雨影響，花蓮縣馬太鞍溪堰塞湖於9月23日溢流潰壩，導致下游光復鄉及鳳林鎮等境內多處遭洪水淹沒，致使多人傷亡，道路、橋梁、房舍、水利設施、農牧業等巨大損失。災後復原重建工作及馬太鞍溪堰塞湖工程措施等經費，已超過地方政府所能因應，亟需中央全力投入復原重建、整治工程、人力及各項資源。爰擬具「樺加沙風災暨花蓮馬太鞍溪堰塞湖潰壩災後重建特別條例草案」，並編列特別預算以為支應，以協助災民早日回歸安全及正常生活。是否有當？敬請公決。","arts":["第一條","第二條","第三條","第四條","第五條","第六條","第七條","第八條","第九條","第十條","第十一條","第十二條"]},{"id":"202110165710000","who":"委員鄭天財Sra Kacaw等16人","date":"2025-10-17","name":"「樺加沙風災暨花蓮馬太鞍溪堰塞湖潰壩災後重建特別條例草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110165710000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/07/LCEWA01_110407_00158.pdf","proposers":["鄭天財Sra Kacaw","高金素梅"],"ncosign":14,"people":[["鄭天財Sra Kacaw","國民黨","提案"],["高金素梅","無黨籍","提案"],["廖先翔","國民黨","連署"],["陳菁徽","國民黨","連署"],["陳永康","國民黨","連署"],["邱鎮軍","國民黨","連署"],["黃建賓","國民黨","連署"],["呂玉玲","國民黨","連署"],["張智倫","國民黨","連署"],["張啓楷","民眾黨","連署"],["徐巧芯","國民黨","連署"],["林思銘","國民黨","連署"],["鄭正鈐","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["許宇甄","國民黨","連署"],["盧縣一","國民黨","連署"]],"party":[["國民黨",14],["無黨籍",1],["民眾黨",1]],"reason":"本院委員鄭天財Sra Kacaw、高金素梅等16人，有鑑於114年9月23日樺加沙颱風外圍環流造成花蓮縣馬太鞍溪堰塞湖溢流潰壩，導致下游光復鄉及鳳林鎮等境內多處遭洪水淹沒，致使多人傷亡，以及道路、橋梁、房舍、水利設施、農牧生產及居民財產等巨大損失，亟需中央全力投入復原重建、整治工程等各項資源，並編列特別預算以為支應，爰擬具「樺加沙風災暨花蓮馬太鞍溪堰塞湖潰壩災後重建特別條例草案」。是否有當？敬請公決。","arts":["第一條","第二條","第三條","第四條","第五條","第六條","第七條","第八條","第九條","第十條","第十一條","第十二條"]}],"arts":[{"no":"第一條","current":null,"versions":[{"bill":"202110163940000","text":"為有效、迅速推動樺加沙風災暨花蓮馬太鞍溪堰塞湖潰壩之災區復原重建工作，特制定本條例。\n本條例未規定者，適用災害防救法及其他相關法律之規定。但其他法律規定較本條例更有利於災後復原重建整治者，適用最有利之法律。","note":"一、第一項定明本條例之立法目的。\n二、第二項定明本條例與其他法律之適用關係。"},{"bill":"202110165710000","text":"為有效、迅速推動樺加沙風災暨花蓮馬太鞍溪堰塞湖潰壩之災區復原重建工作，特制定本條例。\n本條例未規定者，適用災害防救法及其他相關法律之規定。但其他法律規定較本條例更有利於災後復原重建整治者，適用最有利之法律。重建地區位於原住民族部落者，並應依原住民族基本法相關規定辦理。","note":"一、第一項明定本條例之立法目的。\n二、第二項明定本條例與其他法律之適用關係。"}],"changed":true,"final":"為有效、迅速推動花蓮馬太鞍溪堰塞湖災區復原重建工作，特制定本條例。\n本條例未規定者，適用災害防救法及其他相關法律之規定。但其他法律規定較本條例更有利於災後復原重建整治者，適用最有利之法律。\n重建地區位於原住民族部落者，並應依原住民族基本法相關規定辦理。","finalWhy":"照協商條文通過。","review":null},{"no":"第二條","current":null,"versions":[{"bill":"202110163940000","text":"本條例所定災區，為因樺加沙颱風及花蓮馬太鞍溪堰塞湖潰壩之受創地區，其範圍由行政院公告之。","note":"本條例所定災區，為因樺加沙颱風及花蓮馬太鞍溪堰塞湖潰壩之受創地區，其範圍由行政院公告。"},{"bill":"202110165710000","text":"本條例所定災區，為因樺加沙颱風及花蓮馬太鞍溪堰塞湖潰壩之受創地區，其範圍由行政院公告之。","note":"明定本條例所定災區，為因樺加沙颱風及花蓮馬太鞍溪堰塞湖潰壩之受創地區，其範圍由行政院公告。"}],"changed":true,"final":"本條例所定災區，為因花蓮馬太鞍溪堰塞湖之受創地區，其範圍由行政院公告之。","finalWhy":"照協商條文通過。","review":null},{"no":"第三條","current":null,"versions":[{"bill":"202110163940000","text":"本條例之主管機關為行政院。\n本條例之中央執行機關為中央各目的事業主管機關；地方執行機關為花蓮縣政府。","note":"一、第一項定明本條例之主管機關。\n二、第二項定明本條例之執行機關。"},{"bill":"202110165710000","text":"本條例之主管機關為行政院。\n本條例之中央執行機關為中央各目的事業主管機關；地方執行機關為花蓮縣政府。","note":"一、第一項明定本條例之主管機關。\n二、第二項明定本條例之執行機關。"}],"changed":true,"final":"本條例之主管機關為行政院公共工程委員會。\n本條例之中央執行機關為中央各目的事業主管機關；地方執行機關為花蓮縣政府。","finalWhy":"照協商條文通過。","review":null},{"no":"第四條","current":null,"versions":[{"bill":"202110163940000","text":"本條例辦理之災區復原重建整治項目如下：\n一、馬太鞍溪堰塞湖整治之後續處理由行政院督導行政院公共工程委員會、農業部、經濟部及花蓮縣政府擬訂並執行減災、監測、疏散及解決之相關工程方案。\n二、農業設施：\n(一)農路、林道及農業運輸設施。\n(二)溫室、網室、倉儲、畜舍、禽舍、化製場、堆肥場、資材室及農機具室。\n(三)農作物補植與種苗等設施及設備。\n(四)農業機具及設備。\n(五)漁港、漁船及養殖設施。\n三、電力系統：\n(一)變電所及特高壓以上輸電線路。\n(二)配電網防災韌性。\n(三)路燈及公共照明設施。\n(四)緊急備用電力系統、移動式電源、自發自用電源及儲能等微電網設施。\n四、電信系統及有線廣播電視系統：\n(一)公眾電信網路。\n(二)行動通信基地臺車。\n(三)衛星通信備援設施。\n(四)有線廣播電視系統。\n五、自來水、瓦斯及燃氣設施：\n(一)自來水及簡易自來水設備。\n(二)瓦斯及燃氣管線。\n六、家園及公共設施：\n(一)災損住宅拆除、修繕、原地或異地重建之補助及租金補貼。\n(二)公共建築、學校及政府機關（構）設施。\n(三)文化資產與原住民族文化健康站之緊急搶修及修復。\n七、水利設施：\n(一)河川、排水上中下游系統性治理、農田水利灌排系統及海岸防護設施。\n(二)雨污水下水道及道路排水。\n(三)山坡地整治及土石流防治。\n(四)逕流分擔、出流管制及在地滯洪措施。\n(五)縣（市）管河川、排水設施災後復原重建工程及跨越中央管河川、排水瓶頸段橋梁改建。\n八、道路及交通：\n(一)道路、橋梁及隧道。\n(二)道路邊坡防護及護岸工程。\n(三)交通號誌、標誌與護欄等附屬工程及設施。\n九、環境衛生復原：\n(一)災後廢棄物清理、環保設施修復及環境復原。\n(二)災後疾病防治。\n十、社會復原及產業促進：\n(一)災害救助、心理輔導及社會支持。\n(二)振興地方產業及企業災後低利貸款等復原措施。\n(三)文化觀光旅遊振興。\n(四)農業天然災害現金救助及低利貸款利息補貼等復原措施。\n(五)商家援助、生產設備汰換及產業設施復原。\n十一、其他經各中央執行機關認定有復原重建必要之項目。\n辦理前項復原重建項目發給津貼、補助、救助、慰助金及其他給與之資格條件、基準、金額、應檢附文件、得委任、委託或委辦事項及其他相關事項之辦法，由各中央執行機關定之。","note":"一、第一項定明本條例辦理之災區復原重建項目。\n二、為利辦理第一項復原重建項目有發給津貼、補助、救助、慰助金及其他給與等事項之執行，於第二項授權由各中央執行機關另定辦法規範。"},{"bill":"202110165710000","text":"本條例辦理之災區復原重建整治項目如下：\n一、馬太鞍溪堰塞湖整治之後續處理由行政院督導行政院公共工程委員會、農業部、經濟部及花蓮縣政府擬訂並執行減災、監測、疏散及解決防範潰壩與修築堤防加固加高之相關工程方案。\n二、農業設施：\n(一)農路、林道、農業運輸設施及農田土石挖掘、清運、換土等。\n(二)溫室、網室、倉儲、畜舍、禽舍、化製場、堆肥場、資材室及農機具室。\n(三)農作物補植與種苗等設施及設備。\n(四)農業機具及設備。\n(五)漁港、漁船及養殖設施。\n三、電力系統：\n(一)變電所及特高壓以上輸電線路。\n(二)配電網防災韌性。\n(三)路燈及公共照明設施。\n(四)緊急備用電力系統、移動式電源、自發自用電源及儲能等微電網設施。\n四、電信系統及有線廣播電視系統：\n(一)公眾電信網路。\n(二)行動通信基地臺車。\n(三)衛星通信備援設施。\n(四)有線廣播電視系統。\n五、自來水、瓦斯及燃氣設施：\n(一)自來水及簡易自來水設備。\n(二)瓦斯及燃氣管線。\n六、家園及公共設施：\n(一)災損住宅拆除、修繕、原地或異地重建之補助及租金補貼。\n(二)公共建築、學校及政府機關（構）設施。\n(三)文化資產與原住民族文化健康站之緊急搶修及修復。\n七、水利設施：\n(一)河川、排水上中下游系統性治理、農田水利灌排系統及海岸防護設施。\n(二)雨污水下水道及道路排水。\n(三)山坡地整治及土石流防治。\n(四)逕流分擔、出流管制及在地滯洪措施。\n(五)縣（市）管河川、排水設施災後復原重建工程及跨越中央管河川、排水瓶頸段橋梁改建。\n八、道路及交通：\n(一)道路、橋梁及隧道。\n(二)道路邊坡防護及護岸工程。\n(三)交通號誌、標誌與護欄等附屬工程及設施。\n九、環境衛生復原：\n(一)災後廢棄物清理、環保設施修復及環境復原。\n(二)災後疾病防治。\n十、社會復原及產業促進：\n(一)災害救助、心理輔導及社會支持。\n(二)振興地方產業及企業災後低利貸款等復原措施。\n(三)文化觀光旅遊振興。\n(四)農業天然災害現金救助及低利貸款利息補貼等復原措施。\n(五)商家援助、生產設備汰換及產業設施復原。\n十一、其他經各中央執行機關認定有復原重建必要之項目。\n辦理前項復原重建項目發給津貼、補助、救助、慰助金及其他給與之資格條件、基準、金額、應檢附文件、得委任、委託或委辦事項及其他相關事項之辦法，由各中央執行機關定之。","note":"明定本條例辦理之災區復原重建項目，並於第二項授權由各中央執行機關另定相關事項執行之辦法。"}],"changed":true,"final":"本條例辦理之災區復原重建整治項目如下：\n一、馬太鞍溪堰塞湖整治之後續處理由行政院督導行政院公共工程委員會、農業部、經濟部及花蓮縣政府擬訂、防範並執行減災、監測、疏散及解決潰壩與修築堤防加固加高之相關工程方案。\n二、農業復原：\n(一)農田土石挖掘、清運、換土、農地復原、專案休耕、農田廢園重建、農地重劃及農業生產環境重建。\n(二)農路、林道、農業運輸設施。\n(三)溫室、網室、倉儲、畜舍、禽舍、化製場、堆肥場、資材室及農機具室。\n(四)農作物補植與種苗等設施及設備。\n(五)農業機具及設備。\n(六)漁港、漁船及養殖設施。\n三、電力系統：\n(一)變電所及特高壓以上輸電線路。\n(二)配電網防災韌性。\n(三)路燈及公共照明設施。\n(四)緊急備用電力系統、移動式電源、自發自用電源及儲能等微電網設施。\n四、電信系統及有線廣播電視系統：\n(一)公眾電信網路。\n(二)行動通信基地臺車。\n(三)衛星通信備援設施。\n(四)有線廣播電視系統。\n五、自來水、瓦斯及燃氣設施：\n(一)自來水及簡易自來水設備。\n(二)瓦斯及燃氣管線。\n六、家園及公共設施：\n(一)災損及無可回復之房舍、住宅清淤、拆除、修繕、原地或異地重建之補助及租金補貼。\n(二)公共建築、學校、幼兒園與政府機關（構）、社會福利機構設施設備之拆除、清運及修復。\n(三)文化資產與原住民族文化健康站、聚會所之緊急搶修及修復。\n(四)建置公共及家戶互動式警報系統。\n(五)宮廟、教會、教堂等建築復原。\n(六)家園清理支持及復原慰助金。\n七、水利設施：\n(一)河川、排水上中下游系統性治理、農田水利灌排系統及海岸防護設施。\n(二)雨污水下水道及道路排水。\n(三)山坡地整治及土石流防治。\n(四)逕流分擔、出流管制及在地滯洪措施。\n(五)中央管及縣（市）管河川、排水設施災後復原重建工程及跨越河川、排水瓶頸段橋梁改建。\n八、道路及交通：\n(一)道路、橋梁及隧道。\n(二)道路邊坡防護及護岸工程。\n(三)交通號誌、標誌與護欄等附屬工程及設施。\n九、環境衛生復原：\n(一)災後廢棄物清除、處理、環保設施修復、重建及環境復原。\n(二)災後疾病防治。\n十、社會復原及產業促進：\n(一)災害救助、心理輔導及社會支持。\n(二)災後振興地方產業、企業生財器具補助及低利貸款等復原措施。\n(三)文化觀光旅遊、休閒農業及文化產業振興。\n(四)農業天然災害現金救助及低利貸款利息補貼等復原措施。\n(五)災戶援助、生產設備汰換、產業設施、生財器具、運輸、各類輔具及交通工具復原。\n十一、其他經各中央執行機關認定有復原重建必要之項目。\n辦理前項復原重建項目發給津貼、補助、救助、慰助金、工資及其他給與之資格條件、基準、金額、應檢附文件、得委任、委託或委辦事項及其他相關事項之辦法，由各中央執行機關定之。","finalWhy":"照協商條文通過。","review":null},{"no":"第五條","current":null,"versions":[{"bill":"202110163940000","text":"因水災致住戶淹水之救助，以實際受災戶數為救助對象，不受一門牌一戶之限制，並排除現行水災災害救助種類及標準之規範，擴大補償範圍。針對政府認定災害區域內之受災戶，每戶最高發給新臺幣五萬元救助金。","note":"因馬太鞍溪堰塞湖潰壩造成嚴重災情，已非一般豪雨、颱風之損失，爰此，應排除現行水災災害救助種類及標準之規範，擴大補償範圍。\n針對政府認定災害區域內之受災戶，每戶最高發給新臺幣五萬元救助金。"},{"bill":"202110165710000","text":"因水災致住戶淹水之救助，以實際受災戶數為救助對象，不受一門牌一戶之限制，並排除現行水災災害救助種類及標準之規範限制。針對政府認定災害區域內之受災戶，每戶最高發給新臺幣五萬元救助金。","note":"因馬太鞍溪堰塞湖潰壩造成嚴重災情，已非一般豪雨、颱風之損失，爰於第一項明定應排除現行水災災害救助種類及標準之規範，以擴大補償範圍，同時明定針對政府認定災害區域內之受災戶，每戶最高發給新臺幣五萬元救助金。"}],"changed":true,"final":"因水災致住戶淹水之救助，以實際受災戶數為救助對象，不受一門牌一戶之限制，並排除現行水災災害救助種類及標準之規範限制。","finalWhy":"照協商條文通過。","review":null},{"no":"第六條","current":null,"versions":[{"bill":"202110163940000","text":"災區重建應尊重該地區人民、社區（部落）組織、文化及生活方式。\n中央政府、縣（市）政府得就災區安全堪虞或違法濫建之土地，經與原住居者諮商取得共識，得劃定特定區域，限制居住或限期強制遷居、遷村，且應予符合前項之適當安置。\n各級政府為安置受災民眾或進行受災地區重建工作，對於涉及用地及建築物之劃定、取得、變更、評估、管理、維護或其他事項，得簡化行政程序，適用災害防救法第四十條之規定。","note":"一、災區重建之原則。\n二、災區安全堪虞或違法濫建之土地，經與原住居者諮商取得共識，得劃定特定區域，限制居住或限期強制遷居、遷村。\n三、受災地區重建工作，對於涉及用地及建築物之劃定、取得、變更、評估、管理、維護或其他事項，得簡化行政程序，適用災害防救法第四十條之規定。"},{"bill":"202110165710000","text":"災區重建應尊重該地區人民、社區、部落、組織、文化及生活方式。\n中央政府、縣（市）政府得就災區安全堪虞之土地，應與原住居者諮商取得共識，得劃定特定區域，限制居住，且應予符合前項之適當安置。\n各級政府為安置受災民眾或進行受災地區重建工作，對於涉及用地及建築物之劃定、取得、變更、評估、管理、維護或其他事項，得簡化行政程序，適用災害防救法第四十條。","note":"一、第一項明定災區重建之原則。\n二、第二項明定災區安全堪虞之土地，經與原住居者諮商取得共識，得劃定特定區域，限制居住。\n三、第三項明定受災地區重建工作，對於涉及用地及建築物之劃定、取得、變更、評估、管理、維護或其他事項，得簡化行政程序，適用災害防救法第四十條之規定。"}],"changed":true,"final":"災區重建應尊重該地區人民、社區、部落、組織、文化及生活方式。\n各級政府為安置受災民眾或進行受災地區重建工作，對於涉及用地及建築物之劃定、取得、變更、評估、管理、維護或其他事項，得簡化行政程序，適用災害防救法第四十條。","finalWhy":"照協商條文通過。","review":null},{"no":"第七條","current":null,"versions":[{"bill":"202110163940000","text":"本條例所需經費上限為新臺幣二百億元，得視情勢變化擬訂相關計畫，分期編列特別預算；其預算編製與執行不受預算法第二十三條、第六十二條及第六十三條規定之限制。\n前項所需經費來源，得以移用以前年度歲計賸餘或舉借債務支應；其每年度舉借債務之額度，不受公共債務法第五條第七項規定之限制。中央政府總預算及特別預算於本條例施行期間之舉債額度合計數，不得超過該期間總預算及特別預算歲出總額度合計數之百分之十五。\n本條例施行期間，中央政府所舉借之一年以上公共債務未償餘額預算數，應依公共債務法第五條第一項規定辦理。\n地方執行機關辦理本條例及災害防救法規定事項所需經費，中央政府得覈實給予補助。中央執行機關並得同意受補助之地方政府以代收代付方式執行。\n為因應各項災區救災及復原重建工作之緊急需要，中央執行機關得報經行政院同意後，於第一項特別預算案未完成法定程序前，先行支付其一部分。\n中央政府補助地方執行機關之經費，地方執行機關應依補助之目的及項目支用，不得移作他用。","note":"一、第一項定明本條例所需經費上限及採特別預算方式編列。另為使預算編列及執行保持彈性，並定明預算編製及執行不受預算法第二十三條不得充經常支出規定、第六十二條各機關、各政事及計畫或業務科目間不得流用、第六十三條有關流用比率之限制。\n二、第二項前段定明第一項所需經費來源之移用原則與其年度舉債額度不受公共債務法第五條第七項規定限制，並為符合財政紀律法第十四條第二項規定意旨，舉債比率仍應有一定管控機制，爰併定明第二項後段規定。\n三、第三項定明本條例施行期間，中央政府舉借之一年以上公共債務未償餘額預算數，仍應依公共債務法第五條第一項規定辦理，以符財政紀律法第十四條第三項規定意旨。\n四、第四項明定中央政府得覈實給予地方執行機關辦理本條例及災害防救法規定事項所需經費，並得同意受補助之地方政府以代收代付方式執行。\n五、因應各項災區復原重建工作之緊急需要，於第五項定明中央執行機關於報經行政院同意後，得於第一項特別預算案未完成法定程序前，先行支付其一部分。\n六、中央政府應覈實給予地方執行機關，辦理本條例及災害防救法規定事項所需經費，並得同意受補助之地方政府，以代收代付方式執行。另仍為避免本條例所定，用於災害復原及重建之經費，遭挪用為其他用途，有關中央支給地方經費，仍應依據財政收支劃分法第三十條及第三十七條辦理。並為強化限制，參考經濟部水利署辦理一般性補助款疏濬清淤工程執行作業要點第三點，與內政部國土管理署辦理一般性補助款雨水下水道疏濬清淤工程作業要點第四點之規定，提升為法律位階，明定補助經費專款專用，不得移作他用。"},{"bill":"202110165710000","text":"本條例所需經費上限為新臺幣二百五十億元，得視情勢變化擬訂相關計畫，分期編列特別預算；其預算編製與執行不受預算法第二十三條、第六十二條及第六十三條規定之限制。\n前項所需經費來源，得以移用以前年度歲計賸餘或舉借債務支應；其每年度舉借債務之額度，不受公共債務法第五條第七項規定之限制。中央政府總預算及特別預算於本條例施行期間之舉債額度合計數，不得超過該期間總預算及特別預算歲出總額度合計數之百分之十五。\n本條例施行期間，中央政府所舉借之一年以上公共債務未償餘額預算數，應依公共債務法第五條第一項規定辦理。\n地方執行機關辦理本條例及災害防救法規定事項所需經費，中央政府得覈實給予補助。中央執行機關並得同意受補助之地方政府以代收代付方式執行。\n為因應各項災區救災及復原重建工作之緊急需要，中央執行機關得報經行政院同意後，於第一項特別預算案未完成法定程序前，先行支付其一部分。\n中央政府補助地方執行機關之經費，地方執行機關應依補助之目的及項目支用，不得移作他用。","note":"一、第一項明定本條例所需經費上限及採特別預算方式編列。另為使預算編列及執行保持彈性，並定明預算編製及執行不受預算法第二十三條不得充經常支出規定、第六十二條各機關、各政事及計畫或業務科目間不得流用、第六十三條有關流用比率之限制。\n二、第二項前段明定第一項所需經費來源之移用原則與其年度舉債額度不受公共債務法第五條第七項規定限制，並為符合財政紀律法第十四條第二項規定意旨，舉債比率仍應有一定管控機制，爰為第二項後段規定。\n三、第三項明定本條例施行期間，中央政府舉借之一年以上公共債務未償餘額預算數，應依公共債務法第五條第一項規定辦理，以符財政紀律法第十四條第三項規定之旨。\n四、第四項明定中央政府得覈實給予地方執行機關辦理本條例及災害防救法規定事項所需經費，並得同意受補助之地方政府以代收代付方式執行。\n五、第五項明定中央執行機關於報經行政院同意後，得於第一項特別預算案未完成法定程序前，先行支付其中一部分。\n六、第六項明定為避免本條例所定用於災害復原及重建之經費遭挪用，明定專款專用，不得移作他用。"}],"changed":true,"final":"本條例所需經費上限為新臺幣三百億元，得視情勢變化擬訂相關計畫，分期編列特別預算；其預算編製與執行不受預算法第二十三條、第六十二條及第六十三條規定之限制。\n前項所需經費來源，得以移用以前年度歲計賸餘或舉借債務支應；其每年度舉借債務之額度，不受公共債務法第五條第七項規定之限制。中央政府總預算及特別預算於本條例施行期間之舉債額度合計數，不得超過該期間總預算及特別預算歲出總額度合計數之百分之十五。\n本條例施行期間，中央政府所舉借之一年以上公共債務未償餘額預算數，應依公共債務法第五條第一項規定辦理。\n地方執行機關辦理本條例及災害防救法規定事項所需經費，中央政府得覈實給予補助。中央執行機關並得同意受補助之地方政府以代收代付方式執行。\n為因應各項災區救災及復原重建工作之緊急需要，中央執行機關得報經行政院同意後，於第一項特別預算案未完成法定程序前，先行支付其一部分。\n中央政府補助地方執行機關之經費，地方執行機關應依補助之目的及項目支用，不得移作他用。","finalWhy":"照協商條文通過。","review":null},{"no":"第八條","current":null,"versions":[{"bill":"202110163940000","text":"本條例所定災區，不在依災害防救法第五十一條規定公告之災區範圍者，其復原重建準用該法有關災區之規定。","note":"一、災害防救法第四十二條至第五十條針對災區定有借款償還期限展延及利息免收、購屋貸款利息補貼、產業企業紓困、社會保險保費由政府負擔、農業設施擔保品毀損由金融機構承受等復原重建措施，而上開規定所稱災區，依同法第五十一條規定，指因災害造成嚴重人命傷亡或建物毀損等之受創地區，其範圍由行政院公告並刊登公報。\n二、本條例所定災區範圍與依災害防救法第五十一條規定公告之災區未必相同，考量於丹娜絲颱風期間及後續接續不斷之強降雨，以及自一百十四年七月二十八日起連續數日豪雨、大豪雨致受災嚴重，為能使本條例所定災區不在依災害防救法第五十一條規定公告之災區範圍者，其復原重建亦能依災害防救法災區相關規定辦理，爰為本條規定。"},{"bill":"202110165710000","text":"本條例所定災區，不在依災害防救法第五十一條規定公告之災區範圍者，其復原重建準用同法有關災區之規定。","note":"一、災害防救法第四十二條至第五十條針對災區定有借款償還期限展延及利息免收、購屋貸款利息補貼、產業企業紓困、社會保險保費由政府負擔、農業設施擔保品毀損由金融機構承受等復原重建措施，而所稱災區，依同法第五十一條規定，係指因災害造成嚴重人命傷亡或建物毀損等之受創地區，其範圍由行政院公告並刊登公報。\n二、本條例所定災區範圍與依災害防救法第五十一條規定公告之災區未必相同，為能使本條例所定災區不在依災害防救法第五十一條規定公告之災區範圍者，其復原重建亦能依災害防救法相關規定辦理，爰為本條規定。"}],"changed":true,"final":"本條例所定災區，未在依災害防救法第五十一條規定公告之災區範圍者，其復原重建準用該法有關災區之規定。","finalWhy":"照協商條文通過。","review":null},{"no":"第九條","current":null,"versions":[{"bill":"202110163940000","text":"依本條例規定自各執行機關領取之津貼、補助、救助、慰助金及其他給與，免納所得稅。\n依本條例規定自各執行機關領取之津貼、補助、救助、慰助金及其他給與，不得作為抵銷、扣押、供擔保或強制執行之標的。","note":"考量依本條例規定自政府領取之津貼、補助、救助、慰助金及其他給與，係為減輕人民負擔，並為有效、迅速推動丹娜絲颱風及七二八豪雨災後災區復原重建之目的，如就所領取之津貼、補助、救助、慰助金及其他給與仍予課稅或得作為抵銷、扣押、供擔保或強制執行之標的，將喪失原發給之目的，爰為本條規定。"},{"bill":"202110165710000","text":"依本條例規定自各執行機關領取之津貼、補助、救助、慰助金及其他給與，免納所得稅。\n依本條例規定自各執行機關領取之津貼、補助、救助、慰助金及其他給與，不得作為抵銷、扣押、供擔保或強制執行之標的。","note":"考量依本條例規定自政府領取之津貼、補助、救助、慰助金及其他給與，係為減輕人民負擔，並為有效、迅速推動災區復原重建之目的，爰為本條規定。"}],"changed":true,"final":"依本條例規定自各執行機關領取之津貼、補助、救助、慰助金及其他給與，免納所得稅。\n依本條例規定自各執行機關領取之津貼、補助、救助、慰助金及其他給與，不得作為抵銷、扣押、供擔保或強制執行之標的。","finalWhy":"考量依本條例規定自政府領取之津貼、補助、救助、慰助金及其他給與，係為減輕人民負擔，並為有效、迅速推動丹娜絲颱風及七二八豪雨災後災區復原重建之目的，如就所領取之津貼、補助、救助、慰助金及其他給與仍予課稅或得作為抵銷、扣押、供擔保或強制執行之標的，將喪失原發給之目的，爰為本條規定。","review":null},{"no":"第十條","current":null,"versions":[{"bill":"202110163940000","text":"依本條例編列預算之中央各部會，應於本條例施行後兩個月內提出災後復原重建計畫。\n本條例編列預算之中央各部會，應將預算之工作計畫實施內容概述及預計實施進度，按季送立法院備查。","note":"一、規定本條例復原及重建計畫之提出、實施與公開。\n二、為強化本條例特別預算之國會監督之機制，加強民主控制，原先現行預算法第六十一條，即規定執行預算之機關，應定期向立法院提送重要事項考核報告。基於特別預算內容、範圍，相較於年度預算，更加清楚明確，因此延伸預算法第六十一條之精神，直接於法律中規定，各類詳細與預算執行有關之文件，應按季送立法院，爰定於本條。\n三、承上，自強化國會監督之觀點，本次制定有關預算執行提送國會，不侷限於備查，立法院對相關預算執行情形有審議權。"},{"bill":"202110165710000","text":"依本條例編列預算之中央各部會，應於本條例施行後兩個月內提出災後復原重建計畫。\n本條例編列預算之中央各部會，應將預算之工作計畫實施內容概述及預計實施進度，按季送立法院備查。","note":"明定本條例復原及重建計畫之提出、實施與公開。為強化本條例特別預算之國會監督，現行預算法第六十一條規定執行預算之機關，應定期向立法院提送重要事項考核報告。基於特別預算內容、範圍，相較於年度預算，更加清楚明確，故按預算法第六十一條之精神，明定各類與預算執行相關之文件，應按季送立法院備查。"}],"changed":true,"final":"依本條例編列預算之中央各部會，應於本條例施行後兩個月內提出災後復原重建計畫。\n本條例編列預算之中央各部會，應將預算之工作計畫實施內容概述及預計實施進度，按季送立法院備查。","finalWhy":"一、規定本條例復原及重建計畫之提出、實施與公開。\n二、為強化本條例特別預算之國會監督之機制，加強民主控制，原先現行預算法第六十一條，即規定執行預算之機關，應定期向立法院提送重要事項考核報告。基於特別預算內容、範圍，相較於年度預算，更加清楚明確，因此延伸預算法第六十一條之精神，直接於法律中規定，各類詳細與預算執行有關之文件，應按季送立法院，爰定於本條。\n三、承上，自強化國會監督之觀點，本次制定有關預算執行提送國會，不侷限於備查，立法院對相關預算執行情形有審議權。","review":null},{"no":"第十一條","current":null,"versions":[{"bill":"202110163940000","text":"主管機關應設置資訊網站專區，提供便於搜尋、得以理解之完整資訊，主動按月定期公開本條例下列執行進度及內容：\n一、第二條所定災區之公告。\n二、第四條第二項由各中央執行機關訂定之辦法。\n三、前條所定之內容。","note":"明定本法之監督機制，包含資訊網站公開，及明定主管機關應設置資訊網站專區，詳列應主動定期公開之本條例執行進度及內容。"},{"bill":"202110165710000","text":"主管機關應設置資訊網站專區，提供便於搜尋、得以理解之完整資訊，主動按月定期公開本條例下列執行進度及內容：\n一、第二條所定災區之公告。\n二、第四條第二項由各中央執行機關訂定之辦法。\n三、前條所定之內容。","note":"明定本法之監督機制，包含主管機關應設置公開資訊網站專區，詳列應主動定期公開之執行進度及內容。"}],"changed":true,"final":"主管機關應設置資訊網站專區，提供便於搜尋、得以理解之完整資訊，主動按月定期公開本條例下列執行進度及內容：\n一、第二條所定災區之公告。\n二、第四條第二項由各中央執行機關訂定之辦法。\n三、前條所定之內容。","finalWhy":"明定本法之監督機制，包含資訊網站公開，及明定主管機關應設置資訊網站專區，詳列應主動定期公開之本條例執行進度及內容。","review":null},{"no":"第十二條","current":null,"versions":[{"bill":"202110163940000","text":"本條例及其特別預算施行期間，自公布日施行至中華民國一百十七年三月三十一日止。\n本條例及其特別預算施行期間屆滿，得經立法院同意延長之。","note":"一、第一項規定本條例及其特別預算之施行期間。\n二、為利彈性執行復原重建工作，避免本條例及其特別預算施行期間屆滿仍有繼續適用之必要，爰於第二項明定得經立法院同意延長施行期間。"},{"bill":"202110165710000","text":"本條例及其特別預算施行期間，自公布日施行至中華民國一百十七年三月三十一日止。\n本條例及其特別預算施行期間屆滿，得經立法院同意延長之。","note":"一、第一項明定本條例及特別預算之施行期間。\n二、為利彈性執行復原重建工作，避免本條例及其特別預算施行期間屆滿仍有繼續適用之必要，爰於第二項明定得經立法院同意延長。"}],"changed":true,"final":"本條例及其特別預算施行期間，自公布日施行至中華民國一百十六年三月三十一日止。但第四條第一項第一款、第二款第一目、第七款第一目至第三目規定施行至一百十九年十二月三十一日止。\n本條例及其特別預算施行期間屆滿，得經立法院同意延長之。","finalWhy":"照協商條文通過。","review":null}],"stages":[{"date":"2025-10-14","stage":"一讀","code":"院會-11-4-4","bill":"202110163940000","gazref":"114卷079期5372號一冊 10-10頁"},{"date":"2025-10-17","stage":"一讀","code":"院會-11-4-5","bill":"202110165710000","gazref":"114卷080期5373號一冊 15-15頁"},{"date":"2025-10-30","code":"黨團協商-2025102908","title":"立法院朝野黨團協商","gazref":"114卷086期5379號 333-390頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025102908/details?meetingDate=114/10/30","full":["https://ivod.ly.gov.tw/Play/Full/1M/16997"],"pdf":[],"clips":[],"props":[],"tr":null,"note":"院長召集協商。名稱和全部條文達成共識，並通過附帶決議；約定隔天院會在施政質詢前處理、完成三讀，各黨團不提復議。","mixed":[]},{"date":"2025-10-31","code":"院會-11-4-7","title":"第11屆第4會期第7次會議","gazref":"114卷087期5380號 28-33頁；114卷087期5380號 33-37頁；114卷087期5380號 37-39頁；114卷087期5380號 37-38頁","stage":"二讀、三讀、附帶決議","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025102906/details?meetingDate=114/10/31","full":["https://ivod.ly.gov.tw/Play/Full/1M/16998"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/87/LCIDC01_1148701_00003.pdf","p1":28,"p2":39}],"clips":[],"props":[],"tr":"tr/1.json","note":"名稱和第一條到第十二條都照協商條文通過，接著三讀，並通過協商結論的附帶決議。三讀後國民黨、台灣民眾黨、民進黨各 1 位委員發言。","nspeak":4,"nmem":3,"ntable":0,"nfold":0}],"votes":[],"manualVotes":{"text":"這部法沒有表決。2025 年 10 月 31 日院會二讀時，名稱和十二條條文都照黨團協商的條文通過，三讀沒有文字修正，所以沒有投票名單，也沒有贊成反對人數。","rows":[]},"gaps":["通過的名稱和條文是黨團協商的版本，名稱和兩個提案都不同。協商沒有文字版逐字稿，條文是怎麼談出來的，這一頁看不到。"],"autoGaps":["1 次黨團協商（10 月 30 日）只有完整影片與公報頁碼，沒有文字版逐字稿。"],"reviewed":true,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>

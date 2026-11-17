@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>公職人員選舉罷免法修正歷程</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+html{padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one reading column. Summary, a dated ledger of meetings (transcripts open in place), proposal cards, then the article comparison bench. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18212b; --muted:#5b6773; --line:#d5dbe1;
+  --accent:#17557a; --accent-soft:#e2eef5;
+  --ins:#d6f0dc; --ins-ink:#0f4a22; --del:#fbe4e5; --del-ink:#8f2530;
+  --warn:#8a4b06; --warn-soft:#fbefd9;
+  --c-prop:#5b6773; --c-comm:#17557a; --c-hear:#6a4c93; --c-nego:#8a4b06; --c-floor:#a3262f;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#11161b; --surface:#1a2129; --ink:#e6ebf0; --muted:#9aa6b2; --line:#303a45;
+  --accent:#7fbde0; --accent-soft:#1d3342;
+  --ins:#1d4a2b; --ins-ink:#c6f0d2; --del:#47212a; --del-ink:#f0b4ba;
+  --warn:#f0b866; --warn-soft:#3a2c14;
+  --c-prop:#9aa6b2; --c-comm:#7fbde0; --c-hear:#b9a1e0; --c-nego:#f0b866; --c-floor:#f08a91;
+  color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+h2{font-size:22px;font-weight:600}
+h3{font-size:15px;margin:0;font-weight:700}
+p{margin:0}
+button{font:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.lede{max-width:40em;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:12px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:8px 0 0}
+.facts div{padding:12px 16px 12px 0}
+.facts dt{font-size:12px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--serif);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sechead{display:flex;flex-direction:column;gap:4px}
+.sechead p{color:var(--muted);max-width:44em}
+.ref{font-size:12px;color:var(--muted)}
+.ref a{color:var(--muted)}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:3px;padding:1px 9px;cursor:pointer;text-decoration:none;display:inline-block}
+.chip:hover{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ledger */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--k)}
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row .when{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;padding-top:2px}
+.row .body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--k);border:1px solid var(--k);border-radius:3px;padding:0 6px;line-height:1.6;margin-right:8px;white-space:nowrap}
+button.tag{background:transparent;cursor:help;font-family:inherit}
+button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(--k) 12%,transparent)}
+.tipbox{position:fixed;z-index:50;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow-y:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:12px 14px;font-size:13px;line-height:1.65;display:flex;flex-direction:column;gap:12px}
+.tipbox h4{margin:0;font-size:14px;font-weight:700}
+.tipbox h4 small{font-weight:400;color:var(--muted);margin-left:6px}
+.tipbox ul{margin:4px 0 0;padding-left:1.2em;color:var(--muted)}
+.row .what{font-weight:500}
+.row .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.row .acts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px}
+.note{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:6px 10px;border-radius:3px}
+.open{border:1px solid var(--accent);background:var(--accent-soft);color:var(--accent);border-radius:3px;padding:2px 10px;cursor:pointer;font-size:13px;font-weight:500}
+@media (max-width:560px){ .row{grid-template-columns:minmax(0,1fr)} }
+
+/* transcript */
+.tr{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+.tr .idx{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.tr .turns{display:flex;flex-direction:column;gap:14px;max-height:70vh;overflow-y:auto;padding-right:6px}
+.turn{display:flex;flex-direction:column;gap:4px;max-width:46em}
+.turn .who{font-weight:700;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.turn .who small{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.turn.chair .who,.turn.chair p{color:var(--muted)}
+.turn p{overflow-wrap:anywhere}
+.turn.pre p{font-size:13px;color:var(--muted)}
+.tw{overflow-x:auto;max-width:100%}
+.readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
+.readnote{padding-left:1.4em}
+.turn .fold>summary b{font-weight:500}
+.tw table{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.tw td{border:1px solid var(--line);padding:3px 8px;vertical-align:top}
+
+/* proposals */
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.prop{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.prop .line{font-size:13px;color:var(--muted)}
+.prop .reason{font-size:14px}
+.pdetail{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pdetail .line{font-size:13px;color:var(--muted)}
+.pdetail .reason{font-size:14px;max-width:46em}
+.pdetail .sub{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.people{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:14px;align-items:baseline}
+.people .plabel{font-size:13px;color:var(--muted);min-width:6.5em}
+.person{white-space:nowrap}
+.person small{color:var(--muted);font-size:11px;margin-left:3px}
+.ppanel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 收合區塊 */
+.fold>summary{cursor:pointer;list-style:none;display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--muted);min-width:0}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::before{content:"\25B8";color:var(--accent);font-size:11px;flex:none;transition:transform .15s}
+.fold[open]>summary::before{transform:rotate(90deg)}
+.fold>summary .peek{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fold[open]>summary .peek{display:none}
+.fold>summary b{color:var(--ink);font-weight:500;flex:none}
+.fold>.people,.fold>.reason,.fold>.ref{padding:4px 0 6px 1.4em}
+.inbench{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px;min-width:0}
+.inbench .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);overflow-x:auto;padding-bottom:8px}
+.inbench .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ .inbench .bench{grid-auto-columns:82%} .inbench .bench>.ver:first-child{position:static;box-shadow:none} }
+
+/* bench */
+.chip.passed{border-color:var(--c-floor);color:var(--c-floor);font-weight:700}
+.chip[aria-expanded="true"],.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+
+/* 條文對照彈窗 */
+dialog.artdlg{width:min(1400px,calc(100vw - 24px));max-width:none;height:calc(100dvh - 32px);max-height:none;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);overflow:hidden}
+dialog.artdlg[open]{display:flex;flex-direction:column}
+dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
+.dlghead{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlgtitle{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlgbody{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px;background:var(--bg);overflow-y:auto}
+.dlgbody .bench{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);overflow-x:auto;padding-bottom:8px}
+.dlgbody .ver .text{max-height:calc(100dvh - 300px)}
+.dlgbody .bench>.ver:first-child{position:sticky;left:0;z-index:1;box-shadow:6px 0 10px -6px rgba(0,0,0,.35)}
+@media (max-width:640px){ dialog.artdlg{width:100vw;height:100dvh;border-radius:0} .dlgbody .bench{grid-auto-columns:85%} .dlgbody .bench>.ver:first-child{position:static;box-shadow:none} }
+.artnav button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.benchbar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted)}
+.benchbar label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.bench{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0;display:flex;flex-direction:column}
+.ver.final{border-color:var(--c-floor);border-width:2px}
+.ver .vh{padding:10px 14px;border-bottom:1px solid var(--line)}
+.ver .vh small{color:var(--muted);font-size:12px;display:block}
+.ver .text{padding:12px 14px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;max-height:420px;overflow-y:auto}
+.ver .text ins{background:var(--ins);color:var(--ins-ink);text-decoration:none;border-radius:2px}
+.ver .text del{background:var(--del);color:var(--del-ink);text-decoration:line-through;border-radius:2px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px}
+.legend ins,.legend del{padding:0 4px;border-radius:2px}
+.legend ins{background:var(--ins);color:var(--ins-ink);text-decoration:none}
+.legend del{background:var(--del);color:var(--del-ink)}
+.ver .empty{color:var(--muted);font-style:italic}
+.ver details{border-top:1px solid var(--line);padding:8px 14px;font-size:13px;color:var(--muted)}
+.ver details summary{cursor:pointer;color:var(--accent)}
+.ver details div{white-space:pre-wrap;padding-top:6px}
+
+/* votes */
+.tablewrap{overflow-x:auto}
+.vt{border-collapse:collapse;width:100%;min-width:460px;font-variant-numeric:tabular-nums}
+.vt th,.vt td{text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+.vt th{font-size:12px;color:var(--muted);font-weight:500}
+.vt .num{text-align:right}
+.bar{display:block;height:8px;background:var(--line);border-radius:2px;min-width:120px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c-floor)}
+.names{font-size:13px;color:var(--muted)}
+.gaps{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:46em}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="eyebrow"><a href="../index.html">← 所有法案</a>　法案歷程　由政府公開資料整理　皆附資料出處</div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <dl class="facts" id="facts"></dl>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <h2>歷程</h2>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+  </section>
+
+  <section id="sec-props">
+    <div class="sechead">
+      <h2>提案版本</h2>
+      <p>所有提案放在一起看：誰提的、誰連署、想改什麼、動到哪幾條。內容和歷程裡各列展開的相同。</p>
+    </div>
+    <div class="props" id="props"></div>
+  </section>
+
+  <section id="sec-bench">
+    <div class="sechead">
+      <h2>逐條對照</h2>
+      <p id="benchintro">選一個條文，並排看現行條文、各提案版本、三讀通過的條文。紅框的條號是這次真的被修正的。</p>
+    </div>
+    <div class="chips artnav" id="artnav"></div>
+    <div class="benchbar">
+      <span id="artstatus"></span>
+      <span class="legend" id="benchlegend">和現行條文比：<ins>新增的文字</ins><del>刪掉的文字</del></span>
+    </div>
+    <div class="bench" id="bench"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>表決</h2><p id="votetext"></p></div>
+    <div id="votes"></div>
+  </section>
+
+  <section id="sec-gaps" hidden>
+    <div class="sechead"><h2>備註</h2></div>
+    <ul class="gaps" id="gaps"></ul>
+  </section>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script id="data" type="application/json">{"law":"公職人員選舉罷免法","version":"01177:2026-06-12-修正","date":"2026-06-12","action":"修正","title":"公職人員選舉罷免法　2026 年修正","lede":"","summary":"","key":"01177_2026-06-12","props":[{"id":"202110007970000","who":"委員林宜瑾等22人","date":"2024-03-01","name":"「公職人員選舉罷免法第二十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110007970000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/03/LCEWA01_110103_00088.pdf","proposers":["林宜瑾"],"ncosign":21,"people":[["林宜瑾","民進黨","提案"],["何欣純","民進黨","連署"],["張雅琳","民進黨","連署"],["范雲","民進黨","連署"],["王美惠","民進黨","連署"],["李柏毅","民進黨","連署"],["林楚茵","民進黨","連署"],["蔡易餘","民進黨","連署"],["陳培瑜","民進黨","連署"],["沈發惠","民進黨","連署"],["徐富癸","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["吳沛憶","民進黨","連署"],["陳秀寳","民進黨","連署"],["蔡其昌","民進黨","連署"],["洪申翰","民進黨","連署"],["沈伯洋","民進黨","連署"],["邱議瑩","民進黨","連署"],["楊曜","民進黨","連署"],["蘇巧慧","民進黨","連署"],["黃捷","民進黨","連署"],["吳琪銘","民進黨","連署"]],"party":[["民進黨",22]],"reason":"本院委員林宜瑾等22人，鑒於賄選預備犯、既遂犯或未遂犯，本質上皆同屬行賄罪，僅係行為階段不同。賄選行徑非但損害選舉公正性，且斲喪民主政治精神，終將反噬全民權益。為達端正選風及選任公職之重大公益，爰擬具「公職人員選舉罷免法第二十六條條文修正草案」。是否有當？敬請公決。","arts":["第二十六條"]},{"id":"202110178350000","who":"委員陳玉珍等17人","date":"2025-12-12","name":"「公職人員選舉罷免法第二十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110178350000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/13/LCEWA01_110413_00134.pdf","proposers":["陳玉珍"],"ncosign":16,"people":[["陳玉珍","國民黨","提案"],["蘇清泉","國民黨","連署"],["林德福","國民黨","連署"],["羅明才","國民黨","連署"],["黃仁","國民黨","連署"],["林倩綺","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["顏寬恒","國民黨","連署"],["謝龍介","國民黨","連署"],["陳永康","國民黨","連署"],["盧縣一","國民黨","連署"],["游顥","國民黨","連署"],["邱鎮軍","國民黨","連署"],["王育敏","國民黨","連署"],["林沛祥","國民黨","連署"],["楊瓊瓔","國民黨","連署"],["許宇甄","國民黨","連署"]],"party":[["國民黨",17]],"reason":"本院委員陳玉珍等18人，有鑑於現行「公職人員選舉罷免法」第二十六條第九款將所有「緩刑期間」的犯罪輕微案件一律排除參選資格，已過度擴大「排黑」的打擊範圍，對於我國鼓勵更生人之司法目的有所不符，顯有違反憲法比例原則之虞。為矯正現行過度侵害人民基本權利之規定，以符合憲法所保障的參政權，爰擬具「公職人員選舉罷免法第二十六條條文修正草案」。是否有當？敬請公決。","arts":["第二十六條"]},{"id":"202110189500000","who":"台灣民眾黨黨團","date":"2026-01-30","name":"「公職人員選舉罷免法第二十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110189500000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/20/LCEWA01_110420_00211.pdf","proposers":[],"ncosign":0,"people":[],"party":[],"reason":"本院台灣民眾黨黨團，有鑑於現行《公職人員選舉罷免法》第二十六條，除就貪污、賄選、國安等與職務廉潔、選務公正高度相關之犯罪設有嚴格消極資格外，並以「緩刑期間」或刑罰執行狀態作為一律不得登記參選之事由，形成對緩刑及得易刑者的概括性排除。然而，緩刑與易科罰金、易服社會勞動，均係針對輕罪的替代刑罰，目的是替代入監執行自由刑，展現法律的寬容與矯治效力，若未區分犯罪性質及其與公職行使之實質關聯，將易刑尚未執行、執行未畢或行刑權已因時效消滅者，逕行排除參選資格，等同將輕微、短期或已失執行基礎之刑罰，擴張為重大政治權利剝奪，明顯構成不成比例之干預，更與法治國原則顯有扞格。放諸國際實務與我國釋字第四七一號、第八一二號及憲判字第十三號所示比例原則審查，參政權限制應回歸個案審酌，聚焦是否與職務廉潔、選務公正具實質關聯，方能兼顧選舉純潔、更生理念與基本權保障，確保制度合憲且可執行，爰擬具「公職人員選舉罷免法第二十六條條文修正草案」。是否有當？敬請公決。","arts":["第二十六條"]},{"id":"202110193630000","who":"委員林淑芬等23人","date":"2026-03-06","name":"「公職人員選舉罷免法第二十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110193630000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/02/LCEWA01_110502_00024.pdf","proposers":["林淑芬","莊瑞雄","蔡易餘"],"ncosign":20,"people":[["林淑芬","民進黨","提案"],["莊瑞雄","民進黨","提案"],["蔡易餘","民進黨","提案"],["陳培瑜","民進黨","連署"],["王定宇","民進黨","連署"],["邱議瑩","民進黨","連署"],["張宏陸","民進黨","連署"],["蔡其昌","民進黨","連署"],["林宜瑾","民進黨","連署"],["郭昱晴","民進黨","連署"],["王美惠","民進黨","連署"],["王正旭","民進黨","連署"],["吳沛憶","民進黨","連署"],["林月琴","民進黨","連署"],["陳冠廷","民進黨","連署"],["林楚茵","民進黨","連署"],["羅美玲","民進黨","連署"],["沈伯洋","民進黨","連署"],["陳素月","民進黨","連署"],["陳秀寳","民進黨","連署"],["賴惠員","民進黨","連署"],["李坤城","民進黨","連署"],["沈發惠","民進黨","連署"]],"party":[["民進黨",23]],"reason":"本院委員林淑芬、莊瑞雄、蔡易餘等23人，鑑於現行《公職人員選舉罷免法》第二十六條對於候選人消極資格之限制，未區分罪質輕重及是否具入監執行必要性，導致非屬「黑、金、槍、毒」等特定重罪且獲法院諭知「緩刑」者，其參政權受限程度竟長於易科罰金執行完畢者，顯有法律評價輕重失衡之違失。為落實憲法第十七條保障人民參政權之意旨，並符合《公民與政治權利國際公約》第二十五條之國際人權規範，避免參選資格因司法審判進度等不確定因素受不當操弄，爰擬具「公職人員選舉罷免法第二十六條條文修正草案」，修正第九款規定，排除受緩刑宣告者之候選人消極資格限制，以符合比例原則與平等原則，兼顧被選舉權保障與公共利益之衡平。是否有當？敬請公決。","arts":["第二十六條"]},{"id":"202110197710000","who":"委員翁曉玲等16人","date":"2026-03-20","name":"「公職人員選舉罷免法第二十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110197710000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/04/LCEWA01_110504_00019.pdf","proposers":["翁曉玲"],"ncosign":15,"people":[["翁曉玲","國民黨","提案"],["王鴻薇","國民黨","連署"],["謝龍介","國民黨","連署"],["黃仁","國民黨","連署"],["陳超明","無黨籍","連署"],["高金素梅","無黨籍","連署"],["許宇甄","國民黨","連署"],["涂權吉","國民黨","連署"],["賴士葆","國民黨","連署"],["陳永康","國民黨","連署"],["羅智強","國民黨","連署"],["林倩綺","國民黨","連署"],["盧縣一","國民黨","連署"],["黃建賓","國民黨","連署"],["廖先翔","國民黨","連署"],["陳雪生","國民黨","連署"]],"party":[["國民黨",14],["無黨籍",2]],"reason":"本院委員翁曉玲等16人，鑑於公職人員肩負公共事務管理與人民付託之信任，其人格廉潔與誠信標準，應高於一般人民。若曾犯重大詐欺犯罪經判決確定，若仍允其參選公職，顯不符民主政治對公職人員誠信與廉潔之要求。又依《公職人員選舉罷免法》第二十六條第九款規定，「犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定者尚未執行、執行未畢、於緩刑期間或行刑權因罹於時效消滅」，不得登記為候選人，其規範目的在於維護候選人之基本品格與社會觀感。惟對於犯罪情節輕微、再犯可能性低，且經法院認暫不執行刑罰即足以達成刑罰目的之受緩刑執行者，以及刑罰因國家長時間未執行，致行刑權罹於時效消滅，國家已不再行使該刑罰權力。若仍一律剝奪其參選權利，恐有過度限制人民參政權之違憲疑慮。為維護公職人員之廉潔與誠信，針對嚴重危害社會之《詐欺犯罪危害防制條例》重大詐欺犯罪，明確納入不得參選之規範，並調整對輕罪緩刑及行刑權時效消滅者之參選限制，俾使參政權之限制更符合比例原則，以及憲法保障人民政治權利之精神，兼顧政治廉潔與民主參與之平衡，爰擬具「公職人員選舉罷免法第二十六條條文修正草案」。是否有當？敬請公決。","arts":["第二十六條"]}],"arts":[{"no":"第二十六條","current":"有下列情事之一者，不得登記為候選人：\n一、動員戡亂時期終止後，曾犯內亂、外患罪，經有罪判決確定。\n二、曾犯貪污罪，經有罪判決確定。\n三、曾犯第九十七條第一項、第二項、第九十八條、第九十九條第一項、第一百條第一項、第二項、第一百零一條第一項、第六項、第七項、第一百零二條第一項、第一百零三條、總統副總統選舉罷免法第八十四條第一項、第二項、第八十五條、第八十六條第一項、第八十七條第一項、第八十八條、第八十九條第一項、第六項、第七項、刑法第一百四十二條、第一百四十四條之罪，或為直轄市、縣（市）議會議長、副議長、鄉（鎮、市）民代表會、原住民區民代表會主席、副主席選舉之有投票權人犯刑法第一百四十三條之罪，經有罪判決確定。\n四、曾犯國家安全法第七條第一項至第四項、第八條第一項至第三項、第十二條第一項、第二項、國家機密保護法第三十二條第一項、第二項、第四項、第三十三條第一項、第二項、第四項、第三十四條第一項至第四項、國家情報工作法第三十條第一項至第四項、第三十條之一、第三十一條、反滲透法第三條、第四條、第五條第三項、第六條或第七條之罪，經有罪判決確定。\n五、曾犯組織犯罪防制條例之罪，經有罪判決確定。\n六、曾犯毒品危害防制條例第四條至第九條、第十二條第一項、第二項、該二項之未遂犯、第十三條、第十四條第一項、第二項、第十五條、槍砲彈藥刀械管制條例第七條、第八條第一項至第五項、第十二條、第十三條、洗錢防制法第十四條、第十五條、刑法第三百零二條之一或第三百三十九條之四之罪，經有罪判決確定。但原住民單純僅犯未經許可，製造、轉讓、運輸、出借或持有自製獵槍、其主要組成零件或彈藥之罪，於中華民國一百零九年五月二十二日修正之槍砲彈藥刀械管制條例施行日前，經有罪判決確定者，不在此限。\n七、曾犯前六款之罪，經有罪判決確定並受緩刑之宣告者，亦同。\n八、曾犯第一款至第六款以外之罪，其最輕本刑為七年以上有期徒刑之刑，並經判處十年以上有期徒刑之刑確定。\n九、犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定，尚未執行、執行未畢、於緩刑期間或行刑權因罹於時效消滅。\n十、受死刑、無期徒刑或十年以上有期徒刑之判決尚未確定。\n十一、受保安處分之裁判確定，尚未執行或執行未畢。\n十二、受破產宣告或經裁定開始清算程序確定，尚未復權。\n十三、曾受免除職務之懲戒處分。\n十四、依法停止任用或受休職處分，尚未期滿。\n十五、褫奪公權，尚未復權。\n十六、受監護或輔助宣告，尚未撤銷。","versions":[{"bill":"202110007970000","text":"有下列情事之一者，不得登記為候選人：\n一、動員戡亂時期終止後，曾犯內亂、外患罪，經有罪判決確定。\n二、曾犯貪污罪，經有罪判決確定。\n三、曾犯第九十七條第一項、第二項、第三項、第九十八條、第九十九條第一項、第二項、第一百條第一項、第二項、第三項、第一百零一條第一項、第二項、第六項、第七項、第一百零二條第一項、第二項、第一百零三條、總統副總統選舉罷免法第八十四條第一項、第二項、第八十五條、第八十六條第一項、第八十七條第一項、第八十八條、第八十九條第一項、第六項、第七項、刑法第一百四十二條、第一百四十四條之罪，或為直轄市、縣（市）議會議長、副議長、鄉（鎮、市）民代表會、原住民區民代表會主席、副主席選舉之有投票權人犯刑法第一百四十三條之罪，經有罪判決確定。\n四、曾犯國家安全法第七條第一項至第四項、第八條第一項至第三項、第十二條第一項、第二項、國家機密保護法第三十二條第一項、第二項、第四項、第三十三條第一項、第二項、第四項、第三十四條第一項至第四項、國家情報工作法第三十條第一項至第四項、第三十條之一、第三十一條、反滲透法第三條、第四條、第五條第三項、第六條或第七條之罪，經有罪判決確定。\n五、曾犯組織犯罪防制條例之罪，經有罪判決確定。\n六、曾犯毒品危害防制條例第四條至第九條、第十二條第一項、第二項、該二項之未遂犯、第十三條、第十四條第一項、第二項、第十五條、槍砲彈藥刀械管制條例第七條、第八條第一項至第五項、第十二條、第十三條、洗錢防制法第十四條、第十五條、刑法第三百零二條之一或第三百三十九條之四之罪，經有罪判決確定。但原住民單純僅犯未經許可，製造、轉讓、運輸、出借或持有自製獵槍、其主要組成零件或彈藥之罪，於中華民國一百零九年五月二十二日修正之槍砲彈藥刀械管制條例施行日前，經有罪判決確定者，不在此限。\n七、曾犯前六款之罪，經有罪判決確定並受緩刑之宣告者，亦同。\n八、曾犯第一款至第六款以外之罪，其最輕本刑為七年以上有期徒刑之刑，並經判處十年以上有期徒刑之刑確定。\n九、犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定，尚未執行、執行未畢、於緩刑期間或行刑權因罹於時效消滅。\n十、受死刑、無期徒刑或十年以上有期徒刑之判決尚未確定。\n十一、受保安處分之裁判確定，尚未執行或執行未畢。\n十二、受破產宣告或經裁定開始清算程序確定，尚未復權。\n十三、曾受免除職務之懲戒處分。\n十四、依法停止任用或受休職處分，尚未期滿。\n十五、褫奪公權，尚未復權。\n十六、受監護或輔助宣告，尚未撤銷。","note":"本法第九十七條、九十九條、一百條、一百零一條、一百零二條條文，皆針對賄選罰則做出相關規範，然而卻因行賄階段之差異，而出現犯罪者未來是否仍具備參選公職資格的分別。\n賄選預備犯、既遂犯或未遂犯，本質上皆同屬行賄罪，對我國民主制度所致負面影響，不分軒輊。\n臺灣高等法院臺南分院108年度矚上重更二字第9號刑事判決中提及，所謂預備犯，指的是行為人在著手犯行前所為之準備。就預備對具有投票權之人行求賄賂而言，相關行為就可能包括：擬定買票計畫、調查投票權人、預備買票金錢、物品或投票權人名單等準備籌劃，或使犯罪易於著手之行為。除此之外，向具投票權人表明「企業家捐獻（贊助）」、「同額競選」、「選前一半、選後一半（前訂後謝）」，因均無行求對價具體內容，故亦皆屬預備階段。\n綜上，吾人可知，預備對具有投票權之人行求賄賂一事，其範疇相當廣泛，從私下籌畫到對具投票權人曖昧開口皆屬之。然而賄選行徑對民主制度危害之大，實應從嚴查處，杜絕不肖人士上下其手的廣泛空間。\n是故修正本條，將賄選預備犯、既遂犯或未遂犯，皆納入終身不得參選之列。"},{"bill":"202110178350000","text":"有下列情事之一者，不得登記為候選人：\n一、動員戡亂時期終止後，曾犯內亂、外患罪，經有罪判決確定。\n二、曾犯貪污罪，經有罪判決確定。\n三、曾犯第九十七條第一項、第二項、第九十八條、第九十九條第一項、第一百條第一項、第二項、第一百零一條第一項、第六項、第七項、第一百零二條第一項、第一百零三條、總統副總統選舉罷免法第八十四條第一項、第二項、第八十五條、第八十六條第一項、第八十七條第一項、第八十八條、第八十九條第一項、第六項、第七項、刑法第一百四十二條、第一百四十四條之罪，或為直轄市、縣（市）議會議長、副議長、鄉（鎮、市）民代表會、原住民區民代表會主席、副主席選舉之有投票權人犯刑法第一百四十三條之罪，經有罪判決確定。\n四、曾犯國家安全法第七條第一項至第四項、第八條第一項至第三項、第十二條第一項、第二項、國家機密保護法第三十二條第一項、第二項、第四項、第三十三條第一項、第二項、第四項、第三十四條第一項至第四項、國家情報工作法第三十條第一項至第四項、第三十條之一、第三十一條、反滲透法第三條、第四條、第五條第三項、第六條或第七條之罪，經有罪判決確定。\n五、曾犯組織犯罪防制條例之罪，經有罪判決確定。\n六、曾犯毒品危害防制條例第四條至第九條、第十二條第一項、第二項、該二項之未遂犯、第十三條、第十四條第一項、第二項、第十五條、槍砲彈藥刀械管制條例第七條、第八條第一項至第五項、第十二條、第十三條、洗錢防制法第十四條、第十五條、刑法第三百零二條之一或第三百三十九條之四之罪，經有罪判決確定。但原住民單純僅犯未經許可，製造、轉讓、運輸、出借或持有自製獵槍、其主要組成零件或彈藥之罪，於中華民國一百零九年五月二十二日修正之槍砲彈藥刀械管制條例施行日前，經有罪判決確定者，不在此限。\n七、曾犯前六款之罪，經有罪判決確定並受緩刑之宣告者，亦同。\n八、曾犯第一款至第六款以外之罪，其最輕本刑為七年以上有期徒刑之刑，並經判處十年以上有期徒刑之刑確定。\n九、犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定，尚未執行、執行未畢或行刑權因罹於時效消滅。但受緩刑宣告者，不在此限。\n十、受死刑、無期徒刑或十年以上有期徒刑之判決尚未確定。\n十一、受保安處分之裁判確定，尚未執行或執行未畢。\n十二、受破產宣告或經裁定開始清算程序確定，尚未復權。\n十三、曾受免除職務之懲戒處分。\n十四、依法停止任用或受休職處分，尚未期滿。\n十五、褫奪公權，尚未復權。\n十六、受監護或輔助宣告，尚未撤銷。","note":"一、緩刑制度適用對象多為犯罪情狀輕微案件，且經法院審理後認為被告「高度悔過」、「無再犯之虞」，故給予暫緩執行刑罰的機會，這是國家鼓勵犯人改過遷善的措施。\n二、然而，現行「公職人員選舉罷免法」第二十六條第九款卻將這些犯罪情節輕微、已在自新中的人民，只要是緩刑期間均不得參選，恐過度擴張侵犯憲法保障的「被選舉權」，且本條旨在防止國安、黑金槍毒等重大犯罪參政，若為犯罪輕微之其他罪名皆因緩刑期間一律限制參政權，顯有違反憲法比例原則之虞。\n三、參照大法官釋字第468號、第715號解釋理由書之意旨，參政權限制仍應在公平合理之範疇，且不得逾越必要之限制；歐洲人權法院亦曾引用《歐洲人權公約》指出，「剝奪公民權是一項嚴厲措施，不應輕易採納，且基於比例原則，限制公民權的措施應審慎評估其與個別行為的關聯性是否明顯且充分」。故對犯罪輕微緩刑期間一律限制參政權，兩者並無明顯充分關連性，有必要檢討修正，以符合憲法所保障的參政權。"},{"bill":"202110189500000","text":"有下列情事之一者，不得登記為候選人：\n一、動員戡亂時期終止後，曾犯內亂、外患罪，經有罪判決確定。\n二、曾犯貪污罪，經有罪判決確定。\n三、曾犯第九十七條第一項、第二項、第九十八條、第九十九條第一項、第一百條第一項、第二項、第一百零一條第一項、第六項、第七項、第一百零二條第一項、第一百零三條、總統副總統選舉罷免法第八十四條第一項、第二項、第八十五條、第八十六條第一項、第八十七條第一項、第八十八條、第八十九條第一項、第六項、第七項、刑法第一百四十二條、第一百四十四條之罪，或為直轄市、縣（市）議會議長、副議長、鄉（鎮、市）民代表會、原住民區民代表會主席、副主席選舉之有投票權人犯刑法第一百四十三條之罪，經有罪判決確定。\n四、曾犯國家安全法第七條第一項至第四項、第八條第一項至第三項、第十二條第一項、第二項、國家機密保護法第三十二條第一項、第二項、第四項、第三十三條第一項、第二項、第四項、第三十四條第一項至第四項、國家情報工作法第三十條第一項至第四項、第三十條之一、第三十一條、反滲透法第三條、第四條、第五條第三項、第六條或第七條之罪，經有罪判決確定。\n五、曾犯組織犯罪防制條例之罪，經有罪判決確定。\n六、曾犯毒品危害防制條例第四條至第九條、第十二條第一項、第二項、該二項之未遂犯、第十三條、第十四條第一項、第二項、第十五條、槍砲彈藥刀械管制條例第七條、第八條第一項至第五項、第十二條、第十三條、洗錢防制法第十四條、第十五條、刑法第三百零二條之一或第三百三十九條之四之罪，經有罪判決確定。但原住民單純僅犯未經許可，製造、轉讓、運輸、出借或持有自製獵槍、其主要組成零件或彈藥之罪，於中華民國一百零九年五月二十二日修正之槍砲彈藥刀械管制條例施行日前，經有罪判決確定者，不在此限。\n七、曾犯前六款之罪，經有罪判決確定並受緩刑之宣告者，亦同。\n八、曾犯第一款至第六款以外之罪，其最輕本刑為七年以上有期徒刑之刑，並經判處十年以上有期徒刑之刑確定。\n九、犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定，尚未執行、執行未畢或行刑權因罹於時效消滅。但受緩刑宣告或易刑處分者，不在此限。\n十、受死刑、無期徒刑或十年以上有期徒刑之判決尚未確定。\n十一、受保安處分之裁判確定，尚未執行或執行未畢。\n十二、受破產宣告或經裁定開始清算程序確定，尚未復權。\n十三、曾受免除職務之懲戒處分。\n十四、依法停止任用或受休職處分，尚未期滿。\n十五、褫奪公權，尚未復權。\n十六、受監護或輔助宣告，尚未撤銷。","note":"一、就我國「公職人員選舉罷免法」第二十六條現行設計而言，除對貪污、賄選、國安、組織犯罪、黑金槍毒等與「職務廉潔／選務公正」高度相關之犯罪，採取較嚴格之候選人消極資格（含受緩刑宣告者亦排除）外，並另以「犯前述以外之罪，判處有期徒刑以上之刑確定……於緩刑期間」作為一律不得登記之事由，形成對緩刑者之概括性排除。然而，緩刑本質係法院基於個案情節、悔改情形與再犯風險等因素所作之裁量判斷，屬以社會內處遇取代入監執行之制度安排，若未區分犯罪性質及其與公職行使、選舉公正之實質關聯性，即僅以緩刑狀態本身作為全面排除標準，易構成對參政權之過度限制，亦不符刑事政策鼓勵更生、復歸社會之制度目的。\n二、放諸國際觀察，歐洲人權法院及多數民主國家均強調，剝奪或限制參政權須符合比例原則，避免以僵化、概括方式排除特定群體，而應保留個案審酌與合理調整之空間。準此，若依釋字第471號、第812號及憲判字第13號所揭示之比例原則審查標準，現行規範宜回歸「與職務廉潔、選務公正具高度實質關聯之犯罪類型」作為限制核心，刪除或修正對欠缺實質關聯之輕微或過失犯罪（如單純偽造私文書、過失傷害、公然侮辱等）之概括性排除，改採個案審酌與精準限縮之制度設計，以強化限制之正當性與必要性，降低法律被工具化以排除異己之風險，兼顧選舉純潔與基本權保障，確保本法回歸合憲且可執行之正軌。\n三、對於得易刑案件，若僅因易刑尚未執行、執行未畢，或行刑權已因罹於時效而消滅，即一律否定其登記參選資格，實難謂妥適。易科罰金或易服社會勞動係立法者與法院基於犯罪情節相對輕微、社會危險性低，且無須以自由刑隔離之評價所設之制度，既屬得以在社會內、以低侵害方式履行之刑罰，若僅以易刑程序狀態作為形式化門檻，將短期或輕度刑罰不成比例地擴張為對被選舉權之重大限制，顯已逾越其正當範圍。尤以行刑權因時效完成而消滅者為甚，刑法體系既已宣示國家不再具有執行該刑罰之正當性，仍據以限制參選，等同在行刑權基礎消滅後持續施加不利公權力效果，與法治國原則及比例審查要求顯有扞格。準此，是否限制被選舉權，應回歸犯罪性質是否與職務廉潔、選務公正具有實質關聯，而非拘泥於易刑之執行狀態；承認易刑尚未執行、執行未畢，或行刑權已罹於時效者仍得登記參選，方能矯正過度僵化之限制設計，建立清楚、可操作且合憲之判斷基準，兼顧選舉純潔、更生復歸理念與民主法治之信賴基礎，爰修正第九款。"},{"bill":"202110193630000","text":"有下列情事之一者，不得登記為候選人：\n一、動員戡亂時期終止後，曾犯內亂、外患罪，經有罪判決確定。\n二、曾犯貪污罪，經有罪判決確定。\n三、曾犯第九十七條第一項、第二項、第九十八條、第九十九條第一項、第一百條第一項、第二項、第一百零一條第一項、第六項、第七項、第一百零二條第一項、第一百零三條、總統副總統選舉罷免法第八十四條第一項、第二項、第八十五條、第八十六條第一項、第八十七條第一項、第八十八條、第八十九條第一項、第六項、第七項、刑法第一百四十二條、第一百四十四條之罪，或為直轄市、縣（市）議會議長、副議長、鄉（鎮、市）民代表會、原住民區民代表會主席、副主席選舉之有投票權人犯刑法第一百四十三條之罪，經有罪判決確定。\n四、曾犯國家安全法第七條第一項至第四項、第八條第一項至第三項、第十二條第一項、第二項、國家機密保護法第三十二條第一項、第二項、第四項、第三十三條第一項、第二項、第四項、第三十四條第一項至第四項、國家情報工作法第三十條第一項至第四項、第三十條之一、第三十一條、反滲透法第三條、第四條、第五條第三項、第六條或第七條之罪，經有罪判決確定。\n五、曾犯組織犯罪防制條例之罪，經有罪判決確定。\n六、曾犯毒品危害防制條例第四條至第九條、第十二條第一項、第二項、該二項之未遂犯、第十三條、第十四條第一項、第二項、第十五條、槍砲彈藥刀械管制條例第七條、第八條第一項至第五項、第十二條、第十三條、洗錢防制法第十四條、第十五條、刑法第三百零二條之一或第三百三十九條之四之罪，經有罪判決確定。但原住民單純僅犯未經許可，製造、轉讓、運輸、出借或持有自製獵槍、其主要組成零件或彈藥之罪，於中華民國一百零九年五月二十二日修正之槍砲彈藥刀械管制條例施行日前，經有罪判決確定者，不在此限。\n七、曾犯前六款之罪，經有罪判決確定並受緩刑之宣告者，亦同。\n八、曾犯第一款至第六款以外之罪，其最輕本刑為七年以上有期徒刑之刑，並經判處十年以上有期徒刑之刑確定。\n九、犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定，尚未執行、執行未畢。但受緩刑宣告者，不在此限。\n十、受死刑、無期徒刑或十年以上有期徒刑之判決尚未確定。\n十一、受保安處分之裁判確定，尚未執行或執行未畢。\n十二、受破產宣告或經裁定開始清算程序確定，尚未復權。\n十三、曾受免除職務之懲戒處分。\n十四、依法停止任用或受休職處分，尚未期滿。\n十五、褫奪公權，尚未復權。\n十六、受監護或輔助宣告，尚未撤銷。","note":"一、憲法第十七條規定：「人民有選舉、罷免、創制及複決之權。」此係保障公民參與國家統治、決策及公共事務之參政權。公民與政治權利國際公約第二十五條明定：「凡屬公民，無分第二條所列之任何區別，不受無理限制，均應有權利及機會：(一)直接或經由自由選擇之代表參與政事；(二)在真正、定期之選舉中投票及被選。選舉權必須普及而平等，選舉應以無記名投票法行之，以保證選民意志之自由表現；(三)以一般平等之條件，服本國公職。」該公約已內國法化，相關保障人權之規定，具有國內法律之效力。\n二、依憲法第二十三條規定固得以法律限制參政權，惟應限於防止妨礙他人自由、避免緊急危難、維持社會秩序，或增進公共利益所必要者為限，且應符合比例原則，自不待言。\n三、本條係有關候選人之消極資格規定，係對於人民被選舉權力之限制，自須在限制參選之公益性及參政權保障作衡平考量，而非一旦人民曾有犯罪紀錄，不問罪質輕重、是否須入監服刑、所犯罪名與是否適任公職之關聯性，均一律剝奪參選權利；更不能將參選資格之有無繫於司法審判之遲速等不確定因素，否則無異使參選資格處於可操弄空間。\n四、本條第一款至第六款均係將特定犯罪類型列為參選消極資格，上開犯罪或與忠誠義務、廉潔性有關，或屬黑、金、槍、毒之特定重罪，此等限制旨在確保候選人清廉與國家安全，另同條第十款已經法院判決死刑、無期徒刑、十年以上有期徒刑，所犯為重罪，已不適合受人民付託。\n五、惟本條第九款之情形，行為人並非犯特定列舉罪名，亦非遭判處死刑、無期徒刑、十年以上有期徒刑，不問犯任何犯罪，僅因尚未執行、執行未畢、於緩刑期間或行刑權因罹於時效消滅，即一律於一定期間剝奪其參政權，顯然不符比例原則，理由詳如下述：\n(一)行為人犯死刑、無期徒刑或最輕本刑三年以上有期徒刑以外之罪，檢察官參酌刑法第五十七條所列事項及公共利益之維護，認以緩起訴為適當者，而為緩起訴處分時，該行為人仍得以參選；反之，若檢察官聲請簡易判決處刑或提起公訴，經法院認為以暫不執行為適當者而諭知緩刑時，行為人於緩刑期間即不得參選，在檢察官、法官均認為行為人無科處刑罰之必要性情形，得否參選卻有迥異結果，顯然悖離平等原則，且亦無法說明須為差異化處理之正當基礎何在。\n(二)行為人所犯係輕微案件，經檢察官聲請簡易判決處刑或提起公訴，法院諭知六月以下有期徒刑而未為緩刑宣告時，行為人於易科罰金執行完畢即得參選；反之，若法院為緩刑之諭知，行為人在緩刑期間內均不得參選。惟易科罰金與受緩刑宣告，同屬無須入監執行情形，且理論上法院諭知緩刑宣告，應係認為行為人須刑罰性低，於此情形行為人不得參選限制期間反較單純受六月以下有期徒刑宣告而未諭知緩刑者為長，亦顯有輕重失衡之不合理情形。\n(三)綜上所述，在行為人所犯非特定罪名，亦非受重刑宣告，而無須入監服刑時，無論是受緩起訴處分、受緩刑宣告，或執行完畢，均不應限制其參選權。爰將第九款修正為「犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定，尚未執行、執行未畢。但受緩刑宣告者，不在此限。」以兼顧被選舉權及公共利益之維護。"},{"bill":"202110197710000","text":"有下列情事之一者，不得登記為候選人：\n一、動員戡亂時期終止後，曾犯內亂、外患罪，經有罪判決確定。\n二、曾犯貪污罪，經有罪判決確定。\n三、曾犯第九十七條第一項、第二項、第九十八條、第九十九條第一項、第一百條第一項、第二項、第一百零一條第一項、第六項、第七項、第一百零二條第一項、第一百零三條、總統副總統選舉罷免法第八十四條第一項、第二項、第八十五條、第八十六條第一項、第八十七條第一項、第八十八條、第八十九條第一項、第六項、第七項、刑法第一百四十二條、第一百四十四條之罪，或為直轄市、縣（市）議會議長、副議長、鄉（鎮、市）民代表會、原住民區民代表會主席、副主席選舉之有投票權人犯刑法第一百四十三條之罪，經有罪判決確定。\n四、曾犯國家安全法第七條第一項至第四項、第八條第一項至第三項、第十二條第一項、第二項、國家機密保護法第三十二條第一項、第二項、第四項、第三十三條第一項、第二項、第四項、第三十四條第一項至第四項、國家情報工作法第三十條第一項至第四項、第三十條之一、第三十一條、反滲透法第三條、第四條、第五條第三項、第六條或第七條之罪，經有罪判決確定。\n五、曾犯組織犯罪防制條例或詐欺犯罪危害防制條例之罪，經有罪判決確定。\n六、曾犯毒品危害防制條例第四條至第九條、第十二條第一項、第二項、該二項之未遂犯、第十三條、第十四條第一項、第二項、第十五條、槍砲彈藥刀械管制條例第七條、第八條第一項至第五項、第十二條、第十三條、洗錢防制法第十四條、第十五條、刑法第三百零二條之一或第三百三十九條之四之罪，經有罪判決確定。但原住民單純僅犯未經許可，製造、轉讓、運輸、出借或持有自製獵槍、其主要組成零件或彈藥之罪，於中華民國一百零九年五月二十二日修正之槍砲彈藥刀械管制條例施行日前，經有罪判決確定者，不在此限。\n七、曾犯前六款之罪，經有罪判決確定並受緩刑之宣告者，亦同。\n八、曾犯第一款至第六款以外之罪，其最輕本刑為七年以上有期徒刑之刑，並經判處十年以上有期徒刑之刑確定。\n九、犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定，尚未執行、執行未畢。但受緩刑宣告者，不在此限。\n十、受死刑、無期徒刑或十年以上有期徒刑之判決尚未確定。\n十一、受保安處分之裁判確定，尚未執行或執行未畢。\n十二、受破產宣告或經裁定開始清算程序確定，尚未復權。\n十三、曾受免除職務之懲戒處分。\n十四、依法停止任用或受休職處分，尚未期滿。\n十五、褫奪公權，尚未復權。\n十六、受監護或輔助宣告，尚未撤銷。","note":"一、詐欺犯罪之本質，係以欺罔手段侵害他人財產法益，並破壞社會基本信賴關係。公職人員肩負公共事務之管理與人民付託之信任，其人格廉潔與誠信標準，理應高於一般人民。若曾犯重大詐欺犯罪經判決確定，顯示其誠信品格已有重大瑕疵，與民主政治對公職人員誠信與廉潔之要求顯有不符。\n二、本條對於貪污、賄選、組織犯罪等影響政治廉潔與公共秩序之犯罪，明定不得登記為候選人之限制。鑑於《詐欺犯罪危害防制條例》之重大詐欺犯罪對社會信任秩序之破壞程度，已與上開犯罪相當，且此等犯罪常涉及龐大金額及集團性運作，其危害性甚鉅，爰修正第五款規定，將「犯詐欺犯罪危害防制條例之罪」納入不得登記為候選人之事由，以維護選舉制度之公信力與公職人員之廉潔形象。\n三、本條第九款規定：「犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定者」，不得登記為候選人，其規範目的在於維護候選人之基本品格與社會觀感。然而實務上，此一規定涵蓋範圍甚廣，部分情形僅屬情節輕微之犯罪，例如過失犯罪或輕微違反行政刑罰法規，仍可能因形式上判處有期徒刑以上之刑，而喪失參選資格，與比例原則未盡相符。\n四、《刑法》緩刑制度之設計，係因行為人犯罪情節較輕、再犯可能性低，且經暫不執行刑罰仍足以達成刑罰目的。司法機關既已透過緩刑宣告，肯認行為人之矯正可能性與社會適應能力，若仍一律剝奪其參選權利，恐有過度限制人民參政權之違憲疑慮。國家對人民參政權之限制，應符合比例原則，對於已獲緩刑宣告之案件，顯示其犯罪情節並非重大，若仍全面禁止參選，其限制顯屬過當，亦與鼓勵更生復歸社會之刑事政策不符。\n五、行刑權時效制度之目的，在於考量時間經過後，國家刑罰權之行使必要性與社會秩序安定性，若長期未執行刑罰，法律即承認刑罰權之消滅，以維持法律秩序之安定。既然法律明定行刑權因時效完成而消滅，即表示國家已不再行使該刑罰權力。若仍以此作為永久限制人民參選資格之事由，形同對已經法律制度承認消滅之刑罰效果，另行附加長期之政治權利限制，恐與刑事法制之基本精神有所扞格。\n六、行刑權時效完成意味著案件發生已歷經相當長時間，行為人之社會關係與人格狀態可能已有重大改變。若仍持續剝奪其參選權利，恐不符比例原則之要求。爰增訂本條第九款但書規定，使受緩刑宣告者得為候選人，刪除「行刑權因罹於時效消滅」不得參選之規定，避免對人民參政權造成過度限制。"}],"changed":true,"final":"有下列情事之一者，不得登記為候選人：\n一、動員戡亂時期終止後，曾犯內亂、外患罪，經有罪判決確定。\n二、曾犯貪污罪，經有罪判決確定。\n三、曾犯第九十七條第一項、第二項、第九十八條、第九十九條第一項、第一百條第一項、第二項、第一百零一條第一項、第六項、第七項、第一百零二條第一項、第一百零三條、總統副總統選舉罷免法第八十四條第一項、第二項、第八十五條、第八十六條第一項、第八十七條第一項、第八十八條、第八十九條第一項、第六項、第七項、刑法第一百四十二條、第一百四十四條之罪，或為直轄市、縣（市）議會議長、副議長、鄉（鎮、市）民代表會、原住民區民代表會主席、副主席選舉之有投票權人犯刑法第一百四十三條之罪，經有罪判決確定。\n四、曾犯國家安全法第七條第一項至第四項、第八條第一項至第三項、第十二條第一項、第二項、國家機密保護法第三十二條第一項、第二項、第四項、第三十三條第一項、第二項、第四項、第三十四條第一項至第四項、國家情報工作法第三十條第一項至第四項、第三十條之一、第三十一條、反滲透法第三條、第四條、第五條第三項、第六條或第七條之罪，經有罪判決確定。\n五、曾犯組織犯罪防制條例之罪，經有罪判決確定。\n六、曾犯毒品危害防制條例第四條至第九條、第十二條第一項、第二項、該二項之未遂犯、第十三條、第十四條第一項、第二項、第十五條、槍砲彈藥刀械管制條例第七條、第八條第一項至第五項、第十二條、第十三條、洗錢防制法第十四條、第十五條、刑法第三百零二條之一、第三百三十九條之四或詐欺犯罪危害防制條例之罪，經有罪判決確定。但原住民單純僅犯未經許可，製造、轉讓、運輸、出借或持有自製獵槍、其主要組成零件或彈藥之罪，於中華民國一百零九年五月二十二日修正之槍砲彈藥刀械管制條例施行日前，經有罪判決確定者，不在此限。\n七、曾犯前六款之罪，經有罪判決確定並受緩刑之宣告者，亦同。\n八、曾犯第一款至第六款以外之罪，其最輕本刑為七年以上有期徒刑之刑，並經判處十年以上有期徒刑之刑確定。\n九、犯第一款至第六款以外之罪，判處有期徒刑以上之刑確定，尚未執行、執行未畢或行刑權因罹於時效消滅。但宣告緩刑或得易服社會勞動之自由刑者，不在此限。\n十、受死刑、無期徒刑或十年以上有期徒刑之判決尚未確定。\n十一、受保安處分之裁判確定，尚未執行或執行未畢。\n十二、受破產宣告或經裁定開始清算程序確定，尚未復權。\n十三、曾受免除職務之懲戒處分。\n十四、依法停止任用或受休職處分，尚未期滿。\n十五、褫奪公權，尚未復權。\n十六、受監護或輔助宣告，尚未撤銷。","finalWhy":"照台灣民眾黨黨團、國民黨黨團共同所提修正動議條文通過。","review":{"note":"保留","text":""}}],"stages":[{"date":"2024-03-01","stage":"一讀","code":"院會-11-1-3","bill":"202110007970000","gazref":"113卷005期5187號 10-10頁"},{"date":"2025-12-12","stage":"一讀","code":"院會-11-4-13","bill":"202110178350000","gazref":"114卷104期5397號一冊 19-19頁"},{"date":"2026-01-30","stage":"一讀","code":"院會-11-4-20","bill":"202110189500000","gazref":"115卷013期5412號一冊 18-18頁"},{"date":"2026-03-06","stage":"一讀","code":"院會-11-5-2","bill":"202110193630000","gazref":"115卷017期5416號 10-10頁"},{"date":"2026-03-20","stage":"一讀","code":"院會-11-5-4","bill":"202110197710000","gazref":"115卷019期5418號 19-19頁"},{"date":"2026-04-08","code":"委員會-11-5-15-5","title":"第11屆第5會期內政委員會第5次全體委員會議","gazref":"115卷027期5426號 325-370頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026040221/details?meetingDate=115/04/08","full":["https://ivod.ly.gov.tw/Play/Full/1M/17330"],"pdf":[],"clips":[{"n":"林宜瑾","t":"09:07","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168206"},{"n":"陳菁徽","t":"09:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168207"},{"n":"張雅琳","t":"09:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168208"},{"n":"李貞秀","t":"09:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168209"},{"n":"林淑芬","t":"09:20","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168210"},{"n":"張智倫","t":"09:44","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168245"},{"n":"蘇巧慧","t":"09:55","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168246"},{"n":"張宏陸","t":"10:03","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168247"},{"n":"王鴻薇","t":"10:12","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168248"},{"n":"李貞秀","t":"10:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168249"},{"n":"王美惠","t":"10:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168250"},{"n":"黃捷","t":"10:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168251"},{"n":"李柏毅","t":"11:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168272"},{"n":"丁學忠","t":"11:09","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168273"},{"n":"張雅琳","t":"11:25","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168265"},{"n":"陳雪生","t":"11:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168266"},{"n":"吳琪銘","t":"11:40","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168267"},{"n":"徐欣瑩","t":"11:47","u":"https://ivod.ly.gov.tw/Play/Clip/1M/168268"}],"props":["202110007970000","202110178350000","202110189500000","202110193630000","202110197710000"],"tr":"tr/1.json","note":null,"mixed":["總統副總統選舉罷免法"],"nspeak":29,"nmem":16,"ntable":0,"nfold":4},{"date":"2026-04-23","code":"委員會-11-5-15-8","title":"第11屆第5會期內政委員會第8次全體委員會議","gazref":"115卷034期5433號一冊 1-1,3-44頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026041583/details?meetingDate=115/04/23","full":["https://ivod.ly.gov.tw/Play/Full/1M/17380"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/34/LCIDC01_1153401_00001.pdf","p1":1,"p2":44}],"clips":[],"props":["202110007970000","202110178350000","202110189500000","202110193630000","202110197710000"],"tr":"tr/2.json","note":null,"mixed":["總統副總統選舉罷免法"],"nspeak":18,"nmem":12,"ntable":0,"nfold":0},{"date":"2026-05-19","code":"黨團協商-2026051246","title":"立法院朝野黨團協商","gazref":"115卷042期5441號三冊 269-281頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026051246/details?meetingDate=115/05/19","full":["https://ivod.ly.gov.tw/Play/Full/1M/17444"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2026-06-11","code":"黨團協商-2026061028","title":"立法院朝野黨團協商","gazref":"115卷046期5445號三冊 367-378頁","stage":"黨團協商","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026061028/details?meetingDate=115/06/11","full":["https://ivod.ly.gov.tw/Play/Full/1M/17519"],"pdf":[],"clips":[],"props":[],"tr":null,"note":null,"mixed":[]},{"date":"2026-06-12","code":"院會-11-5-14","title":"第11屆第5會期第14次會議","gazref":"115卷049期5448號一冊 35-64頁；115卷049期5448號一冊 64-68頁；115卷049期5448號一冊 68-71頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026061027/details?meetingDate=115/06/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/17520"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/49/LCIDC01_1154901_00004.pdf","p1":35,"p2":72}],"clips":[],"props":[],"tr":"tr/3.json","note":null,"nspeak":14,"nmem":6,"ntable":0,"nfold":4}],"votes":[{"topic":"公職人員選舉罷免法第二十六條 條文修正草案 全案表決","code":"院會-11-5-14","type":"記名表決","yes":57,"no":48,"abstain":0,"yesNames":["傅崐萁","林沛祥","許宇甄","謝龍介","涂權吉","馬文君","許忠信","蔡春綢","劉書彬","洪毓祥","陳昭姿","陳清龍","王安祥","邱慧洳","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","王鴻薇","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","林德福","楊瓊瓔","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","羅智強","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["吳沛憶","黃捷","范雲","蔡其昌","莊瑞雄","郭昱晴","吳思瑤","沈伯洋","陳培瑜","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","王義川","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","鍾佳濱","郭國文","陳俊宇","張雅琳","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","王美惠","劉建國","林岱樺","賴惠員","林月琴","林淑芬","王正旭","林楚茵","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","柯建銘","邱議瑩","楊曜","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"公職人員選舉罷免法第二十六條 台灣民眾黨國民黨黨團提議三讀","code":"院會-11-5-14","type":"記名表決","yes":57,"no":49,"abstain":0,"yesNames":["傅崐萁","林沛祥","許宇甄","謝龍介","涂權吉","馬文君","許忠信","蔡春綢","劉書彬","洪毓祥","陳昭姿","陳清龍","王安祥","邱慧洳","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","王鴻薇","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","林德福","楊瓊瓔","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","張智倫","羅廷瑋","徐巧芯","羅智強","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["吳沛憶","黃捷","范雲","蔡其昌","莊瑞雄","伍麗華Saidhai‧Tahovecahe","郭昱晴","吳思瑤","沈伯洋","陳培瑜","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","王義川","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","鍾佳濱","郭國文","陳俊宇","張雅琳","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","王美惠","劉建國","林岱樺","賴惠員","林月琴","林淑芬","王正旭","林楚茵","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","柯建銘","邱議瑩","楊曜","蘇巧慧","沈發惠"],"abstainNames":[]},{"topic":"公職人員選舉罷免法第二十六條 台灣民眾黨國民黨黨團修正動議","code":"院會-11-5-14","type":"記名表決","yes":56,"no":49,"abstain":0,"yesNames":["傅崐萁","林沛祥","許宇甄","謝龍介","涂權吉","馬文君","許忠信","蔡春綢","劉書彬","洪毓祥","陳昭姿","陳清龍","王安祥","邱慧洳","高金素梅","林思銘","邱若華","鄭天財Sra Kacaw","鄭正鈐","謝衣鳯","張嘉郡","洪孟楷","王鴻薇","呂玉玲","陳雪生","黃建賓","黃健豪","葉元之","陳永康","賴士葆","陳菁徽","萬美玲","蘇清泉","黃仁","魯明哲","李彥秀","吳宗憲","邱鎮軍","徐欣瑩","盧縣一","廖先翔","林德福","楊瓊瓔","陳超明","林倩綺","顏寬恒","羅明才","翁曉玲","葛如鈞","羅廷瑋","徐巧芯","羅智強","柯志恩","牛煦庭","王育敏","游顥"],"noNames":["吳沛憶","黃捷","范雲","蔡其昌","莊瑞雄","伍麗華Saidhai‧Tahovecahe","郭昱晴","吳思瑤","沈伯洋","陳培瑜","邱志偉","黃秀芳","何欣純","林俊憲","李坤城","王義川","陳秀寳","徐富癸","王世堅","羅美玲","蔡易餘","鍾佳濱","郭國文","陳俊宇","張雅琳","賴瑞隆","陳素月","李柏毅","陳瑩","陳冠廷","王美惠","劉建國","林岱樺","賴惠員","林月琴","林淑芬","王正旭","林楚茵","王定宇","吳琪銘","許智傑","張宏陸","吳秉叡","李昆澤","柯建銘","邱議瑩","楊曜","蘇巧慧","沈發惠"],"abstainNames":[]}],"manualVotes":null,"gaps":[],"autoGaps":["2 次黨團協商（5 月 19 日、6 月 11 日）只有完整影片與公報頁碼，沒有文字版逐字稿。","4 月 8 日、4 月 23 日的委員會同時審查總統副總統選舉罷免法，逐字稿包含那些法案的討論，沒有切開。","4 月 23 日的委員會沒有委員個別發言的影片片段，只有完整影片。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) { if (k === 'class') e.className = attrs[k]; else if (k === 'text') e.textContent = attrs[k]; else e.setAttribute(k, attrs[k]); }
+  for (const c of kids) if (c != null) e.append(c);
+  return e;
+};
+const link = (href, text, cls) => el('a', {href, target: '_blank', rel: 'noopener', text, class: cls || ''});
+const KIND = [['一讀', '提案一讀', '--c-prop'], ['委員會', '委員會審查', '--c-comm'], ['公聽會', '公聽會', '--c-hear'],
+  ['黨團協商', '黨團協商', '--c-nego'], ['二讀', '院會二、三讀', '--c-floor'], ['三讀', '院會二、三讀', '--c-floor']];
+const kindOf = s => (KIND.find(k => s.startsWith(k[0])) || KIND[4]);   // 逕付二讀、復議、補充紀錄等都是院會的事，算在院會那一類
+const propById = Object.fromEntries(D.props.map(p => [p.id, p]));
+const shortWho = p => p.who.replace(/^委員/, '');
+const artList = p => p.arts.join('、');
+
+$('title').textContent = D.title;
+$('lede').textContent = D.lede;
+const ENACT = D.action === '制定';   // 制定新法：沒有現行條文可比，各提案的條號編排也不同
+const VERB = ENACT ? '訂定' : '修正';
+if (ENACT) {
+  $('benchintro').textContent = '選一個條號，並排看各提案版本和三讀通過的條文。這是新制定的法，每個提案自己編條號，同一個條號在不同提案裡可能是不同的內容，要對照請看條文本身。';
+  $('benchlegend').hidden = true;
+}
+const passed = D.arts.filter(a => a.changed);
+const meetings = D.stages.filter(s => s.stage !== '一讀');
+[['首個提案', D.props.length ? D.props[0].date : '—'], ['三讀通過', D.date], ['提案版本', D.props.length + ' 個'],
+ ['委員會審查', meetings.filter(s => s.stage.startsWith('委員會')).length + ' 次'],
+ ['黨團協商', meetings.filter(s => s.stage === '黨團協商').length + ' 次'], [ENACT ? '條文' : '修正條文', passed.length + ' 條']]
+  .forEach(([k, v]) => $('facts').append(el('div', null, el('dt', {text: k}), el('dd', {text: v}))));
+
+/* ---------- 逐條對照 ---------- */
+function lcsLen(a, b) {   // 兩段文字的最長共同子序列長度
+  if (a === b) return a.length;
+  const m = b.length; let prev = new Uint16Array(m + 1), cur = new Uint16Array(m + 1);
+  for (let i = a.length - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) cur[j] = a[i] === b[j] ? prev[j + 1] + 1 : Math.max(prev[j], cur[j + 1]);
+    [prev, cur] = [cur, prev];
+  }
+  return prev[0];
+}
+function charSegs(a, b) {   // 同一段內逐字比對，回傳 [類型, 文字]：0 相同、1 新增、-1 刪除
+  const n = a.length, m = b.length, w = m + 1, t = new Uint16Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    t[i * w + j] = a[i] === b[j] ? t[(i + 1) * w + j + 1] + 1 : Math.max(t[(i + 1) * w + j], t[i * w + j + 1]);
+  const raw = []; const push = (k, c) => { const l = raw[raw.length - 1]; if (l && l[0] === k) l[1] += c; else raw.push([k, c]); };
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && a[i] === b[j]) { push(0, a[i]); i++; j++; }
+    else if (j >= m || (i < n && t[(i + 1) * w + j] >= t[i * w + j + 1])) { push(-1, a[i]); i++; }
+    else { push(1, b[j]); j++; }
+  }
+  // 夾在兩處修改之間的零碎相同字（不到 3 個字）併進修改，免得整句改寫被切成碎片
+  const out = []; let del = '', ins = '';
+  const flush = () => { if (del) out.push([-1, del]); if (ins) out.push([1, ins]); del = ins = ''; };
+  raw.forEach((s, k) => {
+    if (s[0] === -1) del += s[1];
+    else if (s[0] === 1) ins += s[1];
+    else if (s[1].length < 3 && k > 0 && k < raw.length - 1) { del += s[1]; ins += s[1]; }
+    else { flush(); out.push(s); }
+  });
+  flush();
+  return out;
+}
+function diffLines(base, text) {   // 先以段落配對，夠像的段落才逐字比對；回傳每段的片段陣列
+  const A = base.split('\n'), B = text.split('\n'), n = A.length, m = B.length;
+  const cost = base.length * text.length;
+  if (cost > 8e6) return null;
+  const W = [];   // 配對得分：相同字數，不夠像就是 0
+  for (let i = 0; i < n; i++) { W.push([]); for (let j = 0; j < m; j++) {
+    const l = lcsLen(A[i], B[j]); W[i].push(2 * l / (A[i].length + B[j].length) >= 0.5 ? l + 1 : 0); } }
+  const S = Array.from({length: n + 1}, () => new Float64Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    S[i][j] = Math.max(S[i + 1][j], S[i][j + 1], W[i][j] ? S[i + 1][j + 1] + W[i][j] : 0);
+  const lines = []; let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && W[i][j] && S[i][j] === S[i + 1][j + 1] + W[i][j]) { lines.push(A[i] === B[j] ? [[0, B[j]]] : charSegs(A[i], B[j])); i++; j++; }
+    else if (j >= m || (i < n && S[i][j] === S[i + 1][j])) { lines.push([[-1, A[i]]]); i++; }
+    else { lines.push([[1, B[j]]]); j++; }
+  }
+  return lines;
+}
+function renderText(node, base, text, o) {   // o.nodiff 不比對；o.isNew 整條新增
+  node.textContent = '';
+  const gone = /^（刪除）$/;
+  if (o.nodiff) { node.textContent = text; return; }
+  if (o.isNew || (base && gone.test(base)) || (base && gone.test(text))) { node.append(el('ins', {text})); return; }
+  const lines = base ? diffLines(base, text) : null;
+  if (!lines) { node.textContent = text; return; }
+  lines.forEach((segs, i) => {
+    if (i) node.append(String.fromCharCode(10));
+    segs.forEach(([k, s]) => node.append(k === 1 ? el('ins', {text: s}) : k === -1 ? el('del', {text: s}) : document.createTextNode(s)));
+  });
+}
+let current = (passed[0] || D.arts[0] || {}).no;
+function card(title, sub, text, base, o) {
+  o = o || {};
+  const c = el('article', {class: 'ver' + (o.final ? ' final' : '')});
+  c.append(el('div', {class: 'vh'}, el('h3', {text: title}), el('small', {text: sub || ''})));
+  const body = el('div', {class: 'text'});
+  if (text) renderText(body, base, text, o);
+  else { body.className = 'text empty'; body.textContent = o.emptyText || '沒有條文'; }
+  c.append(body);
+  if (o.note) c.append(el('details', null, el('summary', {text: o.noteLabel || '提案說明'}), el('div', {text: o.note})));
+  return c;
+}
+function showArticle() {
+  const a = D.arts.find(x => x.no === current); if (!a) return;
+  [...$('artnav').children].forEach(b => b.setAttribute('aria-pressed', b.dataset.no === current));
+  $('artstatus').textContent = articleStatus(a);
+  fillBench($('bench'), a);
+}
+function articleStatus(a) {
+  return a.no + '　' + a.versions.length + ' 個提案版本' + (a.review ? '　委員會：' + (a.review.note || '有審查會版本') : '') + (a.changed ? (ENACT ? '　三讀：通過' : '　三讀：修正通過') : (ENACT ? '　三讀通過的版本沒有這個條號' : '　三讀：未修正'));
+}
+function fillBench(b, a) {   // 現行條文、各提案版本、審查會、三讀並排
+  b.textContent = '';
+  const isNew = !a.current && a.versions.length > 0;   // 提案的對照表裡現行欄是空的：新增條文
+  if (!ENACT) b.append(card('現行條文', '修正前', a.current, null, {nodiff: true, emptyText: '修正前沒有這一條'}));
+  a.versions.forEach(v => { const p = propById[v.bill]; b.append(card(shortWho(p), p.date + ' 提案', v.text, a.current, {note: v.note, emptyText: '提案刪除本條', isNew})); });
+  if (a.review && a.review.text) b.append(card('審查會通過', '委員會', a.review.text, a.current, {isNew}));
+  if (a.changed) b.append(card('三讀通過', D.date, a.final, a.current, {final: true, note: a.finalWhy, noteLabel: '立法理由', isNew}));
+}
+function inlineBench(panel, no) {   // 在提案底下就地展開逐條對照
+  const a = D.arts.find(x => x.no === no);
+  if (!a) { panel.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'})); return; }
+  const bench = el('div', {class: 'bench'});
+  panel.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  fillBench(bench, a);
+}
+D.arts.forEach(a => {
+  const btn = el('button', {type: 'button', 'data-no': a.no, class: 'chip' + (a.changed ? ' passed' : ''), text: a.no});
+  btn.addEventListener('click', () => { current = a.no; showArticle(); });
+  $('artnav').append(btn);
+});
+showArticle();
+
+/* ---------- 提案版本 ---------- */
+const partyLine = p => p.party.map(([n]) => n).join('、');
+function people(p, role, label) {   // 一列名單：姓名後面標黨籍
+  const list = (p.people || []).filter(x => x[2] === role);
+  if (!list.length) return null;
+  const box = el('div', {class: 'people'});
+  list.forEach(([n, pt]) => box.append(el('span', {class: 'person'}, n, el('small', {text: pt}))));
+  const peek = role === '提案' ? list.map(x => x[0]).join('、') : null;   // 只有提案人收合時預覽姓名
+  return fold(label + ' ' + list.length + ' 位', box, peek);
+}
+function fold(label, content, peek) {   // 點開才看全文；有 peek 時收合狀態露一行預覽
+  const s = el('summary', null, el('b', {text: label}));
+  if (peek) s.append(el('span', {class: 'peek', text: peek}));
+  return el('details', {class: 'fold'}, s, content);
+}
+const dlg = el('dialog', {class: 'artdlg', 'aria-labelledby': 'dlgt'});
+document.body.append(dlg);
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+function openArticleDialog(p, no) {   // 獨立視窗看某一條的各版本，可在該提案動到的條文間切換
+  dlg.textContent = '';
+  const close = el('button', {type: 'button', class: 'chip', text: '關閉 ✕'});
+  close.addEventListener('click', () => dlg.close());
+  const nav = el('div', {class: 'chips'});
+  p.arts.forEach(n => {
+    const art = D.arts.find(x => x.no === n);
+    const b = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-pressed': String(n === no), text: n});
+    b.addEventListener('click', () => openArticleDialog(p, n));
+    nav.append(b);
+  });
+  const body = el('div', {class: 'dlgbody'});
+  const a = D.arts.find(x => x.no === no);
+  if (a) {
+    const bench = el('div', {class: 'bench'});
+    fillBench(bench, a);
+    body.append(el('div', {class: 'benchbar'}, el('span', {text: articleStatus(a)})), bench);
+  } else body.append(el('p', {class: 'ref', text: '逐條對照沒有收錄這一條'}));
+  dlg.append(el('div', {class: 'dlghead'}, el('div', {class: 'dlgtitle'}, el('h3', {id: 'dlgt', text: shortWho(p) + ' 提案　逐條對照'}), close), nav), body);
+  if (!dlg.open) dlg.showModal();
+}
+function propDetail(p, inProps) {   // 提案的完整提煉內容，歷程列和提案版本區塊共用；提案版本區塊的條文用彈窗對照
+  const c = el('div', {class: 'pdetail'});
+  c.append(el('div', {class: 'line', text: p.date + ' 提案　' + partyLine(p)}));
+  const a = people(p, '提案', '提案人'), b = people(p, '連署', '連署人');
+  if (a) c.append(a);
+  if (b) c.append(b);
+  if (p.reason) { const r = p.reason.replace(/\n/g, ' '); c.append(fold('修法目的', el('p', {class: 'reason', text: r}))); }
+  const chips = el('div', {class: 'sub'}, (ENACT ? '條文' : '修正條文' + (inProps ? '' : '（按鈕若是紅色代表真的修正了）')) + '：');
+  const panel = el('div', {class: 'inbench', hidden: ''});
+  let shown = null;
+  p.arts.forEach(no => {
+    const art = D.arts.find(x => x.no === no);
+    const btn = el('button', {type: 'button', class: 'chip' + (art && art.changed ? ' passed' : ''), 'aria-expanded': 'false', text: no});
+    btn.addEventListener('click', () => {
+      if (inProps) { openArticleDialog(p, no); return; }
+      const closing = shown === no;
+      chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      panel.textContent = ''; panel.hidden = closing; shown = closing ? null : no;
+      if (!closing) { btn.setAttribute('aria-expanded', 'true'); inlineBench(panel, no); }
+    });
+    chips.append(btn);
+  });
+  c.append(chips, panel);
+  const ref = el('div', {class: 'ref'}, link(p.url, '議事網提案頁'));
+  if (p.pdf) ref.append('、', link(p.pdf, '關係文書 PDF'));
+  c.append(fold('資料出處', ref));
+  return c;
+}
+D.props.forEach(p => {
+  const c = el('article', {class: 'prop', id: 'prop-' + p.id});
+  c.append(el('h3', {text: shortWho(p)}), propDetail(p, true));
+  $('props').append(c);
+});
+
+/* ---------- 歷程與逐字稿 ---------- */
+const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+function renderTranscript(box, data, s) {
+  box.textContent = '';
+  const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
+  const turns = el('div', {class: 'turns'});
+  const first = new Map();
+  data.turns.forEach((t, i) => {
+    const chair = t.s === '主席';
+    const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
+    if (t.s) {
+      const who = el('div', {class: 'who'}, t.s);
+      if (t.t) who.append(el('small', {text: t.t}));
+      const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
+      const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
+      if (u && t.t) who.append(link(u, '看這段影片'));
+      d.append(who);
+      if (!chair && !first.has(t.s)) first.set(t.s, d);
+    }
+    const put = (into, b) => {
+      if (typeof b === 'string') into.append(el('p', {text: b}));
+      else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
+        const inner = el('div', {class: 'readout'});
+        b.b.forEach(x => put(inner, x));
+        into.append(fold(b.fold, inner));
+        const p = b.bill && propById[b.bill];
+        if (p && p.arts.length) {
+          const btn = el('button', {type: 'button', class: 'chip', text: ENACT ? '看這個提案的條文' : '看這個提案和現行條文的對照'});
+          btn.addEventListener('click', () => openArticleDialog(p, p.arts[0]));
+          into.append(el('div', {class: 'readnote'}, btn));
+        } else if (b.out) into.append(el('div', {class: 'readnote ref', text: '這個提案最後沒有送進院會二讀，本頁沒有收錄它的逐條對照。'}));
+      }
+      else { const tb = el('table'); b.rows.forEach(r => tb.append(el('tr', null, ...r.map(c => el('td', {text: c}))))); into.append(el('div', {class: 'tw'}, tb)); }
+    };
+    t.b.forEach(b => put(d, b));
+    turns.append(d);
+  });
+  const idx = el('div', {class: 'idx'}, el('span', {text: '跳到發言者（' + first.size + ' 位）'}));
+  const chips = el('div', {class: 'chips'});
+  first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
+  idx.append(chips);
+  box.append(idx, turns);
+}
+/* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
+const READING = {
+  '一讀': {t: '一讀會', sub: '朗讀標題、交付審查', what: '議案送進立法院後，在院會中由主席宣付朗讀議案名稱。', pts: [
+    '朗讀標題後，通常會將法案交付給相關的委員會進行詳細的實質審查（例如：教育及文化委員會、司法及法制委員會等）。',
+    '如果有立委提案並經 20 人以上連署、表決通過，也可以選擇「逕付二讀」（跳過委員會審查）。',
+    '如果有異議，可以退回程序委員會或不予審議。']},
+  '逕付二讀': {t: '逕付二讀', sub: '跳過委員會審查，直接排進院會二讀', what: '院會決定這個提案不交委員會審查（或從委員會抽出），直接進入二讀。', pts: [
+    '通常在一讀報告事項時由黨團提議，院會無異議或表決通過。',
+    '逕付二讀的提案多半會交黨團協商，或與已經審查完的相關提案併案處理。',
+    '這一天只有主席宣告的幾句話，沒有實質討論。']},
+  '二讀': {t: '二讀會', sub: '實質討論、逐條審議，最關鍵的階段', what: '委員會審查完畢，或是經逕付二讀後，將法案送到院會進行全體討論與表決。', pts: [
+    '這是法案通過與否最關鍵、辯論最激烈的階段。',
+    '進行廣泛討論以及逐條討論、修正。',
+    '委員可以在此階段提出修正動議，最後進行表決。二讀通過後，原則上要在下次會議才進行三讀（但經 15 人以上連署、表決通過，也可以直接繼續三讀）。']},
+  '三讀': {t: '三讀會', sub: '文字修正、全案表決', what: '二讀通過後進入三讀，原則上在下次會議進行。', pts: [
+    '不能再大幅修改內容，除了解決文字上的牴觸、錯字或語句修飾外，僅得作文字修正。',
+    '最後將全案進行最終表決。',
+    '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
+};
+const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
+document.body.append(tipbox);
+let tipTimer = null, tipTag = null, tipPinned = false;
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipTag) tipTag.removeAttribute('aria-describedby');
+  tipbox.hidden = true; tipTag = null; tipPinned = false;
+}
+function showTip(tag, keys, pin) {
+  hideTip();
+  tipbox.textContent = '';
+  keys.forEach(k => { const r = READING[k];
+    tipbox.append(el('div', null, el('h4', null, r.t, el('small', {text: r.sub})), el('p', {text: r.what}), el('ul', null, ...r.pts.map(x => el('li', {text: x}))))); });
+  tipbox.hidden = false; tipTag = tag; tipPinned = pin;
+  tag.setAttribute('aria-describedby', 'tipbox');
+  const r = tag.getBoundingClientRect(), w = tipbox.offsetWidth, h = tipbox.offsetHeight;   // 預設貼在標籤下方，放不下就翻到上方
+  let top = r.bottom + 6;
+  if (top + h > innerHeight - 12) top = r.top - 6 - h >= 12 ? r.top - 6 - h : Math.max(12, innerHeight - h - 12);
+  tipbox.style.left = Math.max(12, Math.min(r.left, innerWidth - w - 12)) + 'px';
+  tipbox.style.top = top + 'px';
+}
+function stageTag(stage, color) {   // 階段名稱裡有一讀、二讀、三讀的做成可點的標籤
+  const keys = Object.keys(READING).filter(k => (k === '二讀' ? stage.replace(/逕付二讀/g, '') : stage).includes(k));
+  const style = '--k:var(' + color + ')';
+  if (!keys.length) return el('span', {class: 'tag', style, text: stage});
+  const tag = el('button', {type: 'button', class: 'tag', style, text: stage});
+  tag.addEventListener('mouseenter', () => { if (tipTag !== tag) { clearTimeout(tipTimer); tipTimer = setTimeout(() => showTip(tag, keys, false), 1000); } });
+  tag.addEventListener('mouseleave', () => { clearTimeout(tipTimer); if (tipTag === tag && !tipPinned) hideTip(); });
+  tag.addEventListener('click', e => { e.stopPropagation(); if (tipTag === tag && tipPinned) hideTip(); else showTip(tag, keys, true); });
+  return tag;
+}
+document.addEventListener('click', e => { if (!tipbox.contains(e.target)) hideTip(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
+addEventListener('resize', hideTip);
+
+D.stages.forEach(s => {
+  const k = kindOf(s.stage);
+  const body = el('div', {class: 'body'});
+  const what = el('div', {class: 'what'}, stageTag(s.stage, k[2]));
+  if (s.stage === '一讀') {
+    const p = propById[s.bill];
+    what.append(p ? shortWho(p) + ' 提案，' + VERB + artList(p) : '提案');
+    body.append(what);
+    if (p) body.append(propDetail(p));
+  } else {
+    what.append(s.title || '');
+    body.append(what);
+    if (s.note) body.append(el('div', {class: 'note', text: s.note}));
+    if (s.mixed && s.mixed.length) body.append(el('div', {class: 'ref', text: '這場會議同時審查' + s.mixed.join('、') + '，逐字稿包含那些法案的討論，沒有切開。'}));
+    if (s.mixedOther && s.mixedOther.length) body.append(el('div', {class: 'ref', text: '這場會議同時處理「' + s.mixedOther.join('」「') + '」，詢答是合併進行的，逐字稿裡有那部分的問答。'}));
+    if (s.props.length) {
+      const sub = el('div', {class: 'sub'}, '這場會議討論的提案：');
+      const panel = el('div', {class: 'ppanel', hidden: ''});
+      let shown = null;
+      s.props.forEach(id => {
+        const p = propById[id];
+        const btn = el('button', {type: 'button', class: 'chip', 'aria-expanded': 'false', text: shortWho(p) + '版'});
+        btn.addEventListener('click', () => {
+          const closing = shown === id;
+          [...sub.querySelectorAll('button')].forEach(x => x.setAttribute('aria-expanded', 'false'));
+          panel.textContent = ''; panel.hidden = closing; shown = closing ? null : id;
+          if (!closing) { btn.setAttribute('aria-expanded', 'true'); panel.append(el('h3', {text: shortWho(p) + ' 提案，' + VERB + artList(p)}), propDetail(p)); }
+        });
+        sub.append(btn);
+      });
+      body.append(sub, panel);
+    }
+    const acts = el('div', {class: 'acts'});
+    let box = null;
+    if (s.tr) {
+      const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
+      box = el('div', {class: 'tr', hidden: ''});
+      btn.addEventListener('click', async () => {
+        const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
+        if (!open || box.dataset.loaded) return;
+        box.textContent = '載入逐字稿中';
+        try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
+        catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
+      });
+      acts.append(btn);
+    } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
+      acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
+      s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) acts.append(link(s.ppg, '議事網會議頁'));
+    }
+    body.append(acts);
+    if (box) body.append(box);
+    const ref = el('div', {class: 'ref'}, '公報 ' + s.gazref);
+    s.pdf.forEach(p => ref.append('　', link(p.u, '逐字稿 PDF（第 ' + p.p1 + '–' + p.p2 + ' 頁，檔案大）')));
+    if (s.tr) {
+      s.full.forEach((u, i) => ref.append('　', link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
+      if (s.ppg) ref.append('　', link(s.ppg, '議事網會議頁'));
+    }
+    body.append(fold('資料出處', ref));
+  }
+  $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
+});
+
+/* ---------- 表決 ---------- */
+(function () {
+  const box = $('votes');
+  if (D.votes.length) {
+    $('votetext').textContent = '以下是有個人名單的記名表決。' + (D.votes.some(v => v.src) ? '名單取自公報逐字稿裡的表決結果。' : '');
+    const tb = el('tbody');
+    D.votes.forEach(v => {
+      const names = el('details', {class: 'names'}, el('summary', {text: '名單'}),
+        el('p', {text: '贊成：' + v.yesNames.join('、')}), el('p', {text: '反對：' + v.noNames.join('、')}), v.abstainNames.length ? el('p', {text: '棄權：' + v.abstainNames.join('、')}) : null);
+      tb.append(el('tr', null, el('td', null, v.topic, names), el('td', {class: 'num', text: v.yes}), el('td', {class: 'num', text: v.no}), el('td', {class: 'num', text: v.abstain})));
+    });
+    box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '表決議題'}), el('th', {class: 'num', text: '贊成'}), el('th', {class: 'num', text: '反對'}), el('th', {class: 'num', text: '棄權'}))), tb)));
+  }
+  const M = D.manualVotes;
+  if (M) {
+    $('votetext').textContent = M.text || '';
+    const tb = el('tbody');
+    (M.rows || []).forEach(v => {
+      const pct = Math.round(v.yes / v.present * 1000) / 10;
+      tb.append(el('tr', null, el('td', {text: v.no}), el('td', {class: 'num', text: v.present}), el('td', {class: 'num', text: v.yes}),
+        el('td', null, el('span', {class: 'bar'}, el('i', {style: 'width:' + pct + '%'})), el('small', {text: pct + '%'}))));
+    });
+    if ((M.rows || []).length) box.append(el('div', {class: 'tablewrap'}, el('table', {class: 'vt'}, el('thead', null, el('tr', null, el('th', {text: '條文'}), el('th', {class: 'num', text: '在場'}), el('th', {class: 'num', text: '贊成'}), el('th', {text: '贊成比例'}))), tb)));
+    if (M.caveat) box.append(el('p', {class: 'note', text: M.caveat}));
+  }
+  if (!D.votes.length && !M) $('votetext').textContent = '這次' + (D.action || '修正') + '查不到記名表決紀錄。可能是無異議通過，或以舉手等不留名單的方式表決，需要讀院會逐字稿確認。';
+})();
+
+const GAPS = (D.reviewed === false ? ['這一頁還沒有人工整理過：沒有摘要，也沒有各場會議的重點結論，其餘內容由程式自動產生。'] : []).concat(D.gaps, D.autoGaps || []);
+if (GAPS.length) { $('sec-gaps').hidden = false; GAPS.forEach(g => $('gaps').append(el('li', {text: g}))); }
+$('foot').textContent = '資料來源：立法院議事暨公報資訊網、立法院公報、IVOD 影音系統，經民間國會資料 API（v2.ly.govapi.tw）取得，抓取日期 ' + D.fetched + '。逐字稿由公報文字版自動切分發言者，條文差異由程式自動比對，僅供閱讀參考，正式內容以公報為準。';
+</script>
+</body>
+</html>
