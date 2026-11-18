@@ -93,6 +93,17 @@ button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(-
 .turn p{overflow-wrap:anywhere}
 .turn.pre p{font-size:13px;color:var(--muted)}
 .tw{overflow-x:auto;max-width:100%}
+.turn .party{font-weight:400;font-size:12px;color:var(--muted);white-space:nowrap}
+.turn .party i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--pc);margin-right:4px}
+.turn .here{font-weight:400;font-size:12px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-left:auto}
+.turn .here:hover{color:var(--accent)}
+.turn.landed{box-shadow:-3px 0 0 var(--accent);padding-left:10px;background:var(--accent-soft)}
+.turn.hit{box-shadow:-3px 0 0 var(--warn);padding-left:10px}
+.turn.hit.cur{background:var(--warn-soft)}
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;border-bottom:1px dotted var(--muted)}
+.tr .find{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--muted)}
+.tr .find input{font:inherit;font-size:14px;padding:2px 8px;border:1px solid var(--line);border-radius:3px;background:var(--surface);color:var(--ink);width:min(16em,100%)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);font-size:13px;padding:8px 14px;border-radius:4px;max-width:calc(100vw - 32px)}
 .readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
 .readnote{padding-left:1.4em}
 .turn .fold>summary b{font-weight:500}
@@ -227,7 +238,7 @@ dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
   <p class="foot" id="foot"></p>
 </div>
 
-<script id="data" type="application/json">{"law":"宗教團體以自然人名義登記不動產處理暫行條例","version":"07227:2026-06-02-修正","date":"2026-06-02","action":"修正","title":"宗教團體以自然人名義登記不動產處理暫行條例　2026 年修正","lede":"","summary":"","key":"07227_2026-06-02","props":[{"id":"202110054020000","who":"委員許宇甄等19人","date":"2024-06-07","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110054020000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/17/LCEWA01_110117_00033.pdf","proposers":["許宇甄","張嘉郡"],"ncosign":17,"people":[["許宇甄","國民黨","提案"],["張嘉郡","國民黨","提案"],["羅廷瑋","國民黨","連署"],["羅明才","國民黨","連署"],["蘇清泉","國民黨","連署"],["葉元之","國民黨","連署"],["呂玉玲","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["丁學忠","國民黨","連署"],["王育敏","國民黨","連署"],["盧縣一","國民黨","連署"],["林德福","國民黨","連署"],["葛如鈞","國民黨","連署"],["張智倫","國民黨","連署"],["翁曉玲","國民黨","連署"],["吳宗憲","國民黨","連署"],["黃建賓","國民黨","連署"],["鄭正鈐","國民黨","連署"],["邱若華","國民黨","連署"]],"party":[["國民黨",19]],"reason":"本院委員許宇甄、張嘉郡等19人，有鑑於《宗教團體以自然人名義登記不動產處理暫行條例》第五條規範申請權利歸屬審認之期限即將屆滿，卻仍有過半宗教團體因申請文件資料準備不足及其它各類因素而尚未申請，為避免宗教團體財產淪為私有並減少權屬爭訟，提案修法展延期限為五年，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110057090000","who":"委員伍麗華Saidhai Tahovecahe等16人","date":"2024-06-21","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條及第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110057090000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/19/LCEWA01_110119_00033.pdf","proposers":["伍麗華Saidhai‧Tahovecahe","陳瑩"],"ncosign":14,"people":[["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["陳瑩","民進黨","提案"],["林月琴","民進黨","連署"],["陳秀寳","民進黨","連署"],["范雲","民進黨","連署"],["張雅琳","民進黨","連署"],["陳素月","民進黨","連署"],["王正旭","民進黨","連署"],["陳冠廷","民進黨","連署"],["羅美玲","民進黨","連署"],["鍾佳濱","民進黨","連署"],["王美惠","民進黨","連署"],["徐富癸","民進黨","連署"],["吳秉叡","民進黨","連署"],["王世堅","民進黨","連署"],["吳琪銘","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員伍麗華Saidhai Tahovecahe、陳瑩等16人，鑒於宗教團體財產具有公眾財產性質，為處理既有宗教團體不動產借名登記問題，保障宗教團體財產權，避免公眾集資的不動產淪為私人所有，並減少類似糾紛發生，爰制定本條例，惟須配合本條例對不動產相關證明文件、權利歸屬及地政機關更名登記須檢附資料及行政機關處理程序，非人民團體可自主控制，又因許多偏遠地區宗教團體未即時獲知本條例資訊，故擬延長兩年申請期限及資料補正期限，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條及第七條條文修正草案」。是否有當？敬請公決。","arts":["第五條","第七條"]},{"id":"202110202980000","who":"委員李柏毅等17人","date":"2026-04-10","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110202980000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/06/LCEWA01_110506_00017.pdf","proposers":["李柏毅","陳素月"],"ncosign":15,"people":[["李柏毅","民進黨","提案"],["陳素月","民進黨","提案"],["林宜瑾","民進黨","連署"],["陳瑩","民進黨","連署"],["林楚茵","民進黨","連署"],["張雅琳","民進黨","連署"],["陳俊宇","民進黨","連署"],["郭國文","民進黨","連署"],["邱議瑩","民進黨","連署"],["賴瑞隆","民進黨","連署"],["張宏陸","民進黨","連署"],["沈發惠","民進黨","連署"],["吳琪銘","民進黨","連署"],["徐富癸","民進黨","連署"],["許智傑","民進黨","連署"],["蘇巧慧","民進黨","連署"],["李昆澤","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員李柏毅、陳素月等17人，鑒於宗教團體財產具有公眾財產性質，為處理既有宗教團體不動產借名登記問題，保障宗教團體財產權，避免公眾集資的不動產淪為私人所有，並減少類似糾紛發生，內政部爰於111年制定宗教團體以自然人名義登記不動產處理暫行條例，並於同年三讀通過。然而本條例對不動產相關證明文件、權利歸屬及地政機關更名登記須檢附資料及行政機關處理程序，非人民團體可自主控制，又為最大程度保障宗教團體之權益，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110207570000","who":"委員王美惠等17人","date":"2026-04-17","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110207570000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/07/LCEWA01_110507_00236.pdf","proposers":["王美惠"],"ncosign":16,"people":[["王美惠","民進黨","提案"],["王正旭","民進黨","連署"],["陳秀寳","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["吳沛憶","民進黨","連署"],["黃捷","民進黨","連署"],["林月琴","民進黨","連署"],["郭昱晴","民進黨","連署"],["張雅琳","民進黨","連署"],["吳秉叡","民進黨","連署"],["許智傑","民進黨","連署"],["黃秀芳","民進黨","連署"],["陳俊宇","民進黨","連署"],["沈伯洋","民進黨","連署"],["王義川","民進黨","連署"],["林俊憲","民進黨","連署"],["徐富癸","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員王美惠等17人，為「宗教團體以自然人名義登記不動產處理暫行條例」之立法，旨在處理既有宗教團體不動產借名登記問題，以保障宗教團體財產權，關於宗教團體申請權利歸屬審認之期限將於今（一百十五）年八月屆滿，卻仍有宗教團體因各類因素而尚未申請，為保障宗教團體權益，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110212420000","who":"委員鄭天財Sra Kacaw等17人","date":"2026-05-08","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110212420000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/09/LCEWA01_110509_00031.pdf","proposers":["鄭天財Sra Kacaw"],"ncosign":16,"people":[["鄭天財Sra Kacaw","國民黨","提案"],["涂權吉","國民黨","連署"],["蘇清泉","國民黨","連署"],["林倩綺","國民黨","連署"],["鄭正鈐","國民黨","連署"],["盧縣一","國民黨","連署"],["陳玉珍","國民黨","連署"],["邱若華","國民黨","連署"],["呂玉玲","國民黨","連署"],["羅智強","國民黨","連署"],["林德福","國民黨","連署"],["柯志恩","國民黨","連署"],["黃建賓","國民黨","連署"],["牛煦庭","國民黨","連署"],["徐巧芯","國民黨","連署"],["王育敏","國民黨","連署"],["陳雪生","國民黨","連署"]],"party":[["國民黨",17]],"reason":"本院委員鄭天財Sra Kacaw等17人，為處理既有宗教團體不動產借名登記問題，保障宗教團體財產權，避免公眾集資的不動產淪為私人所有，並減少類似糾紛發生，立法院於111年5月20日三讀通過宗教團體以自然人名義登記不動產處理暫行條例。然而本條例對不動產相關證明文件、權利歸屬及地政機關更名登記須檢附資料及行政機關處理程序，非人民團體可自主控制，又為最大程度保障宗教團體之權益，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]}],"arts":[{"no":"第五條","current":"宗教團體得就前條第一項不動產，於本條例施行之日起二年內，向主管機關申請權利歸屬審認，逾期不予受理。","versions":[{"bill":"202110054020000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起五年內，向主管機關申請權利歸屬審認，逾期不予受理。","note":"一、《宗教團體以自然人名義登記之不動產處理暫行條例》於民國111年6月8日公布，10日施行。該條例第五條規定宗教團體不動產應於本法施行2年內申請權利歸屬審認。權利歸屬審認期限將於113年6月11日前屆滿。\n二、據統計全國有借名登記不動產之宗教團體數量約有2,476家，截至今（113）年4月底共有533家宗教團體提出申請，其中有1,769筆不動產已完成更名登記或限制登記，有效減少宗教團體財產淪為私產並減少權屬爭訟。然而，目前仍然有超過七成以上有借名登記情形之宗教團體尚未提出申請。\n三、考量本暫行條例辦理方式並無前例，且中央主管機關對本暫行條例權利歸屬審認相關措施所提文件資料之規定過於倉促急迫，負責實際執行之地方政府經驗不足，部分宗教團體表示在申請文件資料準備上需耗時許久。為保障宗教團體之權益，避免宗教團體財產淪為私有並減少權屬爭訟，爰提案展延申請期限為五年。"},{"bill":"202110057090000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起三年內，向主管機關申請權利歸屬審認，逾期不予受理。","note":"許多宗教團體位於偏鄉地區，資訊可近性不比都會地區，且本條例所需檢附證明文件繁雜，兩年申請期限過於倉促，爰將原定兩年期限延長一年，以落實政策目標，解決既有宗教團體因借名登記而衍生之糾紛。"},{"bill":"202110202980000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起六年內，向主管機關申請權利歸屬審認，逾期不予受理。","note":"本條文修正申請不動產權利歸屬審認之期限，原條文最初為兩年，後於113年修訂為四年，將於115年6月9日屆滿。為保障宗教團體之權益，爰提案修正期限為六年，即117年屆滿。"},{"bill":"202110207570000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起一定期限內向主管機關申請權利歸屬審認，逾期不予受理。\n前項所稱一定期限，授權內政部定之。","note":"一、修正第一項。鑒於「宗教團體以自然人名義登記不動產處理暫行條例」旨在保障宗教團體財產權，處理借名登記之歷史遺留問題。考量申請期限將於本（一百十五）年八月屆滿，然仍有部分團體受限於現實因素尚未辦理；為避免往後因頻繁展延致修法程序曠日費時，爰刪除「四年」之具體期限限制，改由中央主管機關衡酌實際需求彈性定之。。\n二、新增第二項。配合第一項之修正，授權內政部視實務辦理情形公告申請期限，並得於相關案件處理完竣後，適時終止受理。"},{"bill":"202110212420000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起六年內，向主管機關申請權利歸屬審認，逾期不予受理。","note":"一、原條文最初規定為兩年，經於113年修訂為四年，將於115年6月9日屆滿。\n二、為保障宗教團體之權益，爰提案修正期限為六年，即117年屆滿。"}],"changed":true,"final":"宗教團體得就前條第一項不動產，於本條例施行之日起六年內，向主管機關申請權利歸屬審認，逾期不予受理。","finalWhy":"本條文修正申請不動產權利歸屬審認之期限，原條文最初為兩年，後於113年修訂為四年，將於115年6月9日屆滿。為保障宗教團體之權益，爰提案修正期限為六年，即117年屆滿。","review":{"note":"照委員李柏毅等17人及委員鄭天財Sra Kacaw等17人提案通過","text":"宗教團體得就前條第一項不動產，於本條例施行之日起六年內，向主管機關申請權利歸屬審認，逾期不予受理。"}},{"no":"第七條","current":"主管機關受理申請後，認申請文件或資料有欠缺而得予補正者，應通知申請人於三個月內補正。","versions":[{"bill":"202110057090000","text":"主管機關受理申請後，認申請文件或資料有欠缺而得予補正者，應通知申請人於一年內補正。","note":"由於資料補正涉及各文件主管機關辦理作業及審理程序，因此時限非人民團體可自行控制，爰將資料補正期限延常為一年，以確保已申請送件之人民團體可於充裕時間內完成資料補正，完成登記。"}],"changed":false,"final":"主管機關受理申請後，認申請文件或資料有欠缺而得予補正者，應通知申請人於三個月內補正。","finalWhy":null,"review":{"note":"維持現行條文","text":""}}],"stages":[{"date":"2024-06-07","stage":"一讀","code":"院會-11-1-17","bill":"202110054020000","gazref":"113卷054期5236號 4-4頁"},{"date":"2024-06-21","stage":"一讀","code":"院會-11-1-19","bill":"202110057090000","gazref":"113卷063期5245號 4-4頁"},{"date":"2026-04-10","stage":"一讀","code":"院會-11-5-6","bill":"202110202980000","gazref":"115卷025期5424號一冊 9-9頁"},{"date":"2026-04-17","stage":"一讀","code":"院會-11-5-7","bill":"202110207570000","gazref":"115卷029期5428號一冊 20-20頁"},{"date":"2026-05-08","stage":"一讀","code":"院會-11-5-9","bill":"202110212420000","gazref":"115卷035期5434號 8-8頁"},{"date":"2026-05-18","code":"委員會-11-5-15-12","title":"第11屆第5會期內政委員會第12次全體委員會議","gazref":"115卷041期5440號一冊 131-132,135-221頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026050831/details?meetingDate=115/05/18","full":["https://ivod.ly.gov.tw/Play/Full/1M/17439"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/41/LCIDC01_1154101_00008.pdf","p1":131,"p2":488},{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/41/LCIDC01_1154102_00001.pdf","p1":1,"p2":184}],"clips":[{"n":"李柏毅","t":"09:05","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169423"},{"n":"蘇巧慧","t":"09:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169409"},{"n":"張智倫","t":"09:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169410"},{"n":"王鴻薇","t":"09:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169411"},{"n":"王美惠","t":"09:48","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169412"},{"n":"李柏毅","t":"09:59","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169413"},{"n":"張宏陸","t":"10:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169414"},{"n":"許忠信","t":"10:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169415"},{"n":"高金素梅","t":"10:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169416"},{"n":"黃捷","t":"10:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169417"},{"n":"鄭天財Sra Kacaw","t":"10:46","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169418"},{"n":"鍾佳濱","t":"10:53","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169419"},{"n":"徐欣瑩","t":"11:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169420"}],"props":["202110054020000","202110202980000","202110207570000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":30,"nmem":12,"ntable":0,"mixedOther":["審查115年度中央政府總預算案關於內政部部分","審查115年度中央政府總預算案關於國土管理署及所屬、國家公園署及所屬、建築研究所部分","審查115年度中央政府總預算案關於直轄市及縣市政府一般性補助款內政部、國家公園署及所屬、國土管理署及所屬部分","審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管作業基金─營建建設基金、實施平均地權基金","審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管特別收入基金─研發及產業訓儲替代役基金、國土永續發展基","審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管信託基金─黃瑞景先生獎學基金、胡原洲女士獎（助）學基金","審查內政部函送財團法人二二八事件紀念基金會、財團法人威權統治時期國家不法行為被害者權利回復基金會、財團法人台灣建築中心、","審查內政部函送國家住宅及都市更新中心115年度預算書案"],"nfold":3},{"date":"2026-06-02","code":"院會-11-5-12","title":"第11屆第5會期第12次會議","gazref":"115卷043期5442號一冊 55-64頁；115卷043期5442號一冊 64-64頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026052615/details?meetingDate=115/05/29","full":["https://ivod.ly.gov.tw/Play/Full/1M/17482"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/43/LCIDC01_1154301_00004.pdf","p1":55,"p2":64}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"nspeak":4,"nmem":0,"ntable":0,"nfold":3}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["5 月 18 日的委員會同時處理「審查115年度中央政府總預算案關於內政部部分」「審查115年度中央政府總預算案關於國土管理署及所屬、國家公園署及所屬、建築研究所部分」「審查115年度中央政府總預算案關於直轄市及縣市政府一般性補助款內政部、國家公園署及所屬、國土管理署及所屬部分」「審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管作業基金─營建建設基金、實施平均地權基金」「審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管特別收入基金─研發及產業訓儲替代役基金、國土永續發展基」「審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管信託基金─黃瑞景先生獎學基金、胡原洲女士獎（助）學基金」「審查內政部函送財團法人二二八事件紀念基金會、財團法人威權統治時期國家不法行為被害者權利回復基金會、財團法人台灣建築中心、」「審查內政部函送國家住宅及都市更新中心115年度預算書案」，詢答合併進行，逐字稿裡有那部分的問答。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script id="data" type="application/json">{"law":"宗教團體以自然人名義登記不動產處理暫行條例","version":"07227:2026-06-02-修正","date":"2026-06-02","action":"修正","title":"宗教團體以自然人名義登記不動產處理暫行條例　2026 年修正","lede":"","summary":"","key":"07227_2026-06-02","props":[{"id":"202110054020000","who":"委員許宇甄等19人","date":"2024-06-07","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110054020000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/17/LCEWA01_110117_00033.pdf","proposers":["許宇甄","張嘉郡"],"ncosign":17,"people":[["許宇甄","國民黨","提案"],["張嘉郡","國民黨","提案"],["羅廷瑋","國民黨","連署"],["羅明才","國民黨","連署"],["蘇清泉","國民黨","連署"],["葉元之","國民黨","連署"],["呂玉玲","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["丁學忠","國民黨","連署"],["王育敏","國民黨","連署"],["盧縣一","國民黨","連署"],["林德福","國民黨","連署"],["葛如鈞","國民黨","連署"],["張智倫","國民黨","連署"],["翁曉玲","國民黨","連署"],["吳宗憲","國民黨","連署"],["黃建賓","國民黨","連署"],["鄭正鈐","國民黨","連署"],["邱若華","國民黨","連署"]],"party":[["國民黨",19]],"reason":"本院委員許宇甄、張嘉郡等19人，有鑑於《宗教團體以自然人名義登記不動產處理暫行條例》第五條規範申請權利歸屬審認之期限即將屆滿，卻仍有過半宗教團體因申請文件資料準備不足及其它各類因素而尚未申請，為避免宗教團體財產淪為私有並減少權屬爭訟，提案修法展延期限為五年，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110057090000","who":"委員伍麗華Saidhai Tahovecahe等16人","date":"2024-06-21","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條及第七條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110057090000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/19/LCEWA01_110119_00033.pdf","proposers":["伍麗華Saidhai‧Tahovecahe","陳瑩"],"ncosign":14,"people":[["伍麗華Saidhai‧Tahovecahe","民進黨","提案"],["陳瑩","民進黨","提案"],["林月琴","民進黨","連署"],["陳秀寳","民進黨","連署"],["范雲","民進黨","連署"],["張雅琳","民進黨","連署"],["陳素月","民進黨","連署"],["王正旭","民進黨","連署"],["陳冠廷","民進黨","連署"],["羅美玲","民進黨","連署"],["鍾佳濱","民進黨","連署"],["王美惠","民進黨","連署"],["徐富癸","民進黨","連署"],["吳秉叡","民進黨","連署"],["王世堅","民進黨","連署"],["吳琪銘","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員伍麗華Saidhai Tahovecahe、陳瑩等16人，鑒於宗教團體財產具有公眾財產性質，為處理既有宗教團體不動產借名登記問題，保障宗教團體財產權，避免公眾集資的不動產淪為私人所有，並減少類似糾紛發生，爰制定本條例，惟須配合本條例對不動產相關證明文件、權利歸屬及地政機關更名登記須檢附資料及行政機關處理程序，非人民團體可自主控制，又因許多偏遠地區宗教團體未即時獲知本條例資訊，故擬延長兩年申請期限及資料補正期限，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條及第七條條文修正草案」。是否有當？敬請公決。","arts":["第五條","第七條"]},{"id":"202110202980000","who":"委員李柏毅等17人","date":"2026-04-10","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110202980000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/06/LCEWA01_110506_00017.pdf","proposers":["李柏毅","陳素月"],"ncosign":15,"people":[["李柏毅","民進黨","提案"],["陳素月","民進黨","提案"],["林宜瑾","民進黨","連署"],["陳瑩","民進黨","連署"],["林楚茵","民進黨","連署"],["張雅琳","民進黨","連署"],["陳俊宇","民進黨","連署"],["郭國文","民進黨","連署"],["邱議瑩","民進黨","連署"],["賴瑞隆","民進黨","連署"],["張宏陸","民進黨","連署"],["沈發惠","民進黨","連署"],["吳琪銘","民進黨","連署"],["徐富癸","民進黨","連署"],["許智傑","民進黨","連署"],["蘇巧慧","民進黨","連署"],["李昆澤","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員李柏毅、陳素月等17人，鑒於宗教團體財產具有公眾財產性質，為處理既有宗教團體不動產借名登記問題，保障宗教團體財產權，避免公眾集資的不動產淪為私人所有，並減少類似糾紛發生，內政部爰於111年制定宗教團體以自然人名義登記不動產處理暫行條例，並於同年三讀通過。然而本條例對不動產相關證明文件、權利歸屬及地政機關更名登記須檢附資料及行政機關處理程序，非人民團體可自主控制，又為最大程度保障宗教團體之權益，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110207570000","who":"委員王美惠等17人","date":"2026-04-17","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110207570000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/07/LCEWA01_110507_00236.pdf","proposers":["王美惠"],"ncosign":16,"people":[["王美惠","民進黨","提案"],["王正旭","民進黨","連署"],["陳秀寳","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["吳沛憶","民進黨","連署"],["黃捷","民進黨","連署"],["林月琴","民進黨","連署"],["郭昱晴","民進黨","連署"],["張雅琳","民進黨","連署"],["吳秉叡","民進黨","連署"],["許智傑","民進黨","連署"],["黃秀芳","民進黨","連署"],["陳俊宇","民進黨","連署"],["沈伯洋","民進黨","連署"],["王義川","民進黨","連署"],["林俊憲","民進黨","連署"],["徐富癸","民進黨","連署"]],"party":[["民進黨",17]],"reason":"本院委員王美惠等17人，為「宗教團體以自然人名義登記不動產處理暫行條例」之立法，旨在處理既有宗教團體不動產借名登記問題，以保障宗教團體財產權，關於宗教團體申請權利歸屬審認之期限將於今（一百十五）年八月屆滿，卻仍有宗教團體因各類因素而尚未申請，為保障宗教團體權益，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]},{"id":"202110212420000","who":"委員鄭天財Sra Kacaw等17人","date":"2026-05-08","name":"「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110212420000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/05/09/LCEWA01_110509_00031.pdf","proposers":["鄭天財Sra Kacaw"],"ncosign":16,"people":[["鄭天財Sra Kacaw","國民黨","提案"],["涂權吉","國民黨","連署"],["蘇清泉","國民黨","連署"],["林倩綺","國民黨","連署"],["鄭正鈐","國民黨","連署"],["盧縣一","國民黨","連署"],["陳玉珍","國民黨","連署"],["邱若華","國民黨","連署"],["呂玉玲","國民黨","連署"],["羅智強","國民黨","連署"],["林德福","國民黨","連署"],["柯志恩","國民黨","連署"],["黃建賓","國民黨","連署"],["牛煦庭","國民黨","連署"],["徐巧芯","國民黨","連署"],["王育敏","國民黨","連署"],["陳雪生","國民黨","連署"]],"party":[["國民黨",17]],"reason":"本院委員鄭天財Sra Kacaw等17人，為處理既有宗教團體不動產借名登記問題，保障宗教團體財產權，避免公眾集資的不動產淪為私人所有，並減少類似糾紛發生，立法院於111年5月20日三讀通過宗教團體以自然人名義登記不動產處理暫行條例。然而本條例對不動產相關證明文件、權利歸屬及地政機關更名登記須檢附資料及行政機關處理程序，非人民團體可自主控制，又為最大程度保障宗教團體之權益，爰擬具「宗教團體以自然人名義登記不動產處理暫行條例第五條條文修正草案」。是否有當？敬請公決。","arts":["第五條"]}],"arts":[{"no":"第五條","current":"宗教團體得就前條第一項不動產，於本條例施行之日起二年內，向主管機關申請權利歸屬審認，逾期不予受理。","versions":[{"bill":"202110054020000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起五年內，向主管機關申請權利歸屬審認，逾期不予受理。","note":"一、《宗教團體以自然人名義登記之不動產處理暫行條例》於民國111年6月8日公布，10日施行。該條例第五條規定宗教團體不動產應於本法施行2年內申請權利歸屬審認。權利歸屬審認期限將於113年6月11日前屆滿。\n二、據統計全國有借名登記不動產之宗教團體數量約有2,476家，截至今（113）年4月底共有533家宗教團體提出申請，其中有1,769筆不動產已完成更名登記或限制登記，有效減少宗教團體財產淪為私產並減少權屬爭訟。然而，目前仍然有超過七成以上有借名登記情形之宗教團體尚未提出申請。\n三、考量本暫行條例辦理方式並無前例，且中央主管機關對本暫行條例權利歸屬審認相關措施所提文件資料之規定過於倉促急迫，負責實際執行之地方政府經驗不足，部分宗教團體表示在申請文件資料準備上需耗時許久。為保障宗教團體之權益，避免宗教團體財產淪為私有並減少權屬爭訟，爰提案展延申請期限為五年。"},{"bill":"202110057090000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起三年內，向主管機關申請權利歸屬審認，逾期不予受理。","note":"許多宗教團體位於偏鄉地區，資訊可近性不比都會地區，且本條例所需檢附證明文件繁雜，兩年申請期限過於倉促，爰將原定兩年期限延長一年，以落實政策目標，解決既有宗教團體因借名登記而衍生之糾紛。"},{"bill":"202110202980000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起六年內，向主管機關申請權利歸屬審認，逾期不予受理。","note":"本條文修正申請不動產權利歸屬審認之期限，原條文最初為兩年，後於113年修訂為四年，將於115年6月9日屆滿。為保障宗教團體之權益，爰提案修正期限為六年，即117年屆滿。"},{"bill":"202110207570000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起一定期限內向主管機關申請權利歸屬審認，逾期不予受理。\n前項所稱一定期限，授權內政部定之。","note":"一、修正第一項。鑒於「宗教團體以自然人名義登記不動產處理暫行條例」旨在保障宗教團體財產權，處理借名登記之歷史遺留問題。考量申請期限將於本（一百十五）年八月屆滿，然仍有部分團體受限於現實因素尚未辦理；為避免往後因頻繁展延致修法程序曠日費時，爰刪除「四年」之具體期限限制，改由中央主管機關衡酌實際需求彈性定之。。\n二、新增第二項。配合第一項之修正，授權內政部視實務辦理情形公告申請期限，並得於相關案件處理完竣後，適時終止受理。"},{"bill":"202110212420000","text":"宗教團體得就前條第一項不動產，於本條例施行之日起六年內，向主管機關申請權利歸屬審認，逾期不予受理。","note":"一、原條文最初規定為兩年，經於113年修訂為四年，將於115年6月9日屆滿。\n二、為保障宗教團體之權益，爰提案修正期限為六年，即117年屆滿。"}],"changed":true,"final":"宗教團體得就前條第一項不動產，於本條例施行之日起六年內，向主管機關申請權利歸屬審認，逾期不予受理。","finalWhy":"本條文修正申請不動產權利歸屬審認之期限，原條文最初為兩年，後於113年修訂為四年，將於115年6月9日屆滿。為保障宗教團體之權益，爰提案修正期限為六年，即117年屆滿。","review":{"note":"照委員李柏毅等17人及委員鄭天財Sra Kacaw等17人提案通過","text":"宗教團體得就前條第一項不動產，於本條例施行之日起六年內，向主管機關申請權利歸屬審認，逾期不予受理。"}},{"no":"第七條","current":"主管機關受理申請後，認申請文件或資料有欠缺而得予補正者，應通知申請人於三個月內補正。","versions":[{"bill":"202110057090000","text":"主管機關受理申請後，認申請文件或資料有欠缺而得予補正者，應通知申請人於一年內補正。","note":"由於資料補正涉及各文件主管機關辦理作業及審理程序，因此時限非人民團體可自行控制，爰將資料補正期限延常為一年，以確保已申請送件之人民團體可於充裕時間內完成資料補正，完成登記。"}],"changed":false,"final":"主管機關受理申請後，認申請文件或資料有欠缺而得予補正者，應通知申請人於三個月內補正。","finalWhy":null,"review":{"note":"維持現行條文","text":""}}],"stages":[{"date":"2024-06-07","stage":"一讀","code":"院會-11-1-17","bill":"202110054020000","gazref":"113卷054期5236號 4-4頁"},{"date":"2024-06-21","stage":"一讀","code":"院會-11-1-19","bill":"202110057090000","gazref":"113卷063期5245號 4-4頁"},{"date":"2026-04-10","stage":"一讀","code":"院會-11-5-6","bill":"202110202980000","gazref":"115卷025期5424號一冊 9-9頁"},{"date":"2026-04-17","stage":"一讀","code":"院會-11-5-7","bill":"202110207570000","gazref":"115卷029期5428號一冊 20-20頁"},{"date":"2026-05-08","stage":"一讀","code":"院會-11-5-9","bill":"202110212420000","gazref":"115卷035期5434號 8-8頁"},{"date":"2026-05-18","code":"委員會-11-5-15-12","title":"第11屆第5會期內政委員會第12次全體委員會議","gazref":"115卷041期5440號一冊 131-132,135-221頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026050831/details?meetingDate=115/05/18","full":["https://ivod.ly.gov.tw/Play/Full/1M/17439"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/41/LCIDC01_1154101_00008.pdf","p1":131,"p2":488},{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/41/LCIDC01_1154102_00001.pdf","p1":1,"p2":184}],"clips":[{"n":"李柏毅","t":"09:05","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169423"},{"n":"蘇巧慧","t":"09:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169409"},{"n":"張智倫","t":"09:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169410"},{"n":"王鴻薇","t":"09:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169411"},{"n":"王美惠","t":"09:48","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169412"},{"n":"李柏毅","t":"09:59","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169413"},{"n":"張宏陸","t":"10:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169414"},{"n":"許忠信","t":"10:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169415"},{"n":"高金素梅","t":"10:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169416"},{"n":"黃捷","t":"10:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169417"},{"n":"鄭天財Sra Kacaw","t":"10:46","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169418"},{"n":"鍾佳濱","t":"10:53","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169419"},{"n":"徐欣瑩","t":"11:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/169420"}],"props":["202110054020000","202110202980000","202110207570000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":30,"nmem":12,"ntable":0,"mixedOther":["審查115年度中央政府總預算案關於內政部部分","審查115年度中央政府總預算案關於國土管理署及所屬、國家公園署及所屬、建築研究所部分","審查115年度中央政府總預算案關於直轄市及縣市政府一般性補助款內政部、國家公園署及所屬、國土管理署及所屬部分","審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管作業基金─營建建設基金、實施平均地權基金","審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管特別收入基金─研發及產業訓儲替代役基金、國土永續發展基","審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管信託基金─黃瑞景先生獎學基金、胡原洲女士獎（助）學基金","審查內政部函送財團法人二二八事件紀念基金會、財團法人威權統治時期國家不法行為被害者權利回復基金會、財團法人台灣建築中心、","審查內政部函送國家住宅及都市更新中心115年度預算書案"],"nfold":3},{"date":"2026-06-02","code":"院會-11-5-12","title":"第11屆第5會期第12次會議","gazref":"115卷043期5442號一冊 55-64頁；115卷043期5442號一冊 64-64頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026052615/details?meetingDate=115/05/29","full":["https://ivod.ly.gov.tw/Play/Full/1M/17482"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/43/LCIDC01_1154301_00004.pdf","p1":55,"p2":64}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"nspeak":4,"nmem":0,"ntable":0,"nfold":3}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["5 月 18 日的委員會同時處理「審查115年度中央政府總預算案關於內政部部分」「審查115年度中央政府總預算案關於國土管理署及所屬、國家公園署及所屬、建築研究所部分」「審查115年度中央政府總預算案關於直轄市及縣市政府一般性補助款內政部、國家公園署及所屬、國土管理署及所屬部分」「審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管作業基金─營建建設基金、實施平均地權基金」「審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管特別收入基金─研發及產業訓儲替代役基金、國土永續發展基」「審查115年度中央政府總預算案附屬單位預算非營業部分關於內政部主管信託基金─黃瑞景先生獎學基金、胡原洲女士獎（助）學基金」「審查內政部函送財團法人二二八事件紀念基金會、財團法人威權統治時期國家不法行為被害者權利回復基金會、財團法人台灣建築中心、」「審查內政部函送國家住宅及都市更新中心115年度預算書案」，詢答合併進行，逐字稿裡有那部分的問答。"],"reviewed":false,"fetched":"2026-11-17","parties":{"吳春城":"民眾黨","李貞秀":"民眾黨","麥玉珍":"民眾黨","林國成":"民眾黨","張啓楷":"民眾黨","黃珊珊":"民眾黨","黃國昌":"民眾黨","林憶君":"民眾黨","游錫堃":"民進黨","洪申翰":"民進黨","何欣純":"民進黨","李昆澤":"民進黨","林俊憲":"民進黨","邱若華":"國民黨","洪孟楷":"國民黨","徐富癸":"民進黨","許智傑":"民進黨","陳素月":"民進黨","陳雪生":"國民黨","游顥":"國民黨","黃健豪":"國民黨","萬美玲":"國民黨","魯明哲":"國民黨","陳清龍":"民眾黨","丁學忠":"國民黨","陳昭姿":"民眾黨","牛煦庭":"國民黨","王世堅":"民進黨","王定宇":"民進黨","王美惠":"民進黨","王鴻薇":"國民黨","伍麗華":"民進黨","江啟臣":"國民黨","吳沛憶":"民進黨","吳宗憲":"國民黨","吳秉叡":"民進黨","吳思瑤":"民進黨","吳琪銘":"民進黨","李柏毅":"民進黨","林宜瑾":"民進黨","林岱樺":"民進黨","林思銘":"國民黨","林淑芬":"民進黨","林德福":"國民黨","邱志偉":"民進黨","邱鎮軍":"國民黨","邱議瑩":"民進黨","柯志恩":"國民黨","柯建銘":"民進黨","范雲":"民進黨","徐巧芯":"國民黨","徐欣瑩":"國民黨","涂權吉":"國民黨","馬文君":"國民黨","高金素梅":"無黨籍","張宏陸":"民進黨","張智倫":"國民黨","張嘉郡":"國民黨","莊瑞雄":"民進黨","郭國文":"民進黨","陳永康":"國民黨","陳玉珍":"國民黨","陳秀寳":"民進黨","陳亭妃":"民進黨","陳俊宇":"民進黨","陳冠廷":"民進黨","陳超明":"無黨籍","陳瑩":"民進黨","傅崐萁":"國民黨","黃仁":"國民黨","黃秀芳":"民進黨","黃建賓":"國民黨","黃捷":"民進黨","楊曜":"民進黨","楊瓊瓔":"國民黨","葉元之":"國民黨","廖先翔":"國民黨","廖偉翔":"國民黨","劉建國":"民進黨","蔡其昌":"民進黨","蔡易餘":"民進黨","鄭正鈐":"國民黨","賴士葆":"國民黨","賴瑞隆":"民進黨","謝龍介":"國民黨","鍾佳濱":"民進黨","韓國瑜":"國民黨","顏寬恒":"國民黨","羅廷瑋":"國民黨","羅明才":"國民黨","羅智強":"國民黨","蘇巧慧":"民進黨","蘇清泉":"國民黨","呂玉玲":"國民黨","李坤城":"民進黨","洪毓祥":"民眾黨","蔡春綢":"民眾黨","王安祥":"民眾黨","邱慧洳":"民眾黨","翁曉玲":"國民黨","王育敏":"國民黨","沈伯洋":"民進黨","沈發惠":"民進黨","林沛祥":"國民黨","林楚茵":"民進黨","張雅琳":"民進黨","陳菁徽":"國民黨","鄭天財":"國民黨","盧縣一":"國民黨","羅美玲":"民進黨","王正旭":"民進黨","王義川":"民進黨","劉書彬":"民眾黨","李彥秀":"國民黨","林月琴":"民進黨","林倩綺":"國民黨","許宇甄":"國民黨","郭昱晴":"民進黨","陳培瑜":"民進黨","葛如鈞":"國民黨","賴惠員":"民進黨","謝衣鳯":"國民黨","許忠信":"民眾黨"}}</script>
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const $ = id => document.getElementById(id);
@@ -441,6 +452,62 @@ D.props.forEach(p => {
 
 /* ---------- 歷程與逐字稿 ---------- */
 const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+const PARTY = D.parties || {};
+const PCOLOR = {'國民黨': '#2a6fc9', '民進黨': '#2f9e44', '民眾黨': '#22b8b0', '無黨籍': '#8a94a0'};
+const TERM = /逕付二讀|重付表決|修正動議|記名表決|復議/;
+function para(text) {   // 一段裡第一次出現的議事名詞加上虛線底線，點了有解釋
+  const p = el('p'), m = TERM.exec(text);
+  if (!m) { p.textContent = text; return p; }
+  const b = el('button', {type: 'button', class: 'term', text: m[0]});
+  b.addEventListener('click', e => { e.stopPropagation(); if (tipTag === b) hideTip(); else showTip(b, [m[0]], true); });
+  p.append(text.slice(0, m.index), b, text.slice(m.index + m[0].length));
+  return p;
+}
+function fp(str) {   // 發言者加開頭幾個字的短指紋：逐字稿日後重新切分、段落編號變了，還能靠它找回同一段
+  let h = 0; for (const c of str) h = (h * 31 + c.codePointAt(0)) >>> 0;
+  return (h % 65536).toString(16).padStart(4, '0');
+}
+function toast(msg) {
+  document.querySelectorAll('.toast').forEach(x => x.remove());
+  const t = el('div', {class: 'toast', role: 'status', text: msg});
+  document.body.append(t); setTimeout(() => t.remove(), 4500);
+}
+function copyHere(id) {
+  const url = location.href.split('#')[0] + '#' + id;
+  const ok = () => toast('已複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言，可以往前往後讀。');
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, () => prompt('複製這個連結', url));
+  else prompt('複製這個連結', url);
+  history.replaceState(null, '', '#' + id);
+}
+function showTurn(turns, node) {   // 捲到某段發言；它如果收在折疊區塊裡，先打開
+  for (let p = node.parentElement; p && p !== turns; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
+  turns.scrollTop = node.offsetTop - turns.offsetTop - 8;
+}
+function finder(turns) {   // 在這場逐字稿裡找字
+  const input = el('input', {type: 'search', placeholder: '在這場逐字稿裡找字', 'aria-label': '在這場逐字稿裡找字'});
+  const count = el('span'), prev = el('button', {type: 'button', class: 'chip', text: '上一段'}), next = el('button', {type: 'button', class: 'chip', text: '下一段'});
+  let hits = [], cur = -1;
+  const go = i => {
+    if (!hits.length) return;
+    if (hits[cur]) hits[cur].classList.remove('cur');
+    cur = (i + hits.length) % hits.length;
+    hits[cur].classList.add('cur'); showTurn(turns, hits[cur]);
+    count.textContent = '第 ' + (cur + 1) + ' / ' + hits.length + ' 段';
+  };
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    [...turns.children].forEach(t => t.classList.remove('hit', 'cur'));
+    hits = q ? [...turns.children].filter(t => t.textContent.includes(q)) : []; cur = -1;
+    hits.forEach(t => t.classList.add('hit'));
+    prev.hidden = next.hidden = !hits.length;
+    count.textContent = !q ? '' : hits.length ? '' : '這場沒有出現這個詞';
+    if (hits.length) go(0);
+  });
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); go(cur + (e.shiftKey ? -1 : 1)); } });
+  prev.addEventListener('click', () => go(cur - 1)); next.addEventListener('click', () => go(cur + 1));
+  prev.hidden = next.hidden = true;
+  return el('div', {class: 'find'}, input, count, prev, next);
+}
 function renderTranscript(box, data, s) {
   box.textContent = '';
   const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
@@ -451,15 +518,21 @@ function renderTranscript(box, data, s) {
     const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
     if (t.s) {
       const who = el('div', {class: 'who'}, t.s);
+      const pa = PARTY[normName(t.s)];
+      if (pa) who.append(el('span', {class: 'party', style: '--pc:' + PCOLOR[pa]}, el('i'), pa));
       if (t.t) who.append(el('small', {text: t.t}));
       const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
       const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
       if (u && t.t) who.append(link(u, '看這段影片'));
+      const here = el('button', {type: 'button', class: 'here', text: '分享上下文', title: '複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言'});
+      d.dataset.fp = fp(t.s + '|' + (t.b.find(x => typeof x === 'string') || '').slice(0, 30));
+      here.addEventListener('click', () => copyHere(d.id + '-' + d.dataset.fp));
+      who.append(here);
       d.append(who);
       if (!chair && !first.has(t.s)) first.set(t.s, d);
     }
     const put = (into, b) => {
-      if (typeof b === 'string') into.append(el('p', {text: b}));
+      if (typeof b === 'string') into.append(para(b));
       else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
         const inner = el('div', {class: 'readout'});
         b.b.forEach(x => put(inner, x));
@@ -480,7 +553,7 @@ function renderTranscript(box, data, s) {
   const chips = el('div', {class: 'chips'});
   first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
   idx.append(chips);
-  box.append(idx, turns);
+  box.append(idx, finder(turns), turns);
 }
 /* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
 const READING = {
@@ -501,6 +574,14 @@ const READING = {
     '最後將全案進行最終表決。',
     '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
 };
+Object.assign(READING, {
+  '復議': {t: '復議', sub: '要求把已經表決的案子重新討論', what: '議案表決之後，當初投贊成的一方可以提出復議，要求重新討論、重新表決。', pts: [
+    '復議被否決之後，同一個案子不能再提復議，決議就此確定。',
+    '實務上常見多數方自己提出復議、再自己否決，目的是讓剛通過的條文確定下來。']},
+  '重付表決': {t: '重付表決', sub: '對表決結果有異議，再表決一次', what: '出席委員對表決結果有異議時，經 15 人以上連署或附議，可以要求重新表決。', pts: ['以一次為限。']},
+  '修正動議': {t: '修正動議', sub: '在院會對條文提出的修改案', what: '委員或黨團在二讀（或三讀）時，對討論中的條文提出另一個版本的文字，交院會表決。', pts: ['需要 10 人以上連署或附議。']},
+  '記名表決': {t: '記名表決', sub: '留下每位委員投什麼的表決', what: '表決時逐一記錄每位委員投贊成、反對或棄權，名單會登在公報上。', pts: []}
+});
 const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
 document.body.append(tipbox);
 let tipTimer = null, tipTag = null, tipPinned = false;
@@ -537,6 +618,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); }
 addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
 addEventListener('resize', hideTip);
 
+const OPEN = {};
 D.stages.forEach(s => {
   const k = kindOf(s.stage);
   const body = el('div', {class: 'body'});
@@ -570,18 +652,20 @@ D.stages.forEach(s => {
       body.append(sub, panel);
     }
     const acts = el('div', {class: 'acts'});
-    let box = null;
+    let box = null, opener = null;
     if (s.tr) {
       const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
       box = el('div', {class: 'tr', hidden: ''});
-      btn.addEventListener('click', async () => {
+      const toggle = async () => {
         const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
         if (!open || box.dataset.loaded) return;
         box.textContent = '載入逐字稿中';
         try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
         catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
-      });
+      };
+      btn.addEventListener('click', toggle);
       acts.append(btn);
+      OPEN[s.tr.replace(/\W/g, '-')] = async () => { if (box.hidden) await toggle(); return box; };
     } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
       acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
       s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
@@ -599,6 +683,28 @@ D.stages.forEach(s => {
   }
   $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
 });
+
+async function landFromHash() {
+  const m = /^#(.+?)-([0-9]+)(?:-([0-9a-f]{4}))?$/.exec(location.hash);
+  if (!m || !OPEN[m[1]]) return;
+  const box = await OPEN[m[1]]();
+  let node = document.getElementById(m[1] + '-' + m[2]), moved = false;
+  if (m[3] && !(node && node.dataset.fp === m[3])) {   // 編號對不上指紋：找指紋相同、離原編號最近的那段
+    const same = [...box.querySelectorAll('.turn')].filter(t => t.dataset.fp === m[3]);
+    const n = t => +t.id.slice(m[1].length + 1);
+    if (same.length) node = same.sort((a, b) => Math.abs(n(a) - m[2]) - Math.abs(n(b) - m[2]))[0]; else moved = true;
+  }
+  if (!node) return;
+  box.scrollIntoView({block: 'start'});
+  showTurn(node.parentElement, node);
+  document.querySelectorAll('.turn.landed').forEach(x => x.classList.remove('landed'));
+  document.querySelectorAll('.landtip').forEach(x => x.remove());
+  node.classList.add('landed');
+  const tip = el('div', {class: 'ref landtip', text: (moved ? '這場逐字稿在連結建立之後重新整理過，標色的位置可能和原本差幾段。' : '你是從連結進來的，下面標色的是連結指到的那段發言。') + '這裡是整場會議的逐字稿，可以往上讀前面發生了什麼，或往下讀後續。'});
+  box.prepend(tip);
+}
+if (document.readyState === 'complete') landFromHash(); else addEventListener('load', () => setTimeout(landFromHash, 50));
+addEventListener('hashchange', landFromHash);
 
 /* ---------- 表決 ---------- */
 (function () {

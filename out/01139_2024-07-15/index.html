@@ -93,6 +93,17 @@ button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(-
 .turn p{overflow-wrap:anywhere}
 .turn.pre p{font-size:13px;color:var(--muted)}
 .tw{overflow-x:auto;max-width:100%}
+.turn .party{font-weight:400;font-size:12px;color:var(--muted);white-space:nowrap}
+.turn .party i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--pc);margin-right:4px}
+.turn .here{font-weight:400;font-size:12px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-left:auto}
+.turn .here:hover{color:var(--accent)}
+.turn.landed{box-shadow:-3px 0 0 var(--accent);padding-left:10px;background:var(--accent-soft)}
+.turn.hit{box-shadow:-3px 0 0 var(--warn);padding-left:10px}
+.turn.hit.cur{background:var(--warn-soft)}
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;border-bottom:1px dotted var(--muted)}
+.tr .find{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--muted)}
+.tr .find input{font:inherit;font-size:14px;padding:2px 8px;border:1px solid var(--line);border-radius:3px;background:var(--surface);color:var(--ink);width:min(16em,100%)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);font-size:13px;padding:8px 14px;border-radius:4px;max-width:calc(100vw - 32px)}
 .readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
 .readnote{padding-left:1.4em}
 .turn .fold>summary b{font-weight:500}
@@ -227,7 +238,7 @@ dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
   <p class="foot" id="foot"></p>
 </div>
 
-<script id="data" type="application/json">{"law":"勞動基準法","version":"01139:2024-07-15-修正","date":"2024-07-15","action":"修正","title":"勞動基準法　2024 年修正（第五十四條）","lede":"雇主原本可以在勞工滿 65 歲時強制退休。這次修正在第五十四條寫明，這個年齡可以由勞雇雙方協商延後。兩個提案、兩天委員會審查，院會無異議通過。","summary":"強制退休年齡 65 歲，明定可以由勞雇雙方協商延後。","key":"01139_2024-07-15","props":[{"id":"202110018420000","who":"委員王育敏等18人","date":"2024-03-29","name":"「勞動基準法第五十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110018420000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00008.pdf","proposers":["王育敏","顏寬恒","蘇清泉","洪孟楷"],"ncosign":14,"people":[["王育敏","國民黨","提案"],["顏寬恒","國民黨","提案"],["蘇清泉","國民黨","提案"],["洪孟楷","國民黨","提案"],["吳春城","民眾黨","連署"],["牛煦庭","國民黨","連署"],["涂權吉","國民黨","連署"],["王鴻薇","國民黨","連署"],["張啓楷","民眾黨","連署"],["陳超明","無黨籍","連署"],["賴士葆","國民黨","連署"],["羅智強","國民黨","連署"],["黃仁","國民黨","連署"],["陳菁徽","國民黨","連署"],["陳昭姿","民眾黨","連署"],["傅崐萁","國民黨","連署"],["高金素梅","無黨籍","連署"],["陳玉珍","國民黨","連署"]],"party":[["國民黨",13],["民眾黨",3],["無黨籍",2]],"reason":"本院委員王育敏、顏寬恒、蘇清泉、洪孟楷等18人，有鑑於臺灣缺工危機蔓延，少子化又導致勞動力缺口不斷擴大，為避免強制退休規定影響銀光世代繼續貢獻職場，爰擬具「勞動基準法第五十四條條文修正草案」。是否有當？敬請公決。","arts":["第五十四條"]},{"id":"202110034120000","who":"國民黨黨團","date":"2024-04-19","name":"「勞動基準法第五十四條及第八十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110034120000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00101.pdf","proposers":["傅崐萁","洪孟楷","林思銘"],"ncosign":0,"people":[["傅崐萁","國民黨","提案"],["洪孟楷","國民黨","提案"],["林思銘","國民黨","提案"]],"party":[["國民黨",3]],"reason":"本院國民黨黨團，鑑於缺工危機蔓延，但移工不是唯一紓解勞動力不足之對策，目前雖有「中高齡者及高齡者就業促進法」，然而「勞動基準法」中又有強制退休規定，彼此扞格，以致銀光經濟成效不彰。為免強制退休規定影響銀光世代繼續貢獻職場，爰擬具「勞動基準法第五十四條及第八十六條條文修正草案」。是否有當？敬請公決。","arts":["第五十四條","第八十六條"]}],"arts":[{"no":"第五十四條","current":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整。但不得少於五十五歲。","versions":[{"bill":"202110018420000","text":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，經勞資協議延任或新聘者得延後之。對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整，但不得少於五十五歲。","note":"一、新增「強制退休」年齡之例外情況，鼓勵健康且有意願之資深勞工持續貢獻職場。\n二、修正標點符號。"},{"bill":"202110034120000","text":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者，但經勞資協議延任或新聘者不在此限。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整。但不得少於五十五歲。","note":"一、新增「強制退休」例外情況。\n二、鼓勵健康且有意願之資深勞工持續貢獻職場。"}],"changed":true,"final":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，得由勞雇雙方協商延後之；對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整，但不得少於五十五歲。","finalWhy":"一、第一項未修正。\n二、勞動基準法係規範勞動條件最低標準，故勞資雙方如有意願，本可優於法令協商約定強制退休年齡高於六十五歲。為使前開立法目的更為明確，並鼓勵勞雇雙方協商合意，爰修正本條第二項，並酌修標點符號。,","review":{"note":"照委員王正旭等5人所提修正動議通過","text":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，得由勞雇雙方協商延後之；對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整，但不得少於五十五歲。"}},{"no":"第八十六條","current":"本法自公布日施行。\n本法中華民國八十九年六月二十八日修正公布之第三十條第一項及第二項，自九十年一月一日施行；一百零四年二月四日修正公布之第二十八條第一項，自公布後八個月施行；一百零四年六月三日修正公布之條文，自一百零五年一月一日施行；一百零五年十二月二十一日修正公布之第三十四條第二項施行日期，由行政院定之、第三十七條及第三十八條，自一百零六年一月一日施行。\n本法中華民國一百零七年一月十日修正之條文，自一百零七年三月一日施行。","versions":[{"bill":"202110034120000","text":"本法自公布日施行。\n本法中華民國八十九年六月二十八日修正公布之第三十條第一項及第二項，自九十年一月一日施行；一百零四年二月四日修正公布之第二十八條第一項，自公布後八個月施行；一百零四年六月三日修正公布之條文，自一百零五年一月一日施行；一百零五年十二月二十一日修正公布之第三十四條第二項施行日期，由行政院定之、第三十七條及第三十八條，自一百零六年一月一日施行。\n本法中華民國一百零七年一月十日修正之條文，自一百零七年三月一日施行。\n本法第五十四條修正條文自中華民國○年○月○日施行。","note":"強制退休例外規定之施行日期。"}],"changed":false,"final":"本法自公布日施行。\n本法中華民國八十九年六月二十八日修正公布之第三十條第一項及第二項，自九十年一月一日施行；一百零四年二月四日修正公布之第二十八條第一項，自公布後八個月施行；一百零四年六月三日修正公布之條文，自一百零五年一月一日施行；一百零五年十二月二十一日修正公布之第三十四條第二項施行日期，由行政院定之、第三十七條及第三十八條，自一百零六年一月一日施行。\n本法中華民國一百零七年一月十日修正之條文，自一百零七年三月一日施行。","finalWhy":null,"review":{"note":"維持現行條文","text":""}}],"stages":[{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110018420000","gazref":"113卷018期5200號 1-1頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110034120000","gazref":"113卷028期5210號 12-12頁"},{"date":"2024-05-13","code":"委員會-11-1-26-16","title":"第11屆第1會期社會福利及衛生環境委員會第16次全體委員會議","gazref":"113卷046期5228號三冊 189-190,197-270頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024050969/details?meetingDate=113/05/13","full":["https://ivod.ly.gov.tw/Play/Full/1M/15902"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/113/46/LCIDC01_1134603_00002.pdf","p1":189,"p2":270}],"clips":[{"n":"蘇清泉","t":"09:09","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152470"},{"n":"陳菁徽","t":"09:10","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152399"},{"n":"陳昭姿","t":"09:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152400"},{"n":"陳昭姿","t":"09:21","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152406"},{"n":"陳菁徽","t":"09:31","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152407"},{"n":"林月琴","t":"09:42","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152412"},{"n":"邱鎮軍","t":"09:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152414"},{"n":"廖偉翔","t":"10:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152417"},{"n":"蘇清泉","t":"10:13","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152426"},{"n":"王育敏","t":"10:25","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152427"},{"n":"涂權吉","t":"10:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152434"},{"n":"鄭天財Sra Kacaw","t":"10:59","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152439"},{"n":"王正旭","t":"11:04","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152443"},{"n":"黃秀芳","t":"11:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152446"},{"n":"林淑芬","t":"11:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152451"},{"n":"牛煦庭","t":"11:46","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152455"},{"n":"劉建國","t":"11:56","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152459"},{"n":"陳培瑜","t":"12:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152460"},{"n":"黃國昌","t":"12:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152462"},{"n":"張智倫","t":"12:26","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152464"},{"n":"李彥秀","t":"12:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152466"},{"n":"邱志偉","t":"12:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152467"},{"n":"陳瑩","t":"12:46","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152468"},{"n":"楊曜","t":"12:57","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152469"}],"props":["202110018420000","202110034120000"],"tr":"tr/1.json","note":"這天是詢答，委員輪流質詢勞動部，還沒有逐條審查。","mixed":["工會法","中高齡者及高齡者就業促進法"],"nspeak":41,"nmem":20,"ntable":1,"nfold":7},{"date":"2024-05-15","code":"委員會-11-1-26-16","title":"第11屆第1會期社會福利及衛生環境委員會第16次全體委員會議","gazref":"113卷046期5228號三冊 271-315頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024050969/details?meetingDate=113/05/13","full":["https://ivod.ly.gov.tw/Play/Full/1M/15910"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/113/46/LCIDC01_1134603_00003.pdf","p1":271,"p2":316}],"clips":[],"props":["202110018420000","202110034120000"],"tr":"tr/2.json","note":"逐條審查。第五十四條一度保留，溝通後照委員王正旭等 5 人所提修正動議通過；第八十六條維持現行條文。決議不須交黨團協商。","mixed":["工會法","中高齡者及高齡者就業促進法"],"nspeak":17,"nmem":10,"ntable":0,"nfold":0},{"date":"2024-07-15","code":"院會-11-1-22","title":"第11屆第1會期第22次會議","gazref":"113卷071期5253號九冊 85-90頁；113卷071期5253號九冊 90-90頁；113卷071期5253號九冊 90-92頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024071092/details?meetingDate=113/07/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/16102"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/113/71/LCIDC01_1137109_00004.pdf","p1":85,"p2":92}],"clips":[],"props":[],"tr":"tr/3.json","note":"審查會決議不須協商，院會二讀、三讀都無異議，照審查會條文通過。","nspeak":4,"nmem":3,"ntable":0,"nfold":1}],"votes":[],"manualVotes":{"text":"這次修正沒有表決。2024 年 7 月 15 日院會二讀、三讀時，主席詢問有無異議，無人異議，照案通過，所以沒有投票名單，也沒有贊成反對人數。","rows":[]},"gaps":["委員會通過的條文來自王正旭等 5 人當場提出的修正動議。勞動部在會中說第五十四條共有 3 份修正動議，這些動議不在提案資料裡，只能從 5 月 15 日的逐字稿讀到討論。"],"autoGaps":["5 月 13 日、5 月 15 日的委員會同時審查工會法、中高齡者及高齡者就業促進法，逐字稿包含那些法案的討論，沒有切開。","5 月 15 日的委員會沒有委員個別發言的影片片段，只有完整影片。"],"reviewed":true,"fetched":"2026-11-16"}</script>
+<script id="data" type="application/json">{"law":"勞動基準法","version":"01139:2024-07-15-修正","date":"2024-07-15","action":"修正","title":"勞動基準法　2024 年修正（第五十四條）","lede":"雇主原本可以在勞工滿 65 歲時強制退休。這次修正在第五十四條寫明，這個年齡可以由勞雇雙方協商延後。兩個提案、兩天委員會審查，院會無異議通過。","summary":"強制退休年齡 65 歲，明定可以由勞雇雙方協商延後。","key":"01139_2024-07-15","props":[{"id":"202110018420000","who":"委員王育敏等18人","date":"2024-03-29","name":"「勞動基準法第五十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110018420000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/07/LCEWA01_110107_00008.pdf","proposers":["王育敏","顏寬恒","蘇清泉","洪孟楷"],"ncosign":14,"people":[["王育敏","國民黨","提案"],["顏寬恒","國民黨","提案"],["蘇清泉","國民黨","提案"],["洪孟楷","國民黨","提案"],["吳春城","民眾黨","連署"],["牛煦庭","國民黨","連署"],["涂權吉","國民黨","連署"],["王鴻薇","國民黨","連署"],["張啓楷","民眾黨","連署"],["陳超明","無黨籍","連署"],["賴士葆","國民黨","連署"],["羅智強","國民黨","連署"],["黃仁","國民黨","連署"],["陳菁徽","國民黨","連署"],["陳昭姿","民眾黨","連署"],["傅崐萁","國民黨","連署"],["高金素梅","無黨籍","連署"],["陳玉珍","國民黨","連署"]],"party":[["國民黨",13],["民眾黨",3],["無黨籍",2]],"reason":"本院委員王育敏、顏寬恒、蘇清泉、洪孟楷等18人，有鑑於臺灣缺工危機蔓延，少子化又導致勞動力缺口不斷擴大，為避免強制退休規定影響銀光世代繼續貢獻職場，爰擬具「勞動基準法第五十四條條文修正草案」。是否有當？敬請公決。","arts":["第五十四條"]},{"id":"202110034120000","who":"國民黨黨團","date":"2024-04-19","name":"「勞動基準法第五十四條及第八十六條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110034120000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/10/LCEWA01_110110_00101.pdf","proposers":["傅崐萁","洪孟楷","林思銘"],"ncosign":0,"people":[["傅崐萁","國民黨","提案"],["洪孟楷","國民黨","提案"],["林思銘","國民黨","提案"]],"party":[["國民黨",3]],"reason":"本院國民黨黨團，鑑於缺工危機蔓延，但移工不是唯一紓解勞動力不足之對策，目前雖有「中高齡者及高齡者就業促進法」，然而「勞動基準法」中又有強制退休規定，彼此扞格，以致銀光經濟成效不彰。為免強制退休規定影響銀光世代繼續貢獻職場，爰擬具「勞動基準法第五十四條及第八十六條條文修正草案」。是否有當？敬請公決。","arts":["第五十四條","第八十六條"]}],"arts":[{"no":"第五十四條","current":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整。但不得少於五十五歲。","versions":[{"bill":"202110018420000","text":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，經勞資協議延任或新聘者得延後之。對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整，但不得少於五十五歲。","note":"一、新增「強制退休」年齡之例外情況，鼓勵健康且有意願之資深勞工持續貢獻職場。\n二、修正標點符號。"},{"bill":"202110034120000","text":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者，但經勞資協議延任或新聘者不在此限。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整。但不得少於五十五歲。","note":"一、新增「強制退休」例外情況。\n二、鼓勵健康且有意願之資深勞工持續貢獻職場。"}],"changed":true,"final":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，得由勞雇雙方協商延後之；對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整，但不得少於五十五歲。","finalWhy":"一、第一項未修正。\n二、勞動基準法係規範勞動條件最低標準，故勞資雙方如有意願，本可優於法令協商約定強制退休年齡高於六十五歲。為使前開立法目的更為明確，並鼓勵勞雇雙方協商合意，爰修正本條第二項，並酌修標點符號。,","review":{"note":"照委員王正旭等5人所提修正動議通過","text":"勞工非有下列情形之一，雇主不得強制其退休：\n一、年滿六十五歲者。\n二、身心障礙不堪勝任工作者。\n前項第一款所規定之年齡，得由勞雇雙方協商延後之；對於擔任具有危險、堅強體力等特殊性質之工作者，得由事業單位報請中央主管機關予以調整，但不得少於五十五歲。"}},{"no":"第八十六條","current":"本法自公布日施行。\n本法中華民國八十九年六月二十八日修正公布之第三十條第一項及第二項，自九十年一月一日施行；一百零四年二月四日修正公布之第二十八條第一項，自公布後八個月施行；一百零四年六月三日修正公布之條文，自一百零五年一月一日施行；一百零五年十二月二十一日修正公布之第三十四條第二項施行日期，由行政院定之、第三十七條及第三十八條，自一百零六年一月一日施行。\n本法中華民國一百零七年一月十日修正之條文，自一百零七年三月一日施行。","versions":[{"bill":"202110034120000","text":"本法自公布日施行。\n本法中華民國八十九年六月二十八日修正公布之第三十條第一項及第二項，自九十年一月一日施行；一百零四年二月四日修正公布之第二十八條第一項，自公布後八個月施行；一百零四年六月三日修正公布之條文，自一百零五年一月一日施行；一百零五年十二月二十一日修正公布之第三十四條第二項施行日期，由行政院定之、第三十七條及第三十八條，自一百零六年一月一日施行。\n本法中華民國一百零七年一月十日修正之條文，自一百零七年三月一日施行。\n本法第五十四條修正條文自中華民國○年○月○日施行。","note":"強制退休例外規定之施行日期。"}],"changed":false,"final":"本法自公布日施行。\n本法中華民國八十九年六月二十八日修正公布之第三十條第一項及第二項，自九十年一月一日施行；一百零四年二月四日修正公布之第二十八條第一項，自公布後八個月施行；一百零四年六月三日修正公布之條文，自一百零五年一月一日施行；一百零五年十二月二十一日修正公布之第三十四條第二項施行日期，由行政院定之、第三十七條及第三十八條，自一百零六年一月一日施行。\n本法中華民國一百零七年一月十日修正之條文，自一百零七年三月一日施行。","finalWhy":null,"review":{"note":"維持現行條文","text":""}}],"stages":[{"date":"2024-03-29","stage":"一讀","code":"院會-11-1-7","bill":"202110018420000","gazref":"113卷018期5200號 1-1頁"},{"date":"2024-04-19","stage":"一讀","code":"院會-11-1-10","bill":"202110034120000","gazref":"113卷028期5210號 12-12頁"},{"date":"2024-05-13","code":"委員會-11-1-26-16","title":"第11屆第1會期社會福利及衛生環境委員會第16次全體委員會議","gazref":"113卷046期5228號三冊 189-190,197-270頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024050969/details?meetingDate=113/05/13","full":["https://ivod.ly.gov.tw/Play/Full/1M/15902"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/113/46/LCIDC01_1134603_00002.pdf","p1":189,"p2":270}],"clips":[{"n":"蘇清泉","t":"09:09","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152470"},{"n":"陳菁徽","t":"09:10","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152399"},{"n":"陳昭姿","t":"09:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152400"},{"n":"陳昭姿","t":"09:21","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152406"},{"n":"陳菁徽","t":"09:31","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152407"},{"n":"林月琴","t":"09:42","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152412"},{"n":"邱鎮軍","t":"09:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152414"},{"n":"廖偉翔","t":"10:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152417"},{"n":"蘇清泉","t":"10:13","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152426"},{"n":"王育敏","t":"10:25","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152427"},{"n":"涂權吉","t":"10:37","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152434"},{"n":"鄭天財Sra Kacaw","t":"10:59","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152439"},{"n":"王正旭","t":"11:04","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152443"},{"n":"黃秀芳","t":"11:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152446"},{"n":"林淑芬","t":"11:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152451"},{"n":"牛煦庭","t":"11:46","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152455"},{"n":"劉建國","t":"11:56","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152459"},{"n":"陳培瑜","t":"12:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152460"},{"n":"黃國昌","t":"12:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152462"},{"n":"張智倫","t":"12:26","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152464"},{"n":"李彥秀","t":"12:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152466"},{"n":"邱志偉","t":"12:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152467"},{"n":"陳瑩","t":"12:46","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152468"},{"n":"楊曜","t":"12:57","u":"https://ivod.ly.gov.tw/Play/Clip/1M/152469"}],"props":["202110018420000","202110034120000"],"tr":"tr/1.json","note":"這天是詢答，委員輪流質詢勞動部，還沒有逐條審查。","mixed":["工會法","中高齡者及高齡者就業促進法"],"nspeak":41,"nmem":20,"ntable":1,"nfold":7},{"date":"2024-05-15","code":"委員會-11-1-26-16","title":"第11屆第1會期社會福利及衛生環境委員會第16次全體委員會議","gazref":"113卷046期5228號三冊 271-315頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024050969/details?meetingDate=113/05/13","full":["https://ivod.ly.gov.tw/Play/Full/1M/15910"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/113/46/LCIDC01_1134603_00003.pdf","p1":271,"p2":316}],"clips":[],"props":["202110018420000","202110034120000"],"tr":"tr/2.json","note":"逐條審查。第五十四條一度保留，溝通後照委員王正旭等 5 人所提修正動議通過；第八十六條維持現行條文。決議不須交黨團協商。","mixed":["工會法","中高齡者及高齡者就業促進法"],"nspeak":17,"nmem":10,"ntable":0,"nfold":0},{"date":"2024-07-15","code":"院會-11-1-22","title":"第11屆第1會期第22次會議","gazref":"113卷071期5253號九冊 85-90頁；113卷071期5253號九冊 90-90頁；113卷071期5253號九冊 90-92頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2024071092/details?meetingDate=113/07/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/16102"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/113/71/LCIDC01_1137109_00004.pdf","p1":85,"p2":92}],"clips":[],"props":[],"tr":"tr/3.json","note":"審查會決議不須協商，院會二讀、三讀都無異議，照審查會條文通過。","nspeak":4,"nmem":3,"ntable":0,"nfold":1}],"votes":[],"manualVotes":{"text":"這次修正沒有表決。2024 年 7 月 15 日院會二讀、三讀時，主席詢問有無異議，無人異議，照案通過，所以沒有投票名單，也沒有贊成反對人數。","rows":[]},"gaps":["委員會通過的條文來自王正旭等 5 人當場提出的修正動議。勞動部在會中說第五十四條共有 3 份修正動議，這些動議不在提案資料裡，只能從 5 月 15 日的逐字稿讀到討論。"],"autoGaps":["5 月 13 日、5 月 15 日的委員會同時審查工會法、中高齡者及高齡者就業促進法，逐字稿包含那些法案的討論，沒有切開。","5 月 15 日的委員會沒有委員個別發言的影片片段，只有完整影片。"],"reviewed":true,"fetched":"2026-11-17","parties":{"吳春城":"民眾黨","李貞秀":"民眾黨","麥玉珍":"民眾黨","林國成":"民眾黨","張啓楷":"民眾黨","黃珊珊":"民眾黨","黃國昌":"民眾黨","林憶君":"民眾黨","游錫堃":"民進黨","洪申翰":"民進黨","何欣純":"民進黨","李昆澤":"民進黨","林俊憲":"民進黨","邱若華":"國民黨","洪孟楷":"國民黨","徐富癸":"民進黨","許智傑":"民進黨","陳素月":"民進黨","陳雪生":"國民黨","游顥":"國民黨","黃健豪":"國民黨","萬美玲":"國民黨","魯明哲":"國民黨","陳清龍":"民眾黨","丁學忠":"國民黨","陳昭姿":"民眾黨","牛煦庭":"國民黨","王世堅":"民進黨","王定宇":"民進黨","王美惠":"民進黨","王鴻薇":"國民黨","伍麗華":"民進黨","江啟臣":"國民黨","吳沛憶":"民進黨","吳宗憲":"國民黨","吳秉叡":"民進黨","吳思瑤":"民進黨","吳琪銘":"民進黨","李柏毅":"民進黨","林宜瑾":"民進黨","林岱樺":"民進黨","林思銘":"國民黨","林淑芬":"民進黨","林德福":"國民黨","邱志偉":"民進黨","邱鎮軍":"國民黨","邱議瑩":"民進黨","柯志恩":"國民黨","柯建銘":"民進黨","范雲":"民進黨","徐巧芯":"國民黨","徐欣瑩":"國民黨","涂權吉":"國民黨","馬文君":"國民黨","高金素梅":"無黨籍","張宏陸":"民進黨","張智倫":"國民黨","張嘉郡":"國民黨","莊瑞雄":"民進黨","郭國文":"民進黨","陳永康":"國民黨","陳玉珍":"國民黨","陳秀寳":"民進黨","陳亭妃":"民進黨","陳俊宇":"民進黨","陳冠廷":"民進黨","陳超明":"無黨籍","陳瑩":"民進黨","傅崐萁":"國民黨","黃仁":"國民黨","黃秀芳":"民進黨","黃建賓":"國民黨","黃捷":"民進黨","楊曜":"民進黨","楊瓊瓔":"國民黨","葉元之":"國民黨","廖先翔":"國民黨","廖偉翔":"國民黨","劉建國":"民進黨","蔡其昌":"民進黨","蔡易餘":"民進黨","鄭正鈐":"國民黨","賴士葆":"國民黨","賴瑞隆":"民進黨","謝龍介":"國民黨","鍾佳濱":"民進黨","韓國瑜":"國民黨","顏寬恒":"國民黨","羅廷瑋":"國民黨","羅明才":"國民黨","羅智強":"國民黨","蘇巧慧":"民進黨","蘇清泉":"國民黨","呂玉玲":"國民黨","李坤城":"民進黨","洪毓祥":"民眾黨","蔡春綢":"民眾黨","王安祥":"民眾黨","邱慧洳":"民眾黨","翁曉玲":"國民黨","王育敏":"國民黨","沈伯洋":"民進黨","沈發惠":"民進黨","林沛祥":"國民黨","林楚茵":"民進黨","張雅琳":"民進黨","陳菁徽":"國民黨","鄭天財":"國民黨","盧縣一":"國民黨","羅美玲":"民進黨","王正旭":"民進黨","王義川":"民進黨","劉書彬":"民眾黨","李彥秀":"國民黨","林月琴":"民進黨","林倩綺":"國民黨","許宇甄":"國民黨","郭昱晴":"民進黨","陳培瑜":"民進黨","葛如鈞":"國民黨","賴惠員":"民進黨","謝衣鳯":"國民黨","許忠信":"民眾黨"}}</script>
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const $ = id => document.getElementById(id);
@@ -441,6 +452,62 @@ D.props.forEach(p => {
 
 /* ---------- 歷程與逐字稿 ---------- */
 const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+const PARTY = D.parties || {};
+const PCOLOR = {'國民黨': '#2a6fc9', '民進黨': '#2f9e44', '民眾黨': '#22b8b0', '無黨籍': '#8a94a0'};
+const TERM = /逕付二讀|重付表決|修正動議|記名表決|復議/;
+function para(text) {   // 一段裡第一次出現的議事名詞加上虛線底線，點了有解釋
+  const p = el('p'), m = TERM.exec(text);
+  if (!m) { p.textContent = text; return p; }
+  const b = el('button', {type: 'button', class: 'term', text: m[0]});
+  b.addEventListener('click', e => { e.stopPropagation(); if (tipTag === b) hideTip(); else showTip(b, [m[0]], true); });
+  p.append(text.slice(0, m.index), b, text.slice(m.index + m[0].length));
+  return p;
+}
+function fp(str) {   // 發言者加開頭幾個字的短指紋：逐字稿日後重新切分、段落編號變了，還能靠它找回同一段
+  let h = 0; for (const c of str) h = (h * 31 + c.codePointAt(0)) >>> 0;
+  return (h % 65536).toString(16).padStart(4, '0');
+}
+function toast(msg) {
+  document.querySelectorAll('.toast').forEach(x => x.remove());
+  const t = el('div', {class: 'toast', role: 'status', text: msg});
+  document.body.append(t); setTimeout(() => t.remove(), 4500);
+}
+function copyHere(id) {
+  const url = location.href.split('#')[0] + '#' + id;
+  const ok = () => toast('已複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言，可以往前往後讀。');
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, () => prompt('複製這個連結', url));
+  else prompt('複製這個連結', url);
+  history.replaceState(null, '', '#' + id);
+}
+function showTurn(turns, node) {   // 捲到某段發言；它如果收在折疊區塊裡，先打開
+  for (let p = node.parentElement; p && p !== turns; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
+  turns.scrollTop = node.offsetTop - turns.offsetTop - 8;
+}
+function finder(turns) {   // 在這場逐字稿裡找字
+  const input = el('input', {type: 'search', placeholder: '在這場逐字稿裡找字', 'aria-label': '在這場逐字稿裡找字'});
+  const count = el('span'), prev = el('button', {type: 'button', class: 'chip', text: '上一段'}), next = el('button', {type: 'button', class: 'chip', text: '下一段'});
+  let hits = [], cur = -1;
+  const go = i => {
+    if (!hits.length) return;
+    if (hits[cur]) hits[cur].classList.remove('cur');
+    cur = (i + hits.length) % hits.length;
+    hits[cur].classList.add('cur'); showTurn(turns, hits[cur]);
+    count.textContent = '第 ' + (cur + 1) + ' / ' + hits.length + ' 段';
+  };
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    [...turns.children].forEach(t => t.classList.remove('hit', 'cur'));
+    hits = q ? [...turns.children].filter(t => t.textContent.includes(q)) : []; cur = -1;
+    hits.forEach(t => t.classList.add('hit'));
+    prev.hidden = next.hidden = !hits.length;
+    count.textContent = !q ? '' : hits.length ? '' : '這場沒有出現這個詞';
+    if (hits.length) go(0);
+  });
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); go(cur + (e.shiftKey ? -1 : 1)); } });
+  prev.addEventListener('click', () => go(cur - 1)); next.addEventListener('click', () => go(cur + 1));
+  prev.hidden = next.hidden = true;
+  return el('div', {class: 'find'}, input, count, prev, next);
+}
 function renderTranscript(box, data, s) {
   box.textContent = '';
   const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
@@ -451,15 +518,21 @@ function renderTranscript(box, data, s) {
     const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
     if (t.s) {
       const who = el('div', {class: 'who'}, t.s);
+      const pa = PARTY[normName(t.s)];
+      if (pa) who.append(el('span', {class: 'party', style: '--pc:' + PCOLOR[pa]}, el('i'), pa));
       if (t.t) who.append(el('small', {text: t.t}));
       const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
       const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
       if (u && t.t) who.append(link(u, '看這段影片'));
+      const here = el('button', {type: 'button', class: 'here', text: '分享上下文', title: '複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言'});
+      d.dataset.fp = fp(t.s + '|' + (t.b.find(x => typeof x === 'string') || '').slice(0, 30));
+      here.addEventListener('click', () => copyHere(d.id + '-' + d.dataset.fp));
+      who.append(here);
       d.append(who);
       if (!chair && !first.has(t.s)) first.set(t.s, d);
     }
     const put = (into, b) => {
-      if (typeof b === 'string') into.append(el('p', {text: b}));
+      if (typeof b === 'string') into.append(para(b));
       else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
         const inner = el('div', {class: 'readout'});
         b.b.forEach(x => put(inner, x));
@@ -480,7 +553,7 @@ function renderTranscript(box, data, s) {
   const chips = el('div', {class: 'chips'});
   first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
   idx.append(chips);
-  box.append(idx, turns);
+  box.append(idx, finder(turns), turns);
 }
 /* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
 const READING = {
@@ -501,6 +574,14 @@ const READING = {
     '最後將全案進行最終表決。',
     '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
 };
+Object.assign(READING, {
+  '復議': {t: '復議', sub: '要求把已經表決的案子重新討論', what: '議案表決之後，當初投贊成的一方可以提出復議，要求重新討論、重新表決。', pts: [
+    '復議被否決之後，同一個案子不能再提復議，決議就此確定。',
+    '實務上常見多數方自己提出復議、再自己否決，目的是讓剛通過的條文確定下來。']},
+  '重付表決': {t: '重付表決', sub: '對表決結果有異議，再表決一次', what: '出席委員對表決結果有異議時，經 15 人以上連署或附議，可以要求重新表決。', pts: ['以一次為限。']},
+  '修正動議': {t: '修正動議', sub: '在院會對條文提出的修改案', what: '委員或黨團在二讀（或三讀）時，對討論中的條文提出另一個版本的文字，交院會表決。', pts: ['需要 10 人以上連署或附議。']},
+  '記名表決': {t: '記名表決', sub: '留下每位委員投什麼的表決', what: '表決時逐一記錄每位委員投贊成、反對或棄權，名單會登在公報上。', pts: []}
+});
 const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
 document.body.append(tipbox);
 let tipTimer = null, tipTag = null, tipPinned = false;
@@ -537,6 +618,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); }
 addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
 addEventListener('resize', hideTip);
 
+const OPEN = {};
 D.stages.forEach(s => {
   const k = kindOf(s.stage);
   const body = el('div', {class: 'body'});
@@ -570,18 +652,20 @@ D.stages.forEach(s => {
       body.append(sub, panel);
     }
     const acts = el('div', {class: 'acts'});
-    let box = null;
+    let box = null, opener = null;
     if (s.tr) {
       const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
       box = el('div', {class: 'tr', hidden: ''});
-      btn.addEventListener('click', async () => {
+      const toggle = async () => {
         const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
         if (!open || box.dataset.loaded) return;
         box.textContent = '載入逐字稿中';
         try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
         catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
-      });
+      };
+      btn.addEventListener('click', toggle);
       acts.append(btn);
+      OPEN[s.tr.replace(/\W/g, '-')] = async () => { if (box.hidden) await toggle(); return box; };
     } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
       acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
       s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
@@ -599,6 +683,28 @@ D.stages.forEach(s => {
   }
   $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
 });
+
+async function landFromHash() {
+  const m = /^#(.+?)-([0-9]+)(?:-([0-9a-f]{4}))?$/.exec(location.hash);
+  if (!m || !OPEN[m[1]]) return;
+  const box = await OPEN[m[1]]();
+  let node = document.getElementById(m[1] + '-' + m[2]), moved = false;
+  if (m[3] && !(node && node.dataset.fp === m[3])) {   // 編號對不上指紋：找指紋相同、離原編號最近的那段
+    const same = [...box.querySelectorAll('.turn')].filter(t => t.dataset.fp === m[3]);
+    const n = t => +t.id.slice(m[1].length + 1);
+    if (same.length) node = same.sort((a, b) => Math.abs(n(a) - m[2]) - Math.abs(n(b) - m[2]))[0]; else moved = true;
+  }
+  if (!node) return;
+  box.scrollIntoView({block: 'start'});
+  showTurn(node.parentElement, node);
+  document.querySelectorAll('.turn.landed').forEach(x => x.classList.remove('landed'));
+  document.querySelectorAll('.landtip').forEach(x => x.remove());
+  node.classList.add('landed');
+  const tip = el('div', {class: 'ref landtip', text: (moved ? '這場逐字稿在連結建立之後重新整理過，標色的位置可能和原本差幾段。' : '你是從連結進來的，下面標色的是連結指到的那段發言。') + '這裡是整場會議的逐字稿，可以往上讀前面發生了什麼，或往下讀後續。'});
+  box.prepend(tip);
+}
+if (document.readyState === 'complete') landFromHash(); else addEventListener('load', () => setTimeout(landFromHash, 50));
+addEventListener('hashchange', landFromHash);
 
 /* ---------- 表決 ---------- */
 (function () {

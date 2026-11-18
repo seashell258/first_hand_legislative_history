@@ -93,6 +93,17 @@ button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(-
 .turn p{overflow-wrap:anywhere}
 .turn.pre p{font-size:13px;color:var(--muted)}
 .tw{overflow-x:auto;max-width:100%}
+.turn .party{font-weight:400;font-size:12px;color:var(--muted);white-space:nowrap}
+.turn .party i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--pc);margin-right:4px}
+.turn .here{font-weight:400;font-size:12px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-left:auto}
+.turn .here:hover{color:var(--accent)}
+.turn.landed{box-shadow:-3px 0 0 var(--accent);padding-left:10px;background:var(--accent-soft)}
+.turn.hit{box-shadow:-3px 0 0 var(--warn);padding-left:10px}
+.turn.hit.cur{background:var(--warn-soft)}
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;border-bottom:1px dotted var(--muted)}
+.tr .find{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--muted)}
+.tr .find input{font:inherit;font-size:14px;padding:2px 8px;border:1px solid var(--line);border-radius:3px;background:var(--surface);color:var(--ink);width:min(16em,100%)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);font-size:13px;padding:8px 14px;border-radius:4px;max-width:calc(100vw - 32px)}
 .readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
 .readnote{padding-left:1.4em}
 .turn .fold>summary b{font-weight:500}
@@ -227,7 +238,7 @@ dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
   <p class="foot" id="foot"></p>
 </div>
 
-<script id="data" type="application/json">{"law":"農產品市場交易法","version":"03106:2026-01-20-修正","date":"2026-01-20","action":"修正","title":"農產品市場交易法　2026 年修正","lede":"","summary":"","key":"03106_2026-01-20","props":[{"id":"202110079850000","who":"委員陳亭妃等16人","date":"2024-11-29","name":"「農產品市場交易法第六條及第三十五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110079850000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/11/LCEWA01_110211_00040.pdf","proposers":["陳亭妃"],"ncosign":15,"people":[["陳亭妃","民進黨","提案"],["黃捷","民進黨","連署"],["黃秀芳","民進黨","連署"],["郭昱晴","民進黨","連署"],["邱議瑩","民進黨","連署"],["王美惠","民進黨","連署"],["何欣純","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["林岱樺","民進黨","連署"],["蔡易餘","民進黨","連署"],["陳培瑜","民進黨","連署"],["陳素月","民進黨","連署"],["陳秀寳","民進黨","連署"],["邱志偉","民進黨","連署"],["吳琪銘","民進黨","連署"],["陳俊宇","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員陳亭妃等16人，鑒於農產品價格攸關全民權益、農民生計及我國農產品之交易秩序穩定。為穩定農產品價格，遏阻壟斷、操縱價格、散播影響農產品交易價格之謠言或不實訊息等情事發生，並杜絕有心人士從中獲取龐大不正當利益或對市場交易秩序與行為造成重大危害。爰擬具「農產品市場交易法第六條及第三十五條條文修正草案」，針對原第六條之行為目的要件為「謀取不正當利益」改為以「對市場秩序或行為造成危害」認定之，並鑑於現行處罰顯然過低，調整相關處罰罰鍰金額。是否有當？敬請公決。","arts":["第六條","第三十五條"]},{"id":"202110126980000","who":"委員邱議瑩等20人","date":"2025-05-16","name":"「農產品市場交易法第十五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110126980000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/12/LCEWA01_110312_00064.pdf","proposers":["邱議瑩","林楚茵"],"ncosign":18,"people":[["邱議瑩","民進黨","提案"],["林楚茵","民進黨","提案"],["陳俊宇","民進黨","連署"],["蔡易餘","民進黨","連署"],["范雲","民進黨","連署"],["蔡其昌","民進黨","連署"],["陳冠廷","民進黨","連署"],["陳素月","民進黨","連署"],["林月琴","民進黨","連署"],["張宏陸","民進黨","連署"],["李昆澤","民進黨","連署"],["蘇巧慧","民進黨","連署"],["徐富癸","民進黨","連署"],["郭昱晴","民進黨","連署"],["林宜瑾","民進黨","連署"],["王定宇","民進黨","連署"],["李柏毅","民進黨","連署"],["羅美玲","民進黨","連署"],["許智傑","民進黨","連署"],["鍾佳濱","民進黨","連署"]],"party":[["民進黨",20]],"reason":"本院委員邱議瑩、林楚茵等20人，目前《農產品市場交易法》第十五條對於農產品批發市場所需土地，僅規定私有土地須由地方主管機關協助「洽購或依法徵收」，未開放「租用」作為取得方式，與現行國營事業土地管理政策（如台糖公司採「以租代售」政策）產生衝突，導致地方政府推動批發市場遷建或興建新設施時，遭遇法令障礙、推動困難。該條文制定於民國73年，迄今已逾40年，隨社會變遷、土地資源日益有限，以及國家推動活化公有資產、促進農產物流現代化之政策需求，實有必要調整法條，賦予地方政府更具彈性之土地取得工具，爰擬具「農產品市場交易法第十五條條文修正草案」。是否有當？敬請公決。","arts":["第十五條"]},{"id":"202110173790000","who":"委員陳瑩等16人","date":"2025-11-21","name":"「農產品市場交易法第十條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110173790000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/10/LCEWA01_110410_00025.pdf","proposers":["陳瑩","莊瑞雄"],"ncosign":14,"people":[["陳瑩","民進黨","提案"],["莊瑞雄","民進黨","提案"],["王義川","民進黨","連署"],["王正旭","民進黨","連署"],["陳秀寳","民進黨","連署"],["林楚茵","民進黨","連署"],["張雅琳","民進黨","連署"],["郭國文","民進黨","連署"],["林月琴","民進黨","連署"],["沈伯洋","民進黨","連署"],["賴瑞隆","民進黨","連署"],["黃捷","民進黨","連署"],["蔡其昌","民進黨","連署"],["王世堅","民進黨","連署"],["蘇巧慧","民進黨","連署"],["吳思瑤","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員陳瑩、莊瑞雄等16人，現行農產品批發市場減稅獎勵制度，諸多實務案例無法適用。爰擬具「農產品市場交易法第十條條文修正草案」，以利確實鼓勵農民團體經營運銷集貨。是否有當？敬請公決。","arts":["第十條"]}],"arts":[{"no":"第六條","current":"農產品之交易不得壟斷、操縱價格或故意變更質量，謀取不正當利益。\n任何人不得故意散播影響農產品交易價格之謠言或不實訊息。","versions":[{"bill":"202110079850000","text":"農產品之交易不得壟斷、操縱價格或故意變更質量，對市場交易秩序或行為造成危害。\n任何人不得故意散播影響農產品交易價格、市場交易秩序或行為之謠言或不實訊息。","note":"一、鑒於現行本條之構成要件須符合「謀取不正當利益」使足當之，惟現今實務上假消息之散播目的未必為謀取財物利益，而可能係非典型影響交易秩序，進而造成危害國家安全等嚴重之結果。故針對本條之行為目的要件改為以「對市場秩序或行為造成危害」認定之，以達成實質嚇阻之效。\n二、若不實訊息造成上開之效果，亦應罰之。"}],"changed":true,"final":"農產品之交易不得壟斷、操縱價格或故意變更質量，謀取不正當利益或對市場交易秩序造成危害。\n任何人不得故意散播影響農產品交易價格、市場交易秩序之謠言或不實訊息。","finalWhy":"照委員提案修正通過。","review":{"note":"照委員陳亭妃等人提案修正通過","text":"農產品之交易不得壟斷、操縱價格或故意變更質量，謀取不正當利益或對市場交易秩序造成危害。\n任何人不得故意散播影響農產品交易價格、市場交易秩序之謠言或不實訊息。"}},{"no":"第十條","current":"農民團體共同運銷之集貨場，所需用之土地，視同農業用地，適用第十五條之規定；其房屋稅減稅適用第十七條之規定。","versions":[{"bill":"202110173790000","text":"農民團體共同運銷之集貨場，所需用之土地，視同農業用地。\n前項用地應專供農產品共同運銷集貨場使用，其房屋稅及地價稅減半徵收。","note":"一、修正第一項、增訂第二項。\n二、考量農民團體（如農業合作社）辦理共同運銷之集貨場用地，現況以租用私有土地或取得所有權人同意使用為主，與本法第十五條規定須使用公有土地或自有土地未盡相符，故亦無法適用本法第十七條規定申請房屋稅減稅。爰刪除適用本法第十五條及第十七條之規定。\n三、考量農民團體辦理共同運銷業務具有公益性，爰新增第二項，維持原房屋稅及地價稅減半徵收之規定，並明定其條件為土地應專供農產品共同運銷集貨場使用。"}],"changed":true,"final":"農民團體共同運銷之集貨場，所需用之土地，視同農業用地。\n前項用地應專供農產品共同運銷集貨場使用，其房屋稅減半徵收。","finalWhy":"照委員提案修正通過。","review":{"note":"照委員陳瑩等人提案修正通過","text":"農民團體共同運銷之集貨場，所需用之土地，視同農業用地。\n前項用地應專供農產品共同運銷集貨場使用，其房屋稅減半徵收。"}},{"no":"第十五條","current":"農產品批發市場所需用之公有土地，政府應優先出租或依公告現值讓售；所需用之私有土地，由直轄市、縣（市）主管機關協助洽購或依法申請徵收，並得使用依法編定之農業用地。\n前項用地非經主管機關許可，不得變更使用。","versions":[{"bill":"202110126980000","text":"農產品批發市場所需用之公有土地，政府應優先出租、依公告現值讓售或以其他合作開發方式取得之；所需用私有土地，由直轄市、縣（市）主管機關得協助洽購、租用或依法申請徵收，並得使用依法編定之農業用地；其屬國營事業機構所有之土地，得經主管機關核准後，以租用、合作開發或以其他合作方式取得之。\n前項用地非經主管機關許可，不得變更使用，並應專供農產品批發市場設置及營運使用。","note":"一、第一項修正文字為增強公有土地之使用彈性，使其取得方式不僅限於出租或讓售，亦得採用如撥用、合作開發等其他適法方式，反映實務操作彈性。\n二、第一項新增文字為回應地方政府在取得非公有土地之實際困難，明文增列「租用」選項，以彌補現行條文未開放之缺口。並特別處理具公營色彩但屬私法人（如台糖）之土地，回應實務上僅提供租用、合作機制的狀況，賦予法源依據。\n三、第二項新增文字強調修法後的彈性應限定於合法且正當用途，防止空間濫用或偏離政策目的。"}],"changed":true,"final":"農產品批發市場所需用之公有土地，政府應優先出租、依公告現值讓售或以其他合作方式提供；所需用私有土地，由直轄市、縣（市）主管機關協助洽購、依法申請徵收、租用或以其他合作方式取得，並得使用依法編定之農業用地。\n前項租用或以其他合作方式取得之私有土地，以國營事業土地為限，且應經中央主管機關核准；其使用期限，不得少於二十年。\n第一項用地應專供農產品批發市場設置及經營使用，非經主管機關許可，不得變更使用。","finalWhy":"照委員提案修正通過。","review":{"note":"照委員邱議瑩等人提案修正通過","text":"農產品批發市場所需用之公有土地，政府應優先出租、依公告現值讓售或以其他合作方式提供；所需用私有土地，由直轄市、縣（市）主管機關協助洽購、依法申請徵收、租用或以其他合作方式取得，並得使用依法編定之農業用地。\n前項租用或以其他合作方式取得之私有土地，以國營事業土地為限，且應經中央主管機關核准；其使用期限，不得少於二十年。\n第一項用地應專供農產品批發市場設置及經營使用，非經主管機關許可，不得變更使用。"}},{"no":"第三十五條","current":"違反第六條第一項、第十四條第一項規定者，處新臺幣六萬元以上三十萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第二項規定，足生損害農產品運銷秩序者，處新臺幣六萬元以上三十萬元以下罰鍰。","versions":[{"bill":"202110079850000","text":"違反第六條第一項、第十四條第一項規定者，處新臺幣三十萬元以上三千萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第二項規定，足生損害農產品運銷秩序者，處新臺幣三十萬元以上三千萬元以下罰鍰。","note":"一、農產品之交易若遭壟斷或是惡意操縱價格，恐生龐大之不正當利益，若僅裁處三十萬元以下罰鍰，顯難以遏止相關行為之發生，爰將違反第六條第一項之罰鍰金額修正為處新臺幣三十萬元以上三千萬元以下。\n二、網路時代有心人士皆可輕易透過網路平台散播影響農產品交易價格之謠言或不實訊息，若未提高相關罰鍰，恐將變相鼓勵相關違法行為以影響交易秩序。為杜絕上開違法行為，爰將違反第六條第二項之罰鍰亦一併提高至處新臺幣三十萬元以上三千萬元以下。"}],"changed":true,"final":"違反第十四條第一項規定者，處新臺幣三十萬元以上三千萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第一項規定者，處新臺幣六萬元以上三十萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第二項規定，足生損害農產品運銷秩序者，處新臺幣六萬元以上三十萬元以下罰鍰。","finalWhy":"照委員修正動議通過。","review":{"note":"照委員陳亭妃等3人所提修正動議通過","text":"違反第十四條第一項規定者，處新臺幣三十萬元以上三千萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第一項規定者，處新臺幣六萬元以上三十萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第二項規定，足生損害農產品運銷秩序者，處新臺幣六萬元以上三十萬元以下罰鍰。"}}],"stages":[{"date":"2024-11-29","stage":"一讀","code":"院會-11-2-11","bill":"202110079850000","gazref":"113卷102期5284號一冊 5-5頁"},{"date":"2025-05-16","stage":"一讀","code":"院會-11-3-12","bill":"202110126980000","gazref":"114卷048期5341號一冊 8-8頁"},{"date":"2025-11-21","stage":"一讀","code":"院會-11-4-10","bill":"202110173790000","gazref":"114卷097期5390號 22-22頁"},{"date":"2026-01-07","code":"委員會-11-4-19-19","title":"第11屆第4會期經濟委員會第19次全體委員會議","gazref":"115卷008期5407號一冊 91-91,94-146頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026010295/details?meetingDate=115/01/07","full":["https://ivod.ly.gov.tw/Play/Full/1M/17181"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/08/LCIDC01_1150801_00003.pdf","p1":91,"p2":146}],"clips":[{"n":"邱議瑩","t":"09:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166844"},{"n":"陳亭妃","t":"09:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166846"},{"n":"鄭正鈐","t":"09:33","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166859"},{"n":"賴瑞隆","t":"09:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166862"},{"n":"張啓楷","t":"09:54","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166868"},{"n":"楊瓊瓔","t":"10:02","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166872"},{"n":"張嘉郡","t":"10:13","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166874"},{"n":"謝衣鳯","t":"10:20","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166879"},{"n":"鄭天財Sra Kacaw","t":"10:28","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166885"},{"n":"邱志偉","t":"10:42","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166890"},{"n":"呂玉玲","t":"10:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166894"},{"n":"蘇清泉","t":"11:00","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166895"},{"n":"鍾佳濱","t":"11:06","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166899"},{"n":"陳瑩","t":"11:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166901"},{"n":"陳瑩","t":"11:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166903"}],"props":["202110079850000","202110126980000","202110173790000"],"tr":"tr/1.json","note":null,"mixed":["農業科技園區設置管理條例","植物品種及種苗法"],"nspeak":27,"nmem":15,"ntable":2,"nfold":5},{"date":"2026-01-20","code":"院會-11-4-18","title":"第11屆第4會期第18次會議","gazref":"115卷009期5408號一冊 139-152頁；115卷009期5408號一冊 152-152頁；115卷009期5408號一冊 152-153頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026011468/details?meetingDate=115/01/16","full":["https://ivod.ly.gov.tw/Play/Full/1M/17213"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/09/LCIDC01_1150901_00013.pdf","p1":139,"p2":154}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"nspeak":2,"nmem":1,"ntable":0,"nfold":1}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["1 月 7 日的委員會同時審查農業科技園區設置管理條例、植物品種及種苗法，逐字稿包含那些法案的討論，沒有切開。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script id="data" type="application/json">{"law":"農產品市場交易法","version":"03106:2026-01-20-修正","date":"2026-01-20","action":"修正","title":"農產品市場交易法　2026 年修正","lede":"","summary":"","key":"03106_2026-01-20","props":[{"id":"202110079850000","who":"委員陳亭妃等16人","date":"2024-11-29","name":"「農產品市場交易法第六條及第三十五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110079850000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/02/11/LCEWA01_110211_00040.pdf","proposers":["陳亭妃"],"ncosign":15,"people":[["陳亭妃","民進黨","提案"],["黃捷","民進黨","連署"],["黃秀芳","民進黨","連署"],["郭昱晴","民進黨","連署"],["邱議瑩","民進黨","連署"],["王美惠","民進黨","連署"],["何欣純","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["林岱樺","民進黨","連署"],["蔡易餘","民進黨","連署"],["陳培瑜","民進黨","連署"],["陳素月","民進黨","連署"],["陳秀寳","民進黨","連署"],["邱志偉","民進黨","連署"],["吳琪銘","民進黨","連署"],["陳俊宇","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員陳亭妃等16人，鑒於農產品價格攸關全民權益、農民生計及我國農產品之交易秩序穩定。為穩定農產品價格，遏阻壟斷、操縱價格、散播影響農產品交易價格之謠言或不實訊息等情事發生，並杜絕有心人士從中獲取龐大不正當利益或對市場交易秩序與行為造成重大危害。爰擬具「農產品市場交易法第六條及第三十五條條文修正草案」，針對原第六條之行為目的要件為「謀取不正當利益」改為以「對市場秩序或行為造成危害」認定之，並鑑於現行處罰顯然過低，調整相關處罰罰鍰金額。是否有當？敬請公決。","arts":["第六條","第三十五條"]},{"id":"202110126980000","who":"委員邱議瑩等20人","date":"2025-05-16","name":"「農產品市場交易法第十五條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110126980000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/12/LCEWA01_110312_00064.pdf","proposers":["邱議瑩","林楚茵"],"ncosign":18,"people":[["邱議瑩","民進黨","提案"],["林楚茵","民進黨","提案"],["陳俊宇","民進黨","連署"],["蔡易餘","民進黨","連署"],["范雲","民進黨","連署"],["蔡其昌","民進黨","連署"],["陳冠廷","民進黨","連署"],["陳素月","民進黨","連署"],["林月琴","民進黨","連署"],["張宏陸","民進黨","連署"],["李昆澤","民進黨","連署"],["蘇巧慧","民進黨","連署"],["徐富癸","民進黨","連署"],["郭昱晴","民進黨","連署"],["林宜瑾","民進黨","連署"],["王定宇","民進黨","連署"],["李柏毅","民進黨","連署"],["羅美玲","民進黨","連署"],["許智傑","民進黨","連署"],["鍾佳濱","民進黨","連署"]],"party":[["民進黨",20]],"reason":"本院委員邱議瑩、林楚茵等20人，目前《農產品市場交易法》第十五條對於農產品批發市場所需土地，僅規定私有土地須由地方主管機關協助「洽購或依法徵收」，未開放「租用」作為取得方式，與現行國營事業土地管理政策（如台糖公司採「以租代售」政策）產生衝突，導致地方政府推動批發市場遷建或興建新設施時，遭遇法令障礙、推動困難。該條文制定於民國73年，迄今已逾40年，隨社會變遷、土地資源日益有限，以及國家推動活化公有資產、促進農產物流現代化之政策需求，實有必要調整法條，賦予地方政府更具彈性之土地取得工具，爰擬具「農產品市場交易法第十五條條文修正草案」。是否有當？敬請公決。","arts":["第十五條"]},{"id":"202110173790000","who":"委員陳瑩等16人","date":"2025-11-21","name":"「農產品市場交易法第十條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110173790000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/10/LCEWA01_110410_00025.pdf","proposers":["陳瑩","莊瑞雄"],"ncosign":14,"people":[["陳瑩","民進黨","提案"],["莊瑞雄","民進黨","提案"],["王義川","民進黨","連署"],["王正旭","民進黨","連署"],["陳秀寳","民進黨","連署"],["林楚茵","民進黨","連署"],["張雅琳","民進黨","連署"],["郭國文","民進黨","連署"],["林月琴","民進黨","連署"],["沈伯洋","民進黨","連署"],["賴瑞隆","民進黨","連署"],["黃捷","民進黨","連署"],["蔡其昌","民進黨","連署"],["王世堅","民進黨","連署"],["蘇巧慧","民進黨","連署"],["吳思瑤","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員陳瑩、莊瑞雄等16人，現行農產品批發市場減稅獎勵制度，諸多實務案例無法適用。爰擬具「農產品市場交易法第十條條文修正草案」，以利確實鼓勵農民團體經營運銷集貨。是否有當？敬請公決。","arts":["第十條"]}],"arts":[{"no":"第六條","current":"農產品之交易不得壟斷、操縱價格或故意變更質量，謀取不正當利益。\n任何人不得故意散播影響農產品交易價格之謠言或不實訊息。","versions":[{"bill":"202110079850000","text":"農產品之交易不得壟斷、操縱價格或故意變更質量，對市場交易秩序或行為造成危害。\n任何人不得故意散播影響農產品交易價格、市場交易秩序或行為之謠言或不實訊息。","note":"一、鑒於現行本條之構成要件須符合「謀取不正當利益」使足當之，惟現今實務上假消息之散播目的未必為謀取財物利益，而可能係非典型影響交易秩序，進而造成危害國家安全等嚴重之結果。故針對本條之行為目的要件改為以「對市場秩序或行為造成危害」認定之，以達成實質嚇阻之效。\n二、若不實訊息造成上開之效果，亦應罰之。"}],"changed":true,"final":"農產品之交易不得壟斷、操縱價格或故意變更質量，謀取不正當利益或對市場交易秩序造成危害。\n任何人不得故意散播影響農產品交易價格、市場交易秩序之謠言或不實訊息。","finalWhy":"照委員提案修正通過。","review":{"note":"照委員陳亭妃等人提案修正通過","text":"農產品之交易不得壟斷、操縱價格或故意變更質量，謀取不正當利益或對市場交易秩序造成危害。\n任何人不得故意散播影響農產品交易價格、市場交易秩序之謠言或不實訊息。"}},{"no":"第十條","current":"農民團體共同運銷之集貨場，所需用之土地，視同農業用地，適用第十五條之規定；其房屋稅減稅適用第十七條之規定。","versions":[{"bill":"202110173790000","text":"農民團體共同運銷之集貨場，所需用之土地，視同農業用地。\n前項用地應專供農產品共同運銷集貨場使用，其房屋稅及地價稅減半徵收。","note":"一、修正第一項、增訂第二項。\n二、考量農民團體（如農業合作社）辦理共同運銷之集貨場用地，現況以租用私有土地或取得所有權人同意使用為主，與本法第十五條規定須使用公有土地或自有土地未盡相符，故亦無法適用本法第十七條規定申請房屋稅減稅。爰刪除適用本法第十五條及第十七條之規定。\n三、考量農民團體辦理共同運銷業務具有公益性，爰新增第二項，維持原房屋稅及地價稅減半徵收之規定，並明定其條件為土地應專供農產品共同運銷集貨場使用。"}],"changed":true,"final":"農民團體共同運銷之集貨場，所需用之土地，視同農業用地。\n前項用地應專供農產品共同運銷集貨場使用，其房屋稅減半徵收。","finalWhy":"照委員提案修正通過。","review":{"note":"照委員陳瑩等人提案修正通過","text":"農民團體共同運銷之集貨場，所需用之土地，視同農業用地。\n前項用地應專供農產品共同運銷集貨場使用，其房屋稅減半徵收。"}},{"no":"第十五條","current":"農產品批發市場所需用之公有土地，政府應優先出租或依公告現值讓售；所需用之私有土地，由直轄市、縣（市）主管機關協助洽購或依法申請徵收，並得使用依法編定之農業用地。\n前項用地非經主管機關許可，不得變更使用。","versions":[{"bill":"202110126980000","text":"農產品批發市場所需用之公有土地，政府應優先出租、依公告現值讓售或以其他合作開發方式取得之；所需用私有土地，由直轄市、縣（市）主管機關得協助洽購、租用或依法申請徵收，並得使用依法編定之農業用地；其屬國營事業機構所有之土地，得經主管機關核准後，以租用、合作開發或以其他合作方式取得之。\n前項用地非經主管機關許可，不得變更使用，並應專供農產品批發市場設置及營運使用。","note":"一、第一項修正文字為增強公有土地之使用彈性，使其取得方式不僅限於出租或讓售，亦得採用如撥用、合作開發等其他適法方式，反映實務操作彈性。\n二、第一項新增文字為回應地方政府在取得非公有土地之實際困難，明文增列「租用」選項，以彌補現行條文未開放之缺口。並特別處理具公營色彩但屬私法人（如台糖）之土地，回應實務上僅提供租用、合作機制的狀況，賦予法源依據。\n三、第二項新增文字強調修法後的彈性應限定於合法且正當用途，防止空間濫用或偏離政策目的。"}],"changed":true,"final":"農產品批發市場所需用之公有土地，政府應優先出租、依公告現值讓售或以其他合作方式提供；所需用私有土地，由直轄市、縣（市）主管機關協助洽購、依法申請徵收、租用或以其他合作方式取得，並得使用依法編定之農業用地。\n前項租用或以其他合作方式取得之私有土地，以國營事業土地為限，且應經中央主管機關核准；其使用期限，不得少於二十年。\n第一項用地應專供農產品批發市場設置及經營使用，非經主管機關許可，不得變更使用。","finalWhy":"照委員提案修正通過。","review":{"note":"照委員邱議瑩等人提案修正通過","text":"農產品批發市場所需用之公有土地，政府應優先出租、依公告現值讓售或以其他合作方式提供；所需用私有土地，由直轄市、縣（市）主管機關協助洽購、依法申請徵收、租用或以其他合作方式取得，並得使用依法編定之農業用地。\n前項租用或以其他合作方式取得之私有土地，以國營事業土地為限，且應經中央主管機關核准；其使用期限，不得少於二十年。\n第一項用地應專供農產品批發市場設置及經營使用，非經主管機關許可，不得變更使用。"}},{"no":"第三十五條","current":"違反第六條第一項、第十四條第一項規定者，處新臺幣六萬元以上三十萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第二項規定，足生損害農產品運銷秩序者，處新臺幣六萬元以上三十萬元以下罰鍰。","versions":[{"bill":"202110079850000","text":"違反第六條第一項、第十四條第一項規定者，處新臺幣三十萬元以上三千萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第二項規定，足生損害農產品運銷秩序者，處新臺幣三十萬元以上三千萬元以下罰鍰。","note":"一、農產品之交易若遭壟斷或是惡意操縱價格，恐生龐大之不正當利益，若僅裁處三十萬元以下罰鍰，顯難以遏止相關行為之發生，爰將違反第六條第一項之罰鍰金額修正為處新臺幣三十萬元以上三千萬元以下。\n二、網路時代有心人士皆可輕易透過網路平台散播影響農產品交易價格之謠言或不實訊息，若未提高相關罰鍰，恐將變相鼓勵相關違法行為以影響交易秩序。為杜絕上開違法行為，爰將違反第六條第二項之罰鍰亦一併提高至處新臺幣三十萬元以上三千萬元以下。"}],"changed":true,"final":"違反第十四條第一項規定者，處新臺幣三十萬元以上三千萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第一項規定者，處新臺幣六萬元以上三十萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第二項規定，足生損害農產品運銷秩序者，處新臺幣六萬元以上三十萬元以下罰鍰。","finalWhy":"照委員修正動議通過。","review":{"note":"照委員陳亭妃等3人所提修正動議通過","text":"違反第十四條第一項規定者，處新臺幣三十萬元以上三千萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第一項規定者，處新臺幣六萬元以上三十萬元以下罰鍰；其領有許可證者，並廢止許可證。\n違反第六條第二項規定，足生損害農產品運銷秩序者，處新臺幣六萬元以上三十萬元以下罰鍰。"}}],"stages":[{"date":"2024-11-29","stage":"一讀","code":"院會-11-2-11","bill":"202110079850000","gazref":"113卷102期5284號一冊 5-5頁"},{"date":"2025-05-16","stage":"一讀","code":"院會-11-3-12","bill":"202110126980000","gazref":"114卷048期5341號一冊 8-8頁"},{"date":"2025-11-21","stage":"一讀","code":"院會-11-4-10","bill":"202110173790000","gazref":"114卷097期5390號 22-22頁"},{"date":"2026-01-07","code":"委員會-11-4-19-19","title":"第11屆第4會期經濟委員會第19次全體委員會議","gazref":"115卷008期5407號一冊 91-91,94-146頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026010295/details?meetingDate=115/01/07","full":["https://ivod.ly.gov.tw/Play/Full/1M/17181"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/08/LCIDC01_1150801_00003.pdf","p1":91,"p2":146}],"clips":[{"n":"邱議瑩","t":"09:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166844"},{"n":"陳亭妃","t":"09:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166846"},{"n":"鄭正鈐","t":"09:33","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166859"},{"n":"賴瑞隆","t":"09:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166862"},{"n":"張啓楷","t":"09:54","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166868"},{"n":"楊瓊瓔","t":"10:02","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166872"},{"n":"張嘉郡","t":"10:13","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166874"},{"n":"謝衣鳯","t":"10:20","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166879"},{"n":"鄭天財Sra Kacaw","t":"10:28","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166885"},{"n":"邱志偉","t":"10:42","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166890"},{"n":"呂玉玲","t":"10:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166894"},{"n":"蘇清泉","t":"11:00","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166895"},{"n":"鍾佳濱","t":"11:06","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166899"},{"n":"陳瑩","t":"11:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166901"},{"n":"陳瑩","t":"11:18","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166903"}],"props":["202110079850000","202110126980000","202110173790000"],"tr":"tr/1.json","note":null,"mixed":["農業科技園區設置管理條例","植物品種及種苗法"],"nspeak":27,"nmem":15,"ntable":2,"nfold":5},{"date":"2026-01-20","code":"院會-11-4-18","title":"第11屆第4會期第18次會議","gazref":"115卷009期5408號一冊 139-152頁；115卷009期5408號一冊 152-152頁；115卷009期5408號一冊 152-153頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026011468/details?meetingDate=115/01/16","full":["https://ivod.ly.gov.tw/Play/Full/1M/17213"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/09/LCIDC01_1150901_00013.pdf","p1":139,"p2":154}],"clips":[],"props":[],"tr":"tr/2.json","note":null,"nspeak":2,"nmem":1,"ntable":0,"nfold":1}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["1 月 7 日的委員會同時審查農業科技園區設置管理條例、植物品種及種苗法，逐字稿包含那些法案的討論，沒有切開。"],"reviewed":false,"fetched":"2026-11-17","parties":{"吳春城":"民眾黨","李貞秀":"民眾黨","麥玉珍":"民眾黨","林國成":"民眾黨","張啓楷":"民眾黨","黃珊珊":"民眾黨","黃國昌":"民眾黨","林憶君":"民眾黨","游錫堃":"民進黨","洪申翰":"民進黨","何欣純":"民進黨","李昆澤":"民進黨","林俊憲":"民進黨","邱若華":"國民黨","洪孟楷":"國民黨","徐富癸":"民進黨","許智傑":"民進黨","陳素月":"民進黨","陳雪生":"國民黨","游顥":"國民黨","黃健豪":"國民黨","萬美玲":"國民黨","魯明哲":"國民黨","陳清龍":"民眾黨","丁學忠":"國民黨","陳昭姿":"民眾黨","牛煦庭":"國民黨","王世堅":"民進黨","王定宇":"民進黨","王美惠":"民進黨","王鴻薇":"國民黨","伍麗華":"民進黨","江啟臣":"國民黨","吳沛憶":"民進黨","吳宗憲":"國民黨","吳秉叡":"民進黨","吳思瑤":"民進黨","吳琪銘":"民進黨","李柏毅":"民進黨","林宜瑾":"民進黨","林岱樺":"民進黨","林思銘":"國民黨","林淑芬":"民進黨","林德福":"國民黨","邱志偉":"民進黨","邱鎮軍":"國民黨","邱議瑩":"民進黨","柯志恩":"國民黨","柯建銘":"民進黨","范雲":"民進黨","徐巧芯":"國民黨","徐欣瑩":"國民黨","涂權吉":"國民黨","馬文君":"國民黨","高金素梅":"無黨籍","張宏陸":"民進黨","張智倫":"國民黨","張嘉郡":"國民黨","莊瑞雄":"民進黨","郭國文":"民進黨","陳永康":"國民黨","陳玉珍":"國民黨","陳秀寳":"民進黨","陳亭妃":"民進黨","陳俊宇":"民進黨","陳冠廷":"民進黨","陳超明":"無黨籍","陳瑩":"民進黨","傅崐萁":"國民黨","黃仁":"國民黨","黃秀芳":"民進黨","黃建賓":"國民黨","黃捷":"民進黨","楊曜":"民進黨","楊瓊瓔":"國民黨","葉元之":"國民黨","廖先翔":"國民黨","廖偉翔":"國民黨","劉建國":"民進黨","蔡其昌":"民進黨","蔡易餘":"民進黨","鄭正鈐":"國民黨","賴士葆":"國民黨","賴瑞隆":"民進黨","謝龍介":"國民黨","鍾佳濱":"民進黨","韓國瑜":"國民黨","顏寬恒":"國民黨","羅廷瑋":"國民黨","羅明才":"國民黨","羅智強":"國民黨","蘇巧慧":"民進黨","蘇清泉":"國民黨","呂玉玲":"國民黨","李坤城":"民進黨","洪毓祥":"民眾黨","蔡春綢":"民眾黨","王安祥":"民眾黨","邱慧洳":"民眾黨","翁曉玲":"國民黨","王育敏":"國民黨","沈伯洋":"民進黨","沈發惠":"民進黨","林沛祥":"國民黨","林楚茵":"民進黨","張雅琳":"民進黨","陳菁徽":"國民黨","鄭天財":"國民黨","盧縣一":"國民黨","羅美玲":"民進黨","王正旭":"民進黨","王義川":"民進黨","劉書彬":"民眾黨","李彥秀":"國民黨","林月琴":"民進黨","林倩綺":"國民黨","許宇甄":"國民黨","郭昱晴":"民進黨","陳培瑜":"民進黨","葛如鈞":"國民黨","賴惠員":"民進黨","謝衣鳯":"國民黨","許忠信":"民眾黨"}}</script>
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const $ = id => document.getElementById(id);
@@ -441,6 +452,62 @@ D.props.forEach(p => {
 
 /* ---------- 歷程與逐字稿 ---------- */
 const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+const PARTY = D.parties || {};
+const PCOLOR = {'國民黨': '#2a6fc9', '民進黨': '#2f9e44', '民眾黨': '#22b8b0', '無黨籍': '#8a94a0'};
+const TERM = /逕付二讀|重付表決|修正動議|記名表決|復議/;
+function para(text) {   // 一段裡第一次出現的議事名詞加上虛線底線，點了有解釋
+  const p = el('p'), m = TERM.exec(text);
+  if (!m) { p.textContent = text; return p; }
+  const b = el('button', {type: 'button', class: 'term', text: m[0]});
+  b.addEventListener('click', e => { e.stopPropagation(); if (tipTag === b) hideTip(); else showTip(b, [m[0]], true); });
+  p.append(text.slice(0, m.index), b, text.slice(m.index + m[0].length));
+  return p;
+}
+function fp(str) {   // 發言者加開頭幾個字的短指紋：逐字稿日後重新切分、段落編號變了，還能靠它找回同一段
+  let h = 0; for (const c of str) h = (h * 31 + c.codePointAt(0)) >>> 0;
+  return (h % 65536).toString(16).padStart(4, '0');
+}
+function toast(msg) {
+  document.querySelectorAll('.toast').forEach(x => x.remove());
+  const t = el('div', {class: 'toast', role: 'status', text: msg});
+  document.body.append(t); setTimeout(() => t.remove(), 4500);
+}
+function copyHere(id) {
+  const url = location.href.split('#')[0] + '#' + id;
+  const ok = () => toast('已複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言，可以往前往後讀。');
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, () => prompt('複製這個連結', url));
+  else prompt('複製這個連結', url);
+  history.replaceState(null, '', '#' + id);
+}
+function showTurn(turns, node) {   // 捲到某段發言；它如果收在折疊區塊裡，先打開
+  for (let p = node.parentElement; p && p !== turns; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
+  turns.scrollTop = node.offsetTop - turns.offsetTop - 8;
+}
+function finder(turns) {   // 在這場逐字稿裡找字
+  const input = el('input', {type: 'search', placeholder: '在這場逐字稿裡找字', 'aria-label': '在這場逐字稿裡找字'});
+  const count = el('span'), prev = el('button', {type: 'button', class: 'chip', text: '上一段'}), next = el('button', {type: 'button', class: 'chip', text: '下一段'});
+  let hits = [], cur = -1;
+  const go = i => {
+    if (!hits.length) return;
+    if (hits[cur]) hits[cur].classList.remove('cur');
+    cur = (i + hits.length) % hits.length;
+    hits[cur].classList.add('cur'); showTurn(turns, hits[cur]);
+    count.textContent = '第 ' + (cur + 1) + ' / ' + hits.length + ' 段';
+  };
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    [...turns.children].forEach(t => t.classList.remove('hit', 'cur'));
+    hits = q ? [...turns.children].filter(t => t.textContent.includes(q)) : []; cur = -1;
+    hits.forEach(t => t.classList.add('hit'));
+    prev.hidden = next.hidden = !hits.length;
+    count.textContent = !q ? '' : hits.length ? '' : '這場沒有出現這個詞';
+    if (hits.length) go(0);
+  });
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); go(cur + (e.shiftKey ? -1 : 1)); } });
+  prev.addEventListener('click', () => go(cur - 1)); next.addEventListener('click', () => go(cur + 1));
+  prev.hidden = next.hidden = true;
+  return el('div', {class: 'find'}, input, count, prev, next);
+}
 function renderTranscript(box, data, s) {
   box.textContent = '';
   const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
@@ -451,15 +518,21 @@ function renderTranscript(box, data, s) {
     const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
     if (t.s) {
       const who = el('div', {class: 'who'}, t.s);
+      const pa = PARTY[normName(t.s)];
+      if (pa) who.append(el('span', {class: 'party', style: '--pc:' + PCOLOR[pa]}, el('i'), pa));
       if (t.t) who.append(el('small', {text: t.t}));
       const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
       const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
       if (u && t.t) who.append(link(u, '看這段影片'));
+      const here = el('button', {type: 'button', class: 'here', text: '分享上下文', title: '複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言'});
+      d.dataset.fp = fp(t.s + '|' + (t.b.find(x => typeof x === 'string') || '').slice(0, 30));
+      here.addEventListener('click', () => copyHere(d.id + '-' + d.dataset.fp));
+      who.append(here);
       d.append(who);
       if (!chair && !first.has(t.s)) first.set(t.s, d);
     }
     const put = (into, b) => {
-      if (typeof b === 'string') into.append(el('p', {text: b}));
+      if (typeof b === 'string') into.append(para(b));
       else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
         const inner = el('div', {class: 'readout'});
         b.b.forEach(x => put(inner, x));
@@ -480,7 +553,7 @@ function renderTranscript(box, data, s) {
   const chips = el('div', {class: 'chips'});
   first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
   idx.append(chips);
-  box.append(idx, turns);
+  box.append(idx, finder(turns), turns);
 }
 /* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
 const READING = {
@@ -501,6 +574,14 @@ const READING = {
     '最後將全案進行最終表決。',
     '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
 };
+Object.assign(READING, {
+  '復議': {t: '復議', sub: '要求把已經表決的案子重新討論', what: '議案表決之後，當初投贊成的一方可以提出復議，要求重新討論、重新表決。', pts: [
+    '復議被否決之後，同一個案子不能再提復議，決議就此確定。',
+    '實務上常見多數方自己提出復議、再自己否決，目的是讓剛通過的條文確定下來。']},
+  '重付表決': {t: '重付表決', sub: '對表決結果有異議，再表決一次', what: '出席委員對表決結果有異議時，經 15 人以上連署或附議，可以要求重新表決。', pts: ['以一次為限。']},
+  '修正動議': {t: '修正動議', sub: '在院會對條文提出的修改案', what: '委員或黨團在二讀（或三讀）時，對討論中的條文提出另一個版本的文字，交院會表決。', pts: ['需要 10 人以上連署或附議。']},
+  '記名表決': {t: '記名表決', sub: '留下每位委員投什麼的表決', what: '表決時逐一記錄每位委員投贊成、反對或棄權，名單會登在公報上。', pts: []}
+});
 const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
 document.body.append(tipbox);
 let tipTimer = null, tipTag = null, tipPinned = false;
@@ -537,6 +618,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); }
 addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
 addEventListener('resize', hideTip);
 
+const OPEN = {};
 D.stages.forEach(s => {
   const k = kindOf(s.stage);
   const body = el('div', {class: 'body'});
@@ -570,18 +652,20 @@ D.stages.forEach(s => {
       body.append(sub, panel);
     }
     const acts = el('div', {class: 'acts'});
-    let box = null;
+    let box = null, opener = null;
     if (s.tr) {
       const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
       box = el('div', {class: 'tr', hidden: ''});
-      btn.addEventListener('click', async () => {
+      const toggle = async () => {
         const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
         if (!open || box.dataset.loaded) return;
         box.textContent = '載入逐字稿中';
         try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
         catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
-      });
+      };
+      btn.addEventListener('click', toggle);
       acts.append(btn);
+      OPEN[s.tr.replace(/\W/g, '-')] = async () => { if (box.hidden) await toggle(); return box; };
     } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
       acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
       s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
@@ -599,6 +683,28 @@ D.stages.forEach(s => {
   }
   $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
 });
+
+async function landFromHash() {
+  const m = /^#(.+?)-([0-9]+)(?:-([0-9a-f]{4}))?$/.exec(location.hash);
+  if (!m || !OPEN[m[1]]) return;
+  const box = await OPEN[m[1]]();
+  let node = document.getElementById(m[1] + '-' + m[2]), moved = false;
+  if (m[3] && !(node && node.dataset.fp === m[3])) {   // 編號對不上指紋：找指紋相同、離原編號最近的那段
+    const same = [...box.querySelectorAll('.turn')].filter(t => t.dataset.fp === m[3]);
+    const n = t => +t.id.slice(m[1].length + 1);
+    if (same.length) node = same.sort((a, b) => Math.abs(n(a) - m[2]) - Math.abs(n(b) - m[2]))[0]; else moved = true;
+  }
+  if (!node) return;
+  box.scrollIntoView({block: 'start'});
+  showTurn(node.parentElement, node);
+  document.querySelectorAll('.turn.landed').forEach(x => x.classList.remove('landed'));
+  document.querySelectorAll('.landtip').forEach(x => x.remove());
+  node.classList.add('landed');
+  const tip = el('div', {class: 'ref landtip', text: (moved ? '這場逐字稿在連結建立之後重新整理過，標色的位置可能和原本差幾段。' : '你是從連結進來的，下面標色的是連結指到的那段發言。') + '這裡是整場會議的逐字稿，可以往上讀前面發生了什麼，或往下讀後續。'});
+  box.prepend(tip);
+}
+if (document.readyState === 'complete') landFromHash(); else addEventListener('load', () => setTimeout(landFromHash, 50));
+addEventListener('hashchange', landFromHash);
 
 /* ---------- 表決 ---------- */
 (function () {

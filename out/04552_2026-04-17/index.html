@@ -93,6 +93,17 @@ button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(-
 .turn p{overflow-wrap:anywhere}
 .turn.pre p{font-size:13px;color:var(--muted)}
 .tw{overflow-x:auto;max-width:100%}
+.turn .party{font-weight:400;font-size:12px;color:var(--muted);white-space:nowrap}
+.turn .party i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--pc);margin-right:4px}
+.turn .here{font-weight:400;font-size:12px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-left:auto}
+.turn .here:hover{color:var(--accent)}
+.turn.landed{box-shadow:-3px 0 0 var(--accent);padding-left:10px;background:var(--accent-soft)}
+.turn.hit{box-shadow:-3px 0 0 var(--warn);padding-left:10px}
+.turn.hit.cur{background:var(--warn-soft)}
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;border-bottom:1px dotted var(--muted)}
+.tr .find{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--muted)}
+.tr .find input{font:inherit;font-size:14px;padding:2px 8px;border:1px solid var(--line);border-radius:3px;background:var(--surface);color:var(--ink);width:min(16em,100%)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);font-size:13px;padding:8px 14px;border-radius:4px;max-width:calc(100vw - 32px)}
 .readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
 .readnote{padding-left:1.4em}
 .turn .fold>summary b{font-weight:500}
@@ -227,7 +238,7 @@ dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
   <p class="foot" id="foot"></p>
 </div>
 
-<script id="data" type="application/json">{"law":"刑事訴訟法","version":"04552:2026-04-17-修正","date":"2026-04-17","action":"修正","title":"刑事訴訟法　2026 年修正","lede":"","summary":"","key":"04552_2026-04-17","props":[{"id":"202110060080000","who":"委員陳培瑜等16人","date":"2024-07-05","name":"「刑事訴訟法第一百零一條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110060080000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/21/LCEWA01_110121_00029.pdf","proposers":["陳培瑜","何欣純"],"ncosign":14,"people":[["陳培瑜","民進黨","提案"],["何欣純","民進黨","提案"],["郭昱晴","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["王美惠","民進黨","連署"],["林楚茵","民進黨","連署"],["吳沛憶","民進黨","連署"],["張雅琳","民進黨","連署"],["陳秀寳","民進黨","連署"],["徐富癸","民進黨","連署"],["羅美玲","民進黨","連署"],["黃秀芳","民進黨","連署"],["林宜瑾","民進黨","連署"],["洪申翰","民進黨","連署"],["沈伯洋","民進黨","連署"],["陳冠廷","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員陳培瑜、何欣純等16人，鑒於我國近年兒少性剝削影像重製、散布及持有案例不斷增加，為改善兒少性剝削問題持續惡化狀況，除透過相關法律修正以處理現有規範不足嚇阻犯罪發生外，考量此類型違法樣態之行為人多有反覆實行並對兒少受害者有高度危險性，為提供偵辦過程中必要之法律工具，以周延保障兒少福祉，爰擬具「刑事訴訟法第一百零一條之一條文修正草案」。是否有當？敬請公決。","arts":[]},{"id":"202110123840000","who":"台灣民眾黨黨團","date":"2025-05-09","name":"「刑事訴訟法第一百零一條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110123840000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/11/LCEWA01_110311_00058.pdf","proposers":["黃國昌","張啓楷","陳昭姿"],"ncosign":0,"people":[["黃國昌","民眾黨","提案"],["張啓楷","民眾黨","提案"],["陳昭姿","民眾黨","提案"]],"party":[["民眾黨",3]],"reason":"本院台灣民眾黨黨團，有鑑於近年來詐欺、兒少性影像及組織犯罪問題日益嚴峻，此等犯罪不僅有高度社會危害性，亦有高度再犯之情形，自有納為預防性羈押原因之必要，爰擬具「刑事訴訟法第一百零一條之一條文修正草案」。是否有當？敬請公決。","arts":[]},{"id":"202110157050000","who":"委員吳宗憲等22人","date":"2025-08-29","name":"「刑事訴訟法第一百零一條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110157050000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/27/LCEWA01_110327_00040.pdf","proposers":["吳宗憲","王鴻薇","林沛祥","王育敏","廖偉翔"],"ncosign":17,"people":[["吳宗憲","國民黨","提案"],["王鴻薇","國民黨","提案"],["林沛祥","國民黨","提案"],["王育敏","國民黨","提案"],["廖偉翔","國民黨","提案"],["徐欣瑩","國民黨","連署"],["呂玉玲","國民黨","連署"],["羅智強","國民黨","連署"],["陳雪生","國民黨","連署"],["謝龍介","國民黨","連署"],["游顥","國民黨","連署"],["葛如鈞","國民黨","連署"],["黃建賓","國民黨","連署"],["羅廷瑋","國民黨","連署"],["蘇清泉","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["陳菁徽","國民黨","連署"],["牛煦庭","國民黨","連署"],["魯明哲","國民黨","連署"],["盧縣一","國民黨","連署"],["柯志恩","國民黨","連署"],["許宇甄","國民黨","連署"]],"party":[["國民黨",22]],"reason":"本院委員吳宗憲、王鴻薇、林沛祥、王育敏、廖偉翔等22人，鑑於近年集團式詐欺犯罪盛行，且妨害性隱私、兒少性剝削及組織犯罪等問題日益嚴峻，該等犯罪不僅具有高度危害性，亦有高度再犯之可能，為保護潛在被害人，確保偵查順利，實有納入預防性羈押適用範圍之必要，爰擬具「刑事訴訟法第一百零一條之一條文修正草案」。是否有當？敬請公決。","arts":[]}],"arts":[{"no":"第一百零一條之一","current":null,"versions":[],"changed":true,"final":"被告經法官訊問後，認為犯下列各款之罪，其嫌疑重大，有事實足認為有反覆實行同一犯罪之虞，而有羈押之必要者，得羈押之：\n一、刑法第一百七十三條第一項、第三項、第一百七十四條第一項、第二項、第四項、第一百七十五條第一項、第二項之放火罪、第一百七十六條之準放火罪、第一百八十五條之一之劫持交通工具罪、第一百八十五條之三不能安全駕駛罪。\n二、刑法第二百二十一條之強制性交罪、第二百二十二條之加重強制性交罪、第二百二十四條之強制猥褻罪、第二百二十四條之一之加重強制猥褻罪、第二百二十五條之乘機性交猥褻罪、第二百二十六條之一之強制性交猥褻之結合罪、第二百二十七條之與幼年男女性交或猥褻罪、第二百七十一條第一項、第二項之殺人罪、第二百七十二條之殺直系血親尊親屬罪、第二百七十二條之一之殺幼童罪、第二百七十七條第一項之傷害罪、第二百七十八條第一項之重傷罪、第二百八十六條之凌虐或妨害未成年人健康發育罪、第三百十九條之一之妨害性影像罪、第三百十九條之二之加重妨害性影像罪、第三百十九條之三之供人觀覽性影像罪、第三百十九條之四之製作不實性影像罪、兒童及少年性剝削防制條例第三十六條第一項至第五項、第三十八條第一項、第三項、第四項之罪、性騷擾防治法第二十五條第一項之罪。但其須告訴乃論，而未經告訴或其告訴已經撤回或已逾告訴期間者，不在此限。\n三、刑法第二百九十六條之一之買賣人口罪、第二百九十九條之移送被略誘人出國罪、第三百零二條、第三百零二條之一之妨害自由罪。\n四、刑法第三百零四條之強制罪、第三百零五條之恐嚇危害安全罪。\n五、刑法第三百二十條、第三百二十一條之竊盜罪。\n六、刑法第三百二十五條、第三百二十六條之搶奪罪、第三百二十八條第一項、第二項、第四項之強盜罪、第三百三十條之加重強盜罪、第三百三十二條之強盜結合罪、第三百三十三條之海盜罪、第三百三十四條之海盜結合罪。\n七、刑法第三百三十九條、第三百三十九條之三之詐欺罪、第三百三十九條之四之加重詐欺罪、詐欺犯罪危害防制條例第四十三條、第四十四條之罪。\n八、刑法第三百四十六條之恐嚇取財罪、第三百四十七條第一項、第三項之擄人勒贖罪、第三百四十八條之擄人勒贖結合罪、第三百四十八條之一之準擄人勒贖罪。\n九、槍砲彈藥刀械管制條例第七條、第八條、第九條之一、第十二條、第十三條、第十三條之一之罪。\n十、毒品危害防制條例第四條第一項至第四項之罪。\n十一、人口販運防制法第三十二條之罪。\n十二、組織犯罪防制條例第三條第一項前段之罪。\n前條第二項至第四項之規定，於前項情形準用之。","finalWhy":"","review":null}],"stages":[{"date":"2024-07-05","stage":"一讀","code":"院會-11-1-21","bill":"202110060080000","gazref":"113卷066期5248號 3-3頁"},{"date":"2025-04-24","code":"黨團協商-2025042122","title":"立法院朝野黨團協商","gazref":"114卷043期5336號 1-60頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025042122/details?meetingDate=114/04/24","full":["https://ivod.ly.gov.tw/Play/Full/1M/16623"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/43/LCIDC01_1144301.pdf","p1":1,"p2":60}],"clips":[],"props":["202110060080000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":27,"nmem":14,"ntable":1,"nfold":7},{"date":"2025-05-09","stage":"一讀","code":"院會-11-3-11","bill":"202110123840000","gazref":"114卷044期5337號一冊 6-6頁"},{"date":"2025-08-29","stage":"一讀","code":"院會-11-3-27","bill":"202110157050000","gazref":"114卷075期5368號一冊 5-5頁"},{"date":"2026-01-12","code":"委員會-11-4-36-18","title":"第11屆第4會期司法及法制委員會第18次全體委員會議","gazref":"115卷011期5410號一冊 141-141,143-205頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026010845/details?meetingDate=115/01/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/17194"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/11/LCIDC01_1151101_00014.pdf","p1":141,"p2":206}],"clips":[{"n":"黃珊珊","t":"09:04","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167017"},{"n":"翁曉玲","t":"09:07","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167018"},{"n":"吳宗憲","t":"09:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167019"},{"n":"林倩綺","t":"09:19","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167020"},{"n":"羅智強","t":"09:34","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167024"},{"n":"翁曉玲","t":"09:43","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167095"},{"n":"翁曉玲","t":"09:43","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167027"},{"n":"王義川","t":"10:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167030"},{"n":"林倩綺","t":"10:12","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167033"},{"n":"沈發惠","t":"10:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167036"},{"n":"吳思瑤","t":"10:44","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167039"},{"n":"吳宗憲","t":"11:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167045"},{"n":"陳培瑜","t":"11:20","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167047"},{"n":"王鴻薇","t":"11:31","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167051"},{"n":"鄭天財Sra Kacaw","t":"11:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167054"},{"n":"莊瑞雄","t":"11:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167055"},{"n":"洪孟楷","t":"12:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167079"}],"props":["202110060080000","202110123840000","202110157050000"],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":33,"nmem":13,"ntable":1,"mixedOther":["宣讀上次會議議事錄","邀請考試院秘書長、銓敘部部長、行政院人事行政總處人事長、內政部、教育部、行政院主計總處針對「立法院通過之警、消、公、教退"],"nfold":7},{"date":"2026-01-29","code":"黨團協商-2026012848","title":"立法院朝野黨團協商","gazref":"115卷015期5414號 93-93,95-125頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026012848/details?meetingDate=115/01/29","full":["https://ivod.ly.gov.tw/Play/Full/1M/17244"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/15/LCIDC01_1151501.pdf","p1":93,"p2":126}],"clips":[],"props":["202110060080000","202110123840000","202110157050000"],"tr":"tr/3.json","note":null,"mixed":[],"nspeak":6,"nmem":4,"ntable":1,"nfold":0},{"date":"2026-04-17","code":"院會-11-5-7","title":"第11屆第5會期第7次會議","gazref":"115卷029期5428號一冊 47-70頁；115卷029期5428號一冊 70-71頁；115卷029期5428號一冊 71-71頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026041579/details?meetingDate=115/04/17","full":["https://ivod.ly.gov.tw/Play/Full/1M/17362"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/29/LCIDC01_1152901_00005.pdf","p1":47,"p2":71}],"clips":[],"props":[],"tr":"tr/4.json","note":null,"nspeak":1,"nmem":0,"ntable":0,"nfold":0}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["1 月 12 日的委員會同時處理「宣讀上次會議議事錄」「邀請考試院秘書長、銓敘部部長、行政院人事行政總處人事長、內政部、教育部、行政院主計總處針對「立法院通過之警、消、公、教退」，詢答合併進行，逐字稿裡有那部分的問答。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script id="data" type="application/json">{"law":"刑事訴訟法","version":"04552:2026-04-17-修正","date":"2026-04-17","action":"修正","title":"刑事訴訟法　2026 年修正","lede":"","summary":"","key":"04552_2026-04-17","props":[{"id":"202110060080000","who":"委員陳培瑜等16人","date":"2024-07-05","name":"「刑事訴訟法第一百零一條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110060080000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/21/LCEWA01_110121_00029.pdf","proposers":["陳培瑜","何欣純"],"ncosign":14,"people":[["陳培瑜","民進黨","提案"],["何欣純","民進黨","提案"],["郭昱晴","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["王美惠","民進黨","連署"],["林楚茵","民進黨","連署"],["吳沛憶","民進黨","連署"],["張雅琳","民進黨","連署"],["陳秀寳","民進黨","連署"],["徐富癸","民進黨","連署"],["羅美玲","民進黨","連署"],["黃秀芳","民進黨","連署"],["林宜瑾","民進黨","連署"],["洪申翰","民進黨","連署"],["沈伯洋","民進黨","連署"],["陳冠廷","民進黨","連署"]],"party":[["民進黨",16]],"reason":"本院委員陳培瑜、何欣純等16人，鑒於我國近年兒少性剝削影像重製、散布及持有案例不斷增加，為改善兒少性剝削問題持續惡化狀況，除透過相關法律修正以處理現有規範不足嚇阻犯罪發生外，考量此類型違法樣態之行為人多有反覆實行並對兒少受害者有高度危險性，為提供偵辦過程中必要之法律工具，以周延保障兒少福祉，爰擬具「刑事訴訟法第一百零一條之一條文修正草案」。是否有當？敬請公決。","arts":[]},{"id":"202110123840000","who":"台灣民眾黨黨團","date":"2025-05-09","name":"「刑事訴訟法第一百零一條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110123840000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/11/LCEWA01_110311_00058.pdf","proposers":["黃國昌","張啓楷","陳昭姿"],"ncosign":0,"people":[["黃國昌","民眾黨","提案"],["張啓楷","民眾黨","提案"],["陳昭姿","民眾黨","提案"]],"party":[["民眾黨",3]],"reason":"本院台灣民眾黨黨團，有鑑於近年來詐欺、兒少性影像及組織犯罪問題日益嚴峻，此等犯罪不僅有高度社會危害性，亦有高度再犯之情形，自有納為預防性羈押原因之必要，爰擬具「刑事訴訟法第一百零一條之一條文修正草案」。是否有當？敬請公決。","arts":[]},{"id":"202110157050000","who":"委員吳宗憲等22人","date":"2025-08-29","name":"「刑事訴訟法第一百零一條之一條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110157050000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/27/LCEWA01_110327_00040.pdf","proposers":["吳宗憲","王鴻薇","林沛祥","王育敏","廖偉翔"],"ncosign":17,"people":[["吳宗憲","國民黨","提案"],["王鴻薇","國民黨","提案"],["林沛祥","國民黨","提案"],["王育敏","國民黨","提案"],["廖偉翔","國民黨","提案"],["徐欣瑩","國民黨","連署"],["呂玉玲","國民黨","連署"],["羅智強","國民黨","連署"],["陳雪生","國民黨","連署"],["謝龍介","國民黨","連署"],["游顥","國民黨","連署"],["葛如鈞","國民黨","連署"],["黃建賓","國民黨","連署"],["羅廷瑋","國民黨","連署"],["蘇清泉","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["陳菁徽","國民黨","連署"],["牛煦庭","國民黨","連署"],["魯明哲","國民黨","連署"],["盧縣一","國民黨","連署"],["柯志恩","國民黨","連署"],["許宇甄","國民黨","連署"]],"party":[["國民黨",22]],"reason":"本院委員吳宗憲、王鴻薇、林沛祥、王育敏、廖偉翔等22人，鑑於近年集團式詐欺犯罪盛行，且妨害性隱私、兒少性剝削及組織犯罪等問題日益嚴峻，該等犯罪不僅具有高度危害性，亦有高度再犯之可能，為保護潛在被害人，確保偵查順利，實有納入預防性羈押適用範圍之必要，爰擬具「刑事訴訟法第一百零一條之一條文修正草案」。是否有當？敬請公決。","arts":[]}],"arts":[{"no":"第一百零一條之一","current":null,"versions":[],"changed":true,"final":"被告經法官訊問後，認為犯下列各款之罪，其嫌疑重大，有事實足認為有反覆實行同一犯罪之虞，而有羈押之必要者，得羈押之：\n一、刑法第一百七十三條第一項、第三項、第一百七十四條第一項、第二項、第四項、第一百七十五條第一項、第二項之放火罪、第一百七十六條之準放火罪、第一百八十五條之一之劫持交通工具罪、第一百八十五條之三不能安全駕駛罪。\n二、刑法第二百二十一條之強制性交罪、第二百二十二條之加重強制性交罪、第二百二十四條之強制猥褻罪、第二百二十四條之一之加重強制猥褻罪、第二百二十五條之乘機性交猥褻罪、第二百二十六條之一之強制性交猥褻之結合罪、第二百二十七條之與幼年男女性交或猥褻罪、第二百七十一條第一項、第二項之殺人罪、第二百七十二條之殺直系血親尊親屬罪、第二百七十二條之一之殺幼童罪、第二百七十七條第一項之傷害罪、第二百七十八條第一項之重傷罪、第二百八十六條之凌虐或妨害未成年人健康發育罪、第三百十九條之一之妨害性影像罪、第三百十九條之二之加重妨害性影像罪、第三百十九條之三之供人觀覽性影像罪、第三百十九條之四之製作不實性影像罪、兒童及少年性剝削防制條例第三十六條第一項至第五項、第三十八條第一項、第三項、第四項之罪、性騷擾防治法第二十五條第一項之罪。但其須告訴乃論，而未經告訴或其告訴已經撤回或已逾告訴期間者，不在此限。\n三、刑法第二百九十六條之一之買賣人口罪、第二百九十九條之移送被略誘人出國罪、第三百零二條、第三百零二條之一之妨害自由罪。\n四、刑法第三百零四條之強制罪、第三百零五條之恐嚇危害安全罪。\n五、刑法第三百二十條、第三百二十一條之竊盜罪。\n六、刑法第三百二十五條、第三百二十六條之搶奪罪、第三百二十八條第一項、第二項、第四項之強盜罪、第三百三十條之加重強盜罪、第三百三十二條之強盜結合罪、第三百三十三條之海盜罪、第三百三十四條之海盜結合罪。\n七、刑法第三百三十九條、第三百三十九條之三之詐欺罪、第三百三十九條之四之加重詐欺罪、詐欺犯罪危害防制條例第四十三條、第四十四條之罪。\n八、刑法第三百四十六條之恐嚇取財罪、第三百四十七條第一項、第三項之擄人勒贖罪、第三百四十八條之擄人勒贖結合罪、第三百四十八條之一之準擄人勒贖罪。\n九、槍砲彈藥刀械管制條例第七條、第八條、第九條之一、第十二條、第十三條、第十三條之一之罪。\n十、毒品危害防制條例第四條第一項至第四項之罪。\n十一、人口販運防制法第三十二條之罪。\n十二、組織犯罪防制條例第三條第一項前段之罪。\n前條第二項至第四項之規定，於前項情形準用之。","finalWhy":"","review":null}],"stages":[{"date":"2024-07-05","stage":"一讀","code":"院會-11-1-21","bill":"202110060080000","gazref":"113卷066期5248號 3-3頁"},{"date":"2025-04-24","code":"黨團協商-2025042122","title":"立法院朝野黨團協商","gazref":"114卷043期5336號 1-60頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025042122/details?meetingDate=114/04/24","full":["https://ivod.ly.gov.tw/Play/Full/1M/16623"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/114/43/LCIDC01_1144301.pdf","p1":1,"p2":60}],"clips":[],"props":["202110060080000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":27,"nmem":14,"ntable":1,"nfold":7},{"date":"2025-05-09","stage":"一讀","code":"院會-11-3-11","bill":"202110123840000","gazref":"114卷044期5337號一冊 6-6頁"},{"date":"2025-08-29","stage":"一讀","code":"院會-11-3-27","bill":"202110157050000","gazref":"114卷075期5368號一冊 5-5頁"},{"date":"2026-01-12","code":"委員會-11-4-36-18","title":"第11屆第4會期司法及法制委員會第18次全體委員會議","gazref":"115卷011期5410號一冊 141-141,143-205頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026010845/details?meetingDate=115/01/12","full":["https://ivod.ly.gov.tw/Play/Full/1M/17194"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/11/LCIDC01_1151101_00014.pdf","p1":141,"p2":206}],"clips":[{"n":"黃珊珊","t":"09:04","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167017"},{"n":"翁曉玲","t":"09:07","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167018"},{"n":"吳宗憲","t":"09:11","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167019"},{"n":"林倩綺","t":"09:19","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167020"},{"n":"羅智強","t":"09:34","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167024"},{"n":"翁曉玲","t":"09:43","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167095"},{"n":"翁曉玲","t":"09:43","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167027"},{"n":"王義川","t":"10:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167030"},{"n":"林倩綺","t":"10:12","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167033"},{"n":"沈發惠","t":"10:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167036"},{"n":"吳思瑤","t":"10:44","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167039"},{"n":"吳宗憲","t":"11:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167045"},{"n":"陳培瑜","t":"11:20","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167047"},{"n":"王鴻薇","t":"11:31","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167051"},{"n":"鄭天財Sra Kacaw","t":"11:45","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167054"},{"n":"莊瑞雄","t":"11:52","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167055"},{"n":"洪孟楷","t":"12:01","u":"https://ivod.ly.gov.tw/Play/Clip/1M/167079"}],"props":["202110060080000","202110123840000","202110157050000"],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":33,"nmem":13,"ntable":1,"mixedOther":["宣讀上次會議議事錄","邀請考試院秘書長、銓敘部部長、行政院人事行政總處人事長、內政部、教育部、行政院主計總處針對「立法院通過之警、消、公、教退"],"nfold":7},{"date":"2026-01-29","code":"黨團協商-2026012848","title":"立法院朝野黨團協商","gazref":"115卷015期5414號 93-93,95-125頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026012848/details?meetingDate=115/01/29","full":["https://ivod.ly.gov.tw/Play/Full/1M/17244"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/15/LCIDC01_1151501.pdf","p1":93,"p2":126}],"clips":[],"props":["202110060080000","202110123840000","202110157050000"],"tr":"tr/3.json","note":null,"mixed":[],"nspeak":6,"nmem":4,"ntable":1,"nfold":0},{"date":"2026-04-17","code":"院會-11-5-7","title":"第11屆第5會期第7次會議","gazref":"115卷029期5428號一冊 47-70頁；115卷029期5428號一冊 70-71頁；115卷029期5428號一冊 71-71頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026041579/details?meetingDate=115/04/17","full":["https://ivod.ly.gov.tw/Play/Full/1M/17362"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/29/LCIDC01_1152901_00005.pdf","p1":47,"p2":71}],"clips":[],"props":[],"tr":"tr/4.json","note":null,"nspeak":1,"nmem":0,"ntable":0,"nfold":0}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["1 月 12 日的委員會同時處理「宣讀上次會議議事錄」「邀請考試院秘書長、銓敘部部長、行政院人事行政總處人事長、內政部、教育部、行政院主計總處針對「立法院通過之警、消、公、教退」，詢答合併進行，逐字稿裡有那部分的問答。"],"reviewed":false,"fetched":"2026-11-17","parties":{"吳春城":"民眾黨","李貞秀":"民眾黨","麥玉珍":"民眾黨","林國成":"民眾黨","張啓楷":"民眾黨","黃珊珊":"民眾黨","黃國昌":"民眾黨","林憶君":"民眾黨","游錫堃":"民進黨","洪申翰":"民進黨","何欣純":"民進黨","李昆澤":"民進黨","林俊憲":"民進黨","邱若華":"國民黨","洪孟楷":"國民黨","徐富癸":"民進黨","許智傑":"民進黨","陳素月":"民進黨","陳雪生":"國民黨","游顥":"國民黨","黃健豪":"國民黨","萬美玲":"國民黨","魯明哲":"國民黨","陳清龍":"民眾黨","丁學忠":"國民黨","陳昭姿":"民眾黨","牛煦庭":"國民黨","王世堅":"民進黨","王定宇":"民進黨","王美惠":"民進黨","王鴻薇":"國民黨","伍麗華":"民進黨","江啟臣":"國民黨","吳沛憶":"民進黨","吳宗憲":"國民黨","吳秉叡":"民進黨","吳思瑤":"民進黨","吳琪銘":"民進黨","李柏毅":"民進黨","林宜瑾":"民進黨","林岱樺":"民進黨","林思銘":"國民黨","林淑芬":"民進黨","林德福":"國民黨","邱志偉":"民進黨","邱鎮軍":"國民黨","邱議瑩":"民進黨","柯志恩":"國民黨","柯建銘":"民進黨","范雲":"民進黨","徐巧芯":"國民黨","徐欣瑩":"國民黨","涂權吉":"國民黨","馬文君":"國民黨","高金素梅":"無黨籍","張宏陸":"民進黨","張智倫":"國民黨","張嘉郡":"國民黨","莊瑞雄":"民進黨","郭國文":"民進黨","陳永康":"國民黨","陳玉珍":"國民黨","陳秀寳":"民進黨","陳亭妃":"民進黨","陳俊宇":"民進黨","陳冠廷":"民進黨","陳超明":"無黨籍","陳瑩":"民進黨","傅崐萁":"國民黨","黃仁":"國民黨","黃秀芳":"民進黨","黃建賓":"國民黨","黃捷":"民進黨","楊曜":"民進黨","楊瓊瓔":"國民黨","葉元之":"國民黨","廖先翔":"國民黨","廖偉翔":"國民黨","劉建國":"民進黨","蔡其昌":"民進黨","蔡易餘":"民進黨","鄭正鈐":"國民黨","賴士葆":"國民黨","賴瑞隆":"民進黨","謝龍介":"國民黨","鍾佳濱":"民進黨","韓國瑜":"國民黨","顏寬恒":"國民黨","羅廷瑋":"國民黨","羅明才":"國民黨","羅智強":"國民黨","蘇巧慧":"民進黨","蘇清泉":"國民黨","呂玉玲":"國民黨","李坤城":"民進黨","洪毓祥":"民眾黨","蔡春綢":"民眾黨","王安祥":"民眾黨","邱慧洳":"民眾黨","翁曉玲":"國民黨","王育敏":"國民黨","沈伯洋":"民進黨","沈發惠":"民進黨","林沛祥":"國民黨","林楚茵":"民進黨","張雅琳":"民進黨","陳菁徽":"國民黨","鄭天財":"國民黨","盧縣一":"國民黨","羅美玲":"民進黨","王正旭":"民進黨","王義川":"民進黨","劉書彬":"民眾黨","李彥秀":"國民黨","林月琴":"民進黨","林倩綺":"國民黨","許宇甄":"國民黨","郭昱晴":"民進黨","陳培瑜":"民進黨","葛如鈞":"國民黨","賴惠員":"民進黨","謝衣鳯":"國民黨","許忠信":"民眾黨"}}</script>
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const $ = id => document.getElementById(id);
@@ -441,6 +452,62 @@ D.props.forEach(p => {
 
 /* ---------- 歷程與逐字稿 ---------- */
 const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+const PARTY = D.parties || {};
+const PCOLOR = {'國民黨': '#2a6fc9', '民進黨': '#2f9e44', '民眾黨': '#22b8b0', '無黨籍': '#8a94a0'};
+const TERM = /逕付二讀|重付表決|修正動議|記名表決|復議/;
+function para(text) {   // 一段裡第一次出現的議事名詞加上虛線底線，點了有解釋
+  const p = el('p'), m = TERM.exec(text);
+  if (!m) { p.textContent = text; return p; }
+  const b = el('button', {type: 'button', class: 'term', text: m[0]});
+  b.addEventListener('click', e => { e.stopPropagation(); if (tipTag === b) hideTip(); else showTip(b, [m[0]], true); });
+  p.append(text.slice(0, m.index), b, text.slice(m.index + m[0].length));
+  return p;
+}
+function fp(str) {   // 發言者加開頭幾個字的短指紋：逐字稿日後重新切分、段落編號變了，還能靠它找回同一段
+  let h = 0; for (const c of str) h = (h * 31 + c.codePointAt(0)) >>> 0;
+  return (h % 65536).toString(16).padStart(4, '0');
+}
+function toast(msg) {
+  document.querySelectorAll('.toast').forEach(x => x.remove());
+  const t = el('div', {class: 'toast', role: 'status', text: msg});
+  document.body.append(t); setTimeout(() => t.remove(), 4500);
+}
+function copyHere(id) {
+  const url = location.href.split('#')[0] + '#' + id;
+  const ok = () => toast('已複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言，可以往前往後讀。');
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, () => prompt('複製這個連結', url));
+  else prompt('複製這個連結', url);
+  history.replaceState(null, '', '#' + id);
+}
+function showTurn(turns, node) {   // 捲到某段發言；它如果收在折疊區塊裡，先打開
+  for (let p = node.parentElement; p && p !== turns; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
+  turns.scrollTop = node.offsetTop - turns.offsetTop - 8;
+}
+function finder(turns) {   // 在這場逐字稿裡找字
+  const input = el('input', {type: 'search', placeholder: '在這場逐字稿裡找字', 'aria-label': '在這場逐字稿裡找字'});
+  const count = el('span'), prev = el('button', {type: 'button', class: 'chip', text: '上一段'}), next = el('button', {type: 'button', class: 'chip', text: '下一段'});
+  let hits = [], cur = -1;
+  const go = i => {
+    if (!hits.length) return;
+    if (hits[cur]) hits[cur].classList.remove('cur');
+    cur = (i + hits.length) % hits.length;
+    hits[cur].classList.add('cur'); showTurn(turns, hits[cur]);
+    count.textContent = '第 ' + (cur + 1) + ' / ' + hits.length + ' 段';
+  };
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    [...turns.children].forEach(t => t.classList.remove('hit', 'cur'));
+    hits = q ? [...turns.children].filter(t => t.textContent.includes(q)) : []; cur = -1;
+    hits.forEach(t => t.classList.add('hit'));
+    prev.hidden = next.hidden = !hits.length;
+    count.textContent = !q ? '' : hits.length ? '' : '這場沒有出現這個詞';
+    if (hits.length) go(0);
+  });
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); go(cur + (e.shiftKey ? -1 : 1)); } });
+  prev.addEventListener('click', () => go(cur - 1)); next.addEventListener('click', () => go(cur + 1));
+  prev.hidden = next.hidden = true;
+  return el('div', {class: 'find'}, input, count, prev, next);
+}
 function renderTranscript(box, data, s) {
   box.textContent = '';
   const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
@@ -451,15 +518,21 @@ function renderTranscript(box, data, s) {
     const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
     if (t.s) {
       const who = el('div', {class: 'who'}, t.s);
+      const pa = PARTY[normName(t.s)];
+      if (pa) who.append(el('span', {class: 'party', style: '--pc:' + PCOLOR[pa]}, el('i'), pa));
       if (t.t) who.append(el('small', {text: t.t}));
       const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
       const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
       if (u && t.t) who.append(link(u, '看這段影片'));
+      const here = el('button', {type: 'button', class: 'here', text: '分享上下文', title: '複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言'});
+      d.dataset.fp = fp(t.s + '|' + (t.b.find(x => typeof x === 'string') || '').slice(0, 30));
+      here.addEventListener('click', () => copyHere(d.id + '-' + d.dataset.fp));
+      who.append(here);
       d.append(who);
       if (!chair && !first.has(t.s)) first.set(t.s, d);
     }
     const put = (into, b) => {
-      if (typeof b === 'string') into.append(el('p', {text: b}));
+      if (typeof b === 'string') into.append(para(b));
       else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
         const inner = el('div', {class: 'readout'});
         b.b.forEach(x => put(inner, x));
@@ -480,7 +553,7 @@ function renderTranscript(box, data, s) {
   const chips = el('div', {class: 'chips'});
   first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
   idx.append(chips);
-  box.append(idx, turns);
+  box.append(idx, finder(turns), turns);
 }
 /* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
 const READING = {
@@ -501,6 +574,14 @@ const READING = {
     '最後將全案進行最終表決。',
     '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
 };
+Object.assign(READING, {
+  '復議': {t: '復議', sub: '要求把已經表決的案子重新討論', what: '議案表決之後，當初投贊成的一方可以提出復議，要求重新討論、重新表決。', pts: [
+    '復議被否決之後，同一個案子不能再提復議，決議就此確定。',
+    '實務上常見多數方自己提出復議、再自己否決，目的是讓剛通過的條文確定下來。']},
+  '重付表決': {t: '重付表決', sub: '對表決結果有異議，再表決一次', what: '出席委員對表決結果有異議時，經 15 人以上連署或附議，可以要求重新表決。', pts: ['以一次為限。']},
+  '修正動議': {t: '修正動議', sub: '在院會對條文提出的修改案', what: '委員或黨團在二讀（或三讀）時，對討論中的條文提出另一個版本的文字，交院會表決。', pts: ['需要 10 人以上連署或附議。']},
+  '記名表決': {t: '記名表決', sub: '留下每位委員投什麼的表決', what: '表決時逐一記錄每位委員投贊成、反對或棄權，名單會登在公報上。', pts: []}
+});
 const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
 document.body.append(tipbox);
 let tipTimer = null, tipTag = null, tipPinned = false;
@@ -537,6 +618,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); }
 addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
 addEventListener('resize', hideTip);
 
+const OPEN = {};
 D.stages.forEach(s => {
   const k = kindOf(s.stage);
   const body = el('div', {class: 'body'});
@@ -570,18 +652,20 @@ D.stages.forEach(s => {
       body.append(sub, panel);
     }
     const acts = el('div', {class: 'acts'});
-    let box = null;
+    let box = null, opener = null;
     if (s.tr) {
       const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
       box = el('div', {class: 'tr', hidden: ''});
-      btn.addEventListener('click', async () => {
+      const toggle = async () => {
         const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
         if (!open || box.dataset.loaded) return;
         box.textContent = '載入逐字稿中';
         try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
         catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
-      });
+      };
+      btn.addEventListener('click', toggle);
       acts.append(btn);
+      OPEN[s.tr.replace(/\W/g, '-')] = async () => { if (box.hidden) await toggle(); return box; };
     } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
       acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
       s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
@@ -599,6 +683,28 @@ D.stages.forEach(s => {
   }
   $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
 });
+
+async function landFromHash() {
+  const m = /^#(.+?)-([0-9]+)(?:-([0-9a-f]{4}))?$/.exec(location.hash);
+  if (!m || !OPEN[m[1]]) return;
+  const box = await OPEN[m[1]]();
+  let node = document.getElementById(m[1] + '-' + m[2]), moved = false;
+  if (m[3] && !(node && node.dataset.fp === m[3])) {   // 編號對不上指紋：找指紋相同、離原編號最近的那段
+    const same = [...box.querySelectorAll('.turn')].filter(t => t.dataset.fp === m[3]);
+    const n = t => +t.id.slice(m[1].length + 1);
+    if (same.length) node = same.sort((a, b) => Math.abs(n(a) - m[2]) - Math.abs(n(b) - m[2]))[0]; else moved = true;
+  }
+  if (!node) return;
+  box.scrollIntoView({block: 'start'});
+  showTurn(node.parentElement, node);
+  document.querySelectorAll('.turn.landed').forEach(x => x.classList.remove('landed'));
+  document.querySelectorAll('.landtip').forEach(x => x.remove());
+  node.classList.add('landed');
+  const tip = el('div', {class: 'ref landtip', text: (moved ? '這場逐字稿在連結建立之後重新整理過，標色的位置可能和原本差幾段。' : '你是從連結進來的，下面標色的是連結指到的那段發言。') + '這裡是整場會議的逐字稿，可以往上讀前面發生了什麼，或往下讀後續。'});
+  box.prepend(tip);
+}
+if (document.readyState === 'complete') landFromHash(); else addEventListener('load', () => setTimeout(landFromHash, 50));
+addEventListener('hashchange', landFromHash);
 
 /* ---------- 表決 ---------- */
 (function () {

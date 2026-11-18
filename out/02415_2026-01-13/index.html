@@ -93,6 +93,17 @@ button.tag:hover,button.tag[aria-describedby]{background:color-mix(in srgb,var(-
 .turn p{overflow-wrap:anywhere}
 .turn.pre p{font-size:13px;color:var(--muted)}
 .tw{overflow-x:auto;max-width:100%}
+.turn .party{font-weight:400;font-size:12px;color:var(--muted);white-space:nowrap}
+.turn .party i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--pc);margin-right:4px}
+.turn .here{font-weight:400;font-size:12px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-left:auto}
+.turn .here:hover{color:var(--accent)}
+.turn.landed{box-shadow:-3px 0 0 var(--accent);padding-left:10px;background:var(--accent-soft)}
+.turn.hit{box-shadow:-3px 0 0 var(--warn);padding-left:10px}
+.turn.hit.cur{background:var(--warn-soft)}
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:help;border-bottom:1px dotted var(--muted)}
+.tr .find{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--muted)}
+.tr .find input{font:inherit;font-size:14px;padding:2px 8px;border:1px solid var(--line);border-radius:3px;background:var(--surface);color:var(--ink);width:min(16em,100%)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--bg);font-size:13px;padding:8px 14px;border-radius:4px;max-width:calc(100vw - 32px)}
 .readout{display:flex;flex-direction:column;gap:4px;padding:6px 0 6px 1.4em;min-width:0}
 .readnote{padding-left:1.4em}
 .turn .fold>summary b{font-weight:500}
@@ -227,7 +238,7 @@ dialog.artdlg::backdrop{background:rgba(10,15,20,.55)}
   <p class="foot" id="foot"></p>
 </div>
 
-<script id="data" type="application/json">{"law":"衛星廣播電視法","version":"02415:2026-01-13-修正","date":"2026-01-13","action":"修正","title":"衛星廣播電視法　2026 年修正","lede":"","summary":"","key":"02415_2026-01-13","props":[{"id":"202110120090000","who":"委員許智傑等27人","date":"2025-05-09","name":"「衛星廣播電視法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110120090000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/11/LCEWA01_110311_00020.pdf","proposers":["許智傑","陳雪生"],"ncosign":25,"people":[["許智傑","民進黨","提案"],["陳雪生","國民黨","提案"],["吳琪銘","民進黨","連署"],["陳亭妃","民進黨","連署"],["陳瑩","民進黨","連署"],["黃秀芳","民進黨","連署"],["陳培瑜","民進黨","連署"],["林月琴","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["王美惠","民進黨","連署"],["陳素月","民進黨","連署"],["范雲","民進黨","連署"],["蔡其昌","民進黨","連署"],["賴惠員","民進黨","連署"],["黃捷","民進黨","連署"],["李坤城","民進黨","連署"],["李柏毅","民進黨","連署"],["林楚茵","民進黨","連署"],["林俊憲","民進黨","連署"],["王正旭","民進黨","連署"],["徐富癸","民進黨","連署"],["陳俊宇","民進黨","連署"],["沈伯洋","民進黨","連署"],["王世堅","民進黨","連署"],["鍾佳濱","民進黨","連署"],["張宏陸","民進黨","連署"],["郭國文","民進黨","連署"]],"party":[["民進黨",26],["國民黨",1]],"reason":"本院委員許智傑、陳雪生等27人，為延長經營他類頻道節目供應事業者應向主管機關申請許可執照之期限，爰擬具「衛星廣播電視法第六十四條條文修正草案」。是否有當？敬請公決。","arts":["第六十四條"]},{"id":"202110171040000","who":"委員洪孟楷等22人","date":"2025-11-07","name":"「衛星廣播電視法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110171040000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/08/LCEWA01_110408_00051.pdf","proposers":["洪孟楷","黃健豪","陳雪生","蘇清泉"],"ncosign":18,"people":[["洪孟楷","國民黨","提案"],["黃健豪","國民黨","提案"],["陳雪生","國民黨","提案"],["蘇清泉","國民黨","提案"],["顏寬恒","國民黨","連署"],["翁曉玲","國民黨","連署"],["賴士葆","國民黨","連署"],["陳菁徽","國民黨","連署"],["林德福","國民黨","連署"],["涂權吉","國民黨","連署"],["許宇甄","國民黨","連署"],["邱若華","國民黨","連署"],["王育敏","國民黨","連署"],["黃建賓","國民黨","連署"],["王鴻薇","國民黨","連署"],["丁學忠","國民黨","連署"],["鄭正鈐","國民黨","連署"],["陳永康","國民黨","連署"],["徐巧芯","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["李彥秀","國民黨","連署"],["柯志恩","國民黨","連署"]],"party":[["國民黨",22]],"reason":"本院委員洪孟楷、黃健豪、陳雪生、蘇清泉等22人，為落實公眾視聽權益，避免影響在地收視聽民眾之福祉，爰擬具「衛星廣播電視法第六十四條條文修正草案」，延長經營他類頻道節目供應事業者應向主管機關申請許可執照之期限。是否有當？敬請公決。","arts":["第六十四條"]}],"arts":[{"no":"第六十四條","current":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起三年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。","versions":[{"bill":"202110120090000","text":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起四年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。","note":"一、一百零四年十二月十八日修正通過之有線廣播電視法、衛星廣播電視法，將經營他類頻道節目供應事業者（如系統經營者自營之地方頻道，或非以衛星傳輸方式之購物頻道）納管，應依衛星廣播電視法規定取得他類頻道節目供應事業執照，並準用同法第五條「黨政軍退出媒體條款」之規定，且修正條文施行前經營「他類頻道節目供應事業」者應於本次修正施行之日起六個月內，依規定向主管機關申請許可，否則不得繼續經營。\n二、惟早在修正條文施行前，經營「他類頻道節目供應事業者」如購物頻道已存有為上市、上櫃公司或其任一上層法人股東屬上市、上櫃公司之情形，無法控制及拒絕具有黨政軍色彩之投資人購買該公司股份，因而面臨違反黨政軍條款致無法申請執照之困境。\n三、為解決此立法疏漏，立法院於一百零五年十月二十一日、一百零七年五月二十二日，及一百一十一年五月三日三度修正通過衛星廣播電視法第六十四條第二項條文，延長經營「他類頻道節目供應事業者」之申請執照期限，使購物頻道、地方頻道得以暫時擱置黨政軍條款問題，繼續營運。於此延長期間，行政法院法官亦就黨政軍條款申請釋憲，惟憲法法庭大法官認為與聲請解釋要件不合，最終裁定不受理。\n四、考量購物頻道早在本條文修正施行前已經營多年，其頻道屬性與黨政軍條款欲管制之目的無涉，且行政法院判決亦指出，因有價證券公開市場交易之不確定性，要求上市櫃公司排除黨政軍投資顯不具期待可能性，應受信賴利益保護；又地方頻道具有提供地方政府及民眾公益服務等性質，公眾視聽權益須加以維護，以免影響在地收視聽民眾之福祉。然黨政軍條款修正至今仍遙遙無期，而一百一十一年五月三日修法延長之申照日期將至，為在最小變動下解決目前業者無法申請執照之窘境，且目前經營他類頻道節目供應事業者，關於其經營期間之節目及廣告管理、權利保護已依本條第一項規定辦理，視為他類頻道節目供應事業，爰提案繼續延長申照期限，以待黨政軍條款修法之共識。"},{"bill":"202110171040000","text":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起四年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。","note":"一、現有利用衛星以外方式，且以一定頻道名稱之節目或廣告傳送至供公眾收視聽之播送平臺之事業，如系統經營者自營之地方有線電視頻道等，按衛星廣播電視法所定義乃屬於「他類頻道節目供應事業」，並甫自104年12月18日受本法修訂納管迄今。\n二、考量購物頻道早在本條文修正施行前已經營多年，其頻道屬性與黨政軍條款欲管制之目的無涉，且行政法院判決亦指出，因有價證券公開市場交易之不確定性，要求上市櫃公司排除黨政軍投資顯不具期待可能性，應受信賴利益保護；又地方頻道具有提供地方政府及民眾公益服務等性質，公眾視聽權益須加以維護，以免影響在地收視聽民眾之福祉。\n三、為在最小變動下解決目前業者無法申請執照之窘境，且目前經營他類頻道節目供應事業者，關於其經營期間之節目及廣告管理、權利保護已依本條第一項規定辦理，視為他類頻道節目供應事業，爰修正第二項，再延長申照期限四年。"}],"changed":false,"final":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起四年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。","finalWhy":null,"review":{"note":"照委員許智傑等27人提案、委員洪孟楷等22人提案通過","text":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起四年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。"}}],"stages":[{"date":"2025-05-09","stage":"一讀","code":"院會-11-3-11","bill":"202110120090000","gazref":"114卷044期5337號一冊 2-2頁"},{"date":"2025-11-07","stage":"一讀","code":"院會-11-4-8","bill":"202110171040000","gazref":"114卷091期5384號 5-5頁"},{"date":"2025-12-08","code":"委員會-11-4-23-10","title":"第11屆第4會期交通委員會第10次全體委員會議","gazref":"114卷105期5398號一冊 201-201,207-268頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025120562/details?meetingDate=114/12/08","full":["https://ivod.ly.gov.tw/Play/Full/1M/17106"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/105/LCIDC01_11410501_00003.pdf","p1":201,"p2":268}],"clips":[{"n":"張啓楷","t":"09:04","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166201"},{"n":"翁曉玲","t":"09:10","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166202"},{"n":"羅智強","t":"09:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166203"},{"n":"葉元之","t":"09:21","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166204"},{"n":"林國成","t":"09:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166213"},{"n":"黃健豪","t":"09:50","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166214"},{"n":"許智傑","t":"10:02","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166215"},{"n":"洪孟楷","t":"10:13","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166216"},{"n":"陳雪生","t":"10:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166221"},{"n":"李昆澤","t":"10:36","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166222"},{"n":"何欣純","t":"10:56","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166227"},{"n":"林俊憲","t":"11:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166228"},{"n":"蔡其昌","t":"11:17","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166229"},{"n":"邱若華","t":"11:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166235"},{"n":"魯明哲","t":"11:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166236"},{"n":"翁曉玲","t":"11:49","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166237"},{"n":"廖先翔","t":"11:57","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166238"},{"n":"張啓楷","t":"12:05","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166239"},{"n":"黃國昌","t":"12:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166240"},{"n":"鄭天財Sra Kacaw","t":"12:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166241"},{"n":"游顥","t":"12:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166242"},{"n":"賴士葆","t":"12:43","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166243"},{"n":"徐富癸","t":"12:51","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166244"},{"n":"陳素月","t":"13:00","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166245"},{"n":"葉元之","t":"13:10","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166246"}],"props":["202110120090000","202110171040000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":28,"nmem":22,"ntable":0,"nfold":1},{"date":"2025-12-22","code":"委員會-11-4-23-12","title":"第11屆第4會期交通委員會第12次全體委員會議","gazref":"115卷005期5404號 361-361,363-422頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025121936/details?meetingDate=114/12/22","full":["https://ivod.ly.gov.tw/Play/Full/1M/17143"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/05/LCIDC01_1150501_00007.pdf","p1":361,"p2":422}],"clips":[],"props":["202110120090000","202110171040000"],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":14,"nmem":10,"ntable":0,"nfold":0},{"date":"2026-01-13","code":"院會-11-4-17","title":"第11屆第4會期第17次會議","gazref":"115卷007期5406號 71-81頁；115卷007期5406號 81-81頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026010735/details?meetingDate=115/01/09","full":["https://ivod.ly.gov.tw/Play/Full/1M/17197"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/07/LCIDC01_1150701_00010.pdf","p1":71,"p2":81}],"clips":[],"props":[],"tr":"tr/3.json","note":null,"nspeak":3,"nmem":0,"ntable":0,"nfold":1}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["12 月 22 日的委員會沒有委員個別發言的影片片段，只有完整影片。"],"reviewed":false,"fetched":"2026-11-16"}</script>
+<script id="data" type="application/json">{"law":"衛星廣播電視法","version":"02415:2026-01-13-修正","date":"2026-01-13","action":"修正","title":"衛星廣播電視法　2026 年修正","lede":"","summary":"","key":"02415_2026-01-13","props":[{"id":"202110120090000","who":"委員許智傑等27人","date":"2025-05-09","name":"「衛星廣播電視法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110120090000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/03/11/LCEWA01_110311_00020.pdf","proposers":["許智傑","陳雪生"],"ncosign":25,"people":[["許智傑","民進黨","提案"],["陳雪生","國民黨","提案"],["吳琪銘","民進黨","連署"],["陳亭妃","民進黨","連署"],["陳瑩","民進黨","連署"],["黃秀芳","民進黨","連署"],["陳培瑜","民進黨","連署"],["林月琴","民進黨","連署"],["伍麗華Saidhai‧Tahovecahe","民進黨","連署"],["王美惠","民進黨","連署"],["陳素月","民進黨","連署"],["范雲","民進黨","連署"],["蔡其昌","民進黨","連署"],["賴惠員","民進黨","連署"],["黃捷","民進黨","連署"],["李坤城","民進黨","連署"],["李柏毅","民進黨","連署"],["林楚茵","民進黨","連署"],["林俊憲","民進黨","連署"],["王正旭","民進黨","連署"],["徐富癸","民進黨","連署"],["陳俊宇","民進黨","連署"],["沈伯洋","民進黨","連署"],["王世堅","民進黨","連署"],["鍾佳濱","民進黨","連署"],["張宏陸","民進黨","連署"],["郭國文","民進黨","連署"]],"party":[["民進黨",26],["國民黨",1]],"reason":"本院委員許智傑、陳雪生等27人，為延長經營他類頻道節目供應事業者應向主管機關申請許可執照之期限，爰擬具「衛星廣播電視法第六十四條條文修正草案」。是否有當？敬請公決。","arts":["第六十四條"]},{"id":"202110171040000","who":"委員洪孟楷等22人","date":"2025-11-07","name":"「衛星廣播電視法第六十四條條文修正草案」","url":"https://ppg.ly.gov.tw/ppg/bills/202110171040000/details","pdf":"https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/04/08/LCEWA01_110408_00051.pdf","proposers":["洪孟楷","黃健豪","陳雪生","蘇清泉"],"ncosign":18,"people":[["洪孟楷","國民黨","提案"],["黃健豪","國民黨","提案"],["陳雪生","國民黨","提案"],["蘇清泉","國民黨","提案"],["顏寬恒","國民黨","連署"],["翁曉玲","國民黨","連署"],["賴士葆","國民黨","連署"],["陳菁徽","國民黨","連署"],["林德福","國民黨","連署"],["涂權吉","國民黨","連署"],["許宇甄","國民黨","連署"],["邱若華","國民黨","連署"],["王育敏","國民黨","連署"],["黃建賓","國民黨","連署"],["王鴻薇","國民黨","連署"],["丁學忠","國民黨","連署"],["鄭正鈐","國民黨","連署"],["陳永康","國民黨","連署"],["徐巧芯","國民黨","連署"],["鄭天財Sra Kacaw","國民黨","連署"],["李彥秀","國民黨","連署"],["柯志恩","國民黨","連署"]],"party":[["國民黨",22]],"reason":"本院委員洪孟楷、黃健豪、陳雪生、蘇清泉等22人，為落實公眾視聽權益，避免影響在地收視聽民眾之福祉，爰擬具「衛星廣播電視法第六十四條條文修正草案」，延長經營他類頻道節目供應事業者應向主管機關申請許可執照之期限。是否有當？敬請公決。","arts":["第六十四條"]}],"arts":[{"no":"第六十四條","current":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起三年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。","versions":[{"bill":"202110120090000","text":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起四年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。","note":"一、一百零四年十二月十八日修正通過之有線廣播電視法、衛星廣播電視法，將經營他類頻道節目供應事業者（如系統經營者自營之地方頻道，或非以衛星傳輸方式之購物頻道）納管，應依衛星廣播電視法規定取得他類頻道節目供應事業執照，並準用同法第五條「黨政軍退出媒體條款」之規定，且修正條文施行前經營「他類頻道節目供應事業」者應於本次修正施行之日起六個月內，依規定向主管機關申請許可，否則不得繼續經營。\n二、惟早在修正條文施行前，經營「他類頻道節目供應事業者」如購物頻道已存有為上市、上櫃公司或其任一上層法人股東屬上市、上櫃公司之情形，無法控制及拒絕具有黨政軍色彩之投資人購買該公司股份，因而面臨違反黨政軍條款致無法申請執照之困境。\n三、為解決此立法疏漏，立法院於一百零五年十月二十一日、一百零七年五月二十二日，及一百一十一年五月三日三度修正通過衛星廣播電視法第六十四條第二項條文，延長經營「他類頻道節目供應事業者」之申請執照期限，使購物頻道、地方頻道得以暫時擱置黨政軍條款問題，繼續營運。於此延長期間，行政法院法官亦就黨政軍條款申請釋憲，惟憲法法庭大法官認為與聲請解釋要件不合，最終裁定不受理。\n四、考量購物頻道早在本條文修正施行前已經營多年，其頻道屬性與黨政軍條款欲管制之目的無涉，且行政法院判決亦指出，因有價證券公開市場交易之不確定性，要求上市櫃公司排除黨政軍投資顯不具期待可能性，應受信賴利益保護；又地方頻道具有提供地方政府及民眾公益服務等性質，公眾視聽權益須加以維護，以免影響在地收視聽民眾之福祉。然黨政軍條款修正至今仍遙遙無期，而一百一十一年五月三日修法延長之申照日期將至，為在最小變動下解決目前業者無法申請執照之窘境，且目前經營他類頻道節目供應事業者，關於其經營期間之節目及廣告管理、權利保護已依本條第一項規定辦理，視為他類頻道節目供應事業，爰提案繼續延長申照期限，以待黨政軍條款修法之共識。"},{"bill":"202110171040000","text":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起四年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。","note":"一、現有利用衛星以外方式，且以一定頻道名稱之節目或廣告傳送至供公眾收視聽之播送平臺之事業，如系統經營者自營之地方有線電視頻道等，按衛星廣播電視法所定義乃屬於「他類頻道節目供應事業」，並甫自104年12月18日受本法修訂納管迄今。\n二、考量購物頻道早在本條文修正施行前已經營多年，其頻道屬性與黨政軍條款欲管制之目的無涉，且行政法院判決亦指出，因有價證券公開市場交易之不確定性，要求上市櫃公司排除黨政軍投資顯不具期待可能性，應受信賴利益保護；又地方頻道具有提供地方政府及民眾公益服務等性質，公眾視聽權益須加以維護，以免影響在地收視聽民眾之福祉。\n三、為在最小變動下解決目前業者無法申請執照之窘境，且目前經營他類頻道節目供應事業者，關於其經營期間之節目及廣告管理、權利保護已依本條第一項規定辦理，視為他類頻道節目供應事業，爰修正第二項，再延長申照期限四年。"}],"changed":false,"final":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起四年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。","finalWhy":null,"review":{"note":"照委員許智傑等27人提案、委員洪孟楷等22人提案通過","text":"他類頻道節目供應事業之經營許可、營運管理、節目及廣告管理、權利保護，除法律另有規定外，準用第四條、第五條、第六條第一項、第四項、第八條第一項至第五項、第九條、第十條第一項、第三項、第十一條第一項、第十二條至第十九條、第二十一條至第二十三條、第二十五條至第三十四條、第三十五條第一項、第三十六條、第三十七條、第三十九條至第四十一條、第四十二條第三項至第六項、第四十三條至第四十五條規定。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，應於本法修正施行之日起四年內，依規定向主管機關申請許可。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，未於前項期限內提出申請，於期限屆滿之日起，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於第二項規定期限內提出申請經駁回，自駁回處分送達之日起一個月後，不得繼續經營。\n本法中華民國一百零四年十二月十八日修正之條文施行前經營他類頻道節目供應事業者，於本法修正施行之日起至取得經營許可前，其繼續經營期間之節目及廣告管理、權利保護，應依第一項規定辦理，並視為他類頻道節目供應事業。"}}],"stages":[{"date":"2025-05-09","stage":"一讀","code":"院會-11-3-11","bill":"202110120090000","gazref":"114卷044期5337號一冊 2-2頁"},{"date":"2025-11-07","stage":"一讀","code":"院會-11-4-8","bill":"202110171040000","gazref":"114卷091期5384號 5-5頁"},{"date":"2025-12-08","code":"委員會-11-4-23-10","title":"第11屆第4會期交通委員會第10次全體委員會議","gazref":"114卷105期5398號一冊 201-201,207-268頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025120562/details?meetingDate=114/12/08","full":["https://ivod.ly.gov.tw/Play/Full/1M/17106"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/114/105/LCIDC01_11410501_00003.pdf","p1":201,"p2":268}],"clips":[{"n":"張啓楷","t":"09:04","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166201"},{"n":"翁曉玲","t":"09:10","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166202"},{"n":"羅智強","t":"09:16","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166203"},{"n":"葉元之","t":"09:21","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166204"},{"n":"林國成","t":"09:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166213"},{"n":"黃健豪","t":"09:50","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166214"},{"n":"許智傑","t":"10:02","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166215"},{"n":"洪孟楷","t":"10:13","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166216"},{"n":"陳雪生","t":"10:27","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166221"},{"n":"李昆澤","t":"10:36","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166222"},{"n":"何欣純","t":"10:56","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166227"},{"n":"林俊憲","t":"11:08","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166228"},{"n":"蔡其昌","t":"11:17","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166229"},{"n":"邱若華","t":"11:29","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166235"},{"n":"魯明哲","t":"11:39","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166236"},{"n":"翁曉玲","t":"11:49","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166237"},{"n":"廖先翔","t":"11:57","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166238"},{"n":"張啓楷","t":"12:05","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166239"},{"n":"黃國昌","t":"12:14","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166240"},{"n":"鄭天財Sra Kacaw","t":"12:24","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166241"},{"n":"游顥","t":"12:32","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166242"},{"n":"賴士葆","t":"12:43","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166243"},{"n":"徐富癸","t":"12:51","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166244"},{"n":"陳素月","t":"13:00","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166245"},{"n":"葉元之","t":"13:10","u":"https://ivod.ly.gov.tw/Play/Clip/1M/166246"}],"props":["202110120090000","202110171040000"],"tr":"tr/1.json","note":null,"mixed":[],"nspeak":28,"nmem":22,"ntable":0,"nfold":1},{"date":"2025-12-22","code":"委員會-11-4-23-12","title":"第11屆第4會期交通委員會第12次全體委員會議","gazref":"115卷005期5404號 361-361,363-422頁","stage":"委員會審查","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2025121936/details?meetingDate=114/12/22","full":["https://ivod.ly.gov.tw/Play/Full/1M/17143"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/SittingCommitteesInfo/download/communique1/final/pdf/115/05/LCIDC01_1150501_00007.pdf","p1":361,"p2":422}],"clips":[],"props":["202110120090000","202110171040000"],"tr":"tr/2.json","note":null,"mixed":[],"nspeak":14,"nmem":10,"ntable":0,"nfold":0},{"date":"2026-01-13","code":"院會-11-4-17","title":"第11屆第4會期第17次會議","gazref":"115卷007期5406號 71-81頁；115卷007期5406號 81-81頁","stage":"二讀、三讀","ppg":"https://ppg.ly.gov.tw/ppg/sittings/2026010735/details?meetingDate=115/01/09","full":["https://ivod.ly.gov.tw/Play/Full/1M/17197"],"pdf":[{"u":"https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/07/LCIDC01_1150701_00010.pdf","p1":71,"p2":81}],"clips":[],"props":[],"tr":"tr/3.json","note":null,"nspeak":3,"nmem":0,"ntable":0,"nfold":1}],"votes":[],"manualVotes":null,"gaps":[],"autoGaps":["12 月 22 日的委員會沒有委員個別發言的影片片段，只有完整影片。"],"reviewed":false,"fetched":"2026-11-17","parties":{"吳春城":"民眾黨","李貞秀":"民眾黨","麥玉珍":"民眾黨","林國成":"民眾黨","張啓楷":"民眾黨","黃珊珊":"民眾黨","黃國昌":"民眾黨","林憶君":"民眾黨","游錫堃":"民進黨","洪申翰":"民進黨","何欣純":"民進黨","李昆澤":"民進黨","林俊憲":"民進黨","邱若華":"國民黨","洪孟楷":"國民黨","徐富癸":"民進黨","許智傑":"民進黨","陳素月":"民進黨","陳雪生":"國民黨","游顥":"國民黨","黃健豪":"國民黨","萬美玲":"國民黨","魯明哲":"國民黨","陳清龍":"民眾黨","丁學忠":"國民黨","陳昭姿":"民眾黨","牛煦庭":"國民黨","王世堅":"民進黨","王定宇":"民進黨","王美惠":"民進黨","王鴻薇":"國民黨","伍麗華":"民進黨","江啟臣":"國民黨","吳沛憶":"民進黨","吳宗憲":"國民黨","吳秉叡":"民進黨","吳思瑤":"民進黨","吳琪銘":"民進黨","李柏毅":"民進黨","林宜瑾":"民進黨","林岱樺":"民進黨","林思銘":"國民黨","林淑芬":"民進黨","林德福":"國民黨","邱志偉":"民進黨","邱鎮軍":"國民黨","邱議瑩":"民進黨","柯志恩":"國民黨","柯建銘":"民進黨","范雲":"民進黨","徐巧芯":"國民黨","徐欣瑩":"國民黨","涂權吉":"國民黨","馬文君":"國民黨","高金素梅":"無黨籍","張宏陸":"民進黨","張智倫":"國民黨","張嘉郡":"國民黨","莊瑞雄":"民進黨","郭國文":"民進黨","陳永康":"國民黨","陳玉珍":"國民黨","陳秀寳":"民進黨","陳亭妃":"民進黨","陳俊宇":"民進黨","陳冠廷":"民進黨","陳超明":"無黨籍","陳瑩":"民進黨","傅崐萁":"國民黨","黃仁":"國民黨","黃秀芳":"民進黨","黃建賓":"國民黨","黃捷":"民進黨","楊曜":"民進黨","楊瓊瓔":"國民黨","葉元之":"國民黨","廖先翔":"國民黨","廖偉翔":"國民黨","劉建國":"民進黨","蔡其昌":"民進黨","蔡易餘":"民進黨","鄭正鈐":"國民黨","賴士葆":"國民黨","賴瑞隆":"民進黨","謝龍介":"國民黨","鍾佳濱":"民進黨","韓國瑜":"國民黨","顏寬恒":"國民黨","羅廷瑋":"國民黨","羅明才":"國民黨","羅智強":"國民黨","蘇巧慧":"民進黨","蘇清泉":"國民黨","呂玉玲":"國民黨","李坤城":"民進黨","洪毓祥":"民眾黨","蔡春綢":"民眾黨","王安祥":"民眾黨","邱慧洳":"民眾黨","翁曉玲":"國民黨","王育敏":"國民黨","沈伯洋":"民進黨","沈發惠":"民進黨","林沛祥":"國民黨","林楚茵":"民進黨","張雅琳":"民進黨","陳菁徽":"國民黨","鄭天財":"國民黨","盧縣一":"國民黨","羅美玲":"民進黨","王正旭":"民進黨","王義川":"民進黨","劉書彬":"民眾黨","李彥秀":"國民黨","林月琴":"民進黨","林倩綺":"國民黨","許宇甄":"國民黨","郭昱晴":"民進黨","陳培瑜":"民進黨","葛如鈞":"國民黨","賴惠員":"民進黨","謝衣鳯":"國民黨","許忠信":"民眾黨"}}</script>
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const $ = id => document.getElementById(id);
@@ -441,6 +452,62 @@ D.props.forEach(p => {
 
 /* ---------- 歷程與逐字稿 ---------- */
 const normName = s => (s || '').replace(/委員|召集/g, '').replace(/[A-Za-z‧· ]/g, '');
+const PARTY = D.parties || {};
+const PCOLOR = {'國民黨': '#2a6fc9', '民進黨': '#2f9e44', '民眾黨': '#22b8b0', '無黨籍': '#8a94a0'};
+const TERM = /逕付二讀|重付表決|修正動議|記名表決|復議/;
+function para(text) {   // 一段裡第一次出現的議事名詞加上虛線底線，點了有解釋
+  const p = el('p'), m = TERM.exec(text);
+  if (!m) { p.textContent = text; return p; }
+  const b = el('button', {type: 'button', class: 'term', text: m[0]});
+  b.addEventListener('click', e => { e.stopPropagation(); if (tipTag === b) hideTip(); else showTip(b, [m[0]], true); });
+  p.append(text.slice(0, m.index), b, text.slice(m.index + m[0].length));
+  return p;
+}
+function fp(str) {   // 發言者加開頭幾個字的短指紋：逐字稿日後重新切分、段落編號變了，還能靠它找回同一段
+  let h = 0; for (const c of str) h = (h * 31 + c.codePointAt(0)) >>> 0;
+  return (h % 65536).toString(16).padStart(4, '0');
+}
+function toast(msg) {
+  document.querySelectorAll('.toast').forEach(x => x.remove());
+  const t = el('div', {class: 'toast', role: 'status', text: msg});
+  document.body.append(t); setTimeout(() => t.remove(), 4500);
+}
+function copyHere(id) {
+  const url = location.href.split('#')[0] + '#' + id;
+  const ok = () => toast('已複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言，可以往前往後讀。');
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, () => prompt('複製這個連結', url));
+  else prompt('複製這個連結', url);
+  history.replaceState(null, '', '#' + id);
+}
+function showTurn(turns, node) {   // 捲到某段發言；它如果收在折疊區塊裡，先打開
+  for (let p = node.parentElement; p && p !== turns; p = p.parentElement) if (p.tagName === 'DETAILS') p.open = true;
+  turns.scrollTop = node.offsetTop - turns.offsetTop - 8;
+}
+function finder(turns) {   // 在這場逐字稿裡找字
+  const input = el('input', {type: 'search', placeholder: '在這場逐字稿裡找字', 'aria-label': '在這場逐字稿裡找字'});
+  const count = el('span'), prev = el('button', {type: 'button', class: 'chip', text: '上一段'}), next = el('button', {type: 'button', class: 'chip', text: '下一段'});
+  let hits = [], cur = -1;
+  const go = i => {
+    if (!hits.length) return;
+    if (hits[cur]) hits[cur].classList.remove('cur');
+    cur = (i + hits.length) % hits.length;
+    hits[cur].classList.add('cur'); showTurn(turns, hits[cur]);
+    count.textContent = '第 ' + (cur + 1) + ' / ' + hits.length + ' 段';
+  };
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    [...turns.children].forEach(t => t.classList.remove('hit', 'cur'));
+    hits = q ? [...turns.children].filter(t => t.textContent.includes(q)) : []; cur = -1;
+    hits.forEach(t => t.classList.add('hit'));
+    prev.hidden = next.hidden = !hits.length;
+    count.textContent = !q ? '' : hits.length ? '' : '這場沒有出現這個詞';
+    if (hits.length) go(0);
+  });
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); go(cur + (e.shiftKey ? -1 : 1)); } });
+  prev.addEventListener('click', () => go(cur - 1)); next.addEventListener('click', () => go(cur + 1));
+  prev.hidden = next.hidden = true;
+  return el('div', {class: 'find'}, input, count, prev, next);
+}
 function renderTranscript(box, data, s) {
   box.textContent = '';
   const clip = {}; s.clips.forEach(c => { clip[normName(c.n) + '|' + c.t] = c.u; (clip[normName(c.n)] = clip[normName(c.n)] || c.u); });
@@ -451,15 +518,21 @@ function renderTranscript(box, data, s) {
     const d = el('div', {class: 'turn' + (chair ? ' chair' : '') + (t.s ? '' : ' pre'), id: s.tr.replace(/\W/g, '-') + '-' + i});
     if (t.s) {
       const who = el('div', {class: 'who'}, t.s);
+      const pa = PARTY[normName(t.s)];
+      if (pa) who.append(el('span', {class: 'party', style: '--pc:' + PCOLOR[pa]}, el('i'), pa));
       if (t.t) who.append(el('small', {text: t.t}));
       const hhmm = t.t ? t.t.replace(/(\d+)時(\d+)分/, (m, h, mi) => h.padStart(2, '0') + ':' + mi.padStart(2, '0')) : null;
       const u = hhmm && (clip[normName(t.s) + '|' + hhmm] || clip[normName(t.s)]);
       if (u && t.t) who.append(link(u, '看這段影片'));
+      const here = el('button', {type: 'button', class: 'here', text: '分享上下文', title: '複製連結。打開的人會看到這場會議的完整逐字稿，並停在這段發言'});
+      d.dataset.fp = fp(t.s + '|' + (t.b.find(x => typeof x === 'string') || '').slice(0, 30));
+      here.addEventListener('click', () => copyHere(d.id + '-' + d.dataset.fp));
+      who.append(here);
       d.append(who);
       if (!chair && !first.has(t.s)) first.set(t.s, d);
     }
     const put = (into, b) => {
-      if (typeof b === 'string') into.append(el('p', {text: b}));
+      if (typeof b === 'string') into.append(para(b));
       else if (b.fold) {   // 照登的文件（提案條文全文、審查報告、機關書面報告）：收成一行
         const inner = el('div', {class: 'readout'});
         b.b.forEach(x => put(inner, x));
@@ -480,7 +553,7 @@ function renderTranscript(box, data, s) {
   const chips = el('div', {class: 'chips'});
   first.forEach((node, name) => { const b = el('button', {type: 'button', class: 'chip', text: name}); b.addEventListener('click', () => { turns.scrollTop = node.offsetTop - turns.offsetTop; }); chips.append(b); });
   idx.append(chips);
-  box.append(idx, turns);
+  box.append(idx, finder(turns), turns);
 }
 /* 一讀、二讀、三讀標籤的說明小框：滑鼠停留 1 秒或點一下就浮出 */
 const READING = {
@@ -501,6 +574,14 @@ const READING = {
     '最後將全案進行最終表決。',
     '三讀通過後，立法院會將法案送交總統及行政院，由總統在 10 日內公布生效。']}
 };
+Object.assign(READING, {
+  '復議': {t: '復議', sub: '要求把已經表決的案子重新討論', what: '議案表決之後，當初投贊成的一方可以提出復議，要求重新討論、重新表決。', pts: [
+    '復議被否決之後，同一個案子不能再提復議，決議就此確定。',
+    '實務上常見多數方自己提出復議、再自己否決，目的是讓剛通過的條文確定下來。']},
+  '重付表決': {t: '重付表決', sub: '對表決結果有異議，再表決一次', what: '出席委員對表決結果有異議時，經 15 人以上連署或附議，可以要求重新表決。', pts: ['以一次為限。']},
+  '修正動議': {t: '修正動議', sub: '在院會對條文提出的修改案', what: '委員或黨團在二讀（或三讀）時，對討論中的條文提出另一個版本的文字，交院會表決。', pts: ['需要 10 人以上連署或附議。']},
+  '記名表決': {t: '記名表決', sub: '留下每位委員投什麼的表決', what: '表決時逐一記錄每位委員投贊成、反對或棄權，名單會登在公報上。', pts: []}
+});
 const tipbox = el('div', {class: 'tipbox', id: 'tipbox', role: 'tooltip', hidden: ''});
 document.body.append(tipbox);
 let tipTimer = null, tipTag = null, tipPinned = false;
@@ -537,6 +618,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); }
 addEventListener('scroll', e => { if (e.target !== tipbox) hideTip(); }, true);
 addEventListener('resize', hideTip);
 
+const OPEN = {};
 D.stages.forEach(s => {
   const k = kindOf(s.stage);
   const body = el('div', {class: 'body'});
@@ -570,18 +652,20 @@ D.stages.forEach(s => {
       body.append(sub, panel);
     }
     const acts = el('div', {class: 'acts'});
-    let box = null;
+    let box = null, opener = null;
     if (s.tr) {
       const btn = el('button', {type: 'button', class: 'open', 'aria-expanded': 'false', text: '會議逐字稿（' + (s.nmem ? s.nmem + ' 位委員討論' : s.nspeak + ' 位發言') + '）'});
       box = el('div', {class: 'tr', hidden: ''});
-      btn.addEventListener('click', async () => {
+      const toggle = async () => {
         const open = box.hidden; box.hidden = !open; btn.setAttribute('aria-expanded', open);
         if (!open || box.dataset.loaded) return;
         box.textContent = '載入逐字稿中';
         try { const r = await fetch(s.tr); if (!r.ok) throw new Error(r.status); renderTranscript(box, await r.json(), s); box.dataset.loaded = '1'; }
         catch (e) { box.textContent = '逐字稿載入失敗，請重新整理頁面再試一次。'; }
-      });
+      };
+      btn.addEventListener('click', toggle);
       acts.append(btn);
+      OPEN[s.tr.replace(/\W/g, '-')] = async () => { if (box.hidden) await toggle(); return box; };
     } else {   // 沒有文字版時，影片和議事網會議頁是唯一的資料，直接放在外面
       acts.append(el('span', {class: 'ref', text: '文字版逐字稿尚未取得'}));
       s.full.forEach((u, i) => acts.append(link(u, '完整影片' + (s.full.length > 1 ? ' ' + (i + 1) : ''))));
@@ -599,6 +683,28 @@ D.stages.forEach(s => {
   }
   $('ledger').append(el('li', {class: 'row'}, el('div', {class: 'when', text: s.date}), body));
 });
+
+async function landFromHash() {
+  const m = /^#(.+?)-([0-9]+)(?:-([0-9a-f]{4}))?$/.exec(location.hash);
+  if (!m || !OPEN[m[1]]) return;
+  const box = await OPEN[m[1]]();
+  let node = document.getElementById(m[1] + '-' + m[2]), moved = false;
+  if (m[3] && !(node && node.dataset.fp === m[3])) {   // 編號對不上指紋：找指紋相同、離原編號最近的那段
+    const same = [...box.querySelectorAll('.turn')].filter(t => t.dataset.fp === m[3]);
+    const n = t => +t.id.slice(m[1].length + 1);
+    if (same.length) node = same.sort((a, b) => Math.abs(n(a) - m[2]) - Math.abs(n(b) - m[2]))[0]; else moved = true;
+  }
+  if (!node) return;
+  box.scrollIntoView({block: 'start'});
+  showTurn(node.parentElement, node);
+  document.querySelectorAll('.turn.landed').forEach(x => x.classList.remove('landed'));
+  document.querySelectorAll('.landtip').forEach(x => x.remove());
+  node.classList.add('landed');
+  const tip = el('div', {class: 'ref landtip', text: (moved ? '這場逐字稿在連結建立之後重新整理過，標色的位置可能和原本差幾段。' : '你是從連結進來的，下面標色的是連結指到的那段發言。') + '這裡是整場會議的逐字稿，可以往上讀前面發生了什麼，或往下讀後續。'});
+  box.prepend(tip);
+}
+if (document.readyState === 'complete') landFromHash(); else addEventListener('load', () => setTimeout(landFromHash, 50));
+addEventListener('hashchange', landFromHash);
 
 /* ---------- 表決 ---------- */
 (function () {
