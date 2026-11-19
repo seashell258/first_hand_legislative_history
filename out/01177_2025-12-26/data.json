@@ -1054,8 +1054,8 @@
    "tr": "tr/4.json",
    "note": null,
    "mixed": [],
-   "nspeak": 7,
-   "nmem": 4,
+   "nspeak": 9,
+   "nmem": 6,
    "ntable": 0,
    "nfold": 0
   },
@@ -1244,8 +1244,8 @@
    "tr": "tr/10.json",
    "note": null,
    "mixed": [],
-   "nspeak": 18,
-   "nmem": 10,
+   "nspeak": 19,
+   "nmem": 11,
    "ntable": 0,
    "nfold": 0
   },
@@ -1327,7 +1327,7 @@
    "props": [],
    "tr": "tr/11.json",
    "note": null,
-   "nspeak": 1,
+   "nspeak": 3,
    "nmem": 0,
    "ntable": 2,
    "nfold": 2
@@ -1370,8 +1370,8 @@
    "props": [],
    "tr": "tr/12.json",
    "note": null,
-   "nspeak": 13,
-   "nmem": 5,
+   "nspeak": 15,
+   "nmem": 7,
    "ntable": 0,
    "nfold": 0
   }
@@ -2632,7 +2632,7 @@
   "7 月 3 日、12 月 2 日的會議沒有取得逐字稿。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

@@ -2956,8 +2956,8 @@
    "tr": "tr/1.json",
    "note": null,
    "mixed": [],
-   "nspeak": 64,
-   "nmem": 34,
+   "nspeak": 65,
+   "nmem": 35,
    "ntable": 0,
    "nfold": 10
   },
@@ -3025,8 +3025,8 @@
    "tr": "tr/2.json",
    "note": null,
    "mixed": [],
-   "nspeak": 23,
-   "nmem": 16,
+   "nspeak": 24,
+   "nmem": 17,
    "ntable": 0,
    "nfold": 0
   },
@@ -10754,7 +10754,7 @@
   "7 月 23 日、8 月 25 日的會議沒有取得逐字稿。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

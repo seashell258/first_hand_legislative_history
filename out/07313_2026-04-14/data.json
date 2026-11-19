@@ -19279,8 +19279,8 @@
    "mixed": [
     "病人自主權利法"
    ],
-   "nspeak": 51,
-   "nmem": 20,
+   "nspeak": 52,
+   "nmem": 21,
    "ntable": 0,
    "nfold": 8
   },
@@ -19398,8 +19398,8 @@
    "tr": "tr/3.json",
    "note": null,
    "mixed": [],
-   "nspeak": 15,
-   "nmem": 12,
+   "nspeak": 17,
+   "nmem": 14,
    "ntable": 4,
    "nfold": 4
   },
@@ -19617,8 +19617,8 @@
    "tr": "tr/4.json",
    "note": null,
    "mixed": [],
-   "nspeak": 55,
-   "nmem": 24,
+   "nspeak": 57,
+   "nmem": 25,
    "ntable": 4,
    "nfold": 5
   },
@@ -20098,7 +20098,7 @@
   "5 月 29 日、6 月 11 日、8 月 18 日、10 月 16 日、12 月 8 日、12 月 22 日的委員會沒有委員個別發言的影片片段，只有完整影片。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

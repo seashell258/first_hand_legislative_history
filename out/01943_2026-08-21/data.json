@@ -2488,8 +2488,8 @@
     "公司法",
     "商業登記法"
    ],
-   "nspeak": 37,
-   "nmem": 18,
+   "nspeak": 38,
+   "nmem": 19,
    "ntable": 0,
    "nfold": 5
   },
@@ -2671,8 +2671,8 @@
    "tr": "tr/3.json",
    "note": null,
    "mixed": [],
-   "nspeak": 19,
-   "nmem": 9,
+   "nspeak": 20,
+   "nmem": 10,
    "ntable": 0,
    "nfold": 0
   },
@@ -2710,8 +2710,8 @@
    "tr": "tr/4.json",
    "note": null,
    "mixed": [],
-   "nspeak": 10,
-   "nmem": 4,
+   "nspeak": 11,
+   "nmem": 5,
    "ntable": 0,
    "nfold": 0
   },
@@ -2750,7 +2750,7 @@
   "11 月 6 日、8 月 5 日的委員會沒有委員個別發言的影片片段，只有完整影片。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

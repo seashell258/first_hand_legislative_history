@@ -899,10 +899,10 @@
    "props": [],
    "tr": "tr/4.json",
    "note": null,
-   "nspeak": 4,
+   "nspeak": 5,
    "nmem": 0,
    "ntable": 5,
-   "nfold": 3
+   "nfold": 5
   },
   {
    "date": "2026-07-24",
@@ -1547,7 +1547,7 @@
   "5 月 29 日的會議沒有取得逐字稿。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

@@ -2703,8 +2703,8 @@
    "tr": "tr/1.json",
    "note": null,
    "mixed": [],
-   "nspeak": 39,
-   "nmem": 25,
+   "nspeak": 41,
+   "nmem": 27,
    "ntable": 1,
    "nfold": 6
   },
@@ -2796,8 +2796,8 @@
    "tr": "tr/2.json",
    "note": null,
    "mixed": [],
-   "nspeak": 40,
-   "nmem": 23,
+   "nspeak": 42,
+   "nmem": 25,
    "ntable": 1,
    "nfold": 7
   },
@@ -2882,8 +2882,8 @@
    "tr": "tr/3.json",
    "note": null,
    "mixed": [],
-   "nspeak": 27,
-   "nmem": 17,
+   "nspeak": 28,
+   "nmem": 18,
    "ntable": 0,
    "nfold": 3
   },
@@ -2926,8 +2926,8 @@
    "tr": "tr/4.json",
    "note": null,
    "mixed": [],
-   "nspeak": 21,
-   "nmem": 14,
+   "nspeak": 22,
+   "nmem": 15,
    "ntable": 0,
    "nfold": 0
   },
@@ -3536,7 +3536,7 @@
   "1 次黨團協商（11 月 21 日）只有完整影片與公報頁碼，沒有文字版逐字稿。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

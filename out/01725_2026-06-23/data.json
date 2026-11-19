@@ -1405,8 +1405,8 @@
    "tr": "tr/1.json",
    "note": null,
    "mixed": [],
-   "nspeak": 30,
-   "nmem": 18,
+   "nspeak": 32,
+   "nmem": 20,
    "ntable": 1,
    "nfold": 2
   },
@@ -1442,7 +1442,7 @@
  "gaps": [],
  "autoGaps": [],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

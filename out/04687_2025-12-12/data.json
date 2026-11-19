@@ -4804,8 +4804,8 @@
    "mixed": [
     "公務人員任用法"
    ],
-   "nspeak": 72,
-   "nmem": 52,
+   "nspeak": 74,
+   "nmem": 54,
    "ntable": 1,
    "nfold": 3
   },
@@ -4960,8 +4960,8 @@
    "tr": "tr/4.json",
    "note": null,
    "mixed": [],
-   "nspeak": 19,
-   "nmem": 15,
+   "nspeak": 20,
+   "nmem": 16,
    "ntable": 2,
    "nfold": 0
   },
@@ -5899,7 +5899,7 @@
   "12 月 5 日的委員會同時審查公務人員任用法，逐字稿包含那些法案的討論，沒有切開。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

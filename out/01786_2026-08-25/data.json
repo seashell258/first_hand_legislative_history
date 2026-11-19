@@ -3285,8 +3285,8 @@
     "學校營養午餐及食品安全衛生管理法",
     "校園飲食均衡及健康促進法"
    ],
-   "nspeak": 27,
-   "nmem": 16,
+   "nspeak": 28,
+   "nmem": 17,
    "ntable": 1,
    "nfold": 4
   },
@@ -3448,10 +3448,10 @@
    "props": [],
    "tr": "tr/4.json",
    "note": null,
-   "nspeak": 10,
+   "nspeak": 15,
    "nmem": 0,
    "ntable": 15,
-   "nfold": 10
+   "nfold": 15
   }
  ],
  "votes": [],
@@ -3463,7 +3463,7 @@
   "7 月 3 日的會議沒有取得逐字稿。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

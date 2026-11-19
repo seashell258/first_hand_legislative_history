@@ -2806,8 +2806,8 @@
    "tr": "tr/1.json",
    "note": null,
    "mixed": [],
-   "nspeak": 30,
-   "nmem": 9,
+   "nspeak": 31,
+   "nmem": 10,
    "ntable": 0,
    "nfold": 7
   },
@@ -2855,8 +2855,8 @@
    "tr": "tr/2.json",
    "note": null,
    "mixed": [],
-   "nspeak": 29,
-   "nmem": 17,
+   "nspeak": 30,
+   "nmem": 18,
    "ntable": 0,
    "nfold": 2
   },
@@ -2898,8 +2898,8 @@
    "tr": "tr/3.json",
    "note": null,
    "mixed": [],
-   "nspeak": 8,
-   "nmem": 4,
+   "nspeak": 10,
+   "nmem": 5,
    "ntable": 1,
    "nfold": 1
   },
@@ -3019,7 +3019,7 @@
   "6 月 16 日的委員會沒有委員個別發言的影片片段，只有完整影片。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

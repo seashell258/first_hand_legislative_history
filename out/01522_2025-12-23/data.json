@@ -5641,10 +5641,10 @@
    "tr": "tr/1.json",
    "note": null,
    "mixed": [],
-   "nspeak": 60,
+   "nspeak": 63,
    "nmem": 23,
    "ntable": 29,
-   "nfold": 26
+   "nfold": 29
   },
   {
    "date": "2025-11-07",
@@ -5884,10 +5884,10 @@
    "props": [],
    "tr": "tr/3.json",
    "note": null,
-   "nspeak": 11,
+   "nspeak": 33,
    "nmem": 1,
    "ntable": 34,
-   "nfold": 12
+   "nfold": 35
   }
  ],
  "votes": [],
@@ -5898,7 +5898,7 @@
   "12 月 4 日的委員會沒有委員個別發言的影片片段，只有完整影片。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

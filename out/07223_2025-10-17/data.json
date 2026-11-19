@@ -1433,8 +1433,8 @@
    "tr": "tr/1.json",
    "note": null,
    "mixed": [],
-   "nspeak": 30,
-   "nmem": 14,
+   "nspeak": 31,
+   "nmem": 15,
    "ntable": 3,
    "nfold": 9
   },
@@ -1470,8 +1470,8 @@
    "tr": "tr/2.json",
    "note": null,
    "mixed": [],
-   "nspeak": 13,
-   "nmem": 8,
+   "nspeak": 14,
+   "nmem": 9,
    "ntable": 1,
    "mixedOther": [
     "處理114年度中央政府總預算案有關原住民族委員會預算凍結專案報告案計2案"
@@ -1504,8 +1504,8 @@
    "tr": "tr/3.json",
    "note": null,
    "mixed": [],
-   "nspeak": 14,
-   "nmem": 10,
+   "nspeak": 15,
+   "nmem": 11,
    "ntable": 0,
    "nfold": 0
   },
@@ -1562,7 +1562,7 @@
   "7 月 30 日的委員會沒有委員個別發言的影片片段，只有完整影片。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

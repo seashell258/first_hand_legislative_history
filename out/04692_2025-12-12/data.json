@@ -2700,8 +2700,8 @@
    "tr": "tr/1.json",
    "note": null,
    "mixed": [],
-   "nspeak": 53,
-   "nmem": 28,
+   "nspeak": 55,
+   "nmem": 30,
    "ntable": 2,
    "nfold": 7
   },
@@ -2770,10 +2770,10 @@
    "mixed": [
     "公立學校教職員退休資遺撫卹條例"
    ],
-   "nspeak": 25,
-   "nmem": 21,
+   "nspeak": 27,
+   "nmem": 22,
    "ntable": 2,
-   "nfold": 0
+   "nfold": 1
   },
   {
    "date": "2025-11-07",
@@ -3849,7 +3849,7 @@
   "10 月 23 日、12 月 2 日的會議沒有取得逐字稿。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",

@@ -4267,8 +4267,8 @@
    "tr": "tr/1.json",
    "note": null,
    "mixed": [],
-   "nspeak": 23,
-   "nmem": 15,
+   "nspeak": 24,
+   "nmem": 16,
    "ntable": 0,
    "nfold": 4
   },
@@ -4409,8 +4409,8 @@
    "tr": "tr/2.json",
    "note": null,
    "mixed": [],
-   "nspeak": 24,
-   "nmem": 16,
+   "nspeak": 25,
+   "nmem": 17,
    "ntable": 0,
    "nfold": 2
   },
@@ -4539,8 +4539,8 @@
    "tr": "tr/3.json",
    "note": null,
    "mixed": [],
-   "nspeak": 11,
-   "nmem": 8,
+   "nspeak": 12,
+   "nmem": 9,
    "ntable": 0,
    "nfold": 0
   },
@@ -4709,10 +4709,10 @@
    "props": [],
    "tr": "tr/6.json",
    "note": null,
-   "nspeak": 9,
+   "nspeak": 24,
    "nmem": 0,
    "ntable": 25,
-   "nfold": 9
+   "nfold": 26
   },
   {
    "date": "2026-01-27",
@@ -4735,8 +4735,8 @@
    "props": [],
    "tr": "tr/7.json",
    "note": null,
-   "nspeak": 4,
-   "nmem": 3,
+   "nspeak": 5,
+   "nmem": 4,
    "ntable": 0,
    "nfold": 0
   }
@@ -4749,7 +4749,7 @@
   "12 月 22 日的委員會沒有委員個別發言的影片片段，只有完整影片。"
  ],
  "reviewed": false,
- "fetched": "2026-11-18",
+ "fetched": "2026-11-19",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",
