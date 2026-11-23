@@ -3,9 +3,9 @@
  "version": "04515:2026-07-28-修正",
  "date": "2026-07-28",
  "action": "修正",
- "title": "民法第五編繼承　2026 年修正",
- "lede": "",
- "summary": "",
+ "title": "民法第五編繼承　2026 年 7 月修正",
+ "lede": "特留分是法律保留給法定繼承人的最低份額，被繼承人立遺囑也不能完全剝奪。依原條文，第一千二百二十三條分五款：直系血親卑親屬、父母、配偶的特留分是應繼分的二分之一，兄弟姊妹、祖父母是三分之一。這次刪除兄弟姊妹的特留分，並依法務部在委員會的建議把配偶移到第一款，其他人的比例不變；兄弟姊妹的法定繼承順位這次沒有修改。共有 26 件委員和台灣民眾黨黨團的提案：20 件交司法及法制委員會，2026 年 4 月 1 日審查後條文保留、送黨團協商；另外 6 件在院會逕付二讀、併案協商，其中莊瑞雄、張雅琳、鄭天財 Sra Kacaw 等三案還提出遺產酌給、特別貢獻等配套條文。7 月 28 日院會依黨團共識不發言，照國民黨黨團的再修正動議只修第一千二百二十三條，配套條文都不修正或不增訂，全部無異議通過，沒有表決。同一天院會也通過民法繼承編施行法增訂第十二條，規定這次修正自公布六個月後施行。",
+ "summary": "刪除兄弟姊妹的特留分（依原條文為應繼分的三分之一）；配偶、直系血親卑親屬、父母、祖父母的特留分不變，配偶改列第一款。",
  "key": "04515_2026-07-28",
  "props": [],
  "arts": [
@@ -173,9 +173,14 @@
    "pdf": [],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null,
-   "mixed": []
+   "tr": "tr/1.json",
+   "note": "司法及法制委員會由召集委員翁曉玲主持，併案審查 20 件第一千二百二十三條修正草案：18 件直接刪除兄弟姊妹特留分，林德福等委員的版本改為有扶養事實等條件才保留，賴士葆等委員的版本同時刪除祖父母特留分。法務部政務次長黃謀信表示贊同刪除兄弟姊妹特留分的方向，但建議一併研議遺產酌給、貢獻分等配套，並建議刪除後把配偶移到第一款。詢答後省略大體討論，第一千二百二十三條保留，送黨團協商；同場審查的民法繼承編施行法增訂第十二條也保留送協商。",
+   "mixed": [],
+   "trManual": true,
+   "nspeak": 26,
+   "nmem": 18,
+   "ntable": 2,
+   "nfold": 4
   },
   {
    "date": "2026-04-10",
@@ -201,11 +206,23 @@
    "full": [
     "https://ivod.ly.gov.tw/Play/Full/1M/17341"
    ],
-   "pdf": [],
+   "pdf": [
+    {
+     "u": "https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/25/LCIDC01_1152501.pdf",
+     "p1": 12,
+     "p2": 12
+    }
+   ],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null
+   "tr": "tr/2.json",
+   "note": "國民黨黨團提議，把委員謝龍介等 16 人、林思銘等 16 人的兩件第一千二百二十三條修正草案逕付二讀，與相關提案併案協商，院會無異議通過。",
+   "trManual": true,
+   "nspeak": 1,
+   "nmem": 0,
+   "ntable": 0,
+   "nfold": 0,
+   "proc": true
   },
   {
    "date": "2026-04-24",
@@ -225,11 +242,23 @@
     "https://ivod.ly.gov.tw/Play/Full/1M/17382",
     "https://ivod.ly.gov.tw/Play/Full/1M/17383"
    ],
-   "pdf": [],
+   "pdf": [
+    {
+     "u": "https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/33/LCIDC01_1153301.pdf",
+     "p1": 16,
+     "p2": 16
+    }
+   ],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null
+   "tr": "tr/3.json",
+   "note": "台灣民眾黨黨團提議，把該黨團的第一千二百二十三條修正草案逕付二讀，與相關提案併案協商，院會無異議通過。",
+   "trManual": true,
+   "nspeak": 1,
+   "nmem": 0,
+   "ntable": 0,
+   "nfold": 0,
+   "proc": true
   },
   {
    "date": "2026-06-02",
@@ -253,16 +282,28 @@
    "code": "院會-11-5-13",
    "title": "第11屆第5會期第13次會議",
    "gazref": "115卷046期5445號一冊 41-89頁",
-   "stage": "二讀",
+   "stage": "逕付二讀",
    "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026060374/details?meetingDate=115/06/05",
    "full": [
     "https://ivod.ly.gov.tw/Play/Full/1M/17502"
    ],
-   "pdf": [],
+   "pdf": [
+    {
+     "u": "https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/46/LCIDC01_1154601.pdf",
+     "p1": 41,
+     "p2": 89
+    }
+   ],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null
+   "tr": "tr/4.json",
+   "note": "院會宣讀司法及法制委員會的審查報告：第一千二百二十三條保留，須交由黨團協商；召集委員翁曉玲沒有補充說明。依黨團共識決議：協商後再行處理。",
+   "trManual": true,
+   "nspeak": 4,
+   "nmem": 0,
+   "ntable": 3,
+   "nfold": 4,
+   "proc": true
   },
   {
    "date": "2026-06-12",
@@ -281,11 +322,23 @@
    "full": [
     "https://ivod.ly.gov.tw/Play/Full/1M/17520"
    ],
-   "pdf": [],
+   "pdf": [
+    {
+     "u": "https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/49/LCIDC01_1154901.pdf",
+     "p1": 24,
+     "p2": 24
+    }
+   ],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null
+   "tr": "tr/5.json",
+   "note": "民進黨黨團提議，把委員莊瑞雄等 17 人的民法部分條文修正草案逕付二讀，與相關提案併案協商，院會無異議通過。",
+   "trManual": true,
+   "nspeak": 1,
+   "nmem": 0,
+   "ntable": 0,
+   "nfold": 0,
+   "proc": true
   },
   {
    "date": "2026-06-26",
@@ -304,11 +357,23 @@
    "full": [
     "https://ivod.ly.gov.tw/Play/Full/1M/17550"
    ],
-   "pdf": [],
+   "pdf": [
+    {
+     "u": "https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/52/LCIDC01_1155201.pdf",
+     "p1": 18,
+     "p2": 18
+    }
+   ],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null
+   "tr": "tr/6.json",
+   "note": "民進黨黨團提議，把委員張雅琳等 16 人的民法部分條文修正草案逕付二讀，與相關提案併案協商，院會無異議通過。",
+   "trManual": true,
+   "nspeak": 1,
+   "nmem": 0,
+   "ntable": 0,
+   "nfold": 0,
+   "proc": true
   },
   {
    "date": "2026-07-09",
@@ -344,54 +409,98 @@
    "full": [
     "https://ivod.ly.gov.tw/Play/Full/1M/17590"
    ],
-   "pdf": [],
+   "pdf": [
+    {
+     "u": "https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/57/LCIDC01_1155701.pdf",
+     "p1": 25,
+     "p2": 25
+    }
+   ],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null
+   "tr": "tr/7.json",
+   "note": "國民黨黨團提議，把委員鄭天財 Sra Kacaw 等 17 人的民法部分條文修正草案逕付二讀，與相關提案併案協商，院會無異議通過。",
+   "trManual": true,
+   "nspeak": 1,
+   "nmem": 0,
+   "ntable": 0,
+   "nfold": 0,
+   "proc": true
   },
   {
    "date": "2026-07-21",
    "code": "院會-11-5-18",
    "title": "第11屆第5會期第18次會議",
    "gazref": "115卷060期5459號一冊 50-65頁",
-   "stage": "二讀",
+   "stage": "逕付二讀",
    "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026071524/details?meetingDate=115/07/17",
    "full": [
     "https://ivod.ly.gov.tw/Play/Full/1M/17604"
    ],
-   "pdf": [],
+   "pdf": [
+    {
+     "u": "https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/60/LCIDC01_1156001.pdf",
+     "p1": 50,
+     "p2": 65
+    }
+   ],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null
+   "tr": "tr/8.json",
+   "note": "本案和逕付二讀的莊瑞雄等、張雅琳等、鄭天財 Sra Kacaw 等三案一起列入討論事項。依黨團共識決議：定於 7 月 24 日院會處理。",
+   "trManual": true,
+   "nspeak": 4,
+   "nmem": 0,
+   "ntable": 3,
+   "nfold": 3,
+   "proc": true
   },
   {
    "date": "2026-07-28",
    "code": "院會-11-5-19",
    "title": "第11屆第5會期第19次會議",
    "gazref": "115卷062期5461號一冊 135-136頁；115卷062期5461號一冊 136-144頁；115卷062期5461號一冊 144-146頁",
-   "stage": "二讀、三讀",
+   "stage": "補充紀錄、二讀、三讀",
    "ppg": "https://ppg.ly.gov.tw/ppg/sittings/2026072260/details?meetingDate=115/07/24",
    "full": [
     "https://ivod.ly.gov.tw/Play/Full/1M/17621"
    ],
-   "pdf": [],
+   "pdf": [
+    {
+     "u": "https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique1/final/pdf/115/62/LCIDC01_1156201.pdf",
+     "p1": 135,
+     "p2": 136
+    }
+   ],
    "clips": [],
    "props": [],
-   "tr": null,
-   "note": null
+   "tr": "tr/9.json",
+   "note": "院會由副院長江啟臣主持。依黨團共識，廣泛討論和逐條討論都不發言，只宣讀國民黨黨團的再修正動議。第一千一百四十九條、第一千一百六十五條維持現行條文，第一千一百七十三條之一、之二不予增訂，第一千二百二十三條照國民黨黨團再修正動議通過，都沒有異議。三黨團提議繼續三讀，院會無異議，三讀沒有文字修正。三讀後委員羅廷瑋、林倩綺、陳昭姿發言。",
+   "trManual": true,
+   "nspeak": 7,
+   "nmem": 3,
+   "ntable": 0,
+   "nfold": 0,
+   "proc": true
   }
  ],
  "votes": [],
- "manualVotes": null,
- "gaps": [],
+ "manualVotes": {
+  "text": "這次修正沒有表決。2026 年 7 月 28 日院會二讀時，各條都照國民黨黨團的再修正動議無異議通過，三讀沒有文字修正，所以沒有投票名單，也沒有贊成反對人數。",
+  "rows": []
+ },
+ "gaps": [
+  "這部法的提案資料沒有抓到。26 件提案的要旨在 6 月 9 日院會宣讀的審查報告、4 月 1 日委員會和 7 月 21 日院會的逐字稿裡。",
+  "條文對照沒有列出現行條文。依原條文，第一千二百二十三條分五款：直系血親卑親屬、父母、配偶的特留分為應繼分二分之一，兄弟姊妹、祖父母為三分之一。",
+  "莊瑞雄等、張雅琳等、鄭天財 Sra Kacaw 等三案另外提出修正第一千一百四十九條、第一千一百六十五條，增訂第一千一百七十三條之一、之二，院會都沒有修正或增訂，這幾條不在條文對照裡。",
+  "施行日期規定在民法繼承編施行法第十二條，那是另一部法，條文在 7 月 28 日院會公報本案之後的討論事項第四案，不在這一頁的逐字稿裡。"
+ ],
  "autoGaps": [
   "2 次黨團協商（6 月 2 日、7 月 9 日）只有完整影片與公報頁碼，沒有文字版逐字稿。",
-  "4 月 1 日、4 月 10 日、4 月 24 日、6 月 9 日、6 月 12 日、6 月 26 日、7 月 14 日、7 月 21 日、7 月 28 日的會議沒有取得逐字稿。"
+  "4 月 1 日的委員會沒有委員個別發言的影片片段，只有完整影片。"
  ],
- "reviewed": false,
- "fetched": "2026-11-19",
+ "reviewed": true,
+ "fetched": "2026-11-23",
  "parties": {
   "吳春城": "民眾黨",
   "李貞秀": "民眾黨",
